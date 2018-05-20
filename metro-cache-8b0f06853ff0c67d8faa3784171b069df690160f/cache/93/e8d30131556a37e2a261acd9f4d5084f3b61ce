@@ -134,7 +134,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                             lineNumber: 26
                                         }
                                     },
-                                    "Summit"
+                                    "Submit"
                                 )
                             )
                         )
@@ -167,7 +167,8 @@ __d(function (global, _require, module, exports, _dependencyMap) {
             borderRadius: 3,
             borderWidth: 2,
             borderColor: '#ffffff',
-            fontSize: 16
+            fontSize: 16,
+            fontFamily: "MyriadPro-Regular"
         },
         buttonBlock: {
             backgroundColor: '#ffffff',
@@ -182,7 +183,8 @@ __d(function (global, _require, module, exports, _dependencyMap) {
             color: '#000000',
             fontSize: 16,
             textAlign: 'center',
-            padding: 5
+            padding: 5,
+            fontFamily: "MyriadPro-Regular"
         },
         singUpTextBlk: {
             flexDirection: 'row',
@@ -195,14 +197,16 @@ __d(function (global, _require, module, exports, _dependencyMap) {
             color: '#fff',
             fontSize: 15,
             paddingHorizontal: 10,
-            paddingVertical: 5
+            paddingVertical: 5,
+            fontFamily: "MyriadPro-Regular"
         },
         singUpTextBold: {
             color: '#fff',
             fontSize: 15,
             paddingHorizontal: 10,
             paddingVertical: 5,
-            fontWeight: 'bold'
+            fontWeight: 'bold',
+            fontFamily: "MyriadPro-Regular"
         }
     });
 

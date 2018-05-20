@@ -1,7 +1,7 @@
 import React, { Component }  from 'react';
 import {View, Text, StyleSheet, Image,TextInput,TouchableOpacity,KeyboardAvoidingView} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-
+import Logo from '../../components/Logo';
 
 class AuthScreen extends Component{
 
@@ -37,7 +37,8 @@ class AuthScreen extends Component{
             <LinearGradient colors={['#621C6C', '#8E0076', '#B8007F']} style={styles.linearGradient}>
                 <KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
             <View style={styles.container}>
-                 <Image source={require('../../img/logo.png')} style={styles.logoImg} />
+                 <Logo />
+                
                  <TextInput style={styles.inputBox}  underlineColorAndroid = 'rgba(0,0,0,0)'   placeholderTextColor="white"
  placeholder="Email/Mobile" />
  <TextInput style={styles.inputBox}  underlineColorAndroid = 'rgba(0,0,0,0)'   placeholderTextColor="white"
@@ -68,7 +69,6 @@ class AuthScreen extends Component{
 
 const styles = StyleSheet.create({
     container : {
-
         alignItems : 'center',
         justifyContent : 'center',
         width:'100%',
@@ -93,15 +93,16 @@ const styles = StyleSheet.create({
         borderRadius : 3,
         borderWidth: 2, 
         borderColor: '#ffffff',
-        fontSize : 16   
+        fontSize : 16,
+        fontFamily: "MyriadPro-Regular",   
       },
       buttonBlock:{
           backgroundColor : '#ffffff',
           borderRadius: 5,
           padding:10,
-          color:'rgba(0,0,0,1)',
+          
           width: '90%',
-          textAlign : 'center',
+          
           margin: 5,
       },
       buttonText:{
@@ -109,6 +110,7 @@ const styles = StyleSheet.create({
          fontSize : 16,
          textAlign: 'center',
          padding: 5,
+         fontFamily: "MyriadPro-Regular"
          
       },
       socalLogin:{
@@ -119,6 +121,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         marginTop: 5,
+
       },
       facebook: {
         backgroundColor: '#181F6C',
@@ -127,7 +130,8 @@ const styles = StyleSheet.create({
         fontSize : 13,
         borderRadius: 5,
         color: '#fff',
-        textAlign : 'center'
+        textAlign : 'center',
+        fontFamily: "MyriadPro-Regular",
       },
       google: {
         backgroundColor: '#FC0488',
@@ -137,13 +141,15 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         color: '#fff',
         textAlign : 'center',
-        marginLeft: 5
+        marginLeft: 5,
+        fontFamily: "MyriadPro-Regular"
       },
       singUpTextBlk:{
           flexDirection:'row',
           justifyContent:'space-between',
           flex: 1,
-          width:'90%'
+          width:'90%',
+          
       },
       singUpText:{
           color:'#fff',
@@ -151,6 +157,7 @@ const styles = StyleSheet.create({
           paddingHorizontal: 10,
           paddingVertical : 5,
           fontWeight : 'bold',
+          fontFamily: "MyriadPro-Regular"
       }
 });
 

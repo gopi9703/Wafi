@@ -64,8 +64,9 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                             lineNumber: 8
                         }
                     },
-                    _react3.default.createElement(Image, {
-                        source: _require(_dependencyMap[3], '../../img/logo.png'),
+                    _react3.default.createElement(_reactNative.Image, {
+                        source: _require(_dependencyMap[3], '../img/logo.png'),
+                        style: styles.logoImg,
                         __source: {
                             fileName: _jsxFileName,
                             lineNumber: 9
@@ -77,6 +78,12 @@ __d(function (global, _require, module, exports, _dependencyMap) {
 
         return Logo;
     }(_react2.Component));
+
+    var styles = _reactNative.StyleSheet.create({
+        logoImg: {
+            marginBottom: 30
+        }
+    });
 
     exports.default = Logo;
 });

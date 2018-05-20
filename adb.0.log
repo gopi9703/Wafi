@@ -1,0 +1,7 @@
+--- adb starting (pid 1126) ---
+adb I 05-20 19:59:53  1126 53907 main.cpp:57] Android Debug Bridge version 1.0.39
+adb I 05-20 19:59:53  1126 53907 main.cpp:57] Version 0.0.1-4500957
+adb I 05-20 19:59:53  1126 53907 main.cpp:57] Installed as /Users/gopikrishna/Library/Android/sdk/platform-tools/adb
+adb I 05-20 19:59:53  1126 53907 main.cpp:57] 
+adb I 05-20 19:59:53  1126 53907 adb_auth_host.cpp:416] adb_auth_init...
+adb I 05-20 19:59:53  1126 53907 adb_auth_host.cpp:174] read_key_file '/Users/gopikrishna/.android/adbkey'...

@@ -66,7 +66,8 @@ const styles = StyleSheet.create({
         borderRadius : 3,
         borderWidth: 2, 
         borderColor: '#ffffff',
-        fontSize : 16   
+        fontSize : 16,
+        fontFamily: "MyriadPro-Regular" 
       },
       buttonBlock:{
           backgroundColor : '#ffffff',
@@ -82,6 +83,7 @@ const styles = StyleSheet.create({
          fontSize : 16,
          textAlign: 'center',
          padding: 5,
+         fontFamily: "MyriadPro-Regular"
          
       },
       singUpTextBlk:{
@@ -96,6 +98,7 @@ const styles = StyleSheet.create({
           fontSize:15,
           paddingHorizontal: 10,
           paddingVertical : 5,
+          fontFamily: "MyriadPro-Regular"
           
       },
       singUpTextBold:{
@@ -104,6 +107,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 10,
         paddingVertical : 5,
         fontWeight : 'bold',
+        fontFamily: "MyriadPro-Regular"
       }
 });
 
