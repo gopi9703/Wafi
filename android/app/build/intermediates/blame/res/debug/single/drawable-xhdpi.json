@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/Users/gopikrishna/Documents/wafi/android/app/build/intermediates/res/merged/debug/drawable-xhdpi/icon.png",
+        "source": "/Users/gopikrishna/Documents/wafi/android/app/src/main/res/drawable-xhdpi/icon.png"
+    },
+    {
+        "merged": "/Users/gopikrishna/Documents/wafi/android/app/build/intermediates/res/merged/debug/drawable-xhdpi/screen.png",
+        "source": "/Users/gopikrishna/Documents/wafi/android/app/src/main/res/drawable-xhdpi/screen.png"
+    }
+]

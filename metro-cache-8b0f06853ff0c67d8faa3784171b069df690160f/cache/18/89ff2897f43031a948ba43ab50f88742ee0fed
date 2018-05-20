@@ -1,0 +1,38 @@
+__d(function (global, _require, module, exports, _dependencyMap) {
+  var _reactNativeNavigation = _require(_dependencyMap[0], "react-native-navigation");
+
+  var _Auth = _require(_dependencyMap[1], "./src/screens/Auth/Auth");
+
+  var _Auth2 = _interopRequireDefault(_Auth);
+
+  var _Register = _require(_dependencyMap[2], "./src/screens/Auth/Register");
+
+  var _Register2 = _interopRequireDefault(_Register);
+
+  var _Forgotpassword = _require(_dependencyMap[3], "./src/screens/Auth/Forgotpassword");
+
+  var _Forgotpassword2 = _interopRequireDefault(_Forgotpassword);
+
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+  _reactNativeNavigation.Navigation.registerComponent("Wafi.AuthScreen", function () {
+    return _Auth2.default;
+  });
+
+  _reactNativeNavigation.Navigation.registerComponent("Wafi.Register", function () {
+    return _Register2.default;
+  });
+
+  _reactNativeNavigation.Navigation.registerComponent("Wafi.Forgotpassword", function () {
+    return _Forgotpassword2.default;
+  });
+
+  _reactNativeNavigation.Navigation.startSingleScreenApp({
+    screen: {
+      screen: "Wafi.AuthScreen",
+      navigatorStyle: {
+        navBarHidden: true
+      }
+    }
+  });
+});
