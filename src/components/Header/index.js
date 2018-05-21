@@ -1,0 +1,44 @@
+import React, { Component }  from 'react';
+import {View, Text, StyleSheet, Image,TouchableOpacity,KeyboardAvoidingView} from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
+
+ class Header extends Component{
+    render(){
+        return(
+            <View style={styles.bodyBg}>
+               <View style={styles.HeaderBlk}>
+               
+               <TouchableOpacity>
+               <Icon name="ios-menu" size={30} color="#ffffff" />
+                  <Image source={require('../../img/header_Logo.png')}  style={{marginLeft: 10}} />   
+                </TouchableOpacity>  
+                   
+               </View>
+               
+            </View>
+           
+        );
+    }
+}
+
+const styles = StyleSheet.create({
+   bodyBg:{
+       backgroundColor : '#E6E7E8',
+       flex : 1,
+   },
+   HeaderBlk:{
+       backgroundColor : '#0A266D',
+       paddingTop : 15,
+       paddingBottom : 10,
+       paddingLeft : 20,
+       paddingRight : 20,
+       flexDirection : 'row',
+       justifyContent : 'space-between',
+       alignItems : 'center',
+   },
+   logoImg:{
+       marginLeft : '15px',
+   }
+});
+
+export default Header;

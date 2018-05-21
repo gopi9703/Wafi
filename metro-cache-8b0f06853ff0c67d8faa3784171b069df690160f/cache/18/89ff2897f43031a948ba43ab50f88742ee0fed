@@ -13,6 +13,10 @@ __d(function (global, _require, module, exports, _dependencyMap) {
 
   var _Forgotpassword2 = _interopRequireDefault(_Forgotpassword);
 
+  var _index = _require(_dependencyMap[4], "./src/components/Header/index");
+
+  var _index2 = _interopRequireDefault(_index);
+
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
   _reactNativeNavigation.Navigation.registerComponent("Wafi.AuthScreen", function () {
@@ -27,9 +31,13 @@ __d(function (global, _require, module, exports, _dependencyMap) {
     return _Forgotpassword2.default;
   });
 
+  _reactNativeNavigation.Navigation.registerComponent("Wafi.Header", function () {
+    return _index2.default;
+  });
+
   _reactNativeNavigation.Navigation.startSingleScreenApp({
     screen: {
-      screen: "Wafi.AuthScreen",
+      screen: "Wafi.Header",
       navigatorStyle: {
         navBarHidden: true
       }
