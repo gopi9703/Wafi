@@ -3,8 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "rnpm": {
-    "assets": ["./assets/fonts/"]
-},
+    "assets": [
+      "./assets/fonts/"
+    ]
+  },
   "devDependencies": {
     "babel-preset-react-native-stage-0": "^1.0.1",
     "jest": "^22.4.4",
@@ -29,4 +31,3 @@
     "react-navigation": "git+https://github.com/react-community/react-navigation"
   }
 }
-

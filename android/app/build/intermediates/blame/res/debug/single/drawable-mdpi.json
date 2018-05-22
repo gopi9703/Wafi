@@ -6,5 +6,13 @@
     {
         "merged": "/Users/gopikrishna/Documents/wafi/android/app/build/intermediates/res/merged/debug/drawable-mdpi/screen.png",
         "source": "/Users/gopikrishna/Documents/wafi/android/app/src/main/res/drawable-mdpi/screen.png"
+    },
+    {
+        "merged": "/Users/gopiy/Documents/Wafi/android/app/build/intermediates/res/merged/debug/drawable-mdpi/screen.png",
+        "source": "/Users/gopiy/Documents/Wafi/android/app/src/main/res/drawable-mdpi/screen.png"
+    },
+    {
+        "merged": "/Users/gopiy/Documents/Wafi/android/app/build/intermediates/res/merged/debug/drawable-mdpi/icon.png",
+        "source": "/Users/gopiy/Documents/Wafi/android/app/src/main/res/drawable-mdpi/icon.png"
     }
 ]

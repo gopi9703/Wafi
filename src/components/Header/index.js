@@ -7,14 +7,24 @@ import Icon from 'react-native-vector-icons/Ionicons';
         return(
             <View style={styles.bodyBg}>
                <View style={styles.HeaderBlk}>
-               
-               <TouchableOpacity>
-               <Icon name="ios-menu" size={30} color="#ffffff" />
-                  <Image source={require('../../img/header_Logo.png')}  style={{marginLeft: 10}} />   
-                </TouchableOpacity>  
-                   
+                 <View style={styles.HeaderLhs}>
+                    <View>
+                            <TouchableOpacity>
+                            <Icon name="ios-menu" size={30} color="#ffffff" style={styles.hamburger} /> 
+                            </TouchableOpacity>  
+                    </View>
+                    <View>
+                            <Image source={require('../../img/header_Logo.png')}  style={styles.logoImg} />
+                            
+                    </View>
+                  </View>  
+                  <TouchableOpacity>
+                      <Icon name="ios-search" size={30} color="#ffffff" style={styles.hamburger} />
+                  </TouchableOpacity>   
                </View>
-               
+               <View>
+                   <Text>dsfddfg</Text>
+               </View>
             </View>
            
         );
@@ -36,8 +46,14 @@ const styles = StyleSheet.create({
        justifyContent : 'space-between',
        alignItems : 'center',
    },
+   HeaderLhs : {
+    flexDirection : 'row',
+   },
    logoImg:{
-       marginLeft : '15px',
+       marginLeft: 10
+   },
+   hamburger : {
+       padding : 5,
    }
 });
 

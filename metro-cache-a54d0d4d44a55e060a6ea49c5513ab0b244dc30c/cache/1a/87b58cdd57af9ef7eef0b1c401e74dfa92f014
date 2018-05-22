@@ -1,0 +1,350 @@
+__d(function (global, _require, module, exports, _dependencyMap) {
+    Object.defineProperty(exports, "__esModule", {
+        value: true
+    });
+
+    var _react2 = _require(_dependencyMap[0], "react");
+
+    var _react3 = _interopRequireDefault(_react2);
+
+    var _index = _require(_dependencyMap[1], "./../../../node_modules/react-transform-hmr/lib/index.js");
+
+    var _index2 = _interopRequireDefault(_index);
+
+    var _jsxFileName = "/Users/gopiy/Documents/Wafi/src/screens/Auth/Auth.js";
+
+    var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+    var _reactNative = _require(_dependencyMap[2], "react-native");
+
+    var _reactNativeLinearGradient = _require(_dependencyMap[3], "react-native-linear-gradient");
+
+    var _reactNativeLinearGradient2 = _interopRequireDefault(_reactNativeLinearGradient);
+
+    var _Logo = _require(_dependencyMap[4], "../../components/Logo");
+
+    var _Logo2 = _interopRequireDefault(_Logo);
+
+    function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+    function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+    function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+    var _components = {
+        AuthScreen: {
+            displayName: "AuthScreen"
+        }
+    };
+
+    var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index2.default)({
+        filename: "/Users/gopiy/Documents/Wafi/src/screens/Auth/Auth.js",
+        components: _components,
+        locals: [module],
+        imports: [_react3.default]
+    });
+
+    function _wrapComponent(id) {
+        return function (Component) {
+            return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
+        };
+    }
+
+    var AuthScreen = _wrapComponent("AuthScreen")(function (_Component) {
+        _inherits(AuthScreen, _Component);
+
+        function AuthScreen() {
+            _classCallCheck(this, AuthScreen);
+
+            var _this = _possibleConstructorReturn(this, (AuthScreen.__proto__ || Object.getPrototypeOf(AuthScreen)).call(this));
+
+            _this.handlePress = function () {
+                _this.props.navigator.push({
+                    screen: 'Wafi.Register',
+                    navigatorStyle: {
+                        navBarHidden: true
+                    }
+                });
+            };
+
+            _this.ForgotPassword = function () {
+                _this.props.navigator.push({
+                    screen: 'Wafi.Forgotpassword',
+                    navigatorStyle: {
+                        navBarHidden: true
+                    }
+                });
+            };
+
+            _this.state = {
+                name: '',
+                password: ''
+            };
+            return _this;
+        }
+
+        _createClass(AuthScreen, [{
+            key: "render",
+            value: function render() {
+                return _react3.default.createElement(
+                    _reactNativeLinearGradient2.default,
+                    {
+                        colors: ['#621C6C', '#8E0076', '#B8007F'],
+                        style: styles.linearGradient,
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 37
+                        }
+                    },
+                    _react3.default.createElement(
+                        _reactNative.KeyboardAvoidingView,
+                        {
+                            style: styles.container,
+                            behavior: "padding",
+                            enabled: true,
+                            __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 38
+                            }
+                        },
+                        _react3.default.createElement(
+                            _reactNative.View,
+                            {
+                                style: styles.container,
+                                __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 39
+                                }
+                            },
+                            _react3.default.createElement(_Logo2.default, {
+                                __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 40
+                                }
+                            }),
+                            _react3.default.createElement(_reactNative.TextInput, {
+                                style: styles.inputBox,
+                                underlineColorAndroid: "rgba(0,0,0,0)",
+                                placeholderTextColor: "white",
+                                placeholder: "Email/Mobile",
+                                __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 42
+                                }
+                            }),
+                            _react3.default.createElement(_reactNative.TextInput, {
+                                style: styles.inputBox,
+                                underlineColorAndroid: "rgba(0,0,0,0)",
+                                placeholderTextColor: "white",
+                                placeholder: "Password",
+                                secureTextEntry: true,
+                                __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 44
+                                }
+                            }),
+                            _react3.default.createElement(
+                                _reactNative.TouchableOpacity,
+                                {
+                                    style: styles.buttonBlock,
+                                    __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 46
+                                    }
+                                },
+                                _react3.default.createElement(
+                                    _reactNative.Text,
+                                    {
+                                        style: styles.buttonText,
+                                        __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 47
+                                        }
+                                    },
+                                    "Login"
+                                )
+                            ),
+                            _react3.default.createElement(
+                                _reactNative.View,
+                                {
+                                    style: styles.socialLoginWrapper,
+                                    __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 49
+                                    }
+                                },
+                                _react3.default.createElement(
+                                    _reactNative.Text,
+                                    {
+                                        style: styles.facebook,
+                                        __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 50
+                                        }
+                                    },
+                                    "Login with Facebook"
+                                ),
+                                _react3.default.createElement(
+                                    _reactNative.Text,
+                                    {
+                                        style: styles.google,
+                                        __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 51
+                                        }
+                                    },
+                                    "Login with Google"
+                                )
+                            )
+                        ),
+                        _react3.default.createElement(
+                            _reactNative.View,
+                            {
+                                style: styles.singUpTextBlk,
+                                __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 54
+                                }
+                            },
+                            _react3.default.createElement(
+                                _reactNative.TouchableOpacity,
+                                {
+                                    __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 55
+                                    }
+                                },
+                                _react3.default.createElement(
+                                    _reactNative.Text,
+                                    {
+                                        style: styles.singUpText,
+                                        onPress: this.handlePress,
+                                        __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 56
+                                        }
+                                    },
+                                    "New here? Sign Up"
+                                )
+                            ),
+                            _react3.default.createElement(
+                                _reactNative.TouchableOpacity,
+                                {
+                                    __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 58
+                                    }
+                                },
+                                _react3.default.createElement(
+                                    _reactNative.Text,
+                                    {
+                                        style: styles.singUpText,
+                                        onPress: this.ForgotPassword,
+                                        __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 59
+                                        }
+                                    },
+                                    "Forgot Password"
+                                )
+                            )
+                        )
+                    )
+                );
+            }
+        }]);
+
+        return AuthScreen;
+    }(_react2.Component));
+
+    var styles = _reactNative.StyleSheet.create({
+        container: {
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: '100%',
+            flexGrow: 1
+        },
+        linearGradient: {
+            flex: 1,
+            paddingLeft: 15,
+            paddingRight: 15,
+            borderRadius: 0
+        },
+        logoImg: {
+            marginBottom: 30
+        },
+        inputBox: {
+            margin: 5,
+            width: '90%',
+            color: 'rgba(255,255,255,.8)',
+            padding: 10,
+            borderRadius: 3,
+            borderWidth: 2,
+            borderColor: '#ffffff',
+            fontSize: 16,
+            fontFamily: "MyriadPro-Regular"
+        },
+        buttonBlock: {
+            backgroundColor: '#ffffff',
+            borderRadius: 5,
+            padding: 10,
+            width: '90%',
+            margin: 5
+        },
+        buttonText: {
+            color: '#000000',
+            fontSize: 16,
+            textAlign: 'center',
+            padding: 5,
+            fontFamily: "MyriadPro-Regular"
+        },
+        socalLogin: {
+            margin: 5,
+            flexDirection: 'column'
+        },
+        socialLoginWrapper: {
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            marginTop: 5
+        },
+        facebook: {
+            backgroundColor: '#181F6C',
+            width: '45%',
+            padding: 15,
+            fontSize: 13,
+            borderRadius: 5,
+            color: '#fff',
+            textAlign: 'center',
+            fontFamily: "MyriadPro-Regular"
+        },
+        google: {
+            backgroundColor: '#FC0488',
+            width: '45%',
+            padding: 15,
+            fontSize: 13,
+            borderRadius: 5,
+            color: '#fff',
+            textAlign: 'center',
+            marginLeft: 5,
+            fontFamily: "MyriadPro-Regular"
+        },
+        singUpTextBlk: {
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            flex: 1,
+            width: '90%'
+        },
+        singUpText: {
+            color: '#fff',
+            fontSize: 15,
+            paddingHorizontal: 10,
+            paddingVertical: 5,
+            fontWeight: 'bold',
+            fontFamily: "MyriadPro-Regular"
+        }
+    });
+
+    exports.default = AuthScreen;
+});
