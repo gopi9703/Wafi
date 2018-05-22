@@ -13,9 +13,9 @@ __d(function (global, _require, module, exports, _dependencyMap) {
 
   var _Forgotpassword2 = _interopRequireDefault(_Forgotpassword);
 
-  var _index = _require(_dependencyMap[4], "./src/components/Header/index");
+  var _Home = _require(_dependencyMap[4], "./src/screens/Home");
 
-  var _index2 = _interopRequireDefault(_index);
+  var _Home2 = _interopRequireDefault(_Home);
 
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -32,12 +32,16 @@ __d(function (global, _require, module, exports, _dependencyMap) {
   });
 
   _reactNativeNavigation.Navigation.registerComponent("Wafi.Header", function () {
-    return _index2.default;
+    return Header;
+  });
+
+  _reactNativeNavigation.Navigation.registerComponent("Wafi.Home", function () {
+    return _Home2.default;
   });
 
   _reactNativeNavigation.Navigation.startSingleScreenApp({
     screen: {
-      screen: "Wafi.Header",
+      screen: "Wafi.Home",
       navigatorStyle: {
         navBarHidden: true
       }

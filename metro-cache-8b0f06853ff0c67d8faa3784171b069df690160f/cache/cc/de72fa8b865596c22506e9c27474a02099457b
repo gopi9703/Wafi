@@ -79,30 +79,76 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                             }
                         },
                         _react3.default.createElement(
+                            _reactNative.View,
+                            {
+                                style: styles.HeaderLhs,
+                                __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 10
+                                }
+                            },
+                            _react3.default.createElement(
+                                _reactNative.View,
+                                {
+                                    __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 11
+                                    }
+                                },
+                                _react3.default.createElement(
+                                    _reactNative.TouchableOpacity,
+                                    {
+                                        __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 12
+                                        }
+                                    },
+                                    _react3.default.createElement(_Ionicons2.default, {
+                                        name: "ios-menu",
+                                        size: 30,
+                                        color: "#ffffff",
+                                        style: styles.hamburger,
+                                        __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 13
+                                        }
+                                    })
+                                )
+                            ),
+                            _react3.default.createElement(
+                                _reactNative.View,
+                                {
+                                    __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 16
+                                    }
+                                },
+                                _react3.default.createElement(_reactNative.Image, {
+                                    source: _require(_dependencyMap[4], '../../img/header_Logo.png'),
+                                    style: styles.logoImg,
+                                    __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 17
+                                    }
+                                })
+                            )
+                        ),
+                        _react3.default.createElement(
                             _reactNative.TouchableOpacity,
                             {
                                 __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 11
+                                    lineNumber: 21
                                 }
                             },
                             _react3.default.createElement(_Ionicons2.default, {
-                                name: "ios-menu",
+                                name: "ios-search",
                                 size: 30,
                                 color: "#ffffff",
+                                style: styles.hamburger,
                                 __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 12
-                                }
-                            }),
-                            _react3.default.createElement(_reactNative.Image, {
-                                source: _require(_dependencyMap[4], '../../img/header_Logo.png'),
-                                style: {
-                                    marginLeft: 10
-                                },
-                                __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 13
+                                    lineNumber: 22
                                 }
                             })
                         )
@@ -129,8 +175,14 @@ __d(function (global, _require, module, exports, _dependencyMap) {
             justifyContent: 'space-between',
             alignItems: 'center'
         },
+        HeaderLhs: {
+            flexDirection: 'row'
+        },
         logoImg: {
-            marginLeft: '15px'
+            marginLeft: 10
+        },
+        hamburger: {
+            padding: 5
         }
     });
 
