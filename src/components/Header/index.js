@@ -12,7 +12,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
                             <TouchableOpacity>
                             <Icon name="ios-menu" size={30} color="#ffffff" style={styles.hamburger} /> 
                             </TouchableOpacity>  
-                    </View>
+                    </View> 
                     <View>
                             <Image source={require('../../img/header_Logo.png')}  style={styles.logoImg} />
                             
