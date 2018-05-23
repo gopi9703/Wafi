@@ -21,9 +21,17 @@ __d(function (global, _require, module, exports, _dependencyMap) {
 
     var _reactNativeLinearGradient2 = _interopRequireDefault(_reactNativeLinearGradient);
 
-    var _Logo = _require(_dependencyMap[4], "../../components/Logo");
+    var _reactNativeNavigation = _require(_dependencyMap[4], "react-native-navigation");
+
+    var _reactNativeNavigation2 = _interopRequireDefault(_reactNativeNavigation);
+
+    var _Logo = _require(_dependencyMap[5], "../../components/Logo");
 
     var _Logo2 = _interopRequireDefault(_Logo);
+
+    var _StartMainTabs = _require(_dependencyMap[6], "../main/StartMainTabs");
+
+    var _StartMainTabs2 = _interopRequireDefault(_StartMainTabs);
 
     function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -56,33 +64,38 @@ __d(function (global, _require, module, exports, _dependencyMap) {
         _inherits(AuthScreen, _Component);
 
         function AuthScreen() {
+            var _ref;
+
+            var _temp, _this, _ret;
+
             _classCallCheck(this, AuthScreen);
 
-            var _this = _possibleConstructorReturn(this, (AuthScreen.__proto__ || Object.getPrototypeOf(AuthScreen)).call(this));
+            for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+                args[_key] = arguments[_key];
+            }
 
-            _this.handlePress = function () {
+            return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = AuthScreen.__proto__ || Object.getPrototypeOf(AuthScreen)).call.apply(_ref, [this].concat(args))), _this), _this.handlePress = function () {
                 _this.props.navigator.push({
                     screen: 'Wafi.Register',
                     navigatorStyle: {
                         navBarHidden: true
                     }
                 });
-            };
-
-            _this.ForgotPassword = function () {
+            }, _this.ForgotPassword = function () {
                 _this.props.navigator.push({
                     screen: 'Wafi.Forgotpassword',
                     navigatorStyle: {
                         navBarHidden: true
                     }
                 });
-            };
-
-            _this.state = {
-                name: '',
-                password: ''
-            };
-            return _this;
+            }, _this.BtnloginHandler = function () {
+                _this.props.navigator.push({
+                    screen: 'Wafi.StartMainTabs',
+                    navigatorStyle: {
+                        navBarHidden: true
+                    }
+                });
+            }, _temp), _possibleConstructorReturn(_this, _ret);
         }
 
         _createClass(AuthScreen, [{
@@ -95,7 +108,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                         style: styles.linearGradient,
                         __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 37
+                            lineNumber: 41
                         }
                     },
                     _react3.default.createElement(
@@ -106,7 +119,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                             enabled: true,
                             __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 38
+                                lineNumber: 42
                             }
                         },
                         _react3.default.createElement(
@@ -115,13 +128,13 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                 style: styles.container,
                                 __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 39
+                                    lineNumber: 43
                                 }
                             },
                             _react3.default.createElement(_Logo2.default, {
                                 __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 40
+                                    lineNumber: 44
                                 }
                             }),
                             _react3.default.createElement(_reactNative.TextInput, {
@@ -131,7 +144,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                 placeholder: "Email/Mobile",
                                 __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 42
+                                    lineNumber: 46
                                 }
                             }),
                             _react3.default.createElement(_reactNative.TextInput, {
@@ -142,7 +155,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                 secureTextEntry: true,
                                 __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 44
+                                    lineNumber: 48
                                 }
                             }),
                             _react3.default.createElement(
@@ -151,7 +164,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                     style: styles.buttonBlock,
                                     __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 46
+                                        lineNumber: 50
                                     }
                                 },
                                 _react3.default.createElement(
@@ -160,7 +173,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                         style: styles.buttonText,
                                         __source: {
                                             fileName: _jsxFileName,
-                                            lineNumber: 47
+                                            lineNumber: 51
                                         }
                                     },
                                     "Login"
@@ -172,7 +185,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                     style: styles.socialLoginWrapper,
                                     __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 49
+                                        lineNumber: 53
                                     }
                                 },
                                 _react3.default.createElement(
@@ -181,7 +194,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                         style: styles.facebook,
                                         __source: {
                                             fileName: _jsxFileName,
-                                            lineNumber: 50
+                                            lineNumber: 55
                                         }
                                     },
                                     "Login with Facebook"
@@ -192,11 +205,19 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                         style: styles.google,
                                         __source: {
                                             fileName: _jsxFileName,
-                                            lineNumber: 51
+                                            lineNumber: 56
                                         }
                                     },
                                     "Login with Google"
-                                )
+                                ),
+                                _react3.default.createElement(_reactNative.Button, {
+                                    title: "Click",
+                                    onPress: this.BtnloginHandler,
+                                    __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 57
+                                    }
+                                })
                             )
                         ),
                         _react3.default.createElement(
@@ -205,7 +226,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                 style: styles.singUpTextBlk,
                                 __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 54
+                                    lineNumber: 60
                                 }
                             },
                             _react3.default.createElement(
@@ -213,7 +234,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                 {
                                     __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 55
+                                        lineNumber: 61
                                     }
                                 },
                                 _react3.default.createElement(
@@ -223,7 +244,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                         onPress: this.handlePress,
                                         __source: {
                                             fileName: _jsxFileName,
-                                            lineNumber: 56
+                                            lineNumber: 62
                                         }
                                     },
                                     "New here? Sign Up"
@@ -234,7 +255,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                 {
                                     __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 58
+                                        lineNumber: 64
                                     }
                                 },
                                 _react3.default.createElement(
@@ -244,7 +265,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                         onPress: this.ForgotPassword,
                                         __source: {
                                             fileName: _jsxFileName,
-                                            lineNumber: 59
+                                            lineNumber: 65
                                         }
                                     },
                                     "Forgot Password"

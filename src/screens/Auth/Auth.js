@@ -1,17 +1,12 @@
 import React, { Component }  from 'react';
-import {View, Text, StyleSheet, Image,TextInput,TouchableOpacity,KeyboardAvoidingView} from 'react-native';
+import {View, Text, StyleSheet, Image,TextInput,TouchableOpacity,KeyboardAvoidingView, Button} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
+import Navigation from 'react-native-navigation';
 import Logo from '../../components/Logo';
+import StartMainTabs from '../main/StartMainTabs'; 
 
 class AuthScreen extends Component{
 
-    constructor(){
-        super()
-        this.state = {
-            name : '',
-            password : ''
-        }
-    }
 
     handlePress = () => {
         this.props.navigator.push({
@@ -31,6 +26,15 @@ class AuthScreen extends Component{
         });
       };
 
+      BtnloginHandler = () =>{
+        this.props.navigator.push({
+            screen: 'Wafi.StartMainTabs',
+            navigatorStyle:  {
+              navBarHidden: true
+            },
+          });
+      }
+
 
     render(){
         return(
@@ -47,8 +51,10 @@ class AuthScreen extends Component{
                  <Text style={styles.buttonText}>Login</Text>
             </TouchableOpacity>
                 <View style={styles.socialLoginWrapper}>
-                    <Text style={styles.facebook}>Login with Facebook</Text>
+                
+                    <Text style={styles.facebook} >Login with Facebook</Text>
                     <Text style={styles.google}>Login with Google</Text>
+                    <Button title="Click" onPress = {this.BtnloginHandler} />
                 </View>
             </View>
             <View style={styles.singUpTextBlk}>

@@ -5,7 +5,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
  class Header extends Component{
     render(){
         return(
-            <View style={styles.bodyBg}>
+            <View>
                <View style={styles.HeaderBlk}>
                  <View style={styles.HeaderLhs}>
                     <View>
@@ -21,9 +21,6 @@ import Icon from 'react-native-vector-icons/Ionicons';
                   <TouchableOpacity>
                       <Icon name="ios-search" size={30} color="#ffffff" style={styles.hamburger} />
                   </TouchableOpacity>   
-               </View>
-               <View>
-                   <Text>dsfddfg</Text>
                </View>
             </View>
            

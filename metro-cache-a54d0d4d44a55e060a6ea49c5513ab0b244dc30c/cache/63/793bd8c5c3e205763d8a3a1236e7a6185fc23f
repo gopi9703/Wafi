@@ -13,9 +13,25 @@ __d(function (global, _require, module, exports, _dependencyMap) {
 
   var _Forgotpassword2 = _interopRequireDefault(_Forgotpassword);
 
-  var _index = _require(_dependencyMap[4], "./src/components/Header/index");
+  var _StartMainTabs = _require(_dependencyMap[4], "./src/screens/main/StartMainTabs");
 
-  var _index2 = _interopRequireDefault(_index);
+  var _StartMainTabs2 = _interopRequireDefault(_StartMainTabs);
+
+  var _Offers = _require(_dependencyMap[5], "./src/screens/main/Offers");
+
+  var _Offers2 = _interopRequireDefault(_Offers);
+
+  var _Mall = _require(_dependencyMap[6], "./src/screens/main/Mall");
+
+  var _Mall2 = _interopRequireDefault(_Mall);
+
+  var _Brands = _require(_dependencyMap[7], "./src/screens/main/Brands");
+
+  var _Brands2 = _interopRequireDefault(_Brands);
+
+  var _HyperMarket = _require(_dependencyMap[8], "./src/screens/main/HyperMarket");
+
+  var _HyperMarket2 = _interopRequireDefault(_HyperMarket);
 
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -31,13 +47,29 @@ __d(function (global, _require, module, exports, _dependencyMap) {
     return _Forgotpassword2.default;
   });
 
-  _reactNativeNavigation.Navigation.registerComponent("Wafi.Header", function () {
-    return _index2.default;
+  _reactNativeNavigation.Navigation.registerComponent("Wafi.StartMainTabs", function () {
+    return _StartMainTabs2.default;
+  });
+
+  _reactNativeNavigation.Navigation.registerComponent("Wafi.Offers", function () {
+    return _Offers2.default;
+  });
+
+  _reactNativeNavigation.Navigation.registerComponent("Wafi.Mall", function () {
+    return _Mall2.default;
+  });
+
+  _reactNativeNavigation.Navigation.registerComponent("Wafi.Brands", function () {
+    return _Brands2.default;
+  });
+
+  _reactNativeNavigation.Navigation.registerComponent("Wafi.HyperMarket", function () {
+    return _HyperMarket2.default;
   });
 
   _reactNativeNavigation.Navigation.startSingleScreenApp({
     screen: {
-      screen: "Wafi.Header",
+      screen: "Wafi.AuthScreen",
       navigatorStyle: {
         navBarHidden: true
       }
