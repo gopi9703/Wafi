@@ -104,7 +104,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                     },
                                     _react3.default.createElement(_Ionicons2.default, {
                                         name: "ios-menu",
-                                        size: 30,
+                                        size: 34,
                                         color: "#ffffff",
                                         style: styles.hamburger,
                                         __source: {
@@ -142,7 +142,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                             },
                             _react3.default.createElement(_Ionicons2.default, {
                                 name: "ios-search",
-                                size: 30,
+                                size: 34,
                                 color: "#ffffff",
                                 style: styles.hamburger,
                                 __source: {

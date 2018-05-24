@@ -72,7 +72,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                 lineNumber: 13
                             }
                         },
-                        "Offers"
+                        "Brands"
                     )
                 );
             }

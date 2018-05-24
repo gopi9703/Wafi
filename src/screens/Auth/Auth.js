@@ -3,10 +3,14 @@ import {View, Text, StyleSheet, Image,TextInput,TouchableOpacity,KeyboardAvoidin
 import LinearGradient from 'react-native-linear-gradient';
 import Navigation from 'react-native-navigation';
 import Logo from '../../components/Logo';
-import StartMainTabs from '../main/StartMainTabs'; 
+import startMainTabs from '../main/startMainTabs'; 
+
 
 class AuthScreen extends Component{
-
+    
+    loginHandler = () => {
+        startMainTabs();
+    }
 
     handlePress = () => {
         this.props.navigator.push({
@@ -26,14 +30,7 @@ class AuthScreen extends Component{
         });
       };
 
-      BtnloginHandler = () =>{
-        this.props.navigator.push({
-            screen: 'Wafi.StartMainTabs',
-            navigatorStyle:  {
-              navBarHidden: true
-            },
-          });
-      }
+
 
 
     render(){
@@ -54,7 +51,7 @@ class AuthScreen extends Component{
                 
                     <Text style={styles.facebook} >Login with Facebook</Text>
                     <Text style={styles.google}>Login with Google</Text>
-                    <Button title="Click" onPress = {this.BtnloginHandler} />
+                    <Button title="Login" onPress={this.loginHandler}/>
                 </View>
             </View>
             <View style={styles.singUpTextBlk}>

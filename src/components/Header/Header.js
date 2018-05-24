@@ -10,7 +10,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
                  <View style={styles.HeaderLhs}>
                     <View>
                             <TouchableOpacity>
-                            <Icon name="ios-menu" size={30} color="#ffffff" style={styles.hamburger} /> 
+                            <Icon name="ios-menu" size={34} color="#ffffff" style={styles.hamburger} /> 
                             </TouchableOpacity>  
                     </View> 
                     <View>
@@ -19,7 +19,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
                     </View>
                   </View>  
                   <TouchableOpacity>
-                      <Icon name="ios-search" size={30} color="#ffffff" style={styles.hamburger} />
+                      <Icon name="ios-search" size={34} color="#ffffff" style={styles.hamburger} />
                   </TouchableOpacity>   
                </View>
             </View>

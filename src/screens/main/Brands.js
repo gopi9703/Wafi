@@ -10,7 +10,7 @@ class Brands extends Component{
         return(
             <View>
 
-                <Text>Offers</Text>
+                <Text>Brands</Text>
             </View>
         );
     }
