@@ -1,8 +1,24 @@
 import React, { Component }  from 'react';
 import {View, Text, StyleSheet, Image,TouchableOpacity,KeyboardAvoidingView} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
+import Navigation from 'react-native-navigation';
+
 
  class Header extends Component{
+
+    constructor(props){
+        super(props)
+        
+    }
+
+    showLeftMenu(navigator) {
+        this.props.navigator.toggleDrawer({
+            side: "left",
+            animated: true,
+           
+     });
+    }
+
     render(){
         return(
             <View>
@@ -10,7 +26,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
                  <View style={styles.HeaderLhs}>
                     <View>
                             <TouchableOpacity>
-                            <Icon name="ios-menu" size={34} color="#ffffff" style={styles.hamburger} /> 
+                                 <Icon name="ios-menu" size={34} color="#ffffff" style={styles.hamburger} onPress={this.showLeftMenu} /> 
                             </TouchableOpacity>  
                     </View> 
                     <View>

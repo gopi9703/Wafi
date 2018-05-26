@@ -1,7 +1,8 @@
 import React, { Component }  from 'react';
-import {View, Text, StyleSheet, Image,TextInput,TouchableOpacity,KeyboardAvoidingView} from 'react-native';
+import {View, Text, StyleSheet, Image,TextInput,TouchableOpacity,KeyboardAvoidingView, ScrollView} from 'react-native';
 import Header from '../../components/Header/Header';
 import SwipeableParallaxCarousel from 'react-native-swipeable-parallax-carousel';
+import ProductCards from '../../components/ProductCards/ProductCards';
 
 
 class Offers extends Component{
@@ -26,13 +27,20 @@ class Offers extends Component{
           ];
 
         return(
+            
             <View>
                 <Header />
-                <SwipeableParallaxCarousel data={datacarousel}  />
-                <Text>Offers</Text>
+                <ScrollView ref={(c) => { this.parentScrollView = c; }}
+>
+                <SwipeableParallaxCarousel data={datacarousel} navigationType={'dots'} />
+                <ProductCards  />
+                </ScrollView>
             </View>
         );
     }
 }
+
+
+
 
 export default Offers;

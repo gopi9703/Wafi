@@ -3,11 +3,11 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import AuthScreen from './src/screens/Auth/Auth';
 import Register from './src/screens/Auth/Register';
 import Forgotpassword from './src/screens/Auth/Forgotpassword';
-
 import Offers from './src/screens/main/Offers';
 import Mall from './src/screens/main/Mall';
 import Brands from './src/screens/main/Brands';
 import HyperMarket from './src/screens/main/HyperMarket';
+import SideDrawer from './src/components/SideDrawer/SideDrawer';
 
 // Register Login Screens
 
@@ -19,6 +19,8 @@ Navigation.registerComponent("Wafi.Offers", () => Offers);
 Navigation.registerComponent("Wafi.Mall", () => Mall);
 Navigation.registerComponent("Wafi.Brands", () => Brands);
 Navigation.registerComponent("Wafi.HyperMarket", () => HyperMarket);
+
+Navigation.registerComponent("Wafi.SideDrawer", () => SideDrawer);
 
 Navigation.startSingleScreenApp({
   screen : {
@@ -98,6 +100,11 @@ async function startApp() {
           navBarNoBorder: true,
         },
         animationType: 'fade',
+        drawer: {
+          left: { 
+            screen: 'Wafi.SideDrawer',
+          },
+        }
           
     });
 
