@@ -1,16 +1,15 @@
 import React, { Component }  from 'react';
-import {View, Text, StyleSheet, Image,TextInput,TouchableOpacity,KeyboardAvoidingView} from 'react-native';
+import {View, Text, StyleSheet, Image,TextInput,TouchableOpacity,KeyboardAvoidingView, Button} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
+import Navigation from 'react-native-navigation';
 import Logo from '../../components/Logo';
+import startMainTabs from '../main/startMainTabs'; 
+
 
 class AuthScreen extends Component{
-
-    constructor(){
-        super()
-        this.state = {
-            name : '',
-            password : ''
-        }
+    
+    loginHandler = () => {
+        startMainTabs();
     }
 
     handlePress = () => {
@@ -32,6 +31,8 @@ class AuthScreen extends Component{
       };
 
 
+
+
     render(){
         return(
             <LinearGradient colors={['#621C6C', '#8E0076', '#B8007F']} style={styles.linearGradient}>
@@ -47,8 +48,10 @@ class AuthScreen extends Component{
                  <Text style={styles.buttonText}>Login</Text>
             </TouchableOpacity>
                 <View style={styles.socialLoginWrapper}>
-                    <Text style={styles.facebook}>Login with Facebook</Text>
+                
+                    <Text style={styles.facebook} >Login with Facebook</Text>
                     <Text style={styles.google}>Login with Google</Text>
+                    <Button title="Login" onPress={this.loginHandler}/>
                 </View>
             </View>
             <View style={styles.singUpTextBlk}>

@@ -1,16 +1,32 @@
 import React, { Component }  from 'react';
 import {View, Text, StyleSheet, Image,TouchableOpacity,KeyboardAvoidingView} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
+import Navigation from 'react-native-navigation';
 
-export default class Header1 extends Component{
+
+ class Header extends Component{
+
+    constructor(props){
+        super(props)
+        
+    }
+
+    showLeftMenu(navigator) {
+        this.props.navigator.toggleDrawer({
+            side: "left",
+            animated: true,
+           
+     });
+    }
+
     render(){
         return(
-            <View >
+            <View>
                <View style={styles.HeaderBlk}>
                  <View style={styles.HeaderLhs}>
                     <View>
                             <TouchableOpacity>
-                            <Icon name="ios-menu" size={30} color="#ffffff" style={styles.hamburger} /> 
+                                 <Icon name="ios-menu" size={34} color="#ffffff" style={styles.hamburger} onPress={this.showLeftMenu} /> 
                             </TouchableOpacity>  
                     </View> 
                     <View>
@@ -19,10 +35,9 @@ export default class Header1 extends Component{
                     </View>
                   </View>  
                   <TouchableOpacity>
-                      <Icon name="ios-search" size={30} color="#ffffff" style={styles.hamburger} />
+                      <Icon name="ios-search" size={34} color="#ffffff" style={styles.hamburger} />
                   </TouchableOpacity>   
                </View>
-               
             </View>
            
         );
@@ -30,7 +45,10 @@ export default class Header1 extends Component{
 }
 
 const styles = StyleSheet.create({
-  
+   bodyBg:{
+       backgroundColor : '#E6E7E8',
+       flex : 1,
+   },
    HeaderBlk:{
        backgroundColor : '#0A266D',
        paddingTop : 15,
@@ -52,3 +70,4 @@ const styles = StyleSheet.create({
    }
 });
 
+export default Header;

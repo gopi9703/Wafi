@@ -1,21 +1,43 @@
 __d(function (global, _require, module, exports, _dependencyMap) {
+  var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[typeof Symbol === "function" ? Symbol.iterator : "@@iterator"](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if ((typeof Symbol === "function" ? Symbol.iterator : "@@iterator") in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+
   var _reactNativeNavigation = _require(_dependencyMap[0], "react-native-navigation");
 
-  var _Auth = _require(_dependencyMap[1], "./src/screens/Auth/Auth");
+  var _Ionicons = _require(_dependencyMap[1], "react-native-vector-icons/Ionicons");
+
+  var _Ionicons2 = _interopRequireDefault(_Ionicons);
+
+  var _Auth = _require(_dependencyMap[2], "./src/screens/Auth/Auth");
 
   var _Auth2 = _interopRequireDefault(_Auth);
 
-  var _Register = _require(_dependencyMap[2], "./src/screens/Auth/Register");
+  var _Register = _require(_dependencyMap[3], "./src/screens/Auth/Register");
 
   var _Register2 = _interopRequireDefault(_Register);
 
-  var _Forgotpassword = _require(_dependencyMap[3], "./src/screens/Auth/Forgotpassword");
+  var _Forgotpassword = _require(_dependencyMap[4], "./src/screens/Auth/Forgotpassword");
 
   var _Forgotpassword2 = _interopRequireDefault(_Forgotpassword);
 
-  var _Home = _require(_dependencyMap[4], "./src/screens/Home");
+  var _Offers = _require(_dependencyMap[5], "./src/screens/main/Offers");
 
-  var _Home2 = _interopRequireDefault(_Home);
+  var _Offers2 = _interopRequireDefault(_Offers);
+
+  var _Mall = _require(_dependencyMap[6], "./src/screens/main/Mall");
+
+  var _Mall2 = _interopRequireDefault(_Mall);
+
+  var _Brands = _require(_dependencyMap[7], "./src/screens/main/Brands");
+
+  var _Brands2 = _interopRequireDefault(_Brands);
+
+  var _HyperMarket = _require(_dependencyMap[8], "./src/screens/main/HyperMarket");
+
+  var _HyperMarket2 = _interopRequireDefault(_HyperMarket);
+
+  var _SideDrawer = _require(_dependencyMap[9], "./src/components/SideDrawer/SideDrawer");
+
+  var _SideDrawer2 = _interopRequireDefault(_SideDrawer);
 
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -31,20 +53,139 @@ __d(function (global, _require, module, exports, _dependencyMap) {
     return _Forgotpassword2.default;
   });
 
-  _reactNativeNavigation.Navigation.registerComponent("Wafi.Header", function () {
-    return Header;
+  _reactNativeNavigation.Navigation.registerComponent("Wafi.Offers", function () {
+    return _Offers2.default;
   });
 
-  _reactNativeNavigation.Navigation.registerComponent("Wafi.Home", function () {
-    return _Home2.default;
+  _reactNativeNavigation.Navigation.registerComponent("Wafi.Mall", function () {
+    return _Mall2.default;
+  });
+
+  _reactNativeNavigation.Navigation.registerComponent("Wafi.Brands", function () {
+    return _Brands2.default;
+  });
+
+  _reactNativeNavigation.Navigation.registerComponent("Wafi.HyperMarket", function () {
+    return _HyperMarket2.default;
+  });
+
+  _reactNativeNavigation.Navigation.registerComponent("Wafi.SideDrawer", function () {
+    return _SideDrawer2.default;
   });
 
   _reactNativeNavigation.Navigation.startSingleScreenApp({
     screen: {
-      screen: "Wafi.Home",
+      screen: "Wafi.AuthScreen",
       navigatorStyle: {
         navBarHidden: true
       }
     }
   });
+
+  function prepareIcons() {
+    var icons, _icons, home, cart, pricetag, notifications, profile;
+
+    return regeneratorRuntime.async(function prepareIcons$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            _context.next = 2;
+            return regeneratorRuntime.awrap(Promise.all([_Ionicons2.default.getImageSource('ios-home', 30), _Ionicons2.default.getImageSource('ios-cart', 30), _Ionicons2.default.getImageSource('ios-pricetags', 30), _Ionicons2.default.getImageSource('ios-heart', 30)]));
+
+          case 2:
+            icons = _context.sent;
+            _icons = _slicedToArray(icons, 5), home = _icons[0], cart = _icons[1], pricetag = _icons[2], notifications = _icons[3], profile = _icons[4];
+            return _context.abrupt("return", {
+              home: home,
+              cart: cart,
+              pricetag: pricetag,
+              notifications: notifications,
+              profile: profile
+            });
+
+          case 5:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, null, this);
+  }
+
+  function startApp() {
+    var icons;
+    return regeneratorRuntime.async(function startApp$(_context2) {
+      while (1) {
+        switch (_context2.prev = _context2.next) {
+          case 0:
+            _context2.next = 2;
+            return regeneratorRuntime.awrap(prepareIcons());
+
+          case 2:
+            icons = _context2.sent;
+
+            _reactNativeNavigation.Navigation.startTabBasedApp({
+              tabs: [{
+                screen: 'Wafi.Offers',
+                label: 'Offers',
+                title: 'Offers',
+                icon: icons.home,
+                navigatorStyle: {
+                  navBarHidden: true
+                }
+              }, {
+                screen: 'Wafi.Brands',
+                label: 'Brands',
+                title: 'Brands',
+                icon: icons.pricetag,
+                navigatorStyle: {
+                  navBarHidden: true
+                }
+              }, {
+                screen: 'Wafi.Mall',
+                label: 'Mall',
+                title: 'Mall',
+                icon: _require(_dependencyMap[10], './src/img/header_Logo.png'),
+                selectedIcon: _require(_dependencyMap[10], './src/img/header_Logo.png'),
+                navigatorStyle: {
+                  navBarHidden: true
+                }
+              }, {
+                screen: 'Wafi.HyperMarket',
+                label: 'Market',
+                title: 'Market',
+                icon: icons.cart,
+                navigatorStyle: {
+                  navBarHidden: true
+                }
+              }],
+              appStyle: {
+                orientation: 'portrait',
+                tabBarButtonColor: '#4d535e',
+                tabBarSelectedButtonColor: '#ec1172',
+                tabBarBackgroundColor: '#ffffff',
+                initialTabIndex: 2,
+                tabBarTranslucent: true,
+                forceTitlesDisplay: true,
+                tabFontSize: 13,
+                selectedTabFontSize: 13,
+                navBarTitleFontFamily: "MyriadPro-Regular",
+                navBarNoBorder: true
+              },
+              animationType: 'fade',
+              drawer: {
+                left: {
+                  screen: 'Wafi.SideDrawer'
+                }
+              }
+            });
+
+          case 4:
+          case "end":
+            return _context2.stop();
+        }
+      }
+    }, null, this);
+  }
+
+  startApp();
 });
