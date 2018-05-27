@@ -38,7 +38,7 @@ export default class ProductList extends Component{
 
                 <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
 
-                 <ActivityIndicator size="large" />
+                  <ActivityIndicator size="large" />
 
                </View>
 
@@ -46,7 +46,7 @@ export default class ProductList extends Component{
 
            }
         return (
-            <View style={styles.listWrapper}>
+          
                 <FlatList
 
 					data={ this.state.dataSource }
@@ -61,12 +61,13 @@ export default class ProductList extends Component{
 							<Text>{item.author}</Text>
 						</View>
 
+
 					}
 					numColumns={2}
 					keyExtractor={(item, index) => index.toString()}
 
 				/>
-            </View>
+          
         )
       }
     }       

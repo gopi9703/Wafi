@@ -6,10 +6,19 @@ import ProductCards from '../../components/ProductCards/ProductCards';
 
 class Brands extends Component{
 
+    clickHandler = () => {
+        this.props.navigator.push({
+            screen : 'Wafi.Register'
+        });
+    }
+
     render(){
         return(
             <View style={{flex:1}}> 
                 <Header />  
+                <TouchableOpacity>
+                    <Text onPress={this.clickHandler}>Toch Here</Text>
+                </TouchableOpacity>
                 <ScrollView ref={(c) => { this.parentScrollView = c; } }>
                 <View style={styles.filtrBlk}>
                     <TouchableOpacity>

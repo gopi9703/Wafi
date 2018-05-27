@@ -119,69 +119,59 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                     );
                 }
 
-                return _react3.default.createElement(
-                    _reactNative.View,
-                    {
-                        style: styles.listWrapper,
-                        __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 49
-                        }
-                    },
-                    _react3.default.createElement(_reactNative.FlatList, {
-                        data: this.state.dataSource,
-                        ItemSeparatorComponent: this.FlatListItemSeparator,
-                        renderItem: function renderItem(_ref) {
-                            var item = _ref.item;
-                            return _react3.default.createElement(
-                                _reactNative.View,
+                return _react3.default.createElement(_reactNative.FlatList, {
+                    data: this.state.dataSource,
+                    ItemSeparatorComponent: this.FlatListItemSeparator,
+                    renderItem: function renderItem(_ref) {
+                        var item = _ref.item;
+                        return _react3.default.createElement(
+                            _reactNative.View,
+                            {
+                                __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 58
+                                }
+                            },
+                            _react3.default.createElement(_reactNative.Image, {
+                                source: {
+                                    uri: item.image
+                                },
+                                __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 59
+                                }
+                            }),
+                            _react3.default.createElement(
+                                _reactNative.Text,
                                 {
                                     __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 58
+                                        lineNumber: 60
                                     }
                                 },
-                                _react3.default.createElement(_reactNative.Image, {
-                                    source: {
-                                        uri: item.image
-                                    },
+                                item.book_title
+                            ),
+                            _react3.default.createElement(
+                                _reactNative.Text,
+                                {
                                     __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 59
+                                        lineNumber: 61
                                     }
-                                }),
-                                _react3.default.createElement(
-                                    _reactNative.Text,
-                                    {
-                                        __source: {
-                                            fileName: _jsxFileName,
-                                            lineNumber: 60
-                                        }
-                                    },
-                                    item.book_title
-                                ),
-                                _react3.default.createElement(
-                                    _reactNative.Text,
-                                    {
-                                        __source: {
-                                            fileName: _jsxFileName,
-                                            lineNumber: 61
-                                        }
-                                    },
-                                    item.author
-                                )
-                            );
-                        },
-                        numColumns: 2,
-                        keyExtractor: function keyExtractor(item, index) {
-                            return index.toString();
-                        },
-                        __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 50
-                        }
-                    })
-                );
+                                },
+                                item.author
+                            )
+                        );
+                    },
+                    numColumns: 2,
+                    keyExtractor: function keyExtractor(item, index) {
+                        return index.toString();
+                    },
+                    __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 50
+                    }
+                });
             }
         }]);
 

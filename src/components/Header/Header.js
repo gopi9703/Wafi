@@ -19,6 +19,12 @@ import Navigation from 'react-native-navigation';
      });
     }
 
+    toggleDrawer = () => {
+        this.props.navigator.toggleDrawer({
+          side: 'left'
+        });
+      };
+
     render(){
         return(
             <View>
