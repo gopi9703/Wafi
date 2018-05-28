@@ -17,6 +17,14 @@ __d(function (global, _require, module, exports, _dependencyMap) {
 
     var _reactNative = _require(_dependencyMap[2], "react-native");
 
+    var _HeaderText = _require(_dependencyMap[3], "../ReusableComponents/HeaderText");
+
+    var _HeaderText2 = _interopRequireDefault(_HeaderText);
+
+    var _FontStyle = _require(_dependencyMap[4], "../ReusableComponents/FontStyle");
+
+    var _FontStyle2 = _interopRequireDefault(_FontStyle);
+
     function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
     function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -48,9 +56,25 @@ __d(function (global, _require, module, exports, _dependencyMap) {
         _inherits(ProductCards, _Component);
 
         function ProductCards() {
+            var _ref;
+
+            var _temp, _this, _ret;
+
             _classCallCheck(this, ProductCards);
 
-            return _possibleConstructorReturn(this, (ProductCards.__proto__ || Object.getPrototypeOf(ProductCards)).apply(this, arguments));
+            for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+                args[_key] = arguments[_key];
+            }
+
+            return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = ProductCards.__proto__ || Object.getPrototypeOf(ProductCards)).call.apply(_ref, [this].concat(args))), _this), _this.OffersListHandler = function () {
+                _this.props.navigator.push({
+                    screen: 'Wafi.OffersList'
+                });
+            }, _this.BrandsListHandler = function () {
+                _this.props.navigator.push({
+                    screen: 'Wafi.BrandsList'
+                });
+            }, _temp), _possibleConstructorReturn(_this, _ret);
         }
 
         _createClass(ProductCards, [{
@@ -62,7 +86,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                         style: styles.prdtWrapr,
                         __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 8
+                            lineNumber: 24
                         }
                     },
                     _react3.default.createElement(
@@ -71,18 +95,81 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                             style: styles.gridItem,
                             __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 9
+                                lineNumber: 25
                             }
                         },
                         _react3.default.createElement(
-                            _reactNative.Text,
+                            _reactNative.View,
                             {
+                                style: styles.gridWrapr,
                                 __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 10
+                                    lineNumber: 26
                                 }
                             },
-                            "ProductCards"
+                            _react3.default.createElement(
+                                _reactNative.TouchableOpacity,
+                                {
+                                    onPress: this.OffersListHandler,
+                                    __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 27
+                                    }
+                                },
+                                _react3.default.createElement(_reactNative.Image, {
+                                    source: {
+                                        uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png'
+                                    },
+                                    style: styles.ProductImg,
+                                    __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 28
+                                    }
+                                }),
+                                _react3.default.createElement(
+                                    _reactNative.Text,
+                                    {
+                                        style: styles.center,
+                                        __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 29
+                                        }
+                                    },
+                                    "50% OFF"
+                                ),
+                                _react3.default.createElement(
+                                    _reactNative.View,
+                                    {
+                                        style: styles.prdDescr,
+                                        __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 30
+                                        }
+                                    },
+                                    _react3.default.createElement(
+                                        _reactNative.Text,
+                                        {
+                                            style: styles.offerTitle,
+                                            __source: {
+                                                fileName: _jsxFileName,
+                                                lineNumber: 31
+                                            }
+                                        },
+                                        "Flat 50% OFF"
+                                    ),
+                                    _react3.default.createElement(
+                                        _reactNative.Text,
+                                        {
+                                            style: styles.offerDesc,
+                                            __source: {
+                                                fileName: _jsxFileName,
+                                                lineNumber: 32
+                                            }
+                                        },
+                                        "Sample Description"
+                                    )
+                                )
+                            )
                         )
                     ),
                     _react3.default.createElement(
@@ -91,18 +178,81 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                             style: styles.gridItem,
                             __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 12
+                                lineNumber: 37
                             }
                         },
                         _react3.default.createElement(
-                            _reactNative.Text,
+                            _reactNative.View,
                             {
+                                style: styles.gridWrapr,
                                 __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 13
+                                    lineNumber: 38
                                 }
                             },
-                            "ProductCards"
+                            _react3.default.createElement(
+                                _reactNative.TouchableOpacity,
+                                {
+                                    onPress: this.BrandsListHandler,
+                                    __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 39
+                                    }
+                                },
+                                _react3.default.createElement(_reactNative.Image, {
+                                    source: {
+                                        uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png'
+                                    },
+                                    style: styles.ProductImg,
+                                    __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 40
+                                    }
+                                }),
+                                _react3.default.createElement(
+                                    _reactNative.Text,
+                                    {
+                                        style: styles.center,
+                                        __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 41
+                                        }
+                                    },
+                                    "50% OFF"
+                                ),
+                                _react3.default.createElement(
+                                    _reactNative.View,
+                                    {
+                                        style: styles.prdDescr,
+                                        __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 42
+                                        }
+                                    },
+                                    _react3.default.createElement(
+                                        _reactNative.Text,
+                                        {
+                                            style: styles.offerTitle,
+                                            __source: {
+                                                fileName: _jsxFileName,
+                                                lineNumber: 43
+                                            }
+                                        },
+                                        "Flat 50% OFF"
+                                    ),
+                                    _react3.default.createElement(
+                                        _reactNative.Text,
+                                        {
+                                            style: styles.offerDesc,
+                                            __source: {
+                                                fileName: _jsxFileName,
+                                                lineNumber: 44
+                                            }
+                                        },
+                                        "Sample Description"
+                                    )
+                                )
+                            )
                         )
                     ),
                     _react3.default.createElement(
@@ -111,18 +261,80 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                             style: styles.gridItem,
                             __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 15
+                                lineNumber: 49
                             }
                         },
                         _react3.default.createElement(
-                            _reactNative.Text,
+                            _reactNative.View,
                             {
+                                style: styles.gridWrapr,
                                 __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 16
+                                    lineNumber: 50
                                 }
                             },
-                            "ProductCards"
+                            _react3.default.createElement(
+                                _reactNative.TouchableOpacity,
+                                {
+                                    __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 51
+                                    }
+                                },
+                                _react3.default.createElement(_reactNative.Image, {
+                                    source: {
+                                        uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png'
+                                    },
+                                    style: styles.ProductImg,
+                                    __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 52
+                                    }
+                                }),
+                                _react3.default.createElement(
+                                    _reactNative.Text,
+                                    {
+                                        style: styles.center,
+                                        __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 53
+                                        }
+                                    },
+                                    "50% OFF"
+                                ),
+                                _react3.default.createElement(
+                                    _reactNative.View,
+                                    {
+                                        style: styles.prdDescr,
+                                        __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 54
+                                        }
+                                    },
+                                    _react3.default.createElement(
+                                        _reactNative.Text,
+                                        {
+                                            style: styles.offerTitle,
+                                            __source: {
+                                                fileName: _jsxFileName,
+                                                lineNumber: 55
+                                            }
+                                        },
+                                        "Flat 50% OFF"
+                                    ),
+                                    _react3.default.createElement(
+                                        _reactNative.Text,
+                                        {
+                                            style: styles.offerDesc,
+                                            __source: {
+                                                fileName: _jsxFileName,
+                                                lineNumber: 56
+                                            }
+                                        },
+                                        "Sample Description"
+                                    )
+                                )
+                            )
                         )
                     ),
                     _react3.default.createElement(
@@ -131,18 +343,326 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                             style: styles.gridItem,
                             __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 18
+                                lineNumber: 61
                             }
                         },
                         _react3.default.createElement(
-                            _reactNative.Text,
+                            _reactNative.View,
                             {
+                                style: styles.gridWrapr,
                                 __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 19
+                                    lineNumber: 62
                                 }
                             },
-                            "ProductCards"
+                            _react3.default.createElement(
+                                _reactNative.TouchableOpacity,
+                                {
+                                    __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 63
+                                    }
+                                },
+                                _react3.default.createElement(_reactNative.Image, {
+                                    source: {
+                                        uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png'
+                                    },
+                                    style: styles.ProductImg,
+                                    __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 64
+                                    }
+                                }),
+                                _react3.default.createElement(
+                                    _reactNative.Text,
+                                    {
+                                        style: styles.center,
+                                        __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 65
+                                        }
+                                    },
+                                    "50% OFF"
+                                ),
+                                _react3.default.createElement(
+                                    _reactNative.View,
+                                    {
+                                        style: styles.prdDescr,
+                                        __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 66
+                                        }
+                                    },
+                                    _react3.default.createElement(
+                                        _reactNative.Text,
+                                        {
+                                            style: styles.offerTitle,
+                                            __source: {
+                                                fileName: _jsxFileName,
+                                                lineNumber: 67
+                                            }
+                                        },
+                                        "Flat 50% OFF"
+                                    ),
+                                    _react3.default.createElement(
+                                        _reactNative.Text,
+                                        {
+                                            style: styles.offerDesc,
+                                            __source: {
+                                                fileName: _jsxFileName,
+                                                lineNumber: 68
+                                            }
+                                        },
+                                        "Sample Description"
+                                    )
+                                )
+                            )
+                        )
+                    ),
+                    _react3.default.createElement(
+                        _reactNative.View,
+                        {
+                            style: styles.gridItem,
+                            __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 73
+                            }
+                        },
+                        _react3.default.createElement(
+                            _reactNative.View,
+                            {
+                                style: styles.gridWrapr,
+                                __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 74
+                                }
+                            },
+                            _react3.default.createElement(
+                                _reactNative.TouchableOpacity,
+                                {
+                                    __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 75
+                                    }
+                                },
+                                _react3.default.createElement(_reactNative.Image, {
+                                    source: {
+                                        uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png'
+                                    },
+                                    style: styles.ProductImg,
+                                    __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 76
+                                    }
+                                }),
+                                _react3.default.createElement(
+                                    _reactNative.Text,
+                                    {
+                                        style: styles.center,
+                                        __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 77
+                                        }
+                                    },
+                                    "50% OFF"
+                                ),
+                                _react3.default.createElement(
+                                    _reactNative.View,
+                                    {
+                                        style: styles.prdDescr,
+                                        __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 78
+                                        }
+                                    },
+                                    _react3.default.createElement(
+                                        _reactNative.Text,
+                                        {
+                                            style: styles.offerTitle,
+                                            __source: {
+                                                fileName: _jsxFileName,
+                                                lineNumber: 79
+                                            }
+                                        },
+                                        "Flat 50% OFF"
+                                    ),
+                                    _react3.default.createElement(
+                                        _reactNative.Text,
+                                        {
+                                            style: styles.offerDesc,
+                                            __source: {
+                                                fileName: _jsxFileName,
+                                                lineNumber: 80
+                                            }
+                                        },
+                                        "Sample Description"
+                                    )
+                                )
+                            )
+                        )
+                    ),
+                    _react3.default.createElement(
+                        _reactNative.View,
+                        {
+                            style: styles.gridItem,
+                            __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 85
+                            }
+                        },
+                        _react3.default.createElement(
+                            _reactNative.View,
+                            {
+                                style: styles.gridWrapr,
+                                __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 86
+                                }
+                            },
+                            _react3.default.createElement(
+                                _reactNative.TouchableOpacity,
+                                {
+                                    __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 87
+                                    }
+                                },
+                                _react3.default.createElement(_reactNative.Image, {
+                                    source: {
+                                        uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png'
+                                    },
+                                    style: styles.ProductImg,
+                                    __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 88
+                                    }
+                                }),
+                                _react3.default.createElement(
+                                    _reactNative.Text,
+                                    {
+                                        style: styles.center,
+                                        __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 89
+                                        }
+                                    },
+                                    "50% OFF"
+                                ),
+                                _react3.default.createElement(
+                                    _reactNative.View,
+                                    {
+                                        style: styles.prdDescr,
+                                        __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 90
+                                        }
+                                    },
+                                    _react3.default.createElement(
+                                        _reactNative.Text,
+                                        {
+                                            style: styles.offerTitle,
+                                            __source: {
+                                                fileName: _jsxFileName,
+                                                lineNumber: 91
+                                            }
+                                        },
+                                        "Flat 50% OFF"
+                                    ),
+                                    _react3.default.createElement(
+                                        _reactNative.Text,
+                                        {
+                                            style: styles.offerDesc,
+                                            __source: {
+                                                fileName: _jsxFileName,
+                                                lineNumber: 92
+                                            }
+                                        },
+                                        "Sample Description"
+                                    )
+                                )
+                            )
+                        )
+                    ),
+                    _react3.default.createElement(
+                        _reactNative.View,
+                        {
+                            style: styles.gridItem,
+                            __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 97
+                            }
+                        },
+                        _react3.default.createElement(
+                            _reactNative.View,
+                            {
+                                style: styles.gridWrapr,
+                                __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 98
+                                }
+                            },
+                            _react3.default.createElement(
+                                _reactNative.TouchableOpacity,
+                                {
+                                    __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 99
+                                    }
+                                },
+                                _react3.default.createElement(_reactNative.Image, {
+                                    source: {
+                                        uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png'
+                                    },
+                                    style: styles.ProductImg,
+                                    __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 100
+                                    }
+                                }),
+                                _react3.default.createElement(
+                                    _reactNative.Text,
+                                    {
+                                        style: styles.center,
+                                        __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 101
+                                        }
+                                    },
+                                    "50% OFF"
+                                ),
+                                _react3.default.createElement(
+                                    _reactNative.View,
+                                    {
+                                        style: styles.prdDescr,
+                                        __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 102
+                                        }
+                                    },
+                                    _react3.default.createElement(
+                                        _reactNative.Text,
+                                        {
+                                            style: styles.offerTitle,
+                                            __source: {
+                                                fileName: _jsxFileName,
+                                                lineNumber: 103
+                                            }
+                                        },
+                                        "Flat 50% OFF"
+                                    ),
+                                    _react3.default.createElement(
+                                        _reactNative.Text,
+                                        {
+                                            style: styles.offerDesc,
+                                            __source: {
+                                                fileName: _jsxFileName,
+                                                lineNumber: 104
+                                            }
+                                        },
+                                        "Sample Description"
+                                    )
+                                )
+                            )
                         )
                     )
                 );
@@ -162,13 +682,16 @@ __d(function (global, _require, module, exports, _dependencyMap) {
             alignItems: 'center',
             flexWrap: 'wrap'
         },
+        gridWrapr: {
+            flexDirection: 'column',
+            width: '100%'
+        },
         gridItem: {
             width: '46%',
             height: 'auto',
             justifyContent: 'center',
-            alignItems: 'center',
-            padding: 15,
-            marginBottom: 10,
+            alignItems: 'flex-start',
+            marginBottom: 15,
             marginLeft: '2.5%',
             backgroundColor: '#ffffff',
             borderRadius: 5,
@@ -180,6 +703,51 @@ __d(function (global, _require, module, exports, _dependencyMap) {
             shadowRadius: 5,
             shadowOpacity: 0.7,
             elevation: 2
+        },
+        prdDescr: {
+            flexDirection: 'column',
+            padding: 10,
+            flexWrap: 'wrap',
+            width: '100%',
+            borderColor: '#ff0000'
+        },
+        ProductImg: {
+            width: '100%',
+            height: 180,
+            resizeMode: 'cover'
+        },
+        offerTitle: {
+            color: '#000000',
+            fontSize: 20,
+            width: '100%',
+            fontFamily: "MyriadPro-Semibold_2"
+        },
+        offerDesc: {
+            color: '#58595B',
+            fontSize: 16,
+            fontFamily: "MyriadPro-Regular"
+        },
+        prodOffPercet: {
+            backgroundColor: '#F6921E',
+            color: '#ffffff',
+            fontSize: 18,
+            borderRadius: 25,
+            paddingTop: 5,
+            paddingBottom: 5,
+            fontWeight: 'bold',
+            textAlign: 'center',
+            width: 150
+        },
+        center: {
+            textAlign: 'center',
+            backgroundColor: '#F6921E',
+            paddingVertical: 5,
+            color: '#ffffff',
+            fontSize: 18,
+            borderRadius: 25,
+            marginTop: -20,
+            marginHorizontal: '10%',
+            width: '80%'
         }
     });
 

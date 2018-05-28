@@ -3,9 +3,11 @@ import {View, Text, StyleSheet, Image,TextInput,TouchableOpacity,KeyboardAvoidin
 import Header from '../../components/Header/Header';
 import SwipeableParallaxCarousel from 'react-native-swipeable-parallax-carousel';
 import ProductCards from '../../components/ProductCards/ProductCards';
+import Navigation from 'react-native-navigation';
 
 
 class Offers extends Component{
+  
 
     render(){
 
@@ -28,12 +30,12 @@ class Offers extends Component{
 
         return(
             
-            <View>
+            <View style={{flex:1}}>
                 <Header />
-                <ScrollView ref={(c) => { this.parentScrollView = c; }}
+                <ScrollView ref={(c) => { this.parentScrollView = c; } }
 >
                 <SwipeableParallaxCarousel data={datacarousel} navigationType={'dots'} />
-                <ProductCards  />
+                <ProductCards  navigator={this.props.navigator} />
                 </ScrollView>
             </View>
         );

@@ -17,6 +17,18 @@ __d(function (global, _require, module, exports, _dependencyMap) {
 
     var _reactNative = _require(_dependencyMap[2], "react-native");
 
+    var _Header = _require(_dependencyMap[3], "../../components/Header/Header");
+
+    var _Header2 = _interopRequireDefault(_Header);
+
+    var _reactNativeNavigation = _require(_dependencyMap[4], "react-native-navigation");
+
+    var _reactNativeNavigation2 = _interopRequireDefault(_reactNativeNavigation);
+
+    var _ProductCards = _require(_dependencyMap[5], "../../components/ProductCards/ProductCards");
+
+    var _ProductCards2 = _interopRequireDefault(_ProductCards);
+
     function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
     function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -56,23 +68,193 @@ __d(function (global, _require, module, exports, _dependencyMap) {
         _createClass(Brands, [{
             key: "render",
             value: function render() {
+                var _this2 = this;
+
                 return _react3.default.createElement(
                     _reactNative.View,
                     {
+                        style: {
+                            flex: 1
+                        },
                         __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 11
+                            lineNumber: 13
                         }
                     },
+                    _react3.default.createElement(_Header2.default, {
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 14
+                        }
+                    }),
                     _react3.default.createElement(
-                        _reactNative.Text,
+                        _reactNative.ScrollView,
                         {
+                            ref: function ref(c) {
+                                _this2.parentScrollView = c;
+                            },
                             __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 13
+                                lineNumber: 15
                             }
                         },
-                        "Brands"
+                        _react3.default.createElement(
+                            _reactNative.View,
+                            {
+                                style: styles.filtrBlk,
+                                __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 16
+                                }
+                            },
+                            _react3.default.createElement(
+                                _reactNative.TouchableOpacity,
+                                {
+                                    __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 17
+                                    }
+                                },
+                                _react3.default.createElement(
+                                    _reactNative.Text,
+                                    {
+                                        style: styles.fltrBrn,
+                                        __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 18
+                                        }
+                                    },
+                                    "Fashion "
+                                )
+                            ),
+                            _react3.default.createElement(
+                                _reactNative.TouchableOpacity,
+                                {
+                                    __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 20
+                                    }
+                                },
+                                _react3.default.createElement(
+                                    _reactNative.Text,
+                                    {
+                                        style: styles.fltrBrn,
+                                        __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 21
+                                        }
+                                    },
+                                    "Footwear "
+                                )
+                            ),
+                            _react3.default.createElement(
+                                _reactNative.TouchableOpacity,
+                                {
+                                    __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 23
+                                    }
+                                },
+                                _react3.default.createElement(
+                                    _reactNative.Text,
+                                    {
+                                        style: styles.fltrBrn,
+                                        __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 24
+                                        }
+                                    },
+                                    "Bags "
+                                )
+                            ),
+                            _react3.default.createElement(
+                                _reactNative.TouchableOpacity,
+                                {
+                                    __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 26
+                                    }
+                                },
+                                _react3.default.createElement(
+                                    _reactNative.Text,
+                                    {
+                                        style: styles.fltrBrn,
+                                        __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 27
+                                        }
+                                    },
+                                    "Foods "
+                                )
+                            ),
+                            _react3.default.createElement(
+                                _reactNative.TouchableOpacity,
+                                {
+                                    __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 29
+                                    }
+                                },
+                                _react3.default.createElement(
+                                    _reactNative.Text,
+                                    {
+                                        style: styles.fltrBrn,
+                                        __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 30
+                                        }
+                                    },
+                                    "Electronics "
+                                )
+                            ),
+                            _react3.default.createElement(
+                                _reactNative.TouchableOpacity,
+                                {
+                                    __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 32
+                                    }
+                                },
+                                _react3.default.createElement(
+                                    _reactNative.Text,
+                                    {
+                                        style: styles.fltrBrn,
+                                        __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 33
+                                        }
+                                    },
+                                    "Watch "
+                                )
+                            ),
+                            _react3.default.createElement(
+                                _reactNative.TouchableOpacity,
+                                {
+                                    __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 35
+                                    }
+                                },
+                                _react3.default.createElement(
+                                    _reactNative.Text,
+                                    {
+                                        style: styles.fltrBrn,
+                                        __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 36
+                                        }
+                                    },
+                                    "Jewellery "
+                                )
+                            )
+                        ),
+                        _react3.default.createElement(_ProductCards2.default, {
+                            navigator: this.props.navigator,
+                            __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 39
+                            }
+                        })
                     )
                 );
             }
@@ -80,6 +262,27 @@ __d(function (global, _require, module, exports, _dependencyMap) {
 
         return Brands;
     }(_react2.Component));
+
+    var styles = _reactNative.StyleSheet.create({
+        filtrBlk: {
+            padding: 10,
+            flexDirection: 'row',
+            flex: 1,
+            flexWrap: 'wrap'
+        },
+        fltrBrn: {
+            borderRadius: 20,
+            backgroundColor: '#929497',
+            paddingVertical: 8,
+            paddingHorizontal: 15,
+            fontSize: 15,
+            color: '#ffffff',
+            textAlign: 'center',
+            marginHorizontal: '2%',
+            marginVertical: 5,
+            alignItems: 'center'
+        }
+    });
 
     exports.default = Brands;
 });

@@ -1,17 +1,20 @@
-import React, { Component }  from 'react';
-import {View, Text, StyleSheet, Image,TextInput,TouchableOpacity,KeyboardAvoidingView} from 'react-native';
+import React, { Component } from "react";
+import { View, Text, Image} from "react-native";
+import Header from '../../components/Header/Header';
+import ProductList from '../../components/ProductList/ProductList';
 
 
-class Mall extends Component{
-
-    render(){
-        return(
-            <View>
-
-                <Text>Mall</Text>
-            </View>
-        );
-    }
+class Mall extends Component {
+  render(){
+    return (
+      <View>
+       <Header />   
+       <ProductList />
+      </View>
+   )
+  }
 }
 
 export default Mall;
+
+

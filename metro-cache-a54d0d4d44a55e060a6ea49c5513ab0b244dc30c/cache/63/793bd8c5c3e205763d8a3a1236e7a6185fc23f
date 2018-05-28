@@ -23,19 +23,27 @@ __d(function (global, _require, module, exports, _dependencyMap) {
 
   var _Offers2 = _interopRequireDefault(_Offers);
 
-  var _Mall = _require(_dependencyMap[6], "./src/screens/main/Mall");
+  var _OffersList = _require(_dependencyMap[6], "./src/screens/main/OffersList/OffersList");
+
+  var _OffersList2 = _interopRequireDefault(_OffersList);
+
+  var _Mall = _require(_dependencyMap[7], "./src/screens/main/Mall");
 
   var _Mall2 = _interopRequireDefault(_Mall);
 
-  var _Brands = _require(_dependencyMap[7], "./src/screens/main/Brands");
+  var _Brands = _require(_dependencyMap[8], "./src/screens/main/Brands");
 
   var _Brands2 = _interopRequireDefault(_Brands);
 
-  var _HyperMarket = _require(_dependencyMap[8], "./src/screens/main/HyperMarket");
+  var _BrandsList = _require(_dependencyMap[9], "./src/screens/main/BrandsList/BrandsList");
+
+  var _BrandsList2 = _interopRequireDefault(_BrandsList);
+
+  var _HyperMarket = _require(_dependencyMap[10], "./src/screens/main/HyperMarket");
 
   var _HyperMarket2 = _interopRequireDefault(_HyperMarket);
 
-  var _SideDrawer = _require(_dependencyMap[9], "./src/components/SideDrawer/SideDrawer");
+  var _SideDrawer = _require(_dependencyMap[11], "./src/components/SideDrawer/SideDrawer");
 
   var _SideDrawer2 = _interopRequireDefault(_SideDrawer);
 
@@ -57,12 +65,20 @@ __d(function (global, _require, module, exports, _dependencyMap) {
     return _Offers2.default;
   });
 
+  _reactNativeNavigation.Navigation.registerComponent("Wafi.OffersList", function () {
+    return _OffersList2.default;
+  });
+
   _reactNativeNavigation.Navigation.registerComponent("Wafi.Mall", function () {
     return _Mall2.default;
   });
 
   _reactNativeNavigation.Navigation.registerComponent("Wafi.Brands", function () {
     return _Brands2.default;
+  });
+
+  _reactNativeNavigation.Navigation.registerComponent("Wafi.BrandsList", function () {
+    return _BrandsList2.default;
   });
 
   _reactNativeNavigation.Navigation.registerComponent("Wafi.HyperMarket", function () {
@@ -144,8 +160,8 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                 screen: 'Wafi.Mall',
                 label: 'Mall',
                 title: 'Mall',
-                icon: _require(_dependencyMap[10], './src/img/header_Logo.png'),
-                selectedIcon: _require(_dependencyMap[10], './src/img/header_Logo.png'),
+                icon: _require(_dependencyMap[12], './src/img/header_Logo.png'),
+                selectedIcon: _require(_dependencyMap[12], './src/img/header_Logo.png'),
                 navigatorStyle: {
                   navBarHidden: true
                 }

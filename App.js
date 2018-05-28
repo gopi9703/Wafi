@@ -4,8 +4,10 @@ import AuthScreen from './src/screens/Auth/Auth';
 import Register from './src/screens/Auth/Register';
 import Forgotpassword from './src/screens/Auth/Forgotpassword';
 import Offers from './src/screens/main/Offers';
+import OffersList from './src/screens/main/OffersList/OffersList';
 import Mall from './src/screens/main/Mall';
 import Brands from './src/screens/main/Brands';
+import BrandsList from './src/screens/main/BrandsList/BrandsList';
 import HyperMarket from './src/screens/main/HyperMarket';
 import SideDrawer from './src/components/SideDrawer/SideDrawer';
 
@@ -16,8 +18,10 @@ Navigation.registerComponent("Wafi.Register", () => Register);
 Navigation.registerComponent("Wafi.Forgotpassword", () => Forgotpassword);
 
 Navigation.registerComponent("Wafi.Offers", () => Offers);
+Navigation.registerComponent("Wafi.OffersList", () => OffersList);
 Navigation.registerComponent("Wafi.Mall", () => Mall);
 Navigation.registerComponent("Wafi.Brands", () => Brands);
+Navigation.registerComponent("Wafi.BrandsList", () => BrandsList);
 Navigation.registerComponent("Wafi.HyperMarket", () => HyperMarket);
 
 Navigation.registerComponent("Wafi.SideDrawer", () => SideDrawer);
