@@ -1,16 +1,7 @@
+import Navigation from 'react-native-navigation';
+import Icon from 'react-native-vector-icons/Ionicons';
 
-import React, { Component } from 'react';
-import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
-import { Navigation } from 'react-native-navigation';
-
-export default class startMainTabs extends Component {
-	constructor(props) {
-		super(props);
-
-		this._switchToTabBased = this._switchToTabBased.bind(this);
-	}
-
-	_switchToTabBased() {
+const startTabs = () => {
         Navigation.startTabBasedApp({
             tabs: [
                 {
@@ -35,8 +26,6 @@ export default class startMainTabs extends Component {
                 }
             ]
         });
-    	          
-	}
-
-	
 }
+
+export default startTabs;
