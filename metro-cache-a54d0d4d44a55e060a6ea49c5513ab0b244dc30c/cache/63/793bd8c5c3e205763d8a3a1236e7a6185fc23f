@@ -31,19 +31,35 @@ __d(function (global, _require, module, exports, _dependencyMap) {
 
   var _Mall2 = _interopRequireDefault(_Mall);
 
-  var _Brands = _require(_dependencyMap[8], "./src/screens/main/Brands");
+  var _mallDetails = _require(_dependencyMap[8], "./src/screens/main/mallDetails/mallDetails");
+
+  var _mallDetails2 = _interopRequireDefault(_mallDetails);
+
+  var _Brands = _require(_dependencyMap[9], "./src/screens/main/Brands");
 
   var _Brands2 = _interopRequireDefault(_Brands);
 
-  var _BrandsList = _require(_dependencyMap[9], "./src/screens/main/BrandsList/BrandsList");
+  var _BrandsList = _require(_dependencyMap[10], "./src/screens/main/BrandsList/BrandsList");
 
   var _BrandsList2 = _interopRequireDefault(_BrandsList);
 
-  var _HyperMarket = _require(_dependencyMap[10], "./src/screens/main/HyperMarket");
+  var _BrandDetails = _require(_dependencyMap[11], "./src/screens/main/BrandsList/BrandDetails");
+
+  var _BrandDetails2 = _interopRequireDefault(_BrandDetails);
+
+  var _HyperMarket = _require(_dependencyMap[12], "./src/screens/main/HyperMarket");
 
   var _HyperMarket2 = _interopRequireDefault(_HyperMarket);
 
-  var _SideDrawer = _require(_dependencyMap[11], "./src/components/SideDrawer/SideDrawer");
+  var _marketDetails = _require(_dependencyMap[13], "./src/screens/main/marketDetails/marketDetails");
+
+  var _marketDetails2 = _interopRequireDefault(_marketDetails);
+
+  var _flyerCarousel = _require(_dependencyMap[14], "./src/screens/main/marketDetails/flyerCarousel");
+
+  var _flyerCarousel2 = _interopRequireDefault(_flyerCarousel);
+
+  var _SideDrawer = _require(_dependencyMap[15], "./src/components/SideDrawer/SideDrawer");
 
   var _SideDrawer2 = _interopRequireDefault(_SideDrawer);
 
@@ -73,6 +89,10 @@ __d(function (global, _require, module, exports, _dependencyMap) {
     return _Mall2.default;
   });
 
+  _reactNativeNavigation.Navigation.registerComponent("Wafi.mallDetails", function () {
+    return _mallDetails2.default;
+  });
+
   _reactNativeNavigation.Navigation.registerComponent("Wafi.Brands", function () {
     return _Brands2.default;
   });
@@ -81,8 +101,20 @@ __d(function (global, _require, module, exports, _dependencyMap) {
     return _BrandsList2.default;
   });
 
+  _reactNativeNavigation.Navigation.registerComponent("Wafi.BrandDetails", function () {
+    return _BrandDetails2.default;
+  });
+
   _reactNativeNavigation.Navigation.registerComponent("Wafi.HyperMarket", function () {
     return _HyperMarket2.default;
+  });
+
+  _reactNativeNavigation.Navigation.registerComponent("Wafi.marketDetails", function () {
+    return _marketDetails2.default;
+  });
+
+  _reactNativeNavigation.Navigation.registerComponent("Wafi.flyerCarousel", function () {
+    return _flyerCarousel2.default;
   });
 
   _reactNativeNavigation.Navigation.registerComponent("Wafi.SideDrawer", function () {
@@ -160,8 +192,8 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                 screen: 'Wafi.Mall',
                 label: 'Mall',
                 title: 'Mall',
-                icon: _require(_dependencyMap[12], './src/img/header_Logo.png'),
-                selectedIcon: _require(_dependencyMap[12], './src/img/header_Logo.png'),
+                icon: _require(_dependencyMap[16], './src/img/header_Logo.png'),
+                selectedIcon: _require(_dependencyMap[16], './src/img/header_Logo.png'),
                 navigatorStyle: {
                   navBarHidden: true
                 }

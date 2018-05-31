@@ -6,9 +6,13 @@ import Forgotpassword from './src/screens/Auth/Forgotpassword';
 import Offers from './src/screens/main/Offers';
 import OffersList from './src/screens/main/OffersList/OffersList';
 import Mall from './src/screens/main/Mall';
+import mallDetails from './src/screens/main/mallDetails/mallDetails';
 import Brands from './src/screens/main/Brands';
 import BrandsList from './src/screens/main/BrandsList/BrandsList';
+import BrandDetails from './src/screens/main/BrandsList/BrandDetails';
 import HyperMarket from './src/screens/main/HyperMarket';
+import marketDetails from './src/screens/main/marketDetails/marketDetails';
+import flyerCarousel from './src/screens/main/marketDetails/flyerCarousel';
 import SideDrawer from './src/components/SideDrawer/SideDrawer';
 
 // Register Login Screens
@@ -20,20 +24,24 @@ Navigation.registerComponent("Wafi.Forgotpassword", () => Forgotpassword);
 Navigation.registerComponent("Wafi.Offers", () => Offers);
 Navigation.registerComponent("Wafi.OffersList", () => OffersList);
 Navigation.registerComponent("Wafi.Mall", () => Mall);
+Navigation.registerComponent("Wafi.mallDetails", () => mallDetails);
 Navigation.registerComponent("Wafi.Brands", () => Brands);
 Navigation.registerComponent("Wafi.BrandsList", () => BrandsList);
+Navigation.registerComponent("Wafi.BrandDetails", () => BrandDetails);
 Navigation.registerComponent("Wafi.HyperMarket", () => HyperMarket);
+Navigation.registerComponent("Wafi.marketDetails", () => marketDetails);
+Navigation.registerComponent("Wafi.flyerCarousel", () => flyerCarousel);
 
 Navigation.registerComponent("Wafi.SideDrawer", () => SideDrawer);
 
 Navigation.startSingleScreenApp({
-  screen : {
-    screen : "Wafi.AuthScreen",
-    navigatorStyle:  {
+  screen: {
+    screen: "Wafi.AuthScreen",
+    navigatorStyle: {
       navBarHidden: true
-    }, 
+    },
   }
-});  
+});
 
 async function prepareIcons() {
   const icons = await Promise.all([
@@ -49,71 +57,71 @@ async function prepareIcons() {
 // and then
 async function startApp() {
   const icons = await prepareIcons();
-    Navigation.startTabBasedApp({
-      tabs: [
-                {
-                    screen: 'Wafi.Offers', 
-                    label: 'Offers',        
-                    title: 'Offers', 
-                    icon: icons.home, 
-                    
-                    navigatorStyle:  {
-                      navBarHidden: true
-                    }
-                },
-                {
-                    screen: 'Wafi.Brands', 
-                    label: 'Brands', 
-                    title: 'Brands',              
-                    icon: icons.pricetag,
-                    navigatorStyle:  {
-                      navBarHidden: true
-                    } 
-                },
-                {
-                    screen: 'Wafi.Mall',
-                    label: 'Mall',  
-                    title: 'Mall',
-                    icon: require('./src/img/header_Logo.png'), 
-                    selectedIcon: require('./src/img/header_Logo.png'), 
-                    navigatorStyle:  {
-                      navBarHidden: true
-                    }
-                },
-                {
-                    screen: 'Wafi.HyperMarket', 
-                    label: 'Market',
-                    title: 'Market',                   
-                    icon: icons.cart,
-                    navigatorStyle:  {
-                      navBarHidden: true
-                    } 
-                }
-        ],
-        appStyle: { 
-          orientation: 'portrait',
-          tabBarButtonColor: '#4d535e', 
-          tabBarSelectedButtonColor: '#ec1172',
-          tabBarBackgroundColor: '#ffffff', 
-          initialTabIndex: 0, 
-          tabBarTranslucent: true,
-          forceTitlesDisplay: true,
-          tabFontSize : 13,
-          selectedTabFontSize : 13,
-          navBarTitleFontFamily: "MyriadPro-Regular", 
-          navBarNoBorder: true,
-        },
-        animationType: 'fade',
-        drawer: {
-          left: { 
-            screen: 'Wafi.SideDrawer',
-          },
+  Navigation.startTabBasedApp({
+    tabs: [
+      {
+        screen: 'Wafi.Offers',
+        label: 'Offers',
+        title: 'Offers',
+        icon: icons.home,
+
+        navigatorStyle: {
+          navBarHidden: true
         }
-          
-    });
+      },
+      {
+        screen: 'Wafi.Brands',
+        label: 'Brands',
+        title: 'Brands',
+        icon: icons.pricetag,
+        navigatorStyle: {
+          navBarHidden: true
+        }
+      },
+      {
+        screen: 'Wafi.Mall',
+        label: 'Mall',
+        title: 'Mall',
+        icon: require('./src/img/header_Logo.png'),
+        selectedIcon: require('./src/img/header_Logo.png'),
+        navigatorStyle: {
+          navBarHidden: true
+        }
+      },
+      {
+        screen: 'Wafi.HyperMarket',
+        label: 'Market',
+        title: 'Market',
+        icon: icons.cart,
+        navigatorStyle: {
+          navBarHidden: true
+        }
+      }
+    ],
+    appStyle: {
+      orientation: 'portrait',
+      tabBarButtonColor: '#4d535e',
+      tabBarSelectedButtonColor: '#ec1172',
+      tabBarBackgroundColor: '#ffffff',
+      initialTabIndex: 0,
+      tabBarTranslucent: true,
+      forceTitlesDisplay: true,
+      tabFontSize: 13,
+      selectedTabFontSize: 13,
+      navBarTitleFontFamily: "MyriadPro-Regular",
+      navBarNoBorder: true,
+    },
+    animationType: 'fade',
+    drawer: {
+      left: {
+        screen: 'Wafi.SideDrawer',
+      },
+    }
 
-  }
+  });
 
-  // start the app
-  startApp();
+}
+
+// start the app
+startApp();
 

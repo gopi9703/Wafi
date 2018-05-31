@@ -3,46 +3,13 @@ import { View, Text, StyleSheet, Image, TextInput, TouchableOpacity, KeyboardAvo
 import LinearGradient from 'react-native-linear-gradient';
 import Navigation from 'react-native-navigation';
 import Logo from '../../components/Logo';
-import startMainTabs from '../main/startMainTabs';
+
 
 
 
 class AuthScreen extends Component {
 
 
-    constructor(props) {
-		super(props);
-
-		this._switchToTabBased = this._switchToTabBased.bind(this);
-	}
-
-	_switchToTabBased() {
-        Navigation.startTabBasedApp({
-            tabs: [
-                {
-                    screen: 'Wafi.Offers', 
-                    label: 'Offers',        
-                    title : 'Offers'
-                },
-                {
-                    screen: 'Wafi.Brands', 
-                    label: 'Brands',  
-                    title : 'Brands'
-                },
-                {
-                    screen: 'Wafi.Mall',
-                    label: 'Mall',  
-                    title : 'Mall'
-                },
-                {
-                    screen: 'Wafi.HyperMarket', 
-                    label: 'HyperMarket',  
-                    title : 'HyperMarket'
-                }
-            ]
-        });
-    	          
-	}
 
     handlePress = () => {
         this.props.navigator.push({
@@ -77,7 +44,7 @@ class AuthScreen extends Component {
                         <TextInput style={styles.inputBox} underlineColorAndroid='rgba(0,0,0,0)' placeholderTextColor="white"
                             placeholder="Password" secureTextEntry={true} />
                         <TouchableOpacity style={styles.buttonBlock}>
-                            <Text style={styles.buttonText} onPress={this._switchToTabBased}>Login</Text>
+                            <Text style={styles.buttonText}>Login</Text>
                         </TouchableOpacity>
                         <View style={styles.socialLoginWrapper}>
 

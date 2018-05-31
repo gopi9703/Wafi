@@ -21,11 +21,15 @@ __d(function (global, _require, module, exports, _dependencyMap) {
 
     var _Ionicons2 = _interopRequireDefault(_Ionicons);
 
-    var _FontStyle = _require(_dependencyMap[4], "../../../components/ReusableComponents/FontStyle");
+    var _BrandHeader = _require(_dependencyMap[4], "../../../screens/main/BrandHeader");
+
+    var _BrandHeader2 = _interopRequireDefault(_BrandHeader);
+
+    var _FontStyle = _require(_dependencyMap[5], "../../../components/ReusableComponents/FontStyle");
 
     var _FontStyle2 = _interopRequireDefault(_FontStyle);
 
-    var _HeaderText = _require(_dependencyMap[5], "../../../components/ReusableComponents/HeaderText");
+    var _HeaderText = _require(_dependencyMap[6], "../../../components/ReusableComponents/HeaderText");
 
     var _HeaderText2 = _interopRequireDefault(_HeaderText);
 
@@ -74,218 +78,15 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                         style: styles.bodyBg,
                         __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 10
+                            lineNumber: 11
                         }
                     },
-                    _react3.default.createElement(
-                        _reactNative.View,
-                        {
-                            style: styles.BrandIntro,
-                            __source: {
-                                fileName: _jsxFileName,
-                                lineNumber: 11
-                            }
-                        },
-                        _react3.default.createElement(
-                            _reactNative.View,
-                            {
-                                __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 12
-                                }
-                            },
-                            _react3.default.createElement(_reactNative.Image, {
-                                source: {
-                                    uri: 'https://res.cloudinary.com/simpleview/image/upload/crm/paducah/Dunkin-Donuts-Paducah-Kentucky0-9e503d415056a36_9e503ed3-5056-a36a-0a8f8108bf00f366.jpg'
-                                },
-                                style: styles.BrandLogo,
-                                __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 13
-                                }
-                            })
-                        ),
-                        _react3.default.createElement(
-                            _reactNative.View,
-                            {
-                                style: styles.infoWrpr,
-                                __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 16
-                                }
-                            },
-                            _react3.default.createElement(
-                                _reactNative.TouchableOpacity,
-                                {
-                                    __source: {
-                                        fileName: _jsxFileName,
-                                        lineNumber: 17
-                                    }
-                                },
-                                _react3.default.createElement(
-                                    _reactNative.View,
-                                    {
-                                        style: styles.IconBlk,
-                                        __source: {
-                                            fileName: _jsxFileName,
-                                            lineNumber: 18
-                                        }
-                                    },
-                                    _react3.default.createElement(_Ionicons2.default, {
-                                        name: "ios-call",
-                                        size: 30,
-                                        color: "#ffffff",
-                                        style: styles.iconStyler,
-                                        __source: {
-                                            fileName: _jsxFileName,
-                                            lineNumber: 19
-                                        }
-                                    }),
-                                    _react3.default.createElement(
-                                        _FontStyle2.default,
-                                        {
-                                            __source: {
-                                                fileName: _jsxFileName,
-                                                lineNumber: 20
-                                            }
-                                        },
-                                        " ",
-                                        _react3.default.createElement(
-                                            _reactNative.Text,
-                                            {
-                                                style: [styles.iconText],
-                                                __source: {
-                                                    fileName: _jsxFileName,
-                                                    lineNumber: 20
-                                                }
-                                            },
-                                            "Contact"
-                                        )
-                                    )
-                                )
-                            ),
-                            _react3.default.createElement(
-                                _reactNative.TouchableOpacity,
-                                {
-                                    __source: {
-                                        fileName: _jsxFileName,
-                                        lineNumber: 23
-                                    }
-                                },
-                                _react3.default.createElement(
-                                    _reactNative.View,
-                                    {
-                                        style: styles.IconBlk,
-                                        __source: {
-                                            fileName: _jsxFileName,
-                                            lineNumber: 24
-                                        }
-                                    },
-                                    _react3.default.createElement(_Ionicons2.default, {
-                                        name: "ios-pin",
-                                        size: 30,
-                                        color: "#ffffff",
-                                        style: [styles.iconStyler, styles.location],
-                                        __source: {
-                                            fileName: _jsxFileName,
-                                            lineNumber: 25
-                                        }
-                                    }),
-                                    _react3.default.createElement(
-                                        _reactNative.Text,
-                                        {
-                                            style: [styles.iconText],
-                                            __source: {
-                                                fileName: _jsxFileName,
-                                                lineNumber: 26
-                                            }
-                                        },
-                                        "Location"
-                                    )
-                                )
-                            ),
-                            _react3.default.createElement(
-                                _reactNative.TouchableOpacity,
-                                {
-                                    __source: {
-                                        fileName: _jsxFileName,
-                                        lineNumber: 29
-                                    }
-                                },
-                                _react3.default.createElement(
-                                    _reactNative.View,
-                                    {
-                                        style: styles.IconBlk,
-                                        __source: {
-                                            fileName: _jsxFileName,
-                                            lineNumber: 30
-                                        }
-                                    },
-                                    _react3.default.createElement(_Ionicons2.default, {
-                                        name: "md-share",
-                                        size: 28,
-                                        color: "#ffffff",
-                                        style: [styles.iconStyler, styles.share],
-                                        __source: {
-                                            fileName: _jsxFileName,
-                                            lineNumber: 31
-                                        }
-                                    }),
-                                    _react3.default.createElement(
-                                        _reactNative.Text,
-                                        {
-                                            style: styles.iconText,
-                                            __source: {
-                                                fileName: _jsxFileName,
-                                                lineNumber: 32
-                                            }
-                                        },
-                                        "Share"
-                                    )
-                                )
-                            ),
-                            _react3.default.createElement(
-                                _reactNative.TouchableOpacity,
-                                {
-                                    __source: {
-                                        fileName: _jsxFileName,
-                                        lineNumber: 35
-                                    }
-                                },
-                                _react3.default.createElement(
-                                    _reactNative.View,
-                                    {
-                                        style: styles.IconBlk,
-                                        __source: {
-                                            fileName: _jsxFileName,
-                                            lineNumber: 36
-                                        }
-                                    },
-                                    _react3.default.createElement(_Ionicons2.default, {
-                                        name: "ios-heart",
-                                        size: 26,
-                                        color: "#ffffff",
-                                        style: [styles.iconStyler, styles.favorite],
-                                        __source: {
-                                            fileName: _jsxFileName,
-                                            lineNumber: 37
-                                        }
-                                    }),
-                                    _react3.default.createElement(
-                                        _reactNative.Text,
-                                        {
-                                            style: styles.iconText,
-                                            __source: {
-                                                fileName: _jsxFileName,
-                                                lineNumber: 38
-                                            }
-                                        },
-                                        "My Fav"
-                                    )
-                                )
-                            )
-                        )
-                    ),
+                    _react3.default.createElement(_BrandHeader2.default, {
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 13
+                        }
+                    }),
                     _react3.default.createElement(
                         _reactNative.View,
                         {
@@ -294,7 +95,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                             },
                             __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 45
+                                lineNumber: 15
                             }
                         },
                         _react3.default.createElement(_reactNative.Image, {
@@ -304,7 +105,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                             style: styles.BrandBanner,
                             __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 46
+                                lineNumber: 16
                             }
                         }),
                         _react3.default.createElement(
@@ -313,7 +114,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                 style: [styles.headerTitle, styles.brandOffPercent],
                                 __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 47
+                                    lineNumber: 17
                                 }
                             },
                             _react3.default.createElement(
@@ -321,7 +122,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                 {
                                     __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 48
+                                        lineNumber: 18
                                     }
                                 },
                                 "20% OFF"
@@ -334,7 +135,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                             style: styles.BrandDescWrap,
                             __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 52
+                                lineNumber: 22
                             }
                         },
                         _react3.default.createElement(
@@ -343,36 +144,27 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                 style: styles.blkViewBrand,
                                 __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 53
+                                    lineNumber: 23
                                 }
                             },
                             _react3.default.createElement(
-                                _reactNative.Text,
+                                _FontStyle2.default,
                                 {
+                                    style: styles.headerTitle,
                                     __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 54
+                                        lineNumber: 25
                                     }
                                 },
                                 _react3.default.createElement(
-                                    _FontStyle2.default,
+                                    _HeaderText2.default,
                                     {
-                                        style: styles.headerTitle,
                                         __source: {
                                             fileName: _jsxFileName,
-                                            lineNumber: 55
+                                            lineNumber: 26
                                         }
                                     },
-                                    _react3.default.createElement(
-                                        _HeaderText2.default,
-                                        {
-                                            __source: {
-                                                fileName: _jsxFileName,
-                                                lineNumber: 56
-                                            }
-                                        },
-                                        "Dunkin Donuts"
-                                    )
+                                    "Dunkin Donuts"
                                 )
                             ),
                             _react3.default.createElement(
@@ -381,7 +173,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                     style: styles.textColor,
                                     __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 59
+                                        lineNumber: 29
                                     }
                                 },
                                 _react3.default.createElement(
@@ -389,7 +181,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                     {
                                         __source: {
                                             fileName: _jsxFileName,
-                                            lineNumber: 60
+                                            lineNumber: 30
                                         }
                                     },
                                     "18 Days Left"
@@ -402,36 +194,27 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                 style: styles.blkViewBrand,
                                 __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 63
+                                    lineNumber: 33
                                 }
                             },
                             _react3.default.createElement(
-                                _reactNative.Text,
+                                _FontStyle2.default,
                                 {
+                                    style: styles.headerTitle,
                                     __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 64
+                                        lineNumber: 35
                                     }
                                 },
                                 _react3.default.createElement(
-                                    _FontStyle2.default,
+                                    _HeaderText2.default,
                                     {
-                                        style: styles.headerTitle,
                                         __source: {
                                             fileName: _jsxFileName,
-                                            lineNumber: 65
+                                            lineNumber: 36
                                         }
                                     },
-                                    _react3.default.createElement(
-                                        _HeaderText2.default,
-                                        {
-                                            __source: {
-                                                fileName: _jsxFileName,
-                                                lineNumber: 66
-                                            }
-                                        },
-                                        "Sample Description"
-                                    )
+                                    "Sample Description"
                                 )
                             ),
                             _react3.default.createElement(
@@ -440,7 +223,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                     style: styles.textColor,
                                     __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 69
+                                        lineNumber: 39
                                     }
                                 },
                                 _react3.default.createElement(_Ionicons2.default, {
@@ -450,7 +233,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                     style: [styles.timer],
                                     __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 70
+                                        lineNumber: 40
                                     }
                                 }),
                                 " ",
@@ -459,7 +242,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                     {
                                         __source: {
                                             fileName: _jsxFileName,
-                                            lineNumber: 70
+                                            lineNumber: 40
                                         }
                                     },
                                     " 09.00 - 11.00 pm"
@@ -472,7 +255,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                 style: styles.offerDesc,
                                 __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 73
+                                    lineNumber: 43
                                 }
                             },
                             _react3.default.createElement(
@@ -480,7 +263,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                 {
                                     __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 74
+                                        lineNumber: 44
                                     }
                                 },
                                 _react3.default.createElement(
@@ -489,7 +272,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                         style: styles.paraStyle,
                                         __source: {
                                             fileName: _jsxFileName,
-                                            lineNumber: 75
+                                            lineNumber: 45
                                         }
                                     },
                                     "Shake up the Summer with our Delicious Shakes! Limited Time Only. "

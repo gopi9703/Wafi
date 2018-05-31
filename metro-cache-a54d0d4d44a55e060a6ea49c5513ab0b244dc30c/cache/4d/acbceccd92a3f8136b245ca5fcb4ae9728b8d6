@@ -55,26 +55,71 @@ __d(function (global, _require, module, exports, _dependencyMap) {
     var ProductCards = _wrapComponent("ProductCards")(function (_Component) {
         _inherits(ProductCards, _Component);
 
-        function ProductCards() {
-            var _ref;
-
-            var _temp, _this, _ret;
-
+        function ProductCards(props) {
             _classCallCheck(this, ProductCards);
 
-            for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-                args[_key] = arguments[_key];
-            }
+            var _this = _possibleConstructorReturn(this, (ProductCards.__proto__ || Object.getPrototypeOf(ProductCards)).call(this, props));
 
-            return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = ProductCards.__proto__ || Object.getPrototypeOf(ProductCards)).call.apply(_ref, [this].concat(args))), _this), _this.OffersListHandler = function () {
+            _this.OffersListHandler = function () {
                 _this.props.navigator.push({
-                    screen: 'Wafi.OffersList'
+                    screen: 'Wafi.OffersList',
+                    animated: true,
+                    animationType: 'slide-horizontal',
+                    navigatorStyle: {
+                        navBarBackgroundColor: '#0A266D',
+                        navBarButtonColor: '#ffffff'
+                    },
+                    navigatorButtons: {
+                        rightButtons: [{
+                            icon: _require(_dependencyMap[5], '../../../src/img/header_Logo.png'),
+                            id: 'Back',
+                            disableIconTint: true
+                        }]
+                    }
                 });
-            }, _this.BrandsListHandler = function () {
+            };
+
+            _this.BrandListHandler = function () {
                 _this.props.navigator.push({
-                    screen: 'Wafi.BrandsList'
+                    screen: 'Wafi.BrandsList',
+                    animated: true,
+                    animationType: 'slide-horizontal',
+                    navigatorStyle: {
+                        navBarBackgroundColor: '#0A266D',
+                        navBarButtonColor: '#ffffff'
+                    },
+                    navigatorButtons: {
+                        rightButtons: [{
+                            icon: _require(_dependencyMap[5], '../../../src/img/header_Logo.png'),
+                            id: 'Back',
+                            disableIconTint: true
+                        }]
+                    }
                 });
-            }, _temp), _possibleConstructorReturn(_this, _ret);
+            };
+
+            _this.BrandDetailsHandler = function () {
+                _this.props.navigator.push({
+                    screen: 'Wafi.BrandDetails',
+                    animated: true,
+                    animationType: 'slide-horizontal',
+                    navigatorStyle: {
+                        navBarBackgroundColor: '#0A266D',
+                        navBarButtonColor: '#ffffff'
+                    },
+                    navigatorButtons: {
+                        rightButtons: [{
+                            icon: _require(_dependencyMap[5], '../../../src/img/header_Logo.png'),
+                            id: 'Back',
+                            disableIconTint: true
+                        }]
+                    }
+                });
+            };
+
+            _this.props.navigator.setOnNavigatorEvent(_this.OnNavigatorEvent);
+
+            return _this;
         }
 
         _createClass(ProductCards, [{
@@ -86,7 +131,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                         style: styles.prdtWrapr,
                         __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 24
+                            lineNumber: 86
                         }
                     },
                     _react3.default.createElement(
@@ -95,7 +140,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                             style: styles.gridItem,
                             __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 25
+                                lineNumber: 87
                             }
                         },
                         _react3.default.createElement(
@@ -104,7 +149,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                 style: styles.gridWrapr,
                                 __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 26
+                                    lineNumber: 88
                                 }
                             },
                             _react3.default.createElement(
@@ -113,7 +158,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                     onPress: this.OffersListHandler,
                                     __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 27
+                                        lineNumber: 89
                                     }
                                 },
                                 _react3.default.createElement(_reactNative.Image, {
@@ -123,7 +168,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                     style: styles.ProductImg,
                                     __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 28
+                                        lineNumber: 90
                                     }
                                 }),
                                 _react3.default.createElement(
@@ -132,7 +177,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                         style: styles.center,
                                         __source: {
                                             fileName: _jsxFileName,
-                                            lineNumber: 29
+                                            lineNumber: 91
                                         }
                                     },
                                     "50% OFF"
@@ -143,7 +188,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                         style: styles.prdDescr,
                                         __source: {
                                             fileName: _jsxFileName,
-                                            lineNumber: 30
+                                            lineNumber: 92
                                         }
                                     },
                                     _react3.default.createElement(
@@ -152,7 +197,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                             style: styles.offerTitle,
                                             __source: {
                                                 fileName: _jsxFileName,
-                                                lineNumber: 31
+                                                lineNumber: 93
                                             }
                                         },
                                         "Flat 50% OFF"
@@ -163,7 +208,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                             style: styles.offerDesc,
                                             __source: {
                                                 fileName: _jsxFileName,
-                                                lineNumber: 32
+                                                lineNumber: 94
                                             }
                                         },
                                         "Sample Description"
@@ -178,7 +223,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                             style: styles.gridItem,
                             __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 37
+                                lineNumber: 99
                             }
                         },
                         _react3.default.createElement(
@@ -187,16 +232,16 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                 style: styles.gridWrapr,
                                 __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 38
+                                    lineNumber: 100
                                 }
                             },
                             _react3.default.createElement(
                                 _reactNative.TouchableOpacity,
                                 {
-                                    onPress: this.BrandsListHandler,
+                                    onPress: this.BrandListHandler,
                                     __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 39
+                                        lineNumber: 101
                                     }
                                 },
                                 _react3.default.createElement(_reactNative.Image, {
@@ -206,7 +251,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                     style: styles.ProductImg,
                                     __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 40
+                                        lineNumber: 102
                                     }
                                 }),
                                 _react3.default.createElement(
@@ -215,7 +260,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                         style: styles.center,
                                         __source: {
                                             fileName: _jsxFileName,
-                                            lineNumber: 41
+                                            lineNumber: 103
                                         }
                                     },
                                     "50% OFF"
@@ -226,7 +271,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                         style: styles.prdDescr,
                                         __source: {
                                             fileName: _jsxFileName,
-                                            lineNumber: 42
+                                            lineNumber: 104
                                         }
                                     },
                                     _react3.default.createElement(
@@ -235,7 +280,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                             style: styles.offerTitle,
                                             __source: {
                                                 fileName: _jsxFileName,
-                                                lineNumber: 43
+                                                lineNumber: 105
                                             }
                                         },
                                         "Flat 50% OFF"
@@ -246,7 +291,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                             style: styles.offerDesc,
                                             __source: {
                                                 fileName: _jsxFileName,
-                                                lineNumber: 44
+                                                lineNumber: 106
                                             }
                                         },
                                         "Sample Description"
@@ -261,7 +306,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                             style: styles.gridItem,
                             __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 49
+                                lineNumber: 111
                             }
                         },
                         _react3.default.createElement(
@@ -270,7 +315,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                 style: styles.gridWrapr,
                                 __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 50
+                                    lineNumber: 112
                                 }
                             },
                             _react3.default.createElement(
@@ -278,7 +323,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                 {
                                     __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 51
+                                        lineNumber: 113
                                     }
                                 },
                                 _react3.default.createElement(_reactNative.Image, {
@@ -288,7 +333,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                     style: styles.ProductImg,
                                     __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 52
+                                        lineNumber: 114
                                     }
                                 }),
                                 _react3.default.createElement(
@@ -297,7 +342,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                         style: styles.center,
                                         __source: {
                                             fileName: _jsxFileName,
-                                            lineNumber: 53
+                                            lineNumber: 115
                                         }
                                     },
                                     "50% OFF"
@@ -308,7 +353,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                         style: styles.prdDescr,
                                         __source: {
                                             fileName: _jsxFileName,
-                                            lineNumber: 54
+                                            lineNumber: 116
                                         }
                                     },
                                     _react3.default.createElement(
@@ -317,7 +362,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                             style: styles.offerTitle,
                                             __source: {
                                                 fileName: _jsxFileName,
-                                                lineNumber: 55
+                                                lineNumber: 117
                                             }
                                         },
                                         "Flat 50% OFF"
@@ -328,7 +373,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                             style: styles.offerDesc,
                                             __source: {
                                                 fileName: _jsxFileName,
-                                                lineNumber: 56
+                                                lineNumber: 118
                                             }
                                         },
                                         "Sample Description"
@@ -343,7 +388,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                             style: styles.gridItem,
                             __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 61
+                                lineNumber: 123
                             }
                         },
                         _react3.default.createElement(
@@ -352,7 +397,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                 style: styles.gridWrapr,
                                 __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 62
+                                    lineNumber: 124
                                 }
                             },
                             _react3.default.createElement(
@@ -360,7 +405,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                 {
                                     __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 63
+                                        lineNumber: 125
                                     }
                                 },
                                 _react3.default.createElement(_reactNative.Image, {
@@ -370,7 +415,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                     style: styles.ProductImg,
                                     __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 64
+                                        lineNumber: 126
                                     }
                                 }),
                                 _react3.default.createElement(
@@ -379,7 +424,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                         style: styles.center,
                                         __source: {
                                             fileName: _jsxFileName,
-                                            lineNumber: 65
+                                            lineNumber: 127
                                         }
                                     },
                                     "50% OFF"
@@ -390,7 +435,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                         style: styles.prdDescr,
                                         __source: {
                                             fileName: _jsxFileName,
-                                            lineNumber: 66
+                                            lineNumber: 128
                                         }
                                     },
                                     _react3.default.createElement(
@@ -399,7 +444,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                             style: styles.offerTitle,
                                             __source: {
                                                 fileName: _jsxFileName,
-                                                lineNumber: 67
+                                                lineNumber: 129
                                             }
                                         },
                                         "Flat 50% OFF"
@@ -410,7 +455,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                             style: styles.offerDesc,
                                             __source: {
                                                 fileName: _jsxFileName,
-                                                lineNumber: 68
+                                                lineNumber: 130
                                             }
                                         },
                                         "Sample Description"
@@ -425,7 +470,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                             style: styles.gridItem,
                             __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 73
+                                lineNumber: 135
                             }
                         },
                         _react3.default.createElement(
@@ -434,7 +479,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                 style: styles.gridWrapr,
                                 __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 74
+                                    lineNumber: 136
                                 }
                             },
                             _react3.default.createElement(
@@ -442,7 +487,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                 {
                                     __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 75
+                                        lineNumber: 137
                                     }
                                 },
                                 _react3.default.createElement(_reactNative.Image, {
@@ -452,7 +497,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                     style: styles.ProductImg,
                                     __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 76
+                                        lineNumber: 138
                                     }
                                 }),
                                 _react3.default.createElement(
@@ -461,7 +506,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                         style: styles.center,
                                         __source: {
                                             fileName: _jsxFileName,
-                                            lineNumber: 77
+                                            lineNumber: 139
                                         }
                                     },
                                     "50% OFF"
@@ -472,7 +517,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                         style: styles.prdDescr,
                                         __source: {
                                             fileName: _jsxFileName,
-                                            lineNumber: 78
+                                            lineNumber: 140
                                         }
                                     },
                                     _react3.default.createElement(
@@ -481,7 +526,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                             style: styles.offerTitle,
                                             __source: {
                                                 fileName: _jsxFileName,
-                                                lineNumber: 79
+                                                lineNumber: 141
                                             }
                                         },
                                         "Flat 50% OFF"
@@ -492,7 +537,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                             style: styles.offerDesc,
                                             __source: {
                                                 fileName: _jsxFileName,
-                                                lineNumber: 80
+                                                lineNumber: 142
                                             }
                                         },
                                         "Sample Description"
@@ -507,7 +552,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                             style: styles.gridItem,
                             __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 85
+                                lineNumber: 147
                             }
                         },
                         _react3.default.createElement(
@@ -516,7 +561,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                 style: styles.gridWrapr,
                                 __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 86
+                                    lineNumber: 148
                                 }
                             },
                             _react3.default.createElement(
@@ -524,7 +569,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                 {
                                     __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 87
+                                        lineNumber: 149
                                     }
                                 },
                                 _react3.default.createElement(_reactNative.Image, {
@@ -534,7 +579,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                     style: styles.ProductImg,
                                     __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 88
+                                        lineNumber: 150
                                     }
                                 }),
                                 _react3.default.createElement(
@@ -543,7 +588,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                         style: styles.center,
                                         __source: {
                                             fileName: _jsxFileName,
-                                            lineNumber: 89
+                                            lineNumber: 151
                                         }
                                     },
                                     "50% OFF"
@@ -554,7 +599,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                         style: styles.prdDescr,
                                         __source: {
                                             fileName: _jsxFileName,
-                                            lineNumber: 90
+                                            lineNumber: 152
                                         }
                                     },
                                     _react3.default.createElement(
@@ -563,7 +608,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                             style: styles.offerTitle,
                                             __source: {
                                                 fileName: _jsxFileName,
-                                                lineNumber: 91
+                                                lineNumber: 153
                                             }
                                         },
                                         "Flat 50% OFF"
@@ -574,7 +619,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                             style: styles.offerDesc,
                                             __source: {
                                                 fileName: _jsxFileName,
-                                                lineNumber: 92
+                                                lineNumber: 154
                                             }
                                         },
                                         "Sample Description"
@@ -589,7 +634,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                             style: styles.gridItem,
                             __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 97
+                                lineNumber: 159
                             }
                         },
                         _react3.default.createElement(
@@ -598,15 +643,16 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                 style: styles.gridWrapr,
                                 __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 98
+                                    lineNumber: 160
                                 }
                             },
                             _react3.default.createElement(
                                 _reactNative.TouchableOpacity,
                                 {
+                                    onPress: this.BrandDetailsHandler,
                                     __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 99
+                                        lineNumber: 161
                                     }
                                 },
                                 _react3.default.createElement(_reactNative.Image, {
@@ -616,7 +662,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                     style: styles.ProductImg,
                                     __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 100
+                                        lineNumber: 162
                                     }
                                 }),
                                 _react3.default.createElement(
@@ -625,7 +671,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                         style: styles.center,
                                         __source: {
                                             fileName: _jsxFileName,
-                                            lineNumber: 101
+                                            lineNumber: 163
                                         }
                                     },
                                     "50% OFF"
@@ -636,7 +682,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                         style: styles.prdDescr,
                                         __source: {
                                             fileName: _jsxFileName,
-                                            lineNumber: 102
+                                            lineNumber: 164
                                         }
                                     },
                                     _react3.default.createElement(
@@ -645,7 +691,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                             style: styles.offerTitle,
                                             __source: {
                                                 fileName: _jsxFileName,
-                                                lineNumber: 103
+                                                lineNumber: 165
                                             }
                                         },
                                         "Flat 50% OFF"
@@ -656,7 +702,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                             style: styles.offerDesc,
                                             __source: {
                                                 fileName: _jsxFileName,
-                                                lineNumber: 104
+                                                lineNumber: 166
                                             }
                                         },
                                         "Sample Description"

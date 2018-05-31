@@ -9,7 +9,7 @@ class Mall extends Component {
     return (
       <View>
        <Header />   
-       <ProductList />
+       <ProductList navigator={this.props.navigator} />
       </View>
    )
   }

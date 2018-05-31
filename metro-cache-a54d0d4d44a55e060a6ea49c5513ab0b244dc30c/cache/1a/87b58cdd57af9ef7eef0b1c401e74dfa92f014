@@ -29,10 +29,6 @@ __d(function (global, _require, module, exports, _dependencyMap) {
 
     var _Logo2 = _interopRequireDefault(_Logo);
 
-    var _startMainTabs = _require(_dependencyMap[6], "../main/startMainTabs");
-
-    var _startMainTabs2 = _interopRequireDefault(_startMainTabs);
-
     function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
     function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -63,57 +59,35 @@ __d(function (global, _require, module, exports, _dependencyMap) {
     var AuthScreen = _wrapComponent("AuthScreen")(function (_Component) {
         _inherits(AuthScreen, _Component);
 
-        function AuthScreen(props) {
+        function AuthScreen() {
+            var _ref;
+
+            var _temp, _this, _ret;
+
             _classCallCheck(this, AuthScreen);
 
-            var _this = _possibleConstructorReturn(this, (AuthScreen.__proto__ || Object.getPrototypeOf(AuthScreen)).call(this, props));
+            for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+                args[_key] = arguments[_key];
+            }
 
-            _this.handlePress = function () {
+            return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = AuthScreen.__proto__ || Object.getPrototypeOf(AuthScreen)).call.apply(_ref, [this].concat(args))), _this), _this.handlePress = function () {
                 _this.props.navigator.push({
                     screen: 'Wafi.Register',
                     navigatorStyle: {
                         navBarHidden: true
                     }
                 });
-            };
-
-            _this.ForgotPassword = function () {
+            }, _this.ForgotPassword = function () {
                 _this.props.navigator.push({
                     screen: 'Wafi.Forgotpassword',
                     navigatorStyle: {
                         navBarHidden: true
                     }
                 });
-            };
-
-            _this._switchToTabBased = _this._switchToTabBased.bind(_this);
-            return _this;
+            }, _temp), _possibleConstructorReturn(_this, _ret);
         }
 
         _createClass(AuthScreen, [{
-            key: "_switchToTabBased",
-            value: function _switchToTabBased() {
-                _reactNativeNavigation2.default.startTabBasedApp({
-                    tabs: [{
-                        screen: 'Wafi.Offers',
-                        label: 'Offers',
-                        title: 'Offers'
-                    }, {
-                        screen: 'Wafi.Brands',
-                        label: 'Brands',
-                        title: 'Brands'
-                    }, {
-                        screen: 'Wafi.Mall',
-                        label: 'Mall',
-                        title: 'Mall'
-                    }, {
-                        screen: 'Wafi.HyperMarket',
-                        label: 'HyperMarket',
-                        title: 'HyperMarket'
-                    }]
-                });
-            }
-        }, {
             key: "render",
             value: function render() {
                 return _react3.default.createElement(
@@ -123,7 +97,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                         style: styles.linearGradient,
                         __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 70
+                            lineNumber: 37
                         }
                     },
                     _react3.default.createElement(
@@ -134,7 +108,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                             enabled: true,
                             __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 71
+                                lineNumber: 38
                             }
                         },
                         _react3.default.createElement(
@@ -143,13 +117,13 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                 style: styles.container,
                                 __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 72
+                                    lineNumber: 39
                                 }
                             },
                             _react3.default.createElement(_Logo2.default, {
                                 __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 73
+                                    lineNumber: 40
                                 }
                             }),
                             _react3.default.createElement(_reactNative.TextInput, {
@@ -159,7 +133,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                 placeholder: "Email/Mobile",
                                 __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 75
+                                    lineNumber: 42
                                 }
                             }),
                             _react3.default.createElement(_reactNative.TextInput, {
@@ -170,7 +144,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                 secureTextEntry: true,
                                 __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 77
+                                    lineNumber: 44
                                 }
                             }),
                             _react3.default.createElement(
@@ -179,17 +153,16 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                     style: styles.buttonBlock,
                                     __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 79
+                                        lineNumber: 46
                                     }
                                 },
                                 _react3.default.createElement(
                                     _reactNative.Text,
                                     {
                                         style: styles.buttonText,
-                                        onPress: this._switchToTabBased,
                                         __source: {
                                             fileName: _jsxFileName,
-                                            lineNumber: 80
+                                            lineNumber: 47
                                         }
                                     },
                                     "Login"
@@ -201,7 +174,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                     style: styles.socialLoginWrapper,
                                     __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 82
+                                        lineNumber: 49
                                     }
                                 },
                                 _react3.default.createElement(
@@ -210,7 +183,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                         style: styles.facebook,
                                         __source: {
                                             fileName: _jsxFileName,
-                                            lineNumber: 84
+                                            lineNumber: 51
                                         }
                                     },
                                     "Login with Facebook"
@@ -221,7 +194,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                         style: styles.google,
                                         __source: {
                                             fileName: _jsxFileName,
-                                            lineNumber: 85
+                                            lineNumber: 52
                                         }
                                     },
                                     "Login with Google"
@@ -234,7 +207,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                 style: styles.singUpTextBlk,
                                 __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 89
+                                    lineNumber: 56
                                 }
                             },
                             _react3.default.createElement(
@@ -242,7 +215,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                 {
                                     __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 90
+                                        lineNumber: 57
                                     }
                                 },
                                 _react3.default.createElement(
@@ -252,7 +225,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                         onPress: this.handlePress,
                                         __source: {
                                             fileName: _jsxFileName,
-                                            lineNumber: 91
+                                            lineNumber: 58
                                         }
                                     },
                                     "New here? Sign Up"
@@ -263,7 +236,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                 {
                                     __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 93
+                                        lineNumber: 60
                                     }
                                 },
                                 _react3.default.createElement(
@@ -273,7 +246,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                         onPress: this.ForgotPassword,
                                         __source: {
                                             fileName: _jsxFileName,
-                                            lineNumber: 94
+                                            lineNumber: 61
                                         }
                                     },
                                     "Forgot Password"

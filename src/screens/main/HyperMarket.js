@@ -1,17 +1,20 @@
-import React, { Component }  from 'react';
-import {View, Text, StyleSheet, Image,TextInput,TouchableOpacity,KeyboardAvoidingView} from 'react-native';
+import React, { Component } from "react";
+import { View, Text, Image} from "react-native";
+import Header from '../../components/Header/Header';
+import MarketProductList from '../../components/ProductList/MarketProductList';
 
 
-class HyperMarket extends Component{
-
-    render(){
-        return(
-            <View>
-
-                <Text>HyperMarket</Text>
-            </View>
-        );
-    }
+class HyperMaket extends Component {
+  render(){
+    return (
+      <View>
+       <Header />   
+       <MarketProductList  navigator={this.props.navigator} />
+      </View>
+   )
+  }
 }
 
-export default HyperMarket;
+export default HyperMaket;
+
+

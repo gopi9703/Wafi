@@ -17,6 +17,18 @@ __d(function (global, _require, module, exports, _dependencyMap) {
 
   var _reactNative = _require(_dependencyMap[2], "react-native");
 
+  var _reactNativeNavigation = _require(_dependencyMap[3], "react-native-navigation");
+
+  var _reactNativeNavigation2 = _interopRequireDefault(_reactNativeNavigation);
+
+  var _Ionicons = _require(_dependencyMap[4], "react-native-vector-icons/Ionicons");
+
+  var _Ionicons2 = _interopRequireDefault(_Ionicons);
+
+  var _FontStyle = _require(_dependencyMap[5], "../ReusableComponents/FontStyle");
+
+  var _FontStyle2 = _interopRequireDefault(_FontStyle);
+
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
   function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -47,34 +59,206 @@ __d(function (global, _require, module, exports, _dependencyMap) {
   var ProductList = _wrapComponent("ProductList")(function (_Component) {
     _inherits(ProductList, _Component);
 
-    function ProductList() {
+    _createClass(ProductList, [{
+      key: "componentDidMount",
+      value: function componentDidMount() {
+        this.webCall();
+      }
+    }]);
+
+    function ProductList(props) {
       _classCallCheck(this, ProductList);
 
-      return _possibleConstructorReturn(this, (ProductList.__proto__ || Object.getPrototypeOf(ProductList)).apply(this, arguments));
+      var _this = _possibleConstructorReturn(this, (ProductList.__proto__ || Object.getPrototypeOf(ProductList)).call(this, props));
+
+      _this.mallDetailsHandler = function () {
+        _this.props.navigator.push({
+          screen: 'Wafi.mallDetails',
+          animated: true,
+          animationType: 'slide-horizontal',
+          navigatorStyle: {
+            navBarBackgroundColor: '#0A266D',
+            navBarButtonColor: '#ffffff'
+          }
+        });
+      };
+
+      _this.webCall = function () {
+        return fetch('https://reactnativecode.000webhostapp.com/FlowersList.php').then(function (response) {
+          return response.json();
+        }).then(function (responseJson) {
+          _this.setState({
+            isLoading: false,
+            dataSource: responseJson
+          }, function () {});
+        }).catch(function (error) {
+          console.error(error);
+        });
+      };
+
+      _this.FlatListItemSeparator = function () {
+        return _react3.default.createElement(_reactNative.View, {
+          style: {
+            height: 1,
+            width: "100%",
+            backgroundColor: "#607D8B"
+          },
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 52
+          }
+        });
+      };
+
+      _this.state = {
+        isLoading: true
+      };
+      return _this;
     }
 
     _createClass(ProductList, [{
       key: "render",
       value: function render() {
-        return _react3.default.createElement(
-          _reactNative.View,
-          {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 15
-            }
-          },
-          _react3.default.createElement(
-            _reactNative.Text,
+        var _this2 = this;
+
+        if (this.state.isLoading) {
+          return _react3.default.createElement(
+            _reactNative.View,
             {
+              style: {
+                flex: 1,
+                justifyContent: 'center',
+                alignItems: 'center'
+              },
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 16
+                lineNumber: 70
               }
             },
-            "1"
-          )
-        );
+            _react3.default.createElement(_reactNative.ActivityIndicator, {
+              size: "large",
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 78
+              }
+            })
+          );
+        }
+
+        return _react3.default.createElement(_reactNative.FlatList, {
+          style: {
+            padding: 15,
+            backgroundColor: '#D0D2D3'
+          },
+          initialNumToRender: 3,
+          data: this.state.dataSource,
+          renderItem: function renderItem(_ref) {
+            var item = _ref.item;
+            return _react3.default.createElement(
+              _reactNative.TouchableOpacity,
+              {
+                onPress: _this2.mallDetailsHandler,
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 90
+                }
+              },
+              _react3.default.createElement(
+                _reactNative.View,
+                {
+                  style: styles.rowBlk,
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 91
+                  }
+                },
+                _react3.default.createElement(
+                  _reactNative.View,
+                  {
+                    style: {
+                      flexDirection: 'row'
+                    },
+                    __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 92
+                    }
+                  },
+                  _react3.default.createElement(_reactNative.Image, {
+                    source: {
+                      uri: item.flower_image_url
+                    },
+                    style: styles.mallImg,
+                    __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 93
+                    }
+                  }),
+                  _react3.default.createElement(
+                    _reactNative.View,
+                    {
+                      style: styles.mallTxtCol,
+                      __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 94
+                      }
+                    },
+                    _react3.default.createElement(
+                      _FontStyle2.default,
+                      {
+                        style: styles.mallTitle,
+                        __source: {
+                          fileName: _jsxFileName,
+                          lineNumber: 95
+                        }
+                      },
+                      " ",
+                      item.flower_name,
+                      " "
+                    ),
+                    _react3.default.createElement(
+                      _FontStyle2.default,
+                      {
+                        style: styles.mallLocality,
+                        __source: {
+                          fileName: _jsxFileName,
+                          lineNumber: 96
+                        }
+                      },
+                      " Al Khuwair, Muscat, Oman "
+                    )
+                  )
+                ),
+                _react3.default.createElement(
+                  _reactNative.View,
+                  {
+                    __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 99
+                    }
+                  },
+                  _react3.default.createElement(_Ionicons2.default, {
+                    name: "ios-arrow-forward",
+                    size: 30,
+                    color: "#A6A8AB",
+                    __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 100
+                    }
+                  })
+                )
+              )
+            );
+          },
+          numColumns: 1,
+          keyExtractor: function keyExtractor(item) {
+            return item.id;
+          },
+          initialNumToRender: 10,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 87
+          }
+        });
       }
     }]);
 
@@ -85,14 +269,44 @@ __d(function (global, _require, module, exports, _dependencyMap) {
 
   var styles = _reactNative.StyleSheet.create({
     listWrapper: {
-      justifyContent: 'center',
       flex: 1,
-      margin: 5,
-      backgroundColor: '#000'
+      padding: 15,
+      backgroundColor: '#E6E7E8'
     },
     textStyle: {
       textAlign: 'center',
       fontSize: 21
+    },
+    rowBlk: {
+      marginVertical: 5,
+      borderRadius: 5,
+      paddingLeft: 10,
+      paddingRight: 15,
+      paddingVertical: 5,
+      backgroundColor: '#ffffff',
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-between'
+    },
+    mallImg: {
+      width: 80,
+      height: 80,
+      borderWidth: 1,
+      borderColor: '#D0D2D3',
+      marginRight: 10,
+      padding: 5
+    },
+    mallTxtCol: {
+      flexDirection: 'column',
+      paddingVertical: 10
+    },
+    mallTitle: {
+      fontSize: 16,
+      color: '#000'
+    },
+    mallLocality: {
+      fontSize: 14,
+      color: '#58595B'
     }
   });
 });
