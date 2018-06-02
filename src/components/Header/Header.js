@@ -2,13 +2,12 @@ import React, { Component }  from 'react';
 import {View, Text, StyleSheet, Image,TouchableOpacity,KeyboardAvoidingView} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Navigation from 'react-native-navigation';
-
+import SideDrawer from '../SideDrawer/SideDrawer';
 
  class Header extends Component{
 
     constructor(props){
         super(props)
-        
     }
 
     showLeftMenu(navigator) {
