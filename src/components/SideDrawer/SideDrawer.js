@@ -11,12 +11,12 @@ class SideDrawer extends Component {
         this._goToMovies = this._goToMovies.bind(this);
     }
 
-    
+
     _goToMovies() {
-		this.props.navigator.popToRoot({
-			screen: 'Wafi.AppExclusive'
-		});
-	}
+        this.props.navigator.popToRoot({
+            screen: 'Wafi.AppExclusive'
+        });
+    }
 
     /*appExclusive = () => {
         this.props.navigator.toggleDrawer({
@@ -44,42 +44,43 @@ class SideDrawer extends Component {
 
                 <TouchableOpacity>
                     <View style={styles.list__col}>
-                    <FontAwesome name='exclamation-circle' size={20} style={styles.iconStyler} />
+                        <FontAwesome name='exclamation-circle' size={20} style={styles.iconStyler} />
                         <Text style={styles.list}>About Us</Text>
                     </View>
                 </TouchableOpacity>
 
                 <TouchableOpacity>
                     <View style={styles.list__col}>
-                    <FontAwesome name='share-alt' size={20} style={styles.iconStyler} />
+
+                        <Icon name="md-share" size={20} color="#ffffff" style={styles.iconStyler} />
                         <Text style={styles.list}>Share this App</Text>
                     </View>
                 </TouchableOpacity>
 
                 <TouchableOpacity>
                     <View style={styles.list__col}>
-                    <FontAwesome name='star' size={20} style={styles.iconStyler} />
+                        <FontAwesome name='star' size={20} style={styles.iconStyler} />
                         <Text style={styles.list}>Rate this App</Text>
                     </View>
                 </TouchableOpacity>
 
                 <TouchableOpacity>
                     <View style={styles.list__col}>
-                    <FontAwesome name='bell' size={20} style={styles.iconStyler} />
+                        <FontAwesome name='bell' size={20} style={styles.iconStyler} />
                         <Text style={styles.list}>Notifications</Text>
                     </View>
                 </TouchableOpacity>
 
                 <TouchableOpacity>
                     <View style={styles.list__col}>
-                    <FontAwesome name='sticky-note' size={20} style={styles.iconStyler} />
+                        <FontAwesome name='sticky-note' size={20} style={styles.iconStyler} />
                         <Text style={styles.list}>Terms</Text>
                     </View>
                 </TouchableOpacity>
 
                 <TouchableOpacity>
                     <View style={styles.list__col}>
-                    <FontAwesome name='sign-in' size={20} style={styles.iconStyler} />
+                        <FontAwesome name='sign-in' size={20} style={styles.iconStyler} />
                         <Text style={styles.list}>Login</Text>
                     </View>
                 </TouchableOpacity>
@@ -113,12 +114,12 @@ const styles = StyleSheet.create({
     list: {
         fontSize: 16,
         color: '#282B32',
-       
+
         alignItems: 'center',
     },
     iconStyler: {
         color: '#282B32',
-        paddingHorizontal: 10,
+        paddingHorizontal: 20,
     }
 });
 
