@@ -8,7 +8,7 @@ class Mall extends Component {
   render(){
     return (
       <View>
-       <Header />   
+       <Header navigator={this.props.navigator} /> 
        <ProductList navigator={this.props.navigator} />
       </View>
    )

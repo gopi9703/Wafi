@@ -73,6 +73,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
             }
           },
           _react3.default.createElement(_Header2.default, {
+            navigator: this.props.navigator,
             __source: {
               fileName: _jsxFileName,
               lineNumber: 11

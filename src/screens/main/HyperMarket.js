@@ -8,7 +8,7 @@ class HyperMaket extends Component {
   render(){
     return (
       <View>
-       <Header />   
+      <Header navigator={this.props.navigator} />   
        <MarketProductList  navigator={this.props.navigator} />
       </View>
    )

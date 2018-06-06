@@ -15,6 +15,8 @@ import marketDetails from './src/screens/main/marketDetails/marketDetails';
 import flyerCarousel from './src/screens/main/marketDetails/flyerCarousel';
 import SideDrawer from './src/components/SideDrawer/SideDrawer';
 
+import AppExclusive from './src/screens/myAccount/AppExclusive';
+
 // Register Login Screens
 
 Navigation.registerComponent("Wafi.AuthScreen", () => AuthScreen);
@@ -33,6 +35,8 @@ Navigation.registerComponent("Wafi.marketDetails", () => marketDetails);
 Navigation.registerComponent("Wafi.flyerCarousel", () => flyerCarousel);
 
 Navigation.registerComponent("Wafi.SideDrawer", () => SideDrawer);
+
+Navigation.registerComponent("Wafi.AppExclusive", () => AppExclusive);
 
 Navigation.startSingleScreenApp({
   screen: {
@@ -53,6 +57,8 @@ async function prepareIcons() {
   const [home, cart, pricetag, notifications, profile] = icons;
   return { home, cart, pricetag, notifications, profile };
 }
+
+
 
 // and then
 async function startApp() {
@@ -124,4 +130,6 @@ async function startApp() {
 
 // start the app
 startApp();
+
+
 

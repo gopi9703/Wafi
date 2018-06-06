@@ -11,7 +11,7 @@ class Brands extends Component{
     render(){
         return(
             <View style={{flex:1}}> 
-                <Header />  
+                <Header navigator={this.props.navigator} /> 
                 <ScrollView ref={(c) => { this.parentScrollView = c; } }>
                 <View style={styles.filtrBlk}>
                     <TouchableOpacity>

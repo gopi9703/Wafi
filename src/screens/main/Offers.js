@@ -8,6 +8,11 @@ import Navigation from 'react-native-navigation';
 
 class Offers extends Component{
   
+    constructor(props) {
+        super(props)
+    }
+
+   
 
     render(){
 
@@ -31,7 +36,7 @@ class Offers extends Component{
         return(
             
             <View style={{flex:1}}>
-                <Header />
+                <Header navigator={this.props.navigator} />
                 <ScrollView ref={(c) => { this.parentScrollView = c; } }
 >
                 <SwipeableParallaxCarousel data={datacarousel} navigationType={'dots'} />

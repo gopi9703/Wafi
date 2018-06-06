@@ -63,10 +63,10 @@ __d(function (global, _require, module, exports, _dependencyMap) {
     var Offers = _wrapComponent("Offers")(function (_Component) {
         _inherits(Offers, _Component);
 
-        function Offers() {
+        function Offers(props) {
             _classCallCheck(this, Offers);
 
-            return _possibleConstructorReturn(this, (Offers.__proto__ || Object.getPrototypeOf(Offers)).apply(this, arguments));
+            return _possibleConstructorReturn(this, (Offers.__proto__ || Object.getPrototypeOf(Offers)).call(this, props));
         }
 
         _createClass(Offers, [{
@@ -92,13 +92,14 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                         },
                         __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 33
+                            lineNumber: 38
                         }
                     },
                     _react3.default.createElement(_Header2.default, {
+                        navigator: this.props.navigator,
                         __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 34
+                            lineNumber: 39
                         }
                     }),
                     _react3.default.createElement(
@@ -109,7 +110,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                             },
                             __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 35
+                                lineNumber: 40
                             }
                         },
                         _react3.default.createElement(_reactNativeSwipeableParallaxCarousel2.default, {
@@ -117,14 +118,14 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                             navigationType: 'dots',
                             __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 37
+                                lineNumber: 42
                             }
                         }),
                         _react3.default.createElement(_ProductCards2.default, {
                             navigator: this.props.navigator,
                             __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 38
+                                lineNumber: 43
                             }
                         })
                     )

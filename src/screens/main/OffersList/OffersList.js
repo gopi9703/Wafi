@@ -10,7 +10,7 @@ class OffersList extends Component {
         return (
             <View style={styles.bodyBg}>
 
-                <BrandHeader />
+                <BrandHeader  />
 
                 <View style={{ position: 'relative' }}>
                     <Image source={{ uri: 'http://www.dunkindonuts.pk/promo.jpg' }} style={styles.BrandBanner} />
