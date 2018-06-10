@@ -148,11 +148,11 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
   },
   mallTitle: {
-    fontSize: 16,
+    fontSize: 14,
     color: '#000',
   },
   mallLocality: {
-    fontSize: 14,
+    fontSize: 12,
     color: '#58595B'
   },
   iconAlign:{

@@ -205,25 +205,44 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                         }
                                     },
                                     _react3.default.createElement(
-                                        _reactNative.Text,
+                                        _reactNative.View,
                                         {
-                                            style: styles.stateChangeText,
+                                            style: styles.HeaderModalInner,
                                             __source: {
                                                 fileName: _jsxFileName,
                                                 lineNumber: 74
                                             }
                                         },
-                                        " Muscat ",
-                                        _react3.default.createElement(_Ionicons2.default, {
-                                            name: "ios-pin",
-                                            size: 20,
-                                            color: "#ffffff",
-                                            style: styles.hamburger,
-                                            __source: {
-                                                fileName: _jsxFileName,
-                                                lineNumber: 74
-                                            }
-                                        })
+                                        _react3.default.createElement(
+                                            _reactNative.Text,
+                                            {
+                                                style: styles.stateChangeText,
+                                                __source: {
+                                                    fileName: _jsxFileName,
+                                                    lineNumber: 75
+                                                }
+                                            },
+                                            " Muscat "
+                                        ),
+                                        _react3.default.createElement(
+                                            _reactNative.Text,
+                                            {
+                                                __source: {
+                                                    fileName: _jsxFileName,
+                                                    lineNumber: 76
+                                                }
+                                            },
+                                            _react3.default.createElement(_Ionicons2.default, {
+                                                name: "ios-pin",
+                                                size: 20,
+                                                color: "#ffffff",
+                                                style: styles.map__pin,
+                                                __source: {
+                                                    fileName: _jsxFileName,
+                                                    lineNumber: 77
+                                                }
+                                            })
+                                        )
                                     )
                                 )
                             )
@@ -236,7 +255,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                 },
                                 __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 78
+                                    lineNumber: 83
                                 }
                             },
                             _react3.default.createElement(_Ionicons2.default, {
@@ -246,7 +265,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                 style: styles.hamburger,
                                 __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 79
+                                    lineNumber: 84
                                 }
                             })
                         )
@@ -284,15 +303,26 @@ __d(function (global, _require, module, exports, _dependencyMap) {
         },
         HeaderModal: {
             flexDirection: 'row',
-            alignItems: 'center'
+            alignItems: 'center',
+            justifyContent: 'center'
         },
         stateChangeText: {
             color: 'white',
             paddingLeft: 10,
             fontSize: 16,
             alignItems: 'center',
-            padding: 5,
-            alignItems: 'flex-start'
+            padding: 5
+        },
+        HeaderModalInner: {
+            flexDirection: 'row',
+            alignItems: 'center'
+        },
+        map__pin: {
+            marginLeft: 5,
+            position: 'absolute',
+            top: 5,
+            borderColor: 'red',
+            borderWidth: 1
         }
     });
 

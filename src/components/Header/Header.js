@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity, KeyboardAvoidingView, TabBarIOS } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Navigation from 'react-native-navigation';
 import SideDrawer from '../SideDrawer/SideDrawer';
@@ -51,11 +51,11 @@ class Header extends Component {
                 backgroundColor: 'rgba(0,0,0,.5)',
                 tapBackgroundToDismiss: true
             },
-            adjustSoftInput: "resize", 
+            adjustSoftInput: "resize",
         });
     }
 
-    
+
 
 
     render() {
@@ -71,7 +71,12 @@ class Header extends Component {
                         <View style={styles.HeaderModal}>
                             <Image source={require('../../img/header_Logo.png')} style={styles.logoImg} />
                             <TouchableOpacity onPress={() => this.showHeaderModal(this.props.navigator)}>
-                                <Text style={styles.stateChangeText}> Muscat <Icon name="ios-pin" size={20} color="#ffffff" style={styles.hamburger} /></Text>
+                                <View style={styles.HeaderModalInner}>
+                                    <Text style={styles.stateChangeText}> Muscat </Text>
+                                    <Text>
+                                        <Icon name="ios-pin" size={20} color="#ffffff" style={styles.map__pin} />
+                                    </Text>
+                                </View>
                             </TouchableOpacity>
                         </View>
                     </View>
@@ -109,17 +114,28 @@ const styles = StyleSheet.create({
     hamburger: {
         padding: 5,
     },
-    HeaderModal:{
+    HeaderModal: {
         flexDirection: 'row',
-        alignItems : 'center'
+        alignItems: 'center',
+        justifyContent: 'center',
     },
-    stateChangeText:{
-        color: 'white', 
-        paddingLeft:10,
-        fontSize:16,
-        alignItems:'center',
-        padding : 5,
-        alignItems : 'flex-start'
+    stateChangeText: {
+        color: 'white',
+        paddingLeft: 10,
+        fontSize: 16,
+        alignItems: 'center',
+        padding: 5,
+    },
+    HeaderModalInner: {
+        flexDirection: 'row',
+        alignItems: 'center'
+    },
+    map__pin: {
+        marginLeft: 5,
+        position: 'absolute',
+        top: 5,
+        borderColor: 'red',
+        borderWidth: 1
     }
 });
 
