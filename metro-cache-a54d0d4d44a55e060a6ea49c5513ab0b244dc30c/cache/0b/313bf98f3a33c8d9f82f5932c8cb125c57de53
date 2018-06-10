@@ -50,21 +50,33 @@ __d(function (global, _require, module, exports, _dependencyMap) {
         _inherits(setStateModal, _Component);
 
         function setStateModal() {
+            var _ref;
+
+            var _temp, _this, _ret;
+
             _classCallCheck(this, setStateModal);
 
-            return _possibleConstructorReturn(this, (setStateModal.__proto__ || Object.getPrototypeOf(setStateModal)).apply(this, arguments));
+            for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+                args[_key] = arguments[_key];
+            }
+
+            return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = setStateModal.__proto__ || Object.getPrototypeOf(setStateModal)).call.apply(_ref, [this].concat(args))), _this), _this.hideModal = function (navigator) {
+                navigator.dismissLightBox();
+            }, _temp), _possibleConstructorReturn(_this, _ret);
         }
 
         _createClass(setStateModal, [{
             key: "render",
             value: function render() {
+                var _this2 = this;
+
                 return _react3.default.createElement(
                     _reactNative.View,
                     {
                         style: styles.modalWrapper,
                         __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 10
+                            lineNumber: 16
                         }
                     },
                     _react3.default.createElement(
@@ -73,7 +85,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                             style: styles.modalTitle,
                             __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 11
+                                lineNumber: 17
                             }
                         },
                         "Select Your Region"
@@ -83,7 +95,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                         {
                             __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 12
+                                lineNumber: 18
                             }
                         },
                         _react3.default.createElement(
@@ -92,52 +104,15 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                 style: styles.locateList,
                                 __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 13
+                                    lineNumber: 19
                                 }
                             },
                             _react3.default.createElement(
                                 _reactNative.TouchableOpacity,
                                 {
-                                    __source: {
-                                        fileName: _jsxFileName,
-                                        lineNumber: 14
-                                    }
-                                },
-                                _react3.default.createElement(
-                                    _reactNative.Text,
-                                    {
-                                        style: styles.citycol,
-                                        __source: {
-                                            fileName: _jsxFileName,
-                                            lineNumber: 15
-                                        }
+                                    onPress: function onPress() {
+                                        return _this2.hideModal(_this2.props.navigator);
                                     },
-                                    "Oman"
-                                )
-                            ),
-                            _react3.default.createElement(
-                                _reactNative.TouchableOpacity,
-                                {
-                                    __source: {
-                                        fileName: _jsxFileName,
-                                        lineNumber: 17
-                                    }
-                                },
-                                _react3.default.createElement(
-                                    _reactNative.Text,
-                                    {
-                                        style: styles.citycol,
-                                        __source: {
-                                            fileName: _jsxFileName,
-                                            lineNumber: 18
-                                        }
-                                    },
-                                    "Oman"
-                                )
-                            ),
-                            _react3.default.createElement(
-                                _reactNative.TouchableOpacity,
-                                {
                                     __source: {
                                         fileName: _jsxFileName,
                                         lineNumber: 20
@@ -410,6 +385,46 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                         __source: {
                                             fileName: _jsxFileName,
                                             lineNumber: 60
+                                        }
+                                    },
+                                    "Oman"
+                                )
+                            ),
+                            _react3.default.createElement(
+                                _reactNative.TouchableOpacity,
+                                {
+                                    __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 62
+                                    }
+                                },
+                                _react3.default.createElement(
+                                    _reactNative.Text,
+                                    {
+                                        style: styles.citycol,
+                                        __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 63
+                                        }
+                                    },
+                                    "Oman"
+                                )
+                            ),
+                            _react3.default.createElement(
+                                _reactNative.TouchableOpacity,
+                                {
+                                    __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 65
+                                    }
+                                },
+                                _react3.default.createElement(
+                                    _reactNative.Text,
+                                    {
+                                        style: styles.citycol,
+                                        __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 66
                                         }
                                     },
                                     "Oman"

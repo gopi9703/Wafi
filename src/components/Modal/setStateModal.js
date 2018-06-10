@@ -5,13 +5,19 @@ import {Navigation} from 'react-native-navigation';
 
 
 class setStateModal extends Component{
+
+    hideModal = (navigator) => {
+        navigator.dismissLightBox();
+
+    }
+
     render (){
         return (
             <View style={styles.modalWrapper}>
                 <Text style={styles.modalTitle}>Select Your Region</Text>
                 <ScrollView>
                     <View style={styles.locateList}>
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress={() => this.hideModal(this.props.navigator)}>
                             <Text style={styles.citycol}>Oman</Text>
                         </TouchableOpacity>
                         <TouchableOpacity>
