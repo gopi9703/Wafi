@@ -28,8 +28,6 @@ class SideDrawer extends Component {
         this.props.navigator.handleDeepLink({ link: "Wafi.AppExclusive" });
       }  */
 
-
-
     render() {
         return (
             <View style={{ width: Dimensions.get("window").width * 0.8, backgroundColor: '#ffffff', flex: 1 }}>

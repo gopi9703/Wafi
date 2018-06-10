@@ -1,0 +1,114 @@
+__d(function (global, _require, module, exports, _dependencyMap) {
+    Object.defineProperty(exports, "__esModule", {
+        value: true
+    });
+
+    var _react2 = _require(_dependencyMap[0], "react");
+
+    var _react3 = _interopRequireDefault(_react2);
+
+    var _index = _require(_dependencyMap[1], "./../../../node_modules/react-transform-hmr/lib/index.js");
+
+    var _index2 = _interopRequireDefault(_index);
+
+    var _jsxFileName = "/Users/gopiy/Documents/Wafi/src/screens/myAccount/About.js";
+
+    var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+    var _reactNative = _require(_dependencyMap[2], "react-native");
+
+    var _Header = _require(_dependencyMap[3], "../../components/Header/Header");
+
+    var _Header2 = _interopRequireDefault(_Header);
+
+    function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+    function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+    function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+    function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+    var _components = {
+        About: {
+            displayName: "About"
+        }
+    };
+
+    var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index2.default)({
+        filename: "/Users/gopiy/Documents/Wafi/src/screens/myAccount/About.js",
+        components: _components,
+        locals: [module],
+        imports: [_react3.default]
+    });
+
+    function _wrapComponent(id) {
+        return function (Component) {
+            return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
+        };
+    }
+
+    var About = _wrapComponent("About")(function (_Component) {
+        _inherits(About, _Component);
+
+        function About() {
+            _classCallCheck(this, About);
+
+            return _possibleConstructorReturn(this, (About.__proto__ || Object.getPrototypeOf(About)).apply(this, arguments));
+        }
+
+        _createClass(About, [{
+            key: "render",
+            value: function render() {
+                return _react3.default.createElement(
+                    _reactNative.View,
+                    {
+                        style: styles.bodyBg,
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 8
+                        }
+                    },
+                    _react3.default.createElement(_Header2.default, {
+                        navigator: this.props.navigator,
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 9
+                        }
+                    }),
+                    _react3.default.createElement(
+                        _reactNative.Text,
+                        {
+                            style: styles.aboutText,
+                            __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 10
+                            }
+                        },
+                        "Wafideals delivers all the useful information of offers all over the city. You can view general offers, and offers related to brands, malls and hypermarkets for better and easier user experience. There are lots of additional interesting features like sharing offers, locating store and more..."
+                    )
+                );
+            }
+        }]);
+
+        return About;
+    }(_react2.Component));
+
+    var styles = _reactNative.StyleSheet.create({
+        bodyBg: {
+            backgroundColor: '#E6E7E8',
+            flex: 1
+        },
+        aboutText: {
+            backgroundColor: '#ffffff',
+            padding: 10,
+            lineHeight: 25,
+            color: '#282B32',
+            fontSize: 16,
+            fontFamily: "MyriadPro-Regular",
+            margin: 15
+        }
+    });
+
+    exports.default = About;
+});

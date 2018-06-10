@@ -14,8 +14,13 @@ import HyperMarket from './src/screens/main/HyperMarket';
 import marketDetails from './src/screens/main/marketDetails/marketDetails';
 import flyerCarousel from './src/screens/main/marketDetails/flyerCarousel';
 import SideDrawer from './src/components/SideDrawer/SideDrawer';
-
+import Search from './src/components/Search/Search';
 import AppExclusive from './src/screens/myAccount/AppExclusive';
+import About from './src/screens/myAccount/About';
+import Terms from './src/screens/myAccount/Terms';
+import Notifications from './src/screens/myAccount/Notifications';
+
+import setStateModal from './src/components/Modal/setStateModal';
 
 // Register Login Screens
 
@@ -37,15 +42,22 @@ Navigation.registerComponent("Wafi.flyerCarousel", () => flyerCarousel);
 Navigation.registerComponent("Wafi.SideDrawer", () => SideDrawer);
 
 Navigation.registerComponent("Wafi.AppExclusive", () => AppExclusive);
+Navigation.registerComponent("Wafi.About", () => About);
+Navigation.registerComponent("Wafi.Terms", () => Terms);
+Navigation.registerComponent("Wafi.Notifications", () => Notifications);
 
-Navigation.startSingleScreenApp({
+Navigation.registerComponent("Wafi.Search", () => Search);
+Navigation.registerComponent("Wafi.setStateModal", () => setStateModal);
+
+/*Navigation.startSingleScreenApp({
   screen: {
-    screen: "Wafi.AuthScreen",
+    screen: "Wafi.Terms",
     navigatorStyle: {
       navBarHidden: true
     },
   }
-});
+});*/
+
 
 async function prepareIcons() {
   const icons = await Promise.all([

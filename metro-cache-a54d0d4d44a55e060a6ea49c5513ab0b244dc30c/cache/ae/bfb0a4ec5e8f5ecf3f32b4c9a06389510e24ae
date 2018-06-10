@@ -17,6 +17,10 @@ __d(function (global, _require, module, exports, _dependencyMap) {
 
     var _reactNative = _require(_dependencyMap[2], "react-native");
 
+    var _Header = _require(_dependencyMap[3], "../../components/Header/Header");
+
+    var _Header2 = _interopRequireDefault(_Header);
+
     function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
     function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -80,20 +84,69 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                 return _react3.default.createElement(
                     _reactNative.View,
                     {
+                        style: styles.bodyBg,
                         __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 32
+                            lineNumber: 34
                         }
                     },
+                    _react3.default.createElement(_Header2.default, {
+                        navigator: this.props.navigator,
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 35
+                        }
+                    }),
                     _react3.default.createElement(
-                        _reactNative.Text,
+                        _reactNative.View,
                         {
+                            style: styles.appExclusvBlk,
                             __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 33
+                                lineNumber: 36
                             }
                         },
-                        "App Exclusive Offer"
+                        _react3.default.createElement(
+                            _reactNative.View,
+                            {
+                                style: styles.ImgContainer,
+                                __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 37
+                                }
+                            },
+                            _react3.default.createElement(_reactNative.Image, {
+                                source: {
+                                    uri: 'https://lh3.googleusercontent.com/-JohNgmiXVZk/VQERAP1p2-I/AAAAAAAAoO0/HsOPvdlQsVA/w530-h265-n/sd.png'
+                                },
+                                style: styles.ExclusiveImg,
+                                __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 38
+                                }
+                            })
+                        ),
+                        _react3.default.createElement(
+                            _reactNative.View,
+                            {
+                                style: styles.appExclusvBlkText,
+                                __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 40
+                                }
+                            },
+                            _react3.default.createElement(
+                                _reactNative.Text,
+                                {
+                                    style: styles.OfferText,
+                                    __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 41
+                                    }
+                                },
+                                "Get 40% off on all products at kushals.."
+                            )
+                        )
                     )
                 );
             }
@@ -101,6 +154,32 @@ __d(function (global, _require, module, exports, _dependencyMap) {
 
         return AppExclusive;
     }(_react2.Component));
+
+    var styles = _reactNative.StyleSheet.create({
+        bodyBg: {
+            backgroundColor: '#E6E7E8',
+            flex: 1
+        },
+        appExclusvBlk: {
+            padding: 15
+        },
+        ExclusiveImg: {
+            width: '100%',
+            height: 250,
+            borderTopRightRadius: 5,
+            borderTopLeftRadius: 5,
+            resizeMode: 'cover'
+        },
+        appExclusvBlkText: {
+            backgroundColor: '#ffffff',
+            padding: 15
+        },
+        OfferText: {
+            color: '#000000',
+            fontSize: 15,
+            fontFamily: "MyriadPro-Regular"
+        }
+    });
 
     exports.default = AppExclusive;
 });

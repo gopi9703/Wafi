@@ -29,6 +29,10 @@ __d(function (global, _require, module, exports, _dependencyMap) {
 
     var _SideDrawer2 = _interopRequireDefault(_SideDrawer);
 
+    var _setStateModal = _require(_dependencyMap[6], "../Modal/setStateModal");
+
+    var _setStateModal2 = _interopRequireDefault(_setStateModal);
+
     function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
     function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -62,7 +66,45 @@ __d(function (global, _require, module, exports, _dependencyMap) {
         function Header(props) {
             _classCallCheck(this, Header);
 
-            return _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).call(this, props));
+            var _this = _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).call(this, props));
+
+            _this.searchHandler = function () {
+                _this.props.navigator.push({
+                    screen: 'Wafi.Search',
+                    animated: true,
+                    animationType: 'slide-vertical',
+                    tabBarHidden: true,
+                    navigatorStyle: {
+                        navBarBackgroundColor: '#0A266D',
+                        navBarButtonColor: '#ffffff',
+                        navBarTextColor: '#ffffff',
+                        navBarSubtitleFontFamily: "MyriadPro-Regular",
+                        navBarComponentAlignment: 'center'
+                    },
+                    navigatorButtons: {
+                        rightButtons: [{
+                            icon: _require(_dependencyMap[7], '../../../src/img/header_Logo.png'),
+                            id: 'Back',
+                            disableIconTint: true
+                        }]
+                    }
+                });
+            };
+
+            _this.showHeaderModal = function (navigator) {
+                navigator.showLightBox({
+                    screen: 'Wafi.setStateModal',
+                    passProps: {},
+                    style: {
+                        backgroundBlur: 'dark',
+                        backgroundColor: 'rgba(0,0,0,.5)',
+                        tapBackgroundToDismiss: true
+                    },
+                    adjustSoftInput: "resize"
+                });
+            };
+
+            return _this;
         }
 
         _createClass(Header, [{
@@ -82,7 +124,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                     {
                         __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 23
+                            lineNumber: 62
                         }
                     },
                     _react3.default.createElement(
@@ -91,7 +133,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                             style: styles.HeaderBlk,
                             __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 24
+                                lineNumber: 63
                             }
                         },
                         _react3.default.createElement(
@@ -100,7 +142,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                 style: styles.HeaderLhs,
                                 __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 25
+                                    lineNumber: 64
                                 }
                             },
                             _react3.default.createElement(
@@ -108,7 +150,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                 {
                                     __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 26
+                                        lineNumber: 65
                                     }
                                 },
                                 _react3.default.createElement(
@@ -119,7 +161,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                         },
                                         __source: {
                                             fileName: _jsxFileName,
-                                            lineNumber: 27
+                                            lineNumber: 66
                                         }
                                     },
                                     _react3.default.createElement(_Ionicons2.default, {
@@ -129,7 +171,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                         style: styles.hamburger,
                                         __source: {
                                             fileName: _jsxFileName,
-                                            lineNumber: 28
+                                            lineNumber: 67
                                         }
                                     })
                                 )
@@ -137,27 +179,64 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                             _react3.default.createElement(
                                 _reactNative.View,
                                 {
+                                    style: styles.HeaderModal,
                                     __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 31
+                                        lineNumber: 70
                                     }
                                 },
                                 _react3.default.createElement(_reactNative.Image, {
-                                    source: _require(_dependencyMap[6], '../../img/header_Logo.png'),
+                                    source: _require(_dependencyMap[8], '../../img/header_Logo.png'),
                                     style: styles.logoImg,
                                     __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 32
+                                        lineNumber: 71
                                     }
-                                })
+                                }),
+                                _react3.default.createElement(
+                                    _reactNative.TouchableOpacity,
+                                    {
+                                        onPress: function onPress() {
+                                            return _this2.showHeaderModal(_this2.props.navigator);
+                                        },
+                                        __source: {
+                                            fileName: _jsxFileName,
+                                            lineNumber: 72
+                                        }
+                                    },
+                                    _react3.default.createElement(
+                                        _reactNative.Text,
+                                        {
+                                            style: styles.stateChangeText,
+                                            __source: {
+                                                fileName: _jsxFileName,
+                                                lineNumber: 73
+                                            }
+                                        },
+                                        " Muscat ",
+                                        _react3.default.createElement(_Ionicons2.default, {
+                                            name: "ios-pin",
+                                            size: 20,
+                                            color: "#ffffff",
+                                            style: styles.hamburger,
+                                            __source: {
+                                                fileName: _jsxFileName,
+                                                lineNumber: 73
+                                            }
+                                        })
+                                    )
+                                )
                             )
                         ),
                         _react3.default.createElement(
                             _reactNative.TouchableOpacity,
                             {
+                                onPress: function onPress() {
+                                    return _this2.searchHandler(_this2.props.navigator);
+                                },
                                 __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 36
+                                    lineNumber: 77
                                 }
                             },
                             _react3.default.createElement(_Ionicons2.default, {
@@ -167,7 +246,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                 style: styles.hamburger,
                                 __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 37
+                                    lineNumber: 78
                                 }
                             })
                         )
@@ -202,6 +281,18 @@ __d(function (global, _require, module, exports, _dependencyMap) {
         },
         hamburger: {
             padding: 5
+        },
+        HeaderModal: {
+            flexDirection: 'row',
+            alignItems: 'center'
+        },
+        stateChangeText: {
+            color: 'white',
+            paddingLeft: 10,
+            fontSize: 16,
+            alignItems: 'center',
+            padding: 5,
+            alignItems: 'flex-start'
         }
     });
 

@@ -7,9 +7,9 @@ import MarketProductList from '../../components/ProductList/MarketProductList';
 class HyperMaket extends Component {
   render(){
     return (
-      <View>
-      <Header navigator={this.props.navigator} />   
-       <MarketProductList  navigator={this.props.navigator} />
+      <View style={{flex:1}}>
+        <Header navigator={this.props.navigator} />   
+        <MarketProductList  navigator={this.props.navigator} />
       </View>
    )
   }

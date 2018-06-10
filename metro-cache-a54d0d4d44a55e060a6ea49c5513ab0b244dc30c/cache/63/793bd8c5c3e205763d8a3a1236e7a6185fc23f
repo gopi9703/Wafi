@@ -63,9 +63,29 @@ __d(function (global, _require, module, exports, _dependencyMap) {
 
   var _SideDrawer2 = _interopRequireDefault(_SideDrawer);
 
-  var _AppExclusive = _require(_dependencyMap[16], "./src/screens/myAccount/AppExclusive");
+  var _Search = _require(_dependencyMap[16], "./src/components/Search/Search");
+
+  var _Search2 = _interopRequireDefault(_Search);
+
+  var _AppExclusive = _require(_dependencyMap[17], "./src/screens/myAccount/AppExclusive");
 
   var _AppExclusive2 = _interopRequireDefault(_AppExclusive);
+
+  var _About = _require(_dependencyMap[18], "./src/screens/myAccount/About");
+
+  var _About2 = _interopRequireDefault(_About);
+
+  var _Terms = _require(_dependencyMap[19], "./src/screens/myAccount/Terms");
+
+  var _Terms2 = _interopRequireDefault(_Terms);
+
+  var _Notifications = _require(_dependencyMap[20], "./src/screens/myAccount/Notifications");
+
+  var _Notifications2 = _interopRequireDefault(_Notifications);
+
+  var _setStateModal = _require(_dependencyMap[21], "./src/components/Modal/setStateModal");
+
+  var _setStateModal2 = _interopRequireDefault(_setStateModal);
 
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -129,13 +149,24 @@ __d(function (global, _require, module, exports, _dependencyMap) {
     return _AppExclusive2.default;
   });
 
-  _reactNativeNavigation.Navigation.startSingleScreenApp({
-    screen: {
-      screen: "Wafi.AuthScreen",
-      navigatorStyle: {
-        navBarHidden: true
-      }
-    }
+  _reactNativeNavigation.Navigation.registerComponent("Wafi.About", function () {
+    return _About2.default;
+  });
+
+  _reactNativeNavigation.Navigation.registerComponent("Wafi.Terms", function () {
+    return _Terms2.default;
+  });
+
+  _reactNativeNavigation.Navigation.registerComponent("Wafi.Notifications", function () {
+    return _Notifications2.default;
+  });
+
+  _reactNativeNavigation.Navigation.registerComponent("Wafi.Search", function () {
+    return _Search2.default;
+  });
+
+  _reactNativeNavigation.Navigation.registerComponent("Wafi.setStateModal", function () {
+    return _setStateModal2.default;
   });
 
   function prepareIcons() {
@@ -200,8 +231,8 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                 screen: 'Wafi.Mall',
                 label: 'Mall',
                 title: 'Mall',
-                icon: _require(_dependencyMap[17], './src/img/header_Logo.png'),
-                selectedIcon: _require(_dependencyMap[17], './src/img/header_Logo.png'),
+                icon: _require(_dependencyMap[22], './src/img/header_Logo.png'),
+                selectedIcon: _require(_dependencyMap[22], './src/img/header_Logo.png'),
                 navigatorStyle: {
                   navBarHidden: true
                 }
