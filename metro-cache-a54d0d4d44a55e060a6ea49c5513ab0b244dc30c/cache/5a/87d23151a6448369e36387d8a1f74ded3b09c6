@@ -337,7 +337,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
             padding: 10
         },
         makretImg: {
-            width: '100%',
+            width: _reactNative.Dimensions.get('window').width / 2.45,
             height: 220,
             resizeMode: 'cover'
         },

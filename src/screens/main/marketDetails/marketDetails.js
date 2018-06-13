@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView, Dimensions } from 'react-native';
 import Header from '../../../components/Header/Header';
 import BrandHeader from '../../main/BrandHeader';
 import FontStyle from '../../../components/ReusableComponents/FontStyle';
@@ -90,9 +90,11 @@ const styles = StyleSheet.create({
         padding: 10,
     },
     makretImg: {
-        width: '100%',
-        height: 220,
+        width: Dimensions.get('window').width / 2.45,
+        height: 220, 
         resizeMode: 'cover',
+        
+       
 
     },
     marketDesc: {
