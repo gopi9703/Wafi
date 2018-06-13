@@ -6,48 +6,58 @@ import FontAwesome from "react-native-vector-icons/FontAwesome";
 
 class SideDrawer extends Component {
 
+  static navigatorStyle = {
+      tabBarHidden: true,
+      topBarElevationShadowEnabled: false,
+
+  }
+
     constructor(props) {
         super(props)
-        this._goToMovies = this._goToMovies.bind(this);
+        //this._goToMovies = this._goToMovies.bind(this);
     }
 
 
-    _goToMovies() {
-        this.props.navigator.popToRoot({
-            screen: 'Wafi.AppExclusive'
+    _navigate(screen) {
+        this.props.navigator.showModal({
+            screen: screen,
+            navigatorStyle: {
+                navBarBackgroundColor: '#0A266D',
+                navBarButtonColor: '#ffffff',
+                navBarTextColor: '#ffffff',
+                navBarSubtitleFontFamily: "MyriadPro-Regular",
+                navBarComponentAlignment: 'center',
+            }, // override the navigator style for the screen, see "Styling the navigator" below (optional)
+            animationType: 'slide-up' // 'none' / 'slide-up' , appear animation for the modal (optional, default 'slide-up')
         });
-    }
 
-    /*appExclusive = () => {
         this.props.navigator.toggleDrawer({
             to: 'closed',
             side: 'left',
             animated: true
           });
-      
-        this.props.navigator.handleDeepLink({ link: "Wafi.AppExclusive" });
-      }  */
+    }
 
     render() {
         return (
             <View style={{ width: Dimensions.get("window").width * 0.8, backgroundColor: '#ffffff', flex: 1 }}>
                 <Image source={require('../../img/sideDrawerImage.png')} style={styles.brandImg} />
 
-                <TouchableOpacity onPress={this._goToMovies.bind(this)}>
+                <TouchableOpacity onPress={() => this._navigate('Wafi.AppExclusive')}>
                     <View style={styles.list__col}>
                         <FontAwesome name='shopping-bag' size={20} style={styles.iconStyler} />
                         <Text style={styles.list}>App Exclusive</Text>
                     </View>
                 </TouchableOpacity>
 
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => this._navigate('Wafi.About')}>
                     <View style={styles.list__col}>
                         <FontAwesome name='exclamation-circle' size={20} style={styles.iconStyler} />
                         <Text style={styles.list}>About Us</Text>
                     </View>
                 </TouchableOpacity>
 
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => this._navigate('Wafi.About')}>
                     <View style={styles.list__col}>
 
                         <Icon name="md-share" size={20} color="#ffffff" style={styles.iconStyler} />
@@ -55,28 +65,28 @@ class SideDrawer extends Component {
                     </View>
                 </TouchableOpacity>
 
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => this._navigate('Wafi.About')}>
                     <View style={styles.list__col}>
                         <FontAwesome name='star' size={20} style={styles.iconStyler} />
                         <Text style={styles.list}>Rate this App</Text>
                     </View>
                 </TouchableOpacity>
 
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => this._navigate('Wafi.Notifications')}>
                     <View style={styles.list__col}>
                         <FontAwesome name='bell' size={20} style={styles.iconStyler} />
                         <Text style={styles.list}>Notifications</Text>
                     </View>
                 </TouchableOpacity>
 
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => this._navigate('Wafi.Terms')}>
                     <View style={styles.list__col}>
                         <FontAwesome name='sticky-note' size={20} style={styles.iconStyler} />
                         <Text style={styles.list}>Terms</Text>
                     </View>
                 </TouchableOpacity>
 
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => this._navigate('Wafi.AuthScreen')}>
                     <View style={styles.list__col}>
                         <FontAwesome name='sign-in' size={20} style={styles.iconStyler} />
                         <Text style={styles.list}>Login</Text>

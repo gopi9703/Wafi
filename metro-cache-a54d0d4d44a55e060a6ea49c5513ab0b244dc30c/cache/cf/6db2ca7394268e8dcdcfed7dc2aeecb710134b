@@ -11,9 +11,11 @@ __d(function (global, _require, module, exports, _dependencyMap) {
 
     var _index2 = _interopRequireDefault(_index);
 
-    var _jsxFileName = "/Users/gopiy/Documents/Wafi/src/components/SideDrawer/SideDrawer.js";
-
     var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+    var _class,
+        _temp,
+        _jsxFileName = "/Users/gopiy/Documents/Wafi/src/components/SideDrawer/SideDrawer.js";
 
     var _reactNative = _require(_dependencyMap[2], "react-native");
 
@@ -56,28 +58,40 @@ __d(function (global, _require, module, exports, _dependencyMap) {
         };
     }
 
-    var SideDrawer = _wrapComponent("SideDrawer")(function (_Component) {
+    var SideDrawer = _wrapComponent("SideDrawer")((_temp = _class = function (_Component) {
         _inherits(SideDrawer, _Component);
 
         function SideDrawer(props) {
             _classCallCheck(this, SideDrawer);
 
-            var _this = _possibleConstructorReturn(this, (SideDrawer.__proto__ || Object.getPrototypeOf(SideDrawer)).call(this, props));
-
-            _this._goToMovies = _this._goToMovies.bind(_this);
-            return _this;
+            return _possibleConstructorReturn(this, (SideDrawer.__proto__ || Object.getPrototypeOf(SideDrawer)).call(this, props));
         }
 
         _createClass(SideDrawer, [{
-            key: "_goToMovies",
-            value: function _goToMovies() {
-                this.props.navigator.popToRoot({
-                    screen: 'Wafi.AppExclusive'
+            key: "_navigate",
+            value: function _navigate(screen) {
+                this.props.navigator.showModal({
+                    screen: screen,
+                    navigatorStyle: {
+                        navBarBackgroundColor: '#0A266D',
+                        navBarButtonColor: '#ffffff',
+                        navBarTextColor: '#ffffff',
+                        navBarSubtitleFontFamily: "MyriadPro-Regular",
+                        navBarComponentAlignment: 'center'
+                    },
+                    animationType: 'slide-up'
+                });
+                this.props.navigator.toggleDrawer({
+                    to: 'closed',
+                    side: 'left',
+                    animated: true
                 });
             }
         }, {
             key: "render",
             value: function render() {
+                var _this2 = this;
+
                 return _react3.default.createElement(
                     _reactNative.View,
                     {
@@ -88,7 +102,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                         },
                         __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 33
+                            lineNumber: 43
                         }
                     },
                     _react3.default.createElement(_reactNative.Image, {
@@ -96,16 +110,18 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                         style: styles.brandImg,
                         __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 34
+                            lineNumber: 44
                         }
                     }),
                     _react3.default.createElement(
                         _reactNative.TouchableOpacity,
                         {
-                            onPress: this._goToMovies.bind(this),
+                            onPress: function onPress() {
+                                return _this2._navigate('Wafi.AppExclusive');
+                            },
                             __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 36
+                                lineNumber: 46
                             }
                         },
                         _react3.default.createElement(
@@ -114,7 +130,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                 style: styles.list__col,
                                 __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 37
+                                    lineNumber: 47
                                 }
                             },
                             _react3.default.createElement(_FontAwesome2.default, {
@@ -123,7 +139,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                 style: styles.iconStyler,
                                 __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 38
+                                    lineNumber: 48
                                 }
                             }),
                             _react3.default.createElement(
@@ -132,7 +148,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                     style: styles.list,
                                     __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 39
+                                        lineNumber: 49
                                     }
                                 },
                                 "App Exclusive"
@@ -142,9 +158,12 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                     _react3.default.createElement(
                         _reactNative.TouchableOpacity,
                         {
+                            onPress: function onPress() {
+                                return _this2._navigate('Wafi.About');
+                            },
                             __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 43
+                                lineNumber: 53
                             }
                         },
                         _react3.default.createElement(
@@ -153,7 +172,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                 style: styles.list__col,
                                 __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 44
+                                    lineNumber: 54
                                 }
                             },
                             _react3.default.createElement(_FontAwesome2.default, {
@@ -162,7 +181,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                 style: styles.iconStyler,
                                 __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 45
+                                    lineNumber: 55
                                 }
                             }),
                             _react3.default.createElement(
@@ -171,7 +190,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                     style: styles.list,
                                     __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 46
+                                        lineNumber: 56
                                     }
                                 },
                                 "About Us"
@@ -181,9 +200,12 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                     _react3.default.createElement(
                         _reactNative.TouchableOpacity,
                         {
+                            onPress: function onPress() {
+                                return _this2._navigate('Wafi.About');
+                            },
                             __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 50
+                                lineNumber: 60
                             }
                         },
                         _react3.default.createElement(
@@ -192,7 +214,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                 style: styles.list__col,
                                 __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 51
+                                    lineNumber: 61
                                 }
                             },
                             _react3.default.createElement(_Ionicons2.default, {
@@ -202,7 +224,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                 style: styles.iconStyler,
                                 __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 53
+                                    lineNumber: 63
                                 }
                             }),
                             _react3.default.createElement(
@@ -211,7 +233,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                     style: styles.list,
                                     __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 54
+                                        lineNumber: 64
                                     }
                                 },
                                 "Share this App"
@@ -221,9 +243,12 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                     _react3.default.createElement(
                         _reactNative.TouchableOpacity,
                         {
+                            onPress: function onPress() {
+                                return _this2._navigate('Wafi.About');
+                            },
                             __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 58
+                                lineNumber: 68
                             }
                         },
                         _react3.default.createElement(
@@ -232,7 +257,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                 style: styles.list__col,
                                 __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 59
+                                    lineNumber: 69
                                 }
                             },
                             _react3.default.createElement(_FontAwesome2.default, {
@@ -241,7 +266,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                 style: styles.iconStyler,
                                 __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 60
+                                    lineNumber: 70
                                 }
                             }),
                             _react3.default.createElement(
@@ -250,7 +275,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                     style: styles.list,
                                     __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 61
+                                        lineNumber: 71
                                     }
                                 },
                                 "Rate this App"
@@ -260,9 +285,12 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                     _react3.default.createElement(
                         _reactNative.TouchableOpacity,
                         {
+                            onPress: function onPress() {
+                                return _this2._navigate('Wafi.Notifications');
+                            },
                             __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 65
+                                lineNumber: 75
                             }
                         },
                         _react3.default.createElement(
@@ -271,7 +299,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                 style: styles.list__col,
                                 __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 66
+                                    lineNumber: 76
                                 }
                             },
                             _react3.default.createElement(_FontAwesome2.default, {
@@ -280,7 +308,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                 style: styles.iconStyler,
                                 __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 67
+                                    lineNumber: 77
                                 }
                             }),
                             _react3.default.createElement(
@@ -289,7 +317,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                     style: styles.list,
                                     __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 68
+                                        lineNumber: 78
                                     }
                                 },
                                 "Notifications"
@@ -299,9 +327,12 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                     _react3.default.createElement(
                         _reactNative.TouchableOpacity,
                         {
+                            onPress: function onPress() {
+                                return _this2._navigate('Wafi.Terms');
+                            },
                             __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 72
+                                lineNumber: 82
                             }
                         },
                         _react3.default.createElement(
@@ -310,7 +341,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                 style: styles.list__col,
                                 __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 73
+                                    lineNumber: 83
                                 }
                             },
                             _react3.default.createElement(_FontAwesome2.default, {
@@ -319,7 +350,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                 style: styles.iconStyler,
                                 __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 74
+                                    lineNumber: 84
                                 }
                             }),
                             _react3.default.createElement(
@@ -328,7 +359,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                     style: styles.list,
                                     __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 75
+                                        lineNumber: 85
                                     }
                                 },
                                 "Terms"
@@ -338,9 +369,12 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                     _react3.default.createElement(
                         _reactNative.TouchableOpacity,
                         {
+                            onPress: function onPress() {
+                                return _this2._navigate('Wafi.AuthScreen');
+                            },
                             __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 79
+                                lineNumber: 89
                             }
                         },
                         _react3.default.createElement(
@@ -349,7 +383,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                 style: styles.list__col,
                                 __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 80
+                                    lineNumber: 90
                                 }
                             },
                             _react3.default.createElement(_FontAwesome2.default, {
@@ -358,7 +392,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                 style: styles.iconStyler,
                                 __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 81
+                                    lineNumber: 91
                                 }
                             }),
                             _react3.default.createElement(
@@ -367,7 +401,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                     style: styles.list,
                                     __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 82
+                                        lineNumber: 92
                                     }
                                 },
                                 "Login"
@@ -379,7 +413,10 @@ __d(function (global, _require, module, exports, _dependencyMap) {
         }]);
 
         return SideDrawer;
-    }(_react2.Component));
+    }(_react2.Component), _class.navigatorStyle = {
+        tabBarHidden: true,
+        topBarElevationShadowEnabled: false
+    }, _temp));
 
     var styles = _reactNative.StyleSheet.create({
         drawerBlk: {

@@ -66,10 +66,29 @@ __d(function (global, _require, module, exports, _dependencyMap) {
         function Offers(props) {
             _classCallCheck(this, Offers);
 
-            return _possibleConstructorReturn(this, (Offers.__proto__ || Object.getPrototypeOf(Offers)).call(this, props));
+            var _this = _possibleConstructorReturn(this, (Offers.__proto__ || Object.getPrototypeOf(Offers)).call(this, props));
+
+            _this.props.navigator.setOnNavigatorEvent(_this.onNavigatorEvent.bind(_this));
+
+            return _this;
         }
 
         _createClass(Offers, [{
+            key: "onNavigatorEvent",
+            value: function onNavigatorEvent(event) {
+                if (event.type == 'DeepLink') {
+                    var parts = event.link.split('/');
+
+                    if (parts[0] == 'AppExclusive') {
+                        this.props.navigator.resetTo({
+                            screen: 'Wafi.AppExclusive',
+                            passProps: {},
+                            animated: true
+                        });
+                    }
+                }
+            }
+        }, {
             key: "render",
             value: function render() {
                 var _this2 = this;
@@ -92,14 +111,14 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                         },
                         __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 38
+                            lineNumber: 53
                         }
                     },
                     _react3.default.createElement(_Header2.default, {
                         navigator: this.props.navigator,
                         __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 39
+                            lineNumber: 54
                         }
                     }),
                     _react3.default.createElement(
@@ -110,7 +129,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                             },
                             __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 40
+                                lineNumber: 55
                             }
                         },
                         _react3.default.createElement(_reactNativeSwipeableParallaxCarousel2.default, {
@@ -118,14 +137,14 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                             navigationType: 'dots',
                             __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 42
+                                lineNumber: 57
                             }
                         }),
                         _react3.default.createElement(_ProductCards2.default, {
                             navigator: this.props.navigator,
                             __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 43
+                                lineNumber: 58
                             }
                         })
                     )

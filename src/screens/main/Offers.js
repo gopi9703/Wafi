@@ -10,9 +10,24 @@ class Offers extends Component{
   
     constructor(props) {
         super(props)
+        this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
     }
 
-   
+    onNavigatorEvent(event) {
+        // handle a deep link
+        if (event.type == 'DeepLink') {
+             const parts = event.link.split('/');
+            if (parts[0] == 'AppExclusive') {
+                // handle the link somehow, usually run a this.props.navigator command
+                    this.props.navigator.resetTo({
+                    screen: 'Wafi.AppExclusive', 
+                    passProps: {}, 
+                    animated: true, 
+                });
+            }
+        }
+    }
+        
 
     render(){
 

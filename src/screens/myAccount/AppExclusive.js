@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity, Dimensions } from 'react-native';
-import Header from '../../components/Header/Header';
+
 
 
 class AppExclusive extends Component {
@@ -10,29 +10,15 @@ class AppExclusive extends Component {
         this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent);
     }
 
-    onNavigatorEvent(event) {
-        // handle a deep link
-        console.log(event.type);
-        if (event.type == 'DeepLink') {
-            var parts = event.link.split('/');
-            console.log(parts[0]);
-            if (parts[0] == 'Wafi.AppExclusive') {
-
-                // handle the link somehow, usually run a this.props.navigator command
-                this.props.navigator.resetTo({
-
-                    screen: "Wafi.AppExclusive",
-                    animated: true
-                });
-
-            }
-        }
-    }
+    static navigatorStyle = {
+        navbarHidden: false,
+      };
+     
 
     render() {
         return (
             <View style={styles.bodyBg}>
-                <Header navigator={this.props.navigator} />
+                
                 <View style={styles.appExclusvBlk}>
                     <View style={styles.ImgContainer}>
                         <Image source={{ uri: 'https://lh3.googleusercontent.com/-JohNgmiXVZk/VQERAP1p2-I/AAAAAAAAoO0/HsOPvdlQsVA/w530-h265-n/sd.png' }} style={styles.ExclusiveImg} />
@@ -50,6 +36,7 @@ const styles = StyleSheet.create({
     bodyBg: {
         backgroundColor: '#E6E7E8',
         flex: 1,
+       
     },
     appExclusvBlk: {
         padding: 15,

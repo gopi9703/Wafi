@@ -1,0 +1,12 @@
+__d(function (global, _require, module, exports, _dependencyMap) {
+  module.exports = _require(_dependencyMap[0], "react-native/Libraries/Image/AssetRegistry").registerAsset({
+    "__packager_asset": true,
+    "httpServerLocation": "/assets/src/icons",
+    "width": 72,
+    "height": 72,
+    "scales": [1],
+    "hash": "c48672ab6c611c784f6f01045fd5b3cd",
+    "name": "mall",
+    "type": "png"
+  });
+});

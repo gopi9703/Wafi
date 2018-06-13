@@ -11,15 +11,13 @@ __d(function (global, _require, module, exports, _dependencyMap) {
 
     var _index2 = _interopRequireDefault(_index);
 
-    var _jsxFileName = "/Users/gopiy/Documents/Wafi/src/screens/myAccount/AppExclusive.js";
-
     var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+    var _class,
+        _temp,
+        _jsxFileName = "/Users/gopiy/Documents/Wafi/src/screens/myAccount/AppExclusive.js";
+
     var _reactNative = _require(_dependencyMap[2], "react-native");
-
-    var _Header = _require(_dependencyMap[3], "../../components/Header/Header");
-
-    var _Header2 = _interopRequireDefault(_Header);
 
     function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -48,7 +46,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
         };
     }
 
-    var AppExclusive = _wrapComponent("AppExclusive")(function (_Component) {
+    var AppExclusive = _wrapComponent("AppExclusive")((_temp = _class = function (_Component) {
         _inherits(AppExclusive, _Component);
 
         function AppExclusive(props) {
@@ -62,23 +60,6 @@ __d(function (global, _require, module, exports, _dependencyMap) {
         }
 
         _createClass(AppExclusive, [{
-            key: "onNavigatorEvent",
-            value: function onNavigatorEvent(event) {
-                console.log(event.type);
-
-                if (event.type == 'DeepLink') {
-                    var parts = event.link.split('/');
-                    console.log(parts[0]);
-
-                    if (parts[0] == 'Wafi.AppExclusive') {
-                        this.props.navigator.resetTo({
-                            screen: "Wafi.AppExclusive",
-                            animated: true
-                        });
-                    }
-                }
-            }
-        }, {
             key: "render",
             value: function render() {
                 return _react3.default.createElement(
@@ -87,23 +68,16 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                         style: styles.bodyBg,
                         __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 34
+                            lineNumber: 20
                         }
                     },
-                    _react3.default.createElement(_Header2.default, {
-                        navigator: this.props.navigator,
-                        __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 35
-                        }
-                    }),
                     _react3.default.createElement(
                         _reactNative.View,
                         {
                             style: styles.appExclusvBlk,
                             __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 36
+                                lineNumber: 22
                             }
                         },
                         _react3.default.createElement(
@@ -112,7 +86,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                 style: styles.ImgContainer,
                                 __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 37
+                                    lineNumber: 23
                                 }
                             },
                             _react3.default.createElement(_reactNative.Image, {
@@ -122,7 +96,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                 style: styles.ExclusiveImg,
                                 __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 38
+                                    lineNumber: 24
                                 }
                             })
                         ),
@@ -132,7 +106,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                 style: styles.appExclusvBlkText,
                                 __source: {
                                     fileName: _jsxFileName,
-                                    lineNumber: 40
+                                    lineNumber: 26
                                 }
                             },
                             _react3.default.createElement(
@@ -141,7 +115,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
                                     style: styles.OfferText,
                                     __source: {
                                         fileName: _jsxFileName,
-                                        lineNumber: 41
+                                        lineNumber: 27
                                     }
                                 },
                                 "Get 40% off on all products at kushals.."
@@ -153,7 +127,9 @@ __d(function (global, _require, module, exports, _dependencyMap) {
         }]);
 
         return AppExclusive;
-    }(_react2.Component));
+    }(_react2.Component), _class.navigatorStyle = {
+        navbarHidden: false
+    }, _temp));
 
     var styles = _reactNative.StyleSheet.create({
         bodyBg: {

@@ -81,8 +81,7 @@ async function startApp() {
         screen: 'Wafi.Offers',
         label: 'Offers',
         title: 'Offers',
-        icon: icons.home,
-
+        icon: require('./src/icons/offer.png'),
         navigatorStyle: {
           navBarHidden: true
         }
@@ -91,7 +90,7 @@ async function startApp() {
         screen: 'Wafi.Brands',
         label: 'Brands',
         title: 'Brands',
-        icon: icons.pricetag,
+        icon: require('./src/icons/Brand.png'),
         navigatorStyle: {
           navBarHidden: true
         }
@@ -100,8 +99,7 @@ async function startApp() {
         screen: 'Wafi.Mall',
         label: 'Mall',
         title: 'Mall',
-        icon: require('./src/img/header_Logo.png'),
-        selectedIcon: require('./src/img/header_Logo.png'),
+        icon: require('./src/icons/mall.png'),    
         navigatorStyle: {
           navBarHidden: true
         }
@@ -110,7 +108,7 @@ async function startApp() {
         screen: 'Wafi.HyperMarket',
         label: 'Market',
         title: 'Market',
-        icon: icons.cart,
+        icon: require('./src/icons/market.png'),
         navigatorStyle: {
           navBarHidden: true
         }

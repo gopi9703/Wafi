@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity, Dimensions, ScrollView } from 'react-native';
-import Header from '../../components/Header/Header';
+
 
 
 class Terms extends Component {
@@ -8,7 +8,6 @@ class Terms extends Component {
         return (
             <View style={styles.bodyBg}>
                 <ScrollView>
-                    <Header navigator={this.props.navigator} />
                     <View style={styles.textContainer}>
                         <Text style={styles.TitleHead}>Terms &amp; Conditions</Text>
                         <Text style={styles.textPara}>
