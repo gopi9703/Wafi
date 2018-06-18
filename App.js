@@ -19,8 +19,10 @@ import AppExclusive from './src/screens/myAccount/AppExclusive';
 import About from './src/screens/myAccount/About';
 import Terms from './src/screens/myAccount/Terms';
 import Notifications from './src/screens/myAccount/Notifications';
+import MyAccount from './src/screens/myAccount/MyAccount';
 
 import setStateModal from './src/components/Modal/setStateModal';
+
 
 // Register Login Screens
 
@@ -48,6 +50,8 @@ Navigation.registerComponent("Wafi.Notifications", () => Notifications);
 
 Navigation.registerComponent("Wafi.Search", () => Search);
 Navigation.registerComponent("Wafi.setStateModal", () => setStateModal);
+
+Navigation.registerComponent("Wafi.MyAccount", () => MyAccount);
 
 /*Navigation.startSingleScreenApp({
   screen: {

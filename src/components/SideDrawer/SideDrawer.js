@@ -50,6 +50,14 @@ class SideDrawer extends Component {
                     </View>
                 </TouchableOpacity>
 
+                <TouchableOpacity onPress={() => this._navigate('Wafi.MyAccount')}>
+                    <View style={styles.list__col}>
+                        <FontAwesome name='user-circle' size={20} style={styles.iconStyler} />
+                        <Text style={styles.list}>My Account</Text>
+                    </View>
+                </TouchableOpacity>
+
+
                 <TouchableOpacity onPress={() => this._navigate('Wafi.About')}>
                     <View style={styles.list__col}>
                         <FontAwesome name='exclamation-circle' size={20} style={styles.iconStyler} />

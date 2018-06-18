@@ -29,14 +29,6 @@ class Header extends Component {
                 navBarTextColor: '#ffffff',
                 navBarSubtitleFontFamily: "MyriadPro-Regular",
                 navBarComponentAlignment: 'center',
-            },
-
-            navigatorButtons: {
-                rightButtons: [{
-                    icon: require('../../../src/img/header_Logo.png'),
-                    id: 'Back',
-                    disableIconTint: true,
-                }],
             }
         });
     }
@@ -109,7 +101,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
     },
     logoImg: {
-        marginLeft: 10
+        marginLeft: 5
     },
     hamburger: {
         padding: 5,
@@ -124,7 +116,8 @@ const styles = StyleSheet.create({
         paddingLeft: 10,
         fontSize: 16,
         alignItems: 'center',
-        padding: 5,
+        paddingVertical: 5,
+        paddingHorizontal : 2
     },
     HeaderModalInner: {
         flexDirection: 'row',

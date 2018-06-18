@@ -19,7 +19,13 @@ class AuthScreenRegister extends Component{
                 <KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
             <View style={styles.container}>
             <TextInput style={styles.inputBox}  underlineColorAndroid = 'rgba(0,0,0,0)'   placeholderTextColor="white"
- placeholder="Your Name" />
+ placeholder="First Name" />
+ <TextInput style={styles.inputBox}  underlineColorAndroid = 'rgba(0,0,0,0)'   placeholderTextColor="white"
+ placeholder="Last Name" />
+  <TextInput style={styles.inputBox}  underlineColorAndroid = 'rgba(0,0,0,0)'   placeholderTextColor="white"
+ placeholder="Password"  secureTextEntry={true} />
+ <TextInput style={styles.inputBox}  underlineColorAndroid = 'rgba(0,0,0,0)'   placeholderTextColor="white"
+ placeholder="Confirm Password"  secureTextEntry={true} />
  <TextInput style={styles.inputBox}  underlineColorAndroid = 'rgba(0,0,0,0)'   placeholderTextColor="white"
  placeholder="Enter Your EMmail ID" keyboardType={'email-address'} />
  <TextInput style={styles.inputBox}  underlineColorAndroid = 'rgba(0,0,0,0)'   placeholderTextColor="white"

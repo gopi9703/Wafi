@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/Users/gopiy/Documents/Wafi/android/app/build/intermediates/res/merged/release/drawable-ldpi-v4/screen.png",
+        "source": "/Users/gopiy/Documents/Wafi/android/app/src/main/res/drawable-ldpi/screen.png"
+    },
+    {
+        "merged": "/Users/gopiy/Documents/Wafi/android/app/build/intermediates/res/merged/release/drawable-ldpi-v4/icon.png",
+        "source": "/Users/gopiy/Documents/Wafi/android/app/src/main/res/drawable-ldpi/icon.png"
+    }
+]

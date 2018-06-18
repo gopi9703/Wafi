@@ -6,32 +6,32 @@ INJECTED from /Users/gopiy/Documents/Wafi/android/app/src/main/AndroidManifest.x
 INJECTED from /Users/gopiy/Documents/Wafi/android/app/src/main/AndroidManifest.xml:1:1-39:12
 MERGED from [:react-native-navigation] /Users/gopiy/Documents/Wafi/node_modules/react-native-navigation/android/app/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-20:12
 MERGED from [:react-native-vector-icons] /Users/gopiy/Documents/Wafi/node_modules/react-native-vector-icons/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-11:12
-MERGED from [com.facebook.react:react-native:0.55.4] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/react-native-0.55.4.aar/49e49ed46ef3060a9719a49532d8c225/AndroidManifest.xml:2:1-15:12
-MERGED from [com.balysv.materialmenu:material-menu-toolbar:1.5.4] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/material-menu-toolbar-1.5.4.aar/b0bff7c303ba4e5a4231b6b0ab847a34/AndroidManifest.xml:2:1-14:12
-MERGED from [com.aurelhubert:ahbottomnavigation:2.0.6] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/ahbottomnavigation-2.0.6.aar/0b7b28a3ad196564a2abeb4fb6e13539/AndroidManifest.xml:2:1-13:12
-MERGED from [com.android.support:design:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/design-25.3.1.aar/75835f8b8938536e98ab73ca8c077362/AndroidManifest.xml:17:1-31:12
-MERGED from [com.android.support:appcompat-v7:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/f5d4096e85b0169d4b06e15480ac8c9e/AndroidManifest.xml:17:1-31:12
+MERGED from [com.facebook.react:react-native:0.55.4] /private/var/root/.gradle/caches/transforms-1/files-1.1/react-native-0.55.4.aar/49e49ed46ef3060a9719a49532d8c225/AndroidManifest.xml:2:1-15:12
+MERGED from [com.balysv.materialmenu:material-menu-toolbar:1.5.4] /private/var/root/.gradle/caches/transforms-1/files-1.1/material-menu-toolbar-1.5.4.aar/49c246736263aa32f5d72f9f7ee9eb0c/AndroidManifest.xml:2:1-14:12
+MERGED from [com.aurelhubert:ahbottomnavigation:2.0.6] /private/var/root/.gradle/caches/transforms-1/files-1.1/ahbottomnavigation-2.0.6.aar/642b803711d784f0b6b47286f017949f/AndroidManifest.xml:2:1-13:12
+MERGED from [com.android.support:design:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/design-25.3.1.aar/75835f8b8938536e98ab73ca8c077362/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:appcompat-v7:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/f5d4096e85b0169d4b06e15480ac8c9e/AndroidManifest.xml:17:1-31:12
 MERGED from [:react-native-linear-gradient] /Users/gopiy/Documents/Wafi/node_modules/react-native-linear-gradient/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-11:12
-MERGED from [com.android.support:transition:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/transition-25.3.1.aar/864d2fb93a00eb52e872fe75550ecaf4/AndroidManifest.xml:17:1-28:12
-MERGED from [com.android.support:support-v4:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/support-v4-25.3.1.aar/df99a9ab5160641687d1aa8150b03aa1/AndroidManifest.xml:17:1-31:12
-MERGED from [com.facebook.fbui.textlayoutbuilder:textlayoutbuilder:1.0.0] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/textlayoutbuilder-1.0.0.aar/c476ba92fd6e8e0be873a51959f6a424/AndroidManifest.xml:10:1-18:12
-MERGED from [com.facebook.fresco:fresco:1.3.0] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/fresco-1.3.0.aar/fa55a349bccbe320347749f6cd717bd2/AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.fresco:imagepipeline-okhttp3:1.3.0] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/imagepipeline-okhttp3-1.3.0.aar/8da71092af4a42a7ec695ffa8174d9aa/AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.soloader:soloader:0.1.0] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/soloader-0.1.0.aar/b82b616805b3f3cf80cb1916aaf25e47/AndroidManifest.xml:1:1-4:12
-MERGED from [org.webkit:android-jsc:r174650] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/android-jsc-r174650.aar/5aa2cbed3cc81925fd78629a803b9e36/AndroidManifest.xml:1:1-3:12
-MERGED from [com.facebook.fresco:drawee:1.3.0] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/drawee-1.3.0.aar/fa0d824f16d5718029ba1ae80af1e302/AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.fresco:imagepipeline:1.3.0] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/imagepipeline-1.3.0.aar/758aee7e3750f6a0131b5dc5f7f4ecc4/AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.fresco:imagepipeline-base:1.3.0] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/imagepipeline-base-1.3.0.aar/3ad88cfda872ee17f0b6a61992ded775/AndroidManifest.xml:2:1-9:12
-MERGED from [com.facebook.fresco:fbcore:1.3.0] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/fbcore-1.3.0.aar/3d4f1beaa53cfe84f45926def908d9c3/AndroidManifest.xml:2:1-9:12
-MERGED from [com.android.support:recyclerview-v7:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-25.3.1.aar/c4c5039f4d98ffaa27b87c46678942bd/AndroidManifest.xml:17:1-26:12
-MERGED from [com.balysv.materialmenu:material-menu:1.5.4] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/material-menu-1.5.4.aar/6b3145827ee3c4329f617467582def2a/AndroidManifest.xml:2:1-14:12
-MERGED from [com.android.support:animated-vector-drawable:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-25.3.1.aar/851606da5c278880b271ba7cbf6d6367/AndroidManifest.xml:17:1-28:12
-MERGED from [com.android.support:support-vector-drawable:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-25.3.1.aar/0421b7ea636fc71d50f316cac8b38795/AndroidManifest.xml:17:1-28:12
-MERGED from [com.android.support:support-fragment:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/support-fragment-25.3.1.aar/41fd25ac4232bd82712fa6c5e59087ab/AndroidManifest.xml:17:1-31:12
-MERGED from [com.android.support:support-media-compat:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/support-media-compat-25.3.1.aar/542fdb17024942b02398721e947aee05/AndroidManifest.xml:17:1-31:12
-MERGED from [com.android.support:support-core-utils:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/support-core-utils-25.3.1.aar/e2cf3f45929967224bab758589dd846f/AndroidManifest.xml:17:1-31:12
-MERGED from [com.android.support:support-core-ui:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/support-core-ui-25.3.1.aar/b547d49188570f852021f96f99317f11/AndroidManifest.xml:17:1-31:12
-MERGED from [com.android.support:support-compat:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/support-compat-25.3.1.aar/ca25cc3a342be9ba60901e86b5d307f5/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:transition:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/transition-25.3.1.aar/864d2fb93a00eb52e872fe75550ecaf4/AndroidManifest.xml:17:1-28:12
+MERGED from [com.android.support:support-v4:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/support-v4-25.3.1.aar/df99a9ab5160641687d1aa8150b03aa1/AndroidManifest.xml:17:1-31:12
+MERGED from [com.facebook.fbui.textlayoutbuilder:textlayoutbuilder:1.0.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/textlayoutbuilder-1.0.0.aar/944bfc7487f31cecef7c3f3f7b0ec3ee/AndroidManifest.xml:10:1-18:12
+MERGED from [com.facebook.fresco:fresco:1.3.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/fresco-1.3.0.aar/eaed546f8b8260041173c0e26677924f/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:1.3.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/imagepipeline-okhttp3-1.3.0.aar/46f3407b7a1cb65b70deb1268c626074/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.soloader:soloader:0.1.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/soloader-0.1.0.aar/8a66d6a252902833929b94ef64ebe398/AndroidManifest.xml:1:1-4:12
+MERGED from [org.webkit:android-jsc:r174650] /private/var/root/.gradle/caches/transforms-1/files-1.1/android-jsc-r174650.aar/1af72706df53ffbe3bbe4d5a2e10137a/AndroidManifest.xml:1:1-3:12
+MERGED from [com.facebook.fresco:drawee:1.3.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/drawee-1.3.0.aar/6a476ebbc4aa610e15b12e57ab65e6cf/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline:1.3.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/imagepipeline-1.3.0.aar/f641b5169ddf070a0c7dd72fa3834dfe/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline-base:1.3.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/imagepipeline-base-1.3.0.aar/93cd06aa740eb1e6b737c3e63eb7591a/AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:fbcore:1.3.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/fbcore-1.3.0.aar/ea8a790acbf15224b9fd837aa9b3d74a/AndroidManifest.xml:2:1-9:12
+MERGED from [com.android.support:recyclerview-v7:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-25.3.1.aar/c4c5039f4d98ffaa27b87c46678942bd/AndroidManifest.xml:17:1-26:12
+MERGED from [com.balysv.materialmenu:material-menu:1.5.4] /private/var/root/.gradle/caches/transforms-1/files-1.1/material-menu-1.5.4.aar/e543c331effbdc613db0fe8322463005/AndroidManifest.xml:2:1-14:12
+MERGED from [com.android.support:animated-vector-drawable:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-25.3.1.aar/851606da5c278880b271ba7cbf6d6367/AndroidManifest.xml:17:1-28:12
+MERGED from [com.android.support:support-vector-drawable:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-25.3.1.aar/0421b7ea636fc71d50f316cac8b38795/AndroidManifest.xml:17:1-28:12
+MERGED from [com.android.support:support-fragment:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/support-fragment-25.3.1.aar/41fd25ac4232bd82712fa6c5e59087ab/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-media-compat:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/support-media-compat-25.3.1.aar/542fdb17024942b02398721e947aee05/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-core-utils:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/support-core-utils-25.3.1.aar/e2cf3f45929967224bab758589dd846f/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-core-ui:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/support-core-ui-25.3.1.aar/b547d49188570f852021f96f99317f11/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-compat:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/support-compat-25.3.1.aar/ca25cc3a342be9ba60901e86b5d307f5/AndroidManifest.xml:17:1-31:12
 INJECTED from /Users/gopiy/Documents/Wafi/android/app/src/main/AndroidManifest.xml:1:1-39:12
 INJECTED from /Users/gopiy/Documents/Wafi/android/app/src/main/AndroidManifest.xml:1:1-39:12
 INJECTED from /Users/gopiy/Documents/Wafi/android/app/src/main/AndroidManifest.xml:1:1-39:12
@@ -55,8 +55,8 @@ ADDED from /Users/gopiy/Documents/Wafi/android/app/src/main/AndroidManifest.xml:
 		ADDED from /Users/gopiy/Documents/Wafi/android/app/src/main/AndroidManifest.xml:4:23-65
 uses-permission#android.permission.SYSTEM_ALERT_WINDOW
 ADDED from /Users/gopiy/Documents/Wafi/android/app/src/main/AndroidManifest.xml:5:5-77
-MERGED from [com.facebook.react:react-native:0.55.4] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/react-native-0.55.4.aar/49e49ed46ef3060a9719a49532d8c225/AndroidManifest.xml:11:5-78
-MERGED from [com.facebook.react:react-native:0.55.4] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/react-native-0.55.4.aar/49e49ed46ef3060a9719a49532d8c225/AndroidManifest.xml:11:5-78
+MERGED from [com.facebook.react:react-native:0.55.4] /private/var/root/.gradle/caches/transforms-1/files-1.1/react-native-0.55.4.aar/49e49ed46ef3060a9719a49532d8c225/AndroidManifest.xml:11:5-78
+MERGED from [com.facebook.react:react-native:0.55.4] /private/var/root/.gradle/caches/transforms-1/files-1.1/react-native-0.55.4.aar/49e49ed46ef3060a9719a49532d8c225/AndroidManifest.xml:11:5-78
 	android:name
 		ADDED from /Users/gopiy/Documents/Wafi/android/app/src/main/AndroidManifest.xml:5:22-75
 uses-sdk
@@ -67,60 +67,60 @@ MERGED from [:react-native-navigation] /Users/gopiy/Documents/Wafi/node_modules/
 MERGED from [:react-native-navigation] /Users/gopiy/Documents/Wafi/node_modules/react-native-navigation/android/app/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-vector-icons] /Users/gopiy/Documents/Wafi/node_modules/react-native-vector-icons/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-vector-icons] /Users/gopiy/Documents/Wafi/node_modules/react-native-vector-icons/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [com.facebook.react:react-native:0.55.4] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/react-native-0.55.4.aar/49e49ed46ef3060a9719a49532d8c225/AndroidManifest.xml:7:5-9:41
-MERGED from [com.facebook.react:react-native:0.55.4] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/react-native-0.55.4.aar/49e49ed46ef3060a9719a49532d8c225/AndroidManifest.xml:7:5-9:41
-MERGED from [com.balysv.materialmenu:material-menu-toolbar:1.5.4] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/material-menu-toolbar-1.5.4.aar/b0bff7c303ba4e5a4231b6b0ab847a34/AndroidManifest.xml:8:5-10:41
-MERGED from [com.balysv.materialmenu:material-menu-toolbar:1.5.4] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/material-menu-toolbar-1.5.4.aar/b0bff7c303ba4e5a4231b6b0ab847a34/AndroidManifest.xml:8:5-10:41
-MERGED from [com.aurelhubert:ahbottomnavigation:2.0.6] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/ahbottomnavigation-2.0.6.aar/0b7b28a3ad196564a2abeb4fb6e13539/AndroidManifest.xml:7:5-9:41
-MERGED from [com.aurelhubert:ahbottomnavigation:2.0.6] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/ahbottomnavigation-2.0.6.aar/0b7b28a3ad196564a2abeb4fb6e13539/AndroidManifest.xml:7:5-9:41
-MERGED from [com.android.support:design:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/design-25.3.1.aar/75835f8b8938536e98ab73ca8c077362/AndroidManifest.xml:21:5-23:62
-MERGED from [com.android.support:design:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/design-25.3.1.aar/75835f8b8938536e98ab73ca8c077362/AndroidManifest.xml:21:5-23:62
-MERGED from [com.android.support:appcompat-v7:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/f5d4096e85b0169d4b06e15480ac8c9e/AndroidManifest.xml:21:5-23:78
-MERGED from [com.android.support:appcompat-v7:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/f5d4096e85b0169d4b06e15480ac8c9e/AndroidManifest.xml:21:5-23:78
+MERGED from [com.facebook.react:react-native:0.55.4] /private/var/root/.gradle/caches/transforms-1/files-1.1/react-native-0.55.4.aar/49e49ed46ef3060a9719a49532d8c225/AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.react:react-native:0.55.4] /private/var/root/.gradle/caches/transforms-1/files-1.1/react-native-0.55.4.aar/49e49ed46ef3060a9719a49532d8c225/AndroidManifest.xml:7:5-9:41
+MERGED from [com.balysv.materialmenu:material-menu-toolbar:1.5.4] /private/var/root/.gradle/caches/transforms-1/files-1.1/material-menu-toolbar-1.5.4.aar/49c246736263aa32f5d72f9f7ee9eb0c/AndroidManifest.xml:8:5-10:41
+MERGED from [com.balysv.materialmenu:material-menu-toolbar:1.5.4] /private/var/root/.gradle/caches/transforms-1/files-1.1/material-menu-toolbar-1.5.4.aar/49c246736263aa32f5d72f9f7ee9eb0c/AndroidManifest.xml:8:5-10:41
+MERGED from [com.aurelhubert:ahbottomnavigation:2.0.6] /private/var/root/.gradle/caches/transforms-1/files-1.1/ahbottomnavigation-2.0.6.aar/642b803711d784f0b6b47286f017949f/AndroidManifest.xml:7:5-9:41
+MERGED from [com.aurelhubert:ahbottomnavigation:2.0.6] /private/var/root/.gradle/caches/transforms-1/files-1.1/ahbottomnavigation-2.0.6.aar/642b803711d784f0b6b47286f017949f/AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:design:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/design-25.3.1.aar/75835f8b8938536e98ab73ca8c077362/AndroidManifest.xml:21:5-23:62
+MERGED from [com.android.support:design:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/design-25.3.1.aar/75835f8b8938536e98ab73ca8c077362/AndroidManifest.xml:21:5-23:62
+MERGED from [com.android.support:appcompat-v7:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/f5d4096e85b0169d4b06e15480ac8c9e/AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:appcompat-v7:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/f5d4096e85b0169d4b06e15480ac8c9e/AndroidManifest.xml:21:5-23:78
 MERGED from [:react-native-linear-gradient] /Users/gopiy/Documents/Wafi/node_modules/react-native-linear-gradient/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-linear-gradient] /Users/gopiy/Documents/Wafi/node_modules/react-native-linear-gradient/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [com.android.support:transition:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/transition-25.3.1.aar/864d2fb93a00eb52e872fe75550ecaf4/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:transition:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/transition-25.3.1.aar/864d2fb93a00eb52e872fe75550ecaf4/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-v4:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/support-v4-25.3.1.aar/df99a9ab5160641687d1aa8150b03aa1/AndroidManifest.xml:21:5-23:54
-MERGED from [com.android.support:support-v4:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/support-v4-25.3.1.aar/df99a9ab5160641687d1aa8150b03aa1/AndroidManifest.xml:21:5-23:54
-MERGED from [com.facebook.fbui.textlayoutbuilder:textlayoutbuilder:1.0.0] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/textlayoutbuilder-1.0.0.aar/c476ba92fd6e8e0be873a51959f6a424/AndroidManifest.xml:14:5-16:41
-MERGED from [com.facebook.fbui.textlayoutbuilder:textlayoutbuilder:1.0.0] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/textlayoutbuilder-1.0.0.aar/c476ba92fd6e8e0be873a51959f6a424/AndroidManifest.xml:14:5-16:41
-MERGED from [com.facebook.fresco:fresco:1.3.0] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/fresco-1.3.0.aar/fa55a349bccbe320347749f6cd717bd2/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:fresco:1.3.0] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/fresco-1.3.0.aar/fa55a349bccbe320347749f6cd717bd2/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:imagepipeline-okhttp3:1.3.0] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/imagepipeline-okhttp3-1.3.0.aar/8da71092af4a42a7ec695ffa8174d9aa/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:imagepipeline-okhttp3:1.3.0] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/imagepipeline-okhttp3-1.3.0.aar/8da71092af4a42a7ec695ffa8174d9aa/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.soloader:soloader:0.1.0] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/soloader-0.1.0.aar/b82b616805b3f3cf80cb1916aaf25e47/AndroidManifest.xml:2:3-70
-MERGED from [com.facebook.soloader:soloader:0.1.0] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/soloader-0.1.0.aar/b82b616805b3f3cf80cb1916aaf25e47/AndroidManifest.xml:2:3-70
-MERGED from [com.facebook.fresco:drawee:1.3.0] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/drawee-1.3.0.aar/fa0d824f16d5718029ba1ae80af1e302/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:drawee:1.3.0] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/drawee-1.3.0.aar/fa0d824f16d5718029ba1ae80af1e302/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:imagepipeline:1.3.0] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/imagepipeline-1.3.0.aar/758aee7e3750f6a0131b5dc5f7f4ecc4/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:imagepipeline:1.3.0] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/imagepipeline-1.3.0.aar/758aee7e3750f6a0131b5dc5f7f4ecc4/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:imagepipeline-base:1.3.0] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/imagepipeline-base-1.3.0.aar/3ad88cfda872ee17f0b6a61992ded775/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:imagepipeline-base:1.3.0] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/imagepipeline-base-1.3.0.aar/3ad88cfda872ee17f0b6a61992ded775/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:fbcore:1.3.0] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/fbcore-1.3.0.aar/3d4f1beaa53cfe84f45926def908d9c3/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:fbcore:1.3.0] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/fbcore-1.3.0.aar/3d4f1beaa53cfe84f45926def908d9c3/AndroidManifest.xml:5:5-7:41
-MERGED from [com.android.support:recyclerview-v7:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-25.3.1.aar/c4c5039f4d98ffaa27b87c46678942bd/AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:recyclerview-v7:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-25.3.1.aar/c4c5039f4d98ffaa27b87c46678942bd/AndroidManifest.xml:20:5-43
-MERGED from [com.balysv.materialmenu:material-menu:1.5.4] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/material-menu-1.5.4.aar/6b3145827ee3c4329f617467582def2a/AndroidManifest.xml:8:5-10:41
-MERGED from [com.balysv.materialmenu:material-menu:1.5.4] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/material-menu-1.5.4.aar/6b3145827ee3c4329f617467582def2a/AndroidManifest.xml:8:5-10:41
-MERGED from [com.android.support:animated-vector-drawable:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-25.3.1.aar/851606da5c278880b271ba7cbf6d6367/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:animated-vector-drawable:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-25.3.1.aar/851606da5c278880b271ba7cbf6d6367/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-25.3.1.aar/0421b7ea636fc71d50f316cac8b38795/AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:support-vector-drawable:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-25.3.1.aar/0421b7ea636fc71d50f316cac8b38795/AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:support-fragment:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/support-fragment-25.3.1.aar/41fd25ac4232bd82712fa6c5e59087ab/AndroidManifest.xml:21:5-23:60
-MERGED from [com.android.support:support-fragment:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/support-fragment-25.3.1.aar/41fd25ac4232bd82712fa6c5e59087ab/AndroidManifest.xml:21:5-23:60
-MERGED from [com.android.support:support-media-compat:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/support-media-compat-25.3.1.aar/542fdb17024942b02398721e947aee05/AndroidManifest.xml:21:5-23:63
-MERGED from [com.android.support:support-media-compat:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/support-media-compat-25.3.1.aar/542fdb17024942b02398721e947aee05/AndroidManifest.xml:21:5-23:63
-MERGED from [com.android.support:support-core-utils:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/support-core-utils-25.3.1.aar/e2cf3f45929967224bab758589dd846f/AndroidManifest.xml:21:5-23:61
-MERGED from [com.android.support:support-core-utils:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/support-core-utils-25.3.1.aar/e2cf3f45929967224bab758589dd846f/AndroidManifest.xml:21:5-23:61
-MERGED from [com.android.support:support-core-ui:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/support-core-ui-25.3.1.aar/b547d49188570f852021f96f99317f11/AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-core-ui:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/support-core-ui-25.3.1.aar/b547d49188570f852021f96f99317f11/AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-compat:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/support-compat-25.3.1.aar/ca25cc3a342be9ba60901e86b5d307f5/AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-compat:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/support-compat-25.3.1.aar/ca25cc3a342be9ba60901e86b5d307f5/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:transition:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/transition-25.3.1.aar/864d2fb93a00eb52e872fe75550ecaf4/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/transition-25.3.1.aar/864d2fb93a00eb52e872fe75550ecaf4/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/support-v4-25.3.1.aar/df99a9ab5160641687d1aa8150b03aa1/AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-v4:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/support-v4-25.3.1.aar/df99a9ab5160641687d1aa8150b03aa1/AndroidManifest.xml:21:5-23:54
+MERGED from [com.facebook.fbui.textlayoutbuilder:textlayoutbuilder:1.0.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/textlayoutbuilder-1.0.0.aar/944bfc7487f31cecef7c3f3f7b0ec3ee/AndroidManifest.xml:14:5-16:41
+MERGED from [com.facebook.fbui.textlayoutbuilder:textlayoutbuilder:1.0.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/textlayoutbuilder-1.0.0.aar/944bfc7487f31cecef7c3f3f7b0ec3ee/AndroidManifest.xml:14:5-16:41
+MERGED from [com.facebook.fresco:fresco:1.3.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/fresco-1.3.0.aar/eaed546f8b8260041173c0e26677924f/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fresco:1.3.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/fresco-1.3.0.aar/eaed546f8b8260041173c0e26677924f/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:1.3.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/imagepipeline-okhttp3-1.3.0.aar/46f3407b7a1cb65b70deb1268c626074/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:1.3.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/imagepipeline-okhttp3-1.3.0.aar/46f3407b7a1cb65b70deb1268c626074/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.soloader:soloader:0.1.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/soloader-0.1.0.aar/8a66d6a252902833929b94ef64ebe398/AndroidManifest.xml:2:3-70
+MERGED from [com.facebook.soloader:soloader:0.1.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/soloader-0.1.0.aar/8a66d6a252902833929b94ef64ebe398/AndroidManifest.xml:2:3-70
+MERGED from [com.facebook.fresco:drawee:1.3.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/drawee-1.3.0.aar/6a476ebbc4aa610e15b12e57ab65e6cf/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:drawee:1.3.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/drawee-1.3.0.aar/6a476ebbc4aa610e15b12e57ab65e6cf/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline:1.3.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/imagepipeline-1.3.0.aar/f641b5169ddf070a0c7dd72fa3834dfe/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline:1.3.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/imagepipeline-1.3.0.aar/f641b5169ddf070a0c7dd72fa3834dfe/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-base:1.3.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/imagepipeline-base-1.3.0.aar/93cd06aa740eb1e6b737c3e63eb7591a/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-base:1.3.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/imagepipeline-base-1.3.0.aar/93cd06aa740eb1e6b737c3e63eb7591a/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fbcore:1.3.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/fbcore-1.3.0.aar/ea8a790acbf15224b9fd837aa9b3d74a/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fbcore:1.3.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/fbcore-1.3.0.aar/ea8a790acbf15224b9fd837aa9b3d74a/AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support:recyclerview-v7:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-25.3.1.aar/c4c5039f4d98ffaa27b87c46678942bd/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:recyclerview-v7:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-25.3.1.aar/c4c5039f4d98ffaa27b87c46678942bd/AndroidManifest.xml:20:5-43
+MERGED from [com.balysv.materialmenu:material-menu:1.5.4] /private/var/root/.gradle/caches/transforms-1/files-1.1/material-menu-1.5.4.aar/e543c331effbdc613db0fe8322463005/AndroidManifest.xml:8:5-10:41
+MERGED from [com.balysv.materialmenu:material-menu:1.5.4] /private/var/root/.gradle/caches/transforms-1/files-1.1/material-menu-1.5.4.aar/e543c331effbdc613db0fe8322463005/AndroidManifest.xml:8:5-10:41
+MERGED from [com.android.support:animated-vector-drawable:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-25.3.1.aar/851606da5c278880b271ba7cbf6d6367/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-25.3.1.aar/851606da5c278880b271ba7cbf6d6367/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-25.3.1.aar/0421b7ea636fc71d50f316cac8b38795/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-vector-drawable:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-25.3.1.aar/0421b7ea636fc71d50f316cac8b38795/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-fragment:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/support-fragment-25.3.1.aar/41fd25ac4232bd82712fa6c5e59087ab/AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-fragment:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/support-fragment-25.3.1.aar/41fd25ac4232bd82712fa6c5e59087ab/AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-media-compat:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/support-media-compat-25.3.1.aar/542fdb17024942b02398721e947aee05/AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-media-compat:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/support-media-compat-25.3.1.aar/542fdb17024942b02398721e947aee05/AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-core-utils:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/support-core-utils-25.3.1.aar/e2cf3f45929967224bab758589dd846f/AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-core-utils:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/support-core-utils-25.3.1.aar/e2cf3f45929967224bab758589dd846f/AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-core-ui:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/support-core-ui-25.3.1.aar/b547d49188570f852021f96f99317f11/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-ui:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/support-core-ui-25.3.1.aar/b547d49188570f852021f96f99317f11/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/support-compat-25.3.1.aar/ca25cc3a342be9ba60901e86b5d307f5/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/support-compat-25.3.1.aar/ca25cc3a342be9ba60901e86b5d307f5/AndroidManifest.xml:21:5-23:58
 INJECTED from /Users/gopiy/Documents/Wafi/android/app/src/main/AndroidManifest.xml:7:5-9:41
 INJECTED from /Users/gopiy/Documents/Wafi/android/app/src/main/AndroidManifest.xml:7:5-9:41
 	tools:overrideLibrary
-		ADDED from [com.android.support:design:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/design-25.3.1.aar/75835f8b8938536e98ab73ca8c077362/AndroidManifest.xml:23:9-59
+		ADDED from [com.android.support:design:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/design-25.3.1.aar/75835f8b8938536e98ab73ca8c077362/AndroidManifest.xml:23:9-59
 	android:targetSdkVersion
 		ADDED from /Users/gopiy/Documents/Wafi/android/app/src/main/AndroidManifest.xml:9:9-38
 		INJECTED from /Users/gopiy/Documents/Wafi/android/app/src/main/AndroidManifest.xml
@@ -133,40 +133,40 @@ application
 ADDED from /Users/gopiy/Documents/Wafi/android/app/src/main/AndroidManifest.xml:11:5-37:19
 MERGED from [:react-native-navigation] /Users/gopiy/Documents/Wafi/node_modules/react-native-navigation/android/app/build/intermediates/manifests/full/debug/AndroidManifest.xml:11:5-18:19
 MERGED from [:react-native-navigation] /Users/gopiy/Documents/Wafi/node_modules/react-native-navigation/android/app/build/intermediates/manifests/full/debug/AndroidManifest.xml:11:5-18:19
-MERGED from [com.facebook.react:react-native:0.55.4] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/react-native-0.55.4.aar/49e49ed46ef3060a9719a49532d8c225/AndroidManifest.xml:13:5-20
-MERGED from [com.facebook.react:react-native:0.55.4] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/react-native-0.55.4.aar/49e49ed46ef3060a9719a49532d8c225/AndroidManifest.xml:13:5-20
-MERGED from [com.balysv.materialmenu:material-menu-toolbar:1.5.4] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/material-menu-toolbar-1.5.4.aar/b0bff7c303ba4e5a4231b6b0ab847a34/AndroidManifest.xml:12:5-20
-MERGED from [com.balysv.materialmenu:material-menu-toolbar:1.5.4] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/material-menu-toolbar-1.5.4.aar/b0bff7c303ba4e5a4231b6b0ab847a34/AndroidManifest.xml:12:5-20
-MERGED from [com.aurelhubert:ahbottomnavigation:2.0.6] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/ahbottomnavigation-2.0.6.aar/0b7b28a3ad196564a2abeb4fb6e13539/AndroidManifest.xml:11:5-20
-MERGED from [com.aurelhubert:ahbottomnavigation:2.0.6] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/ahbottomnavigation-2.0.6.aar/0b7b28a3ad196564a2abeb4fb6e13539/AndroidManifest.xml:11:5-20
-MERGED from [com.android.support:design:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/design-25.3.1.aar/75835f8b8938536e98ab73ca8c077362/AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:design:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/design-25.3.1.aar/75835f8b8938536e98ab73ca8c077362/AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:appcompat-v7:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/f5d4096e85b0169d4b06e15480ac8c9e/AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:appcompat-v7:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/f5d4096e85b0169d4b06e15480ac8c9e/AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:transition:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/transition-25.3.1.aar/864d2fb93a00eb52e872fe75550ecaf4/AndroidManifest.xml:26:5-20
-MERGED from [com.android.support:transition:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/transition-25.3.1.aar/864d2fb93a00eb52e872fe75550ecaf4/AndroidManifest.xml:26:5-20
-MERGED from [com.android.support:support-v4:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/support-v4-25.3.1.aar/df99a9ab5160641687d1aa8150b03aa1/AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-v4:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/support-v4-25.3.1.aar/df99a9ab5160641687d1aa8150b03aa1/AndroidManifest.xml:29:5-20
-MERGED from [com.facebook.soloader:soloader:0.1.0] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/soloader-0.1.0.aar/b82b616805b3f3cf80cb1916aaf25e47/AndroidManifest.xml:3:3-17
-MERGED from [com.facebook.soloader:soloader:0.1.0] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/soloader-0.1.0.aar/b82b616805b3f3cf80cb1916aaf25e47/AndroidManifest.xml:3:3-17
-MERGED from [org.webkit:android-jsc:r174650] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/android-jsc-r174650.aar/5aa2cbed3cc81925fd78629a803b9e36/AndroidManifest.xml:2:3-17
-MERGED from [org.webkit:android-jsc:r174650] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/android-jsc-r174650.aar/5aa2cbed3cc81925fd78629a803b9e36/AndroidManifest.xml:2:3-17
-MERGED from [com.balysv.materialmenu:material-menu:1.5.4] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/material-menu-1.5.4.aar/6b3145827ee3c4329f617467582def2a/AndroidManifest.xml:12:5-20
-MERGED from [com.balysv.materialmenu:material-menu:1.5.4] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/material-menu-1.5.4.aar/6b3145827ee3c4329f617467582def2a/AndroidManifest.xml:12:5-20
-MERGED from [com.android.support:animated-vector-drawable:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-25.3.1.aar/851606da5c278880b271ba7cbf6d6367/AndroidManifest.xml:26:5-20
-MERGED from [com.android.support:animated-vector-drawable:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-25.3.1.aar/851606da5c278880b271ba7cbf6d6367/AndroidManifest.xml:26:5-20
-MERGED from [com.android.support:support-vector-drawable:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-25.3.1.aar/0421b7ea636fc71d50f316cac8b38795/AndroidManifest.xml:26:5-20
-MERGED from [com.android.support:support-vector-drawable:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-25.3.1.aar/0421b7ea636fc71d50f316cac8b38795/AndroidManifest.xml:26:5-20
-MERGED from [com.android.support:support-fragment:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/support-fragment-25.3.1.aar/41fd25ac4232bd82712fa6c5e59087ab/AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-fragment:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/support-fragment-25.3.1.aar/41fd25ac4232bd82712fa6c5e59087ab/AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-media-compat:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/support-media-compat-25.3.1.aar/542fdb17024942b02398721e947aee05/AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-media-compat:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/support-media-compat-25.3.1.aar/542fdb17024942b02398721e947aee05/AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-core-utils:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/support-core-utils-25.3.1.aar/e2cf3f45929967224bab758589dd846f/AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-core-utils:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/support-core-utils-25.3.1.aar/e2cf3f45929967224bab758589dd846f/AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-core-ui:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/support-core-ui-25.3.1.aar/b547d49188570f852021f96f99317f11/AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-core-ui:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/support-core-ui-25.3.1.aar/b547d49188570f852021f96f99317f11/AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-compat:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/support-compat-25.3.1.aar/ca25cc3a342be9ba60901e86b5d307f5/AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-compat:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/support-compat-25.3.1.aar/ca25cc3a342be9ba60901e86b5d307f5/AndroidManifest.xml:29:5-20
+MERGED from [com.facebook.react:react-native:0.55.4] /private/var/root/.gradle/caches/transforms-1/files-1.1/react-native-0.55.4.aar/49e49ed46ef3060a9719a49532d8c225/AndroidManifest.xml:13:5-20
+MERGED from [com.facebook.react:react-native:0.55.4] /private/var/root/.gradle/caches/transforms-1/files-1.1/react-native-0.55.4.aar/49e49ed46ef3060a9719a49532d8c225/AndroidManifest.xml:13:5-20
+MERGED from [com.balysv.materialmenu:material-menu-toolbar:1.5.4] /private/var/root/.gradle/caches/transforms-1/files-1.1/material-menu-toolbar-1.5.4.aar/49c246736263aa32f5d72f9f7ee9eb0c/AndroidManifest.xml:12:5-20
+MERGED from [com.balysv.materialmenu:material-menu-toolbar:1.5.4] /private/var/root/.gradle/caches/transforms-1/files-1.1/material-menu-toolbar-1.5.4.aar/49c246736263aa32f5d72f9f7ee9eb0c/AndroidManifest.xml:12:5-20
+MERGED from [com.aurelhubert:ahbottomnavigation:2.0.6] /private/var/root/.gradle/caches/transforms-1/files-1.1/ahbottomnavigation-2.0.6.aar/642b803711d784f0b6b47286f017949f/AndroidManifest.xml:11:5-20
+MERGED from [com.aurelhubert:ahbottomnavigation:2.0.6] /private/var/root/.gradle/caches/transforms-1/files-1.1/ahbottomnavigation-2.0.6.aar/642b803711d784f0b6b47286f017949f/AndroidManifest.xml:11:5-20
+MERGED from [com.android.support:design:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/design-25.3.1.aar/75835f8b8938536e98ab73ca8c077362/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:design:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/design-25.3.1.aar/75835f8b8938536e98ab73ca8c077362/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:appcompat-v7:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/f5d4096e85b0169d4b06e15480ac8c9e/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:appcompat-v7:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/f5d4096e85b0169d4b06e15480ac8c9e/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:transition:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/transition-25.3.1.aar/864d2fb93a00eb52e872fe75550ecaf4/AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:transition:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/transition-25.3.1.aar/864d2fb93a00eb52e872fe75550ecaf4/AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:support-v4:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/support-v4-25.3.1.aar/df99a9ab5160641687d1aa8150b03aa1/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-v4:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/support-v4-25.3.1.aar/df99a9ab5160641687d1aa8150b03aa1/AndroidManifest.xml:29:5-20
+MERGED from [com.facebook.soloader:soloader:0.1.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/soloader-0.1.0.aar/8a66d6a252902833929b94ef64ebe398/AndroidManifest.xml:3:3-17
+MERGED from [com.facebook.soloader:soloader:0.1.0] /private/var/root/.gradle/caches/transforms-1/files-1.1/soloader-0.1.0.aar/8a66d6a252902833929b94ef64ebe398/AndroidManifest.xml:3:3-17
+MERGED from [org.webkit:android-jsc:r174650] /private/var/root/.gradle/caches/transforms-1/files-1.1/android-jsc-r174650.aar/1af72706df53ffbe3bbe4d5a2e10137a/AndroidManifest.xml:2:3-17
+MERGED from [org.webkit:android-jsc:r174650] /private/var/root/.gradle/caches/transforms-1/files-1.1/android-jsc-r174650.aar/1af72706df53ffbe3bbe4d5a2e10137a/AndroidManifest.xml:2:3-17
+MERGED from [com.balysv.materialmenu:material-menu:1.5.4] /private/var/root/.gradle/caches/transforms-1/files-1.1/material-menu-1.5.4.aar/e543c331effbdc613db0fe8322463005/AndroidManifest.xml:12:5-20
+MERGED from [com.balysv.materialmenu:material-menu:1.5.4] /private/var/root/.gradle/caches/transforms-1/files-1.1/material-menu-1.5.4.aar/e543c331effbdc613db0fe8322463005/AndroidManifest.xml:12:5-20
+MERGED from [com.android.support:animated-vector-drawable:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-25.3.1.aar/851606da5c278880b271ba7cbf6d6367/AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:animated-vector-drawable:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-25.3.1.aar/851606da5c278880b271ba7cbf6d6367/AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:support-vector-drawable:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-25.3.1.aar/0421b7ea636fc71d50f316cac8b38795/AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:support-vector-drawable:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-25.3.1.aar/0421b7ea636fc71d50f316cac8b38795/AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:support-fragment:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/support-fragment-25.3.1.aar/41fd25ac4232bd82712fa6c5e59087ab/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-fragment:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/support-fragment-25.3.1.aar/41fd25ac4232bd82712fa6c5e59087ab/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-media-compat:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/support-media-compat-25.3.1.aar/542fdb17024942b02398721e947aee05/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-media-compat:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/support-media-compat-25.3.1.aar/542fdb17024942b02398721e947aee05/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-utils:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/support-core-utils-25.3.1.aar/e2cf3f45929967224bab758589dd846f/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-utils:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/support-core-utils-25.3.1.aar/e2cf3f45929967224bab758589dd846f/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-ui:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/support-core-ui-25.3.1.aar/b547d49188570f852021f96f99317f11/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-ui:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/support-core-ui-25.3.1.aar/b547d49188570f852021f96f99317f11/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-compat:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/support-compat-25.3.1.aar/ca25cc3a342be9ba60901e86b5d307f5/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-compat:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/support-compat-25.3.1.aar/ca25cc3a342be9ba60901e86b5d307f5/AndroidManifest.xml:29:5-20
 	android:label
 		ADDED from /Users/gopiy/Documents/Wafi/android/app/src/main/AndroidManifest.xml:14:7-39
 	android:icon
@@ -222,33 +222,33 @@ ADDED from [:react-native-navigation] /Users/gopiy/Documents/Wafi/node_modules/r
 	android:name
 		ADDED from [:react-native-navigation] /Users/gopiy/Documents/Wafi/node_modules/react-native-navigation/android/app/build/intermediates/manifests/full/debug/AndroidManifest.xml:13:13-84
 meta-data#android.support.VERSION
-ADDED from [com.android.support:design:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/design-25.3.1.aar/75835f8b8938536e98ab73ca8c077362/AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:appcompat-v7:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/f5d4096e85b0169d4b06e15480ac8c9e/AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:appcompat-v7:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/f5d4096e85b0169d4b06e15480ac8c9e/AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:transition:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/transition-25.3.1.aar/864d2fb93a00eb52e872fe75550ecaf4/AndroidManifest.xml:22:5-24:34
-MERGED from [com.android.support:transition:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/transition-25.3.1.aar/864d2fb93a00eb52e872fe75550ecaf4/AndroidManifest.xml:22:5-24:34
-MERGED from [com.android.support:support-v4:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/support-v4-25.3.1.aar/df99a9ab5160641687d1aa8150b03aa1/AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:support-v4:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/support-v4-25.3.1.aar/df99a9ab5160641687d1aa8150b03aa1/AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:recyclerview-v7:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-25.3.1.aar/c4c5039f4d98ffaa27b87c46678942bd/AndroidManifest.xml:22:5-24:34
-MERGED from [com.android.support:recyclerview-v7:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-25.3.1.aar/c4c5039f4d98ffaa27b87c46678942bd/AndroidManifest.xml:22:5-24:34
-MERGED from [com.android.support:animated-vector-drawable:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-25.3.1.aar/851606da5c278880b271ba7cbf6d6367/AndroidManifest.xml:22:5-24:34
-MERGED from [com.android.support:animated-vector-drawable:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-25.3.1.aar/851606da5c278880b271ba7cbf6d6367/AndroidManifest.xml:22:5-24:34
-MERGED from [com.android.support:support-vector-drawable:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-25.3.1.aar/0421b7ea636fc71d50f316cac8b38795/AndroidManifest.xml:22:5-24:34
-MERGED from [com.android.support:support-vector-drawable:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-25.3.1.aar/0421b7ea636fc71d50f316cac8b38795/AndroidManifest.xml:22:5-24:34
-MERGED from [com.android.support:support-fragment:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/support-fragment-25.3.1.aar/41fd25ac4232bd82712fa6c5e59087ab/AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:support-fragment:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/support-fragment-25.3.1.aar/41fd25ac4232bd82712fa6c5e59087ab/AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:support-media-compat:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/support-media-compat-25.3.1.aar/542fdb17024942b02398721e947aee05/AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:support-media-compat:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/support-media-compat-25.3.1.aar/542fdb17024942b02398721e947aee05/AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:support-core-utils:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/support-core-utils-25.3.1.aar/e2cf3f45929967224bab758589dd846f/AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:support-core-utils:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/support-core-utils-25.3.1.aar/e2cf3f45929967224bab758589dd846f/AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:support-core-ui:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/support-core-ui-25.3.1.aar/b547d49188570f852021f96f99317f11/AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:support-core-ui:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/support-core-ui-25.3.1.aar/b547d49188570f852021f96f99317f11/AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:support-compat:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/support-compat-25.3.1.aar/ca25cc3a342be9ba60901e86b5d307f5/AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:support-compat:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/support-compat-25.3.1.aar/ca25cc3a342be9ba60901e86b5d307f5/AndroidManifest.xml:25:5-27:34
+ADDED from [com.android.support:design:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/design-25.3.1.aar/75835f8b8938536e98ab73ca8c077362/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:appcompat-v7:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/f5d4096e85b0169d4b06e15480ac8c9e/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:appcompat-v7:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/f5d4096e85b0169d4b06e15480ac8c9e/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:transition:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/transition-25.3.1.aar/864d2fb93a00eb52e872fe75550ecaf4/AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:transition:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/transition-25.3.1.aar/864d2fb93a00eb52e872fe75550ecaf4/AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:support-v4:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/support-v4-25.3.1.aar/df99a9ab5160641687d1aa8150b03aa1/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-v4:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/support-v4-25.3.1.aar/df99a9ab5160641687d1aa8150b03aa1/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:recyclerview-v7:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-25.3.1.aar/c4c5039f4d98ffaa27b87c46678942bd/AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:recyclerview-v7:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-25.3.1.aar/c4c5039f4d98ffaa27b87c46678942bd/AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:animated-vector-drawable:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-25.3.1.aar/851606da5c278880b271ba7cbf6d6367/AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:animated-vector-drawable:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-25.3.1.aar/851606da5c278880b271ba7cbf6d6367/AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:support-vector-drawable:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-25.3.1.aar/0421b7ea636fc71d50f316cac8b38795/AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:support-vector-drawable:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-25.3.1.aar/0421b7ea636fc71d50f316cac8b38795/AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:support-fragment:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/support-fragment-25.3.1.aar/41fd25ac4232bd82712fa6c5e59087ab/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-fragment:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/support-fragment-25.3.1.aar/41fd25ac4232bd82712fa6c5e59087ab/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-media-compat:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/support-media-compat-25.3.1.aar/542fdb17024942b02398721e947aee05/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-media-compat:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/support-media-compat-25.3.1.aar/542fdb17024942b02398721e947aee05/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-core-utils:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/support-core-utils-25.3.1.aar/e2cf3f45929967224bab758589dd846f/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-core-utils:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/support-core-utils-25.3.1.aar/e2cf3f45929967224bab758589dd846f/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-core-ui:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/support-core-ui-25.3.1.aar/b547d49188570f852021f96f99317f11/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-core-ui:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/support-core-ui-25.3.1.aar/b547d49188570f852021f96f99317f11/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-compat:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/support-compat-25.3.1.aar/ca25cc3a342be9ba60901e86b5d307f5/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-compat:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/support-compat-25.3.1.aar/ca25cc3a342be9ba60901e86b5d307f5/AndroidManifest.xml:25:5-27:34
 	android:value
-		ADDED from [com.android.support:design:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/design-25.3.1.aar/75835f8b8938536e98ab73ca8c077362/AndroidManifest.xml:27:9-31
+		ADDED from [com.android.support:design:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/design-25.3.1.aar/75835f8b8938536e98ab73ca8c077362/AndroidManifest.xml:27:9-31
 	android:name
-		ADDED from [com.android.support:design:25.3.1] /Users/gopiy/.gradle/caches/transforms-1/files-1.1/design-25.3.1.aar/75835f8b8938536e98ab73ca8c077362/AndroidManifest.xml:26:9-47
+		ADDED from [com.android.support:design:25.3.1] /private/var/root/.gradle/caches/transforms-1/files-1.1/design-25.3.1.aar/75835f8b8938536e98ab73ca8c077362/AndroidManifest.xml:26:9-47
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
 IMPLIED from /Users/gopiy/Documents/Wafi/android/app/src/main/AndroidManifest.xml:1:1-39:12 reason: org.webkit.android_jsc has a targetSdkVersion < 4
 uses-permission#android.permission.READ_PHONE_STATE
