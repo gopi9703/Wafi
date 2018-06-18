@@ -3,6 +3,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import AuthScreen from './src/screens/Auth/Auth';
 import Register from './src/screens/Auth/Register';
 import Forgotpassword from './src/screens/Auth/Forgotpassword';
+import ChangePassword from './src/screens/Auth/ChangePassword';
 import Offers from './src/screens/main/Offers';
 import OffersList from './src/screens/main/OffersList/OffersList';
 import Mall from './src/screens/main/Mall';
@@ -52,6 +53,7 @@ Navigation.registerComponent("Wafi.Search", () => Search);
 Navigation.registerComponent("Wafi.setStateModal", () => setStateModal);
 
 Navigation.registerComponent("Wafi.MyAccount", () => MyAccount);
+Navigation.registerComponent("Wafi.ChangePassword", () => ChangePassword);
 
 /*Navigation.startSingleScreenApp({
   screen: {

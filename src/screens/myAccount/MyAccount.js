@@ -14,6 +14,20 @@ class MyAccount extends Component {
         navbarHidden: false,
     };
 
+    changePassword = () => {
+        this.props.navigator.push({
+            screen: 'Wafi.ChangePassword',
+            animated: true,
+            animationType: 'slide-horizontal', // 'fade' (for both) / 'slide-horizontal'
+            navigatorStyle: {
+                navBarBackgroundColor: '#0A266D',
+                navBarButtonColor: '#ffffff'
+            }
+
+        });
+
+    }
+
 
     render() {
         return (
@@ -44,7 +58,7 @@ class MyAccount extends Component {
                         <Text style={styles.prflRowText}>974 - 2222 - 3645 </Text>
                     </View>
 
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={this.changePassword}>
                         <View style={styles.PwdRow}>
                             <Text style={styles.changePwd}>Change Password  </Text>
                         </View>
