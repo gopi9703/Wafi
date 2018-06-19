@@ -19,6 +19,14 @@ class ProductCards extends Component {
             navigatorStyle: {
                 navBarBackgroundColor: '#0A266D',
                 navBarButtonColor: '#ffffff'
+            },
+
+            navigatorButtons: {
+                rightButtons: [{
+                    icon: require('../../../src/img/header_Logo.png'),
+                    id: 'Back',
+                    disableIconTint: true,
+                }],
             }
 
         });
@@ -31,126 +39,142 @@ class ProductCards extends Component {
 
 
 
-    BrandListHandler = () => {
-        this.props.navigator.push({
-            screen: 'Wafi.BrandsList',
-            animated: true,
-            animationType: 'slide-horizontal', // 'fade' (for both) / 'slide-horizontal'
-            navigatorStyle: {
-                navBarBackgroundColor: '#0A266D',
-                navBarButtonColor: '#ffffff'
-            }
-        });
-    }
+BrandListHandler = () => {
+    this.props.navigator.push({
+        screen: 'Wafi.BrandsList',
+        animated: true,
+        animationType: 'slide-horizontal', // 'fade' (for both) / 'slide-horizontal'
+        navigatorStyle: {
+            navBarBackgroundColor: '#0A266D',
+            navBarButtonColor: '#ffffff'
+        },
 
-    BrandDetailsHandler = () => {
-        this.props.navigator.push({
-            screen: 'Wafi.BrandDetails',
-            animated: true,
-            animationType: 'slide-horizontal', // 'fade' (for both) / 'slide-horizontal'
-            navigatorStyle: {
-                navBarBackgroundColor: '#0A266D',
-                navBarButtonColor: '#ffffff'
-            }
-        });
-    }
+        navigatorButtons: {
+            rightButtons: [{
+                icon: require('../../../src/img/header_Logo.png'),
+                id: 'Back',
+                disableIconTint: true,
+            }],
+        }
+    });
+}
+
+BrandDetailsHandler = () => {
+    this.props.navigator.push({
+        screen: 'Wafi.BrandDetails',
+        animated: true,
+        animationType: 'slide-horizontal', // 'fade' (for both) / 'slide-horizontal'
+        navigatorStyle: {
+            navBarBackgroundColor: '#0A266D',
+            navBarButtonColor: '#ffffff'
+        },
+
+        navigatorButtons: {
+            rightButtons: [{
+                icon: require('../../../src/img/header_Logo.png'),
+                id: 'Back',
+                disableIconTint: true,
+            }],
+        }
+    });
+}
 
 
 
-    render() {
-        return (
-            <View style={styles.prdtWrapr}>
-                <View style={styles.gridItem}>
-                    <View style={styles.gridWrapr}>
-                        <TouchableOpacity onPress={this.OffersListHandler}>
-                            <Image source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png' }} style={styles.ProductImg} />
-                            <Text style={styles.center}>50% OFF</Text>
-                            <View style={styles.prdDescr}>
-                                <Text style={styles.offerTitle}>Flat 50% OFF</Text>
-                                <Text style={styles.offerDesc}>Sample Description</Text>
-                            </View>
-                        </TouchableOpacity>
-                    </View>
+render() {
+    return (
+        <View style={styles.prdtWrapr}>
+            <View style={styles.gridItem}>
+                <View style={styles.gridWrapr}>
+                    <TouchableOpacity onPress={this.OffersListHandler}>
+                        <Image source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png' }} style={styles.ProductImg} />
+                        <Text style={styles.center}>50% OFF</Text>
+                        <View style={styles.prdDescr}>
+                            <Text style={styles.offerTitle}>Flat 50% OFF</Text>
+                            <Text style={styles.offerDesc}>Sample Description</Text>
+                        </View>
+                    </TouchableOpacity>
                 </View>
-                <View style={styles.gridItem}>
-                    <View style={styles.gridWrapr}>
-                        <TouchableOpacity onPress={this.BrandListHandler}>
-                            <Image source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png' }} style={styles.ProductImg} />
-                            <Text style={styles.center}>50% OFF</Text>
-                            <View style={styles.prdDescr}>
-                                <Text style={styles.offerTitle}>Flat 50% OFF</Text>
-                                <Text style={styles.offerDesc}>Sample Description</Text>
-                            </View>
-                        </TouchableOpacity>
-                    </View>
+            </View>
+            <View style={styles.gridItem}>
+                <View style={styles.gridWrapr}>
+                    <TouchableOpacity onPress={this.BrandListHandler}>
+                        <Image source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png' }} style={styles.ProductImg} />
+                        <Text style={styles.center}>50% OFF</Text>
+                        <View style={styles.prdDescr}>
+                            <Text style={styles.offerTitle}>Flat 50% OFF</Text>
+                            <Text style={styles.offerDesc}>Sample Description</Text>
+                        </View>
+                    </TouchableOpacity>
                 </View>
-                <View style={styles.gridItem}>
-                    <View style={styles.gridWrapr}>
-                        <TouchableOpacity >
-                            <Image source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png' }} style={styles.ProductImg} />
-                            <Text style={styles.center}>50% OFF</Text>
-                            <View style={styles.prdDescr}>
-                                <Text style={styles.offerTitle}>Flat 50% OFF</Text>
-                                <Text style={styles.offerDesc}>Sample Description</Text>
-                            </View>
-                        </TouchableOpacity>
-                    </View>
+            </View>
+            <View style={styles.gridItem}>
+                <View style={styles.gridWrapr}>
+                    <TouchableOpacity >
+                        <Image source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png' }} style={styles.ProductImg} />
+                        <Text style={styles.center}>50% OFF</Text>
+                        <View style={styles.prdDescr}>
+                            <Text style={styles.offerTitle}>Flat 50% OFF</Text>
+                            <Text style={styles.offerDesc}>Sample Description</Text>
+                        </View>
+                    </TouchableOpacity>
                 </View>
-                <View style={styles.gridItem}>
-                    <View style={styles.gridWrapr}>
-                        <TouchableOpacity>
-                            <Image source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png' }} style={styles.ProductImg} />
-                            <Text style={styles.center}>50% OFF</Text>
-                            <View style={styles.prdDescr}>
-                                <Text style={styles.offerTitle}>Flat 50% OFF</Text>
-                                <Text style={styles.offerDesc}>Sample Description</Text>
-                            </View>
-                        </TouchableOpacity>
-                    </View>
+            </View>
+            <View style={styles.gridItem}>
+                <View style={styles.gridWrapr}>
+                    <TouchableOpacity>
+                        <Image source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png' }} style={styles.ProductImg} />
+                        <Text style={styles.center}>50% OFF</Text>
+                        <View style={styles.prdDescr}>
+                            <Text style={styles.offerTitle}>Flat 50% OFF</Text>
+                            <Text style={styles.offerDesc}>Sample Description</Text>
+                        </View>
+                    </TouchableOpacity>
                 </View>
-                <View style={styles.gridItem}>
-                    <View style={styles.gridWrapr}>
-                        <TouchableOpacity>
-                            <Image source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png' }} style={styles.ProductImg} />
-                            <Text style={styles.center}>50% OFF</Text>
-                            <View style={styles.prdDescr}>
-                                <Text style={styles.offerTitle}>Flat 50% OFF</Text>
-                                <Text style={styles.offerDesc}>Sample Description</Text>
-                            </View>
-                        </TouchableOpacity>
-                    </View>
+            </View>
+            <View style={styles.gridItem}>
+                <View style={styles.gridWrapr}>
+                    <TouchableOpacity>
+                        <Image source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png' }} style={styles.ProductImg} />
+                        <Text style={styles.center}>50% OFF</Text>
+                        <View style={styles.prdDescr}>
+                            <Text style={styles.offerTitle}>Flat 50% OFF</Text>
+                            <Text style={styles.offerDesc}>Sample Description</Text>
+                        </View>
+                    </TouchableOpacity>
                 </View>
-                <View style={styles.gridItem}>
-                    <View style={styles.gridWrapr}>
-                        <TouchableOpacity>
-                            <Image source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png' }} style={styles.ProductImg} />
-                            <Text style={styles.center}>50% OFF</Text>
-                            <View style={styles.prdDescr}>
-                                <Text style={styles.offerTitle}>Flat 50% OFF</Text>
-                                <Text style={styles.offerDesc}>Sample Description</Text>
-                            </View>
-                        </TouchableOpacity>
-                    </View>
+            </View>
+            <View style={styles.gridItem}>
+                <View style={styles.gridWrapr}>
+                    <TouchableOpacity>
+                        <Image source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png' }} style={styles.ProductImg} />
+                        <Text style={styles.center}>50% OFF</Text>
+                        <View style={styles.prdDescr}>
+                            <Text style={styles.offerTitle}>Flat 50% OFF</Text>
+                            <Text style={styles.offerDesc}>Sample Description</Text>
+                        </View>
+                    </TouchableOpacity>
                 </View>
-                <View style={styles.gridItem}>
-                    <View style={styles.gridWrapr}>
-                        <TouchableOpacity onPress={this.BrandDetailsHandler}>
-                            <Image source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png' }} style={styles.ProductImg} />
-                            <Text style={styles.center}>50% OFF</Text>
-                            <View style={styles.prdDescr}>
-                                <Text style={styles.offerTitle}>Flat 50% OFF</Text>
-                                <Text style={styles.offerDesc}>Sample Description</Text>
-                            </View>
-                        </TouchableOpacity>
-                    </View>
+            </View>
+            <View style={styles.gridItem}>
+                <View style={styles.gridWrapr}>
+                    <TouchableOpacity onPress={this.BrandDetailsHandler}>
+                        <Image source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png' }} style={styles.ProductImg} />
+                        <Text style={styles.center}>50% OFF</Text>
+                        <View style={styles.prdDescr}>
+                            <Text style={styles.offerTitle}>Flat 50% OFF</Text>
+                            <Text style={styles.offerDesc}>Sample Description</Text>
+                        </View>
+                    </TouchableOpacity>
                 </View>
-
             </View>
 
+        </View>
 
 
-        )
-    }
+
+    )
+}
 }
 
 const styles = StyleSheet.create({
@@ -204,20 +228,20 @@ const styles = StyleSheet.create({
     },
     offerTitle: {
         color: '#000000',
-        fontSize: 15,
+        fontSize: 18,
         width: '100%',
         fontFamily: "MyriadPro-Semibold_2",
     },
     offerDesc: {
         color: '#58595B',
-        fontSize: 12,
+        fontSize: 15,
         fontFamily: "MyriadPro-Regular",
 
     },
     prodOffPercet: {
         backgroundColor: '#F6921E',
         color: '#ffffff',
-        fontSize: 16,
+        fontSize: 18,
         borderRadius: 25,
         paddingTop: 5,
         paddingBottom: 5,
@@ -230,7 +254,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#F6921E',
         paddingVertical: 5,
         color: '#ffffff',
-        fontSize: 15,
+        fontSize: 18,
         borderRadius: 25,
         marginTop: -20,
         marginHorizontal: '10%',

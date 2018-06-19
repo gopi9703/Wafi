@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity, FlatList, ActivityIndicator } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity, FlatList, ActivityIndicator, Dimensions } from 'react-native';
 import Navigation from 'react-native-navigation';
 import Icon from 'react-native-vector-icons/Ionicons';
 import FontStyle from '../ReusableComponents/FontStyle';
@@ -18,7 +18,7 @@ export default class ProductList extends Component {
   }
   webCall = () => {
 
-    return fetch('https://reactnativecode.000webhostapp.com/FlowersList.php')
+    return fetch('http://admin.wafideals.com/apimalls')
       .then((response) => response.json())
       .then((responseJson) => {
         this.setState({
@@ -36,8 +36,8 @@ export default class ProductList extends Component {
 
   componentDidMount() {
     this.webCall();
-   
-  
+
+
   }
 
   constructor(props) {
@@ -62,7 +62,7 @@ export default class ProductList extends Component {
 
 
 
- 
+
   render() {
     if (this.state.isLoading) {
       return (
@@ -84,16 +84,16 @@ export default class ProductList extends Component {
 
     return (
 
-      <FlatList style={{ padding: 15, backgroundColor: '#D0D2D3' }} initialNumToRender={3}
+      <FlatList style={{ padding: 15, backgroundColor: '#D0D2D3', height : Dimensions.get('window').height / 1.1 }} initialNumToRender={3}
         data={this.state.dataSource}
         renderItem={({ item }) =>
           <TouchableOpacity onPress={this.mallDetailsHandler}>
             <View style={styles.rowBlk}>
               <View style={{ flexDirection: 'row' }}>
-                <Image source={{ uri: item.flower_image_url }} style={styles.mallImg} />
+                <Image source={{ uri: 'http://admin.wafideals.com/storage/'+item.logo_path }} style={styles.mallImg} />
                 <View style={styles.mallTxtCol}>
-                  <FontStyle style={styles.mallTitle}> {item.flower_name} </FontStyle>
-                  <FontStyle style={styles.mallLocality}> Al Khuwair, Muscat, Oman </FontStyle>
+                  <FontStyle style={styles.mallTitle}> {item.name} </FontStyle>
+                  <FontStyle style={styles.mallLocality}> {item.location} </FontStyle>
                 </View>
               </View>
               <View>
