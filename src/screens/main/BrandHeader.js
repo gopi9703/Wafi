@@ -14,25 +14,25 @@ class BrandHeader extends Component {
                 <View style={styles.infoWrpr}>
                     <TouchableOpacity>
                         <View style={styles.IconBlk}>
-                            <Icon name="ios-call" size={30} color="#ffffff" style={styles.iconStyler} />
+                            <Icon name="ios-call" size={24} color="#ffffff" style={styles.iconStyler} />
                             <FontStyle> <Text style={[styles.iconText]}>Contact</Text></FontStyle>
                         </View>
                     </TouchableOpacity>
                     <TouchableOpacity>
                         <View style={styles.IconBlk}>
-                            <Icon name="ios-pin" size={30} color="#ffffff" style={[styles.iconStyler, styles.location]} />
+                            <Icon name="ios-pin" size={24} color="#ffffff" style={[styles.iconStyler, styles.location]} />
                             <Text style={[styles.iconText]}>Location</Text>
                         </View>
                     </TouchableOpacity>
                     <TouchableOpacity>
                         <View style={styles.IconBlk}>
-                            <Icon name="md-share" size={28} color="#ffffff" style={[styles.iconStyler, styles.share]} />
+                            <Icon name="md-share" size={22} color="#ffffff" style={[styles.iconStyler, styles.share]} />
                             <Text style={styles.iconText}>Share</Text>
                         </View>
                     </TouchableOpacity>
                     <TouchableOpacity>
                         <View style={styles.IconBlk}>
-                            <Icon name="ios-heart" size={26} color="#ffffff" style={[styles.iconStyler, styles.favorite]} />
+                            <Icon name="ios-heart" size={22} color="#ffffff" style={[styles.iconStyler, styles.favorite]} />
                             <Text style={styles.iconText}>My Fav</Text>
                         </View>
                     </TouchableOpacity>
@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
         borderColor: '#BBBDBF',
         borderWidth: 1,
         borderRadius: 50,
-        paddingHorizontal: 10,
+        paddingHorizontal: 9,
         paddingVertical: 5,
 
     },
@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
         fontSize: 14,
     },
     location: {
-        paddingHorizontal: 12
+        paddingHorizontal: 10
     },
     BrandBanner: {
         width: '100%',
@@ -95,12 +95,12 @@ const styles = StyleSheet.create({
 
     },
     favorite: {
-        paddingHorizontal: 9,
+        paddingHorizontal: 7,
         paddingTop: 8,
         paddingBottom: 4,
     },
     share: {
-        paddingHorizontal: 9,
+        paddingHorizontal: 8,
     }
 
 });

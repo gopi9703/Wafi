@@ -125,7 +125,8 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     headerTitle: {
-        color: '#000'
+        color: '#808080',
+        fontWeight : 'bold'
     },
     textColor: {
         color: '#58595B'
@@ -141,6 +142,9 @@ const styles = StyleSheet.create({
     },
     paraStyle: {
         lineHeight: 22,
+        fontSize : 12,
+        fontWeight : 'bold',
+        fontFamily : 'MyriadPro-Semibold_2'
     },
     timer: {
         color: '#EF038F',
@@ -150,13 +154,13 @@ const styles = StyleSheet.create({
     },
     brandOffPercent: {
         backgroundColor: '#EF038F',
-        fontSize: 30,
+        fontSize: 38,
         color: '#fff',
-        paddingVertical: 10,
-        paddingHorizontal: 25,
+        paddingVertical: 5,
+        paddingHorizontal: 15,
         position: 'absolute',
         right: 0,
-        top: 15,
+        bottom: 10,
     }
 });
 

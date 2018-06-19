@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Sat Jun 16 16:42:29 IST 2018
+#Tue Jun 19 15:32:13 IST 2018
 5.base=/Users/gopiy/Documents/Wafi/android/app/build/intermediates/assets/debug
 22.path=lib/x86/libglog.so
 32.set=ASSET

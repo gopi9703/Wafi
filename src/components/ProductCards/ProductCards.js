@@ -204,20 +204,20 @@ const styles = StyleSheet.create({
     },
     offerTitle: {
         color: '#000000',
-        fontSize: 18,
+        fontSize: 15,
         width: '100%',
         fontFamily: "MyriadPro-Semibold_2",
     },
     offerDesc: {
         color: '#58595B',
-        fontSize: 15,
+        fontSize: 12,
         fontFamily: "MyriadPro-Regular",
 
     },
     prodOffPercet: {
         backgroundColor: '#F6921E',
         color: '#ffffff',
-        fontSize: 18,
+        fontSize: 16,
         borderRadius: 25,
         paddingTop: 5,
         paddingBottom: 5,
@@ -230,7 +230,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#F6921E',
         paddingVertical: 5,
         color: '#ffffff',
-        fontSize: 18,
+        fontSize: 15,
         borderRadius: 25,
         marginTop: -20,
         marginHorizontal: '10%',

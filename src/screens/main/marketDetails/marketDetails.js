@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView, Dimensions
 import Header from '../../../components/Header/Header';
 import BrandHeader from '../../main/BrandHeader';
 import FontStyle from '../../../components/ReusableComponents/FontStyle';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 
 
@@ -10,49 +11,67 @@ class marketDetails extends Component {
 
     flyerHandler = () => {
         this.props.navigator.push({
-          screen: 'Wafi.flyerCarousel',
-          animated: true,
-          animationType: 'slide-horizontal', // 'fade' (for both) / 'slide-horizontal'
-          tabBarHidden: true,
-          navigatorStyle: {
-            navBarBackgroundColor: '#000000',
-            navBarButtonColor: '#ffffff'
-        },
+            screen: 'Wafi.flyerCarousel',
+            animated: true,
+            animationType: 'slide-horizontal', // 'fade' (for both) / 'slide-horizontal'
+            tabBarHidden: true,
+            navigatorStyle: {
+                navBarBackgroundColor: '#000000',
+                navBarButtonColor: '#ffffff'
+            },
         });
-      }      
+    }
 
 
     render() {
         return (
-            
+
             <View style={styles.bodyBg}>
                 <BrandHeader />
                 <View style={styles.marketFlyr}>
                     <View style={styles.gridItem}>
-                      <TouchableOpacity  onPress={this.flyerHandler}>
-                        <Image source={{ uri: 'https://offersinme.com/images/leaflet/2018/03/31/866/866-0-al-karama-hypermarket-weekend-offers.jpg' }} style={styles.makretImg} />
-                        <View style={styles.marketDesc}>
+                        <TouchableOpacity onPress={this.flyerHandler}>
+                            <Image source={{ uri: 'https://offersinme.com/images/leaflet/2018/03/31/866/866-0-al-karama-hypermarket-weekend-offers.jpg' }} style={styles.makretImg} />
                             <View>
-                                <FontStyle style={styles.mallText}>BIG Sale</FontStyle>
+                                <FontStyle style={styles.mallOfferText}>BIG Sale</FontStyle>
                             </View>
-                            <View style={{ flexDirection: 'column', justifyContent: 'center', alignItems: 'center', borderLeftWidth : 1, borderColor: '#D0D2D3', paddingLeft: 10 }}>
-                                <FontStyle style={styles.daysLeft}>18</FontStyle>
-                                <FontStyle style={styles.daysLeft}>days Left</FontStyle>
+                            <View style={styles.marketDesc}>
+                                <View>
+                                    <FontStyle style={styles.mallText}>12 pages</FontStyle>
+                                </View>
+                                <View style={{ flexDirection: 'column', justifyContent: 'center', alignItems: 'center', borderLeftWidth: 1, borderColor: '#D0D2D3', paddingLeft: 10 }}>
+                                    <TouchableOpacity>
+                                        <Icon name="md-share" size={20} color="#BBBDBF" style={styles.share} />
+                                    </TouchableOpacity>
+                                </View>
+                                <View style={{ flexDirection: 'column', justifyContent: 'center', alignItems: 'center', borderLeftWidth: 1, borderColor: '#D0D2D3', paddingLeft: 10 }}>
+                                    <FontStyle style={styles.daysLeft}>18</FontStyle>
+                                    <FontStyle style={styles.daysLeft}>days Left</FontStyle>
+                                </View>
                             </View>
-                        </View>
                         </TouchableOpacity>
                     </View>
                     <View style={styles.gridItem}>
-                        <Image source={{ uri: 'https://offersinme.com/images/leaflet/2018/03/31/866/866-0-al-karama-hypermarket-weekend-offers.jpg' }} style={styles.makretImg} />
-                        <View style={styles.marketDesc}>
+                        <TouchableOpacity onPress={this.flyerHandler}>
+                            <Image source={{ uri: 'https://offersinme.com/images/leaflet/2018/03/31/866/866-0-al-karama-hypermarket-weekend-offers.jpg' }} style={styles.makretImg} />
                             <View>
-                                <FontStyle style={styles.mallText}>BIG Sale</FontStyle>
+                                <FontStyle style={styles.mallOfferText}>BIG Sale</FontStyle>
                             </View>
-                            <View style={{ flexDirection: 'column', justifyContent: 'center', alignItems: 'center', borderLeftWidth : 1, borderColor: '#D0D2D3', paddingLeft: 10 }}>
-                                <FontStyle style={styles.daysLeft}>18</FontStyle>
-                                <FontStyle style={styles.daysLeft}>days Left</FontStyle>
+                            <View style={styles.marketDesc}>
+                                <View>
+                                    <FontStyle style={styles.mallText}>12 pages</FontStyle>
+                                </View>
+                                <View style={{ flexDirection: 'column', justifyContent: 'center', alignItems: 'center', borderLeftWidth: 1, borderColor: '#D0D2D3', paddingLeft: 10 }}>
+                                    <TouchableOpacity>
+                                        <Icon name="md-share" size={20} color="#BBBDBF" style={styles.share} />
+                                    </TouchableOpacity>
+                                </View>
+                                <View style={{ flexDirection: 'column', justifyContent: 'center', alignItems: 'center', borderLeftWidth: 1, borderColor: '#D0D2D3', paddingLeft: 10 }}>
+                                    <FontStyle style={styles.daysLeft}>18</FontStyle>
+                                    <FontStyle style={styles.daysLeft}>days Left</FontStyle>
+                                </View>
                             </View>
-                        </View>
+                        </TouchableOpacity>
                     </View>
                 </View>
             </View>
@@ -91,14 +110,14 @@ const styles = StyleSheet.create({
     },
     makretImg: {
         width: Dimensions.get('window').width / 2.45,
-        height: 220, 
+        height: 220,
         resizeMode: 'cover',
-        
-       
+
+
 
     },
     marketDesc: {
-        marginTop: 10,
+        marginTop: 5,
         width: '100%',
         borderTopWidth: 1,
         borderColor: '#D0D2D3',
@@ -109,11 +128,20 @@ const styles = StyleSheet.create({
     },
     mallText: {
         color: '#58595B',
-        fontSize: 16,
+        fontSize: 12,
     },
     daysLeft: {
         color: '#58595B',
         fontSize: 14,
+    },
+    mallOfferText: {
+        color: '#58595B',
+        fontSize: 14,
+        paddingTop: 5,
+        paddingHorizontal: 5,
+    },
+    share: {
+        padding: 5,
     }
 });
 

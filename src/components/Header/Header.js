@@ -66,7 +66,7 @@ class Header extends Component {
                                 <View style={styles.HeaderModalInner}>
                                     <Text style={styles.stateChangeText}> Muscat </Text>
                                     <Text>
-                                        <Icon name="ios-pin" size={20} color="#ffffff" style={styles.map__pin} />
+                                        <Icon name="ios-pin" size={20} color="#BBBDBF" style={styles.map__pin} />
                                     </Text>
                                 </View>
                             </TouchableOpacity>

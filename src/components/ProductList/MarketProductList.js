@@ -146,6 +146,7 @@ const styles = StyleSheet.create({
   mallTxtCol: {
     flexDirection: 'column',
     paddingVertical: 10,
+    justifyContent : 'center'
   },
   mallTitle: {
     fontSize: 14,

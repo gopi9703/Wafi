@@ -8,14 +8,7 @@ class BrandDetails extends Component {
         return (
             <View style={styles.bodyBg}>
                 <BrandHeader />
-
-                <Image source={{ uri: 'http://www.dunkindonuts.pk/promo.jpg' }} style={{
-                    flex: 1,
-                    alignSelf: 'stretch',
-                    width: undefined,
-                    height: undefined,
-                    resizeMode : 'cover'
-                }} />
+                <Image source={{ uri: 'https://mir-s3-cdn-cf.behance.net/project_modules/1400/07af3819755273.562dfb875c2b9.jpg' }} style={styles.BrandBanner}  />
             </View>
         )
     }
@@ -29,9 +22,11 @@ const styles = StyleSheet.create({
     },
     BrandBanner: {
         width: '100%',
-        height: 220,
-        resizeMode: 'contain',
-
+        height: Dimensions.get('window').height/1.5,
+        resizeMode : 'contain',
+        borderColor : 'red',
+        borderWidth : 1,
+        marginVertical : 5,
 
     },
 });
