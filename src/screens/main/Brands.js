@@ -1,83 +1,95 @@
-import React, { Component }  from 'react';
-import {View, Text, StyleSheet, Image,TouchableOpacity,ScrollView,ActivityIndicator, FlatList, Dimensions} from 'react-native';
+import React, { Component } from 'react';
+import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView, ActivityIndicator, FlatList, Dimensions } from 'react-native';
 import Header from '../../components/Header/Header';
 import Navigation from 'react-native-navigation';
 import ProductCards from '../../components/ProductCards/ProductCards';
+import ActionButton from 'react-native-action-button';
+import Icon from 'react-native-vector-icons/Ionicons';
 
-
-class Brands extends Component{
-  constructor(props){
-    super(props)
-    this.state = {
-      isLoading: true,
-      dataSource: [],
+class Brands extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            isLoading: true,
+            dataSource: [],
+        }
     }
-  }
 
-  componentDidMount(){
-    return fetch("http://admin.wafideals.com/apibrands", {method: 'GET'})
+    componentDidMount() {
+        return fetch("http://admin.wafideals.com/apibrands", { method: 'GET' })
             .then((response) => response.json())
-            .then((responseJson) =>{
+            .then((responseJson) => {
                 this.setState({
-                  isLoading: false,
-                  dataSource: responseJson,
+                    isLoading: false,
+                    dataSource: responseJson,
                 })
             })
             .catch((error) => {
-              console.error(error)
+                console.error(error)
             })
-  }
-    render(){
-      if(this.state.isLoading){
-        return(
-          <View style={{flex: 1, padding: 20, alignItems : 'center', justifyContent : 'center'}}>
-            <ActivityIndicator/>
-          </View>
-        )
-      }
-        return(
+    }
+    render() {
+        if (this.state.isLoading) {
+            return (
+                <View style={{ flex: 1, padding: 20, alignItems: 'center', justifyContent: 'center' }}>
+                    <ActivityIndicator />
+                </View>
+            )
+        }
+        return (
 
-            <View style={{flex:1}}>
+            <View style={{ flex: 1 }}>
                 <Header navigator={this.props.navigator} />
-                <ScrollView ref={(c) => { this.parentScrollView = c; } }>
-                <View style={styles.filtrBlk}>
-                <FlatList
-                  data={ this.state.dataSource }
-                  ItemSeparatorComponent = {this.FlatListItemSeparator}
-                  numColumns = {2}
-                  renderItem={({item}) =>
-                    <TouchableOpacity>
-                      <Text style={styles.fltrBrn}>{item.name}</Text>
-                    </TouchableOpacity>
+                <ScrollView ref={(c) => { this.parentScrollView = c; }}>
+                    <View style={styles.filtrBlk}>
+                        <FlatList
+                            data={this.state.dataSource}
+                            ItemSeparatorComponent={this.FlatListItemSeparator}
+                            numColumns={2}
+                            renderItem={({ item }) =>
+                                <TouchableOpacity>
+                                    <Text style={styles.fltrBrn}>{item.name}</Text>
+                                </TouchableOpacity>
 
-                  }
-                  keyExtractor={(item, index) => index.toString()}
-                />
-                </View>
-                <View style={styles.prdtWrapr}>
-
-                <FlatList style={{ flex : 1, paddingBottom : 10}}
-                  data={ this.state.dataSource }
-                  ItemSeparatorComponent = {this.FlatListItemSeparator}
-                  numColumns = {2}
-                  renderItem={({item}) =>
-                    <View style={styles.gridItem}>
-                        <View style={styles.gridWrapr}>
-                            <TouchableOpacity onPress={this.OffersListHandler}>
-                                <Image source={{ uri: 'http://admin.wafideals.com/storage/'+item.logo_path }} style={styles.ProductImg} />
-                                <Text style={styles.center}>{item.max_discount}</Text>
-                                <View style={styles.prdDescr}>
-                                    <Text style={styles.offerTitle}>{item.name}</Text>
-                                    <Text style={styles.offerDesc} ellipsizeMode='tail' numberOfLines={1}>{item.description}</Text>
-                                </View>
-                            </TouchableOpacity>
-                        </View>
+                            }
+                            keyExtractor={(item, index) => index.toString()}
+                        />
                     </View>
-                  }
-                  keyExtractor={(item, index) => index.toString()}
-                />
-                </View>
+                    <View style={styles.prdtWrapr}>
+
+                        <FlatList style={{ flex: 1, paddingBottom: 10 }}
+                            data={this.state.dataSource}
+                            ItemSeparatorComponent={this.FlatListItemSeparator}
+                            numColumns={2}
+                            renderItem={({ item }) =>
+                                <View style={styles.gridItem}>
+                                    <View style={styles.gridWrapr}>
+                                        <TouchableOpacity onPress={this.OffersListHandler}>
+                                            <Image source={{ uri: 'http://admin.wafideals.com/storage/' + item.logo_path }} style={styles.ProductImg} />
+                                            <Text style={styles.center}>{item.max_discount}</Text>
+                                            <View style={styles.prdDescr}>
+                                                <Text style={styles.offerTitle}>{item.name}</Text>
+                                                <Text style={styles.offerDesc} ellipsizeMode='tail' numberOfLines={1}>{item.description}</Text>
+                                            </View>
+                                        </TouchableOpacity>
+                                    </View>
+                                </View>
+                            }
+                            keyExtractor={(item, index) => index.toString()}
+                        />
+                    </View>
                 </ScrollView>
+                <ActionButton buttonColor="#ec1172" spacing={10} icon={<Icon name='ios-funnel' size={26} style={styles.filterIcon} />} renderIcon={active => active ? (<Icon name="md-close" size={32} style={styles.filterIcon} />) : (<Icon name="ios-funnel" size={26} style={styles.filterIcon} />)}>
+                    <ActionButton.Item buttonColor='#333333' titleBgColor='333333' textStyle={{backgroundColor:'#3333333', color : '#333333'}} title="Category 1" onPress={() => console.log("notes tapped!")}>
+                        <Icon name="md-pricetags" size={30} style={styles.actionButtonIcon} />
+                    </ActionButton.Item>
+                    <ActionButton.Item buttonColor='#333333' textStyle={{backgroundColor:'#3333333', color : '#333333'}}  title="Category 2" onPress={() => { }}>
+                        <Icon name="md-pricetags" size={30} style={styles.actionButtonIcon} />
+                    </ActionButton.Item>
+                    <ActionButton.Item buttonColor='#333333' textStyle={{backgroundColor:'#3333333', color : '#333333'}} title="Category 1" onPress={() => { }}>
+                        <Icon name="md-pricetags" size={30} style={styles.actionButtonIcon} />
+                    </ActionButton.Item>
+                </ActionButton>
             </View>
         );
     }
@@ -85,36 +97,36 @@ class Brands extends Component{
 
 
 const styles = StyleSheet.create({
-    filtrBlk:{
-        padding : 10,
-        flexDirection : 'row',
-        flex : 1,
+    filtrBlk: {
+        padding: 10,
+        flexDirection: 'row',
+        flex: 1,
         flexWrap: 'wrap',
     },
-    fltrBrn : {
-        borderRadius : 20,
-        backgroundColor : '#929497',
-        paddingVertical : 8,
-        paddingHorizontal : 15,
-        fontSize : 15,
+    fltrBrn: {
+        borderRadius: 20,
+        backgroundColor: '#929497',
+        paddingVertical: 8,
+        paddingHorizontal: 15,
+        fontSize: 15,
         color: '#ffffff',
-        textAlign : 'center',
-        marginHorizontal : '2%',
-        marginVertical : 5,
-        alignItems : 'center'
+        textAlign: 'center',
+        marginHorizontal: '2%',
+        marginVertical: 5,
+        alignItems: 'center'
     },
     prdtWrapr: {
         paddingTop: '2%',
 
         flexDirection: 'row',
         width: '100%',
-        
-      },
+
+    },
     gridWrapr: {
         flexDirection: 'column',
         width: '100%',
-        flex : 1,
-       
+        flex: 1,
+
     },
     gridItem: {
         width: '46%', //Device width divided in almost a half
@@ -181,6 +193,20 @@ const styles = StyleSheet.create({
         marginTop: -20,
         marginHorizontal: '10%',
         width: '80%'
+    },
+    actionButtonIcon: {
+        fontSize: 20,
+        height: 22,
+        color: 'white',
+    },
+    filterIcon: {
+        color: '#ffffff',
+
+
+    },
+    labelColor : {
+        backgroundColor : '#ffffff',
+        color : '#000000'
     }
 });
 

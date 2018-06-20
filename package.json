@@ -25,6 +25,7 @@
   "dependencies": {
     "react": "16.3.1",
     "react-native": "~0.55.2",
+    "react-native-action-button": "^2.8.4",
     "react-native-linear-gradient": "^2.4.0",
     "react-native-navigation": "^1.1.462",
     "react-native-slick": "^1.0.1",
