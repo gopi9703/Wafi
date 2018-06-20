@@ -90,6 +90,7 @@ export default class ProductList extends Component {
           <TouchableOpacity onPress={this.mallDetailsHandler}>
             <View style={styles.rowBlk}>
               <View style={{ flexDirection: 'row' }}>
+                
                 <Image source={{ uri: 'http://admin.wafideals.com/storage/'+item.logo_path }} style={styles.mallImg} />
                 <View style={styles.mallTxtCol}>
                   <FontStyle style={styles.mallTitle}> {item.name} </FontStyle>
@@ -137,15 +138,18 @@ const styles = StyleSheet.create({
   mallImg: {
     width: 80,
     height: 80,
-    borderWidth: 1,
+    borderRightWidth: 1,
     borderColor: '#D0D2D3',
-    marginRight: 10,
+    marginRight : 5,
     padding: 5,
   },
   mallTxtCol: {
     flexDirection: 'column',
     paddingVertical: 10,
-    justifyContent : 'center'
+    justifyContent : 'center',
+    borderLeftWidth : 1,
+    borderColor : '#D0D2D3',
+    paddingLeft: 10,
   },
   mallTitle: {
     fontSize: 14,
