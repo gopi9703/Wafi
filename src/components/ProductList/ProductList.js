@@ -94,7 +94,7 @@ export default class ProductList extends Component {
                 <Image source={{ uri: 'http://admin.wafideals.com/storage/'+item.logo_path }} style={styles.mallImg} />
                 <View style={styles.mallTxtCol}>
                   <FontStyle style={styles.mallTitle}> {item.name} </FontStyle>
-                  <FontStyle style={styles.mallLocality}> {item.location} </FontStyle>
+                  <FontStyle style={styles.mallLocality}> {item.tagline} </FontStyle>
                 </View>
               </View>
               <View>
