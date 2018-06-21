@@ -69,13 +69,6 @@ BrandDetailsHandler = () => {
             navBarButtonColor: '#ffffff'
         },
 
-        navigatorButtons: {
-            rightButtons: [{
-                icon: require('../../../src/img/header_Logo.png'),
-                id: 'Back',
-                disableIconTint: true,
-            }],
-        }
     });
 }
 
@@ -87,7 +80,7 @@ render() {
             <View style={styles.gridItem}>
                 <View style={styles.gridWrapr}>
                     <TouchableOpacity onPress={this.OffersListHandler}>
-                        <Image source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png' }} style={styles.ProductImg} />
+                        <Image blurRadius={0} borderRadius={1} defaultSource={require('../../img/logo.png')} source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png' }} style={styles.ProductImg} />
                         <Text style={styles.center}>50% OFF</Text>
                         <View style={styles.prdDescr}>
                             <Text style={styles.offerTitle}>Flat 50% OFF</Text>

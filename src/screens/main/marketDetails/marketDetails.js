@@ -31,7 +31,7 @@ class marketDetails extends Component {
                 <View style={styles.marketFlyr}>
                     <View style={styles.gridItem}>
                         <TouchableOpacity onPress={this.flyerHandler}>
-                            <Image source={{ uri: 'https://offersinme.com/images/leaflet/2018/03/31/866/866-0-al-karama-hypermarket-weekend-offers.jpg' }} style={styles.makretImg} />
+                            <Image  blurRadius={0} defaultSource={require('../../../img/logo.png')} source={{ uri: 'https://offersinme.com/images/leaflet/2018/03/31/866/866-0-al-karama-hypermarket-weekend-offers.jpg' }} style={styles.makretImg} />
                             <View>
                                 <FontStyle style={styles.mallOfferText}>BIG Sale</FontStyle>
                             </View>
@@ -53,7 +53,7 @@ class marketDetails extends Component {
                     </View>
                     <View style={styles.gridItem}>
                         <TouchableOpacity onPress={this.flyerHandler}>
-                            <Image source={{ uri: 'https://offersinme.com/images/leaflet/2018/03/31/866/866-0-al-karama-hypermarket-weekend-offers.jpg' }} style={styles.makretImg} />
+                            <Image defaultSource={require('../../../img/logo.png')} source={{ uri: 'https://offersinme.com/images/leaflet/2018/03/31/866/866-0-al-karama-hypermarket-weekend-offers.jpg' }} style={styles.makretImg} />
                             <View>
                                 <FontStyle style={styles.mallOfferText}>BIG Sale</FontStyle>
                             </View>

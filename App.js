@@ -14,6 +14,7 @@ import BrandDetails from './src/screens/main/BrandsList/BrandDetails';
 import HyperMarket from './src/screens/main/HyperMarket';
 import marketDetails from './src/screens/main/marketDetails/marketDetails';
 import flyerCarousel from './src/screens/main/marketDetails/flyerCarousel';
+import flyerGrid from './src/screens/main/marketDetails/flyerGrid';
 import SideDrawer from './src/components/SideDrawer/SideDrawer';
 import Search from './src/components/Search/Search';
 import AppExclusive from './src/screens/myAccount/AppExclusive';
@@ -41,7 +42,7 @@ Navigation.registerComponent("Wafi.BrandDetails", () => BrandDetails);
 Navigation.registerComponent("Wafi.HyperMarket", () => HyperMarket);
 Navigation.registerComponent("Wafi.marketDetails", () => marketDetails);
 Navigation.registerComponent("Wafi.flyerCarousel", () => flyerCarousel);
-
+Navigation.registerComponent("Wafi.flyerGrid", () => flyerGrid);
 Navigation.registerComponent("Wafi.SideDrawer", () => SideDrawer);
 
 Navigation.registerComponent("Wafi.AppExclusive", () => AppExclusive);
