@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity, FlatList, ActivityIndicator } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity, FlatList, ActivityIndicator, Dimensions } from 'react-native';
 import Navigation from 'react-native-navigation';
 import Icon from 'react-native-vector-icons/Ionicons';
 import FontStyle from '../ReusableComponents/FontStyle';
@@ -136,8 +136,8 @@ const styles = StyleSheet.create({
 
   },
   mallImg: {
-    width: 80,
-    height: 80,
+    width: Dimensions.get('window').width < 360 ? 60 : 80,
+    height: Dimensions.get('window').width < 360 ? 60 : 80,
     borderWidth: 1,
     borderColor: '#D0D2D3',
     marginRight: 10,
@@ -149,11 +149,11 @@ const styles = StyleSheet.create({
     justifyContent : 'center'
   },
   mallTitle: {
-    fontSize: 14,
+    fontSize: Dimensions.get('window').width < 360 ? 12 : 14,
     color: '#000',
   },
   mallLocality: {
-    fontSize: 12,
+    fontSize: Dimensions.get('window').width < 360 ? 11 : 12,
     color: '#58595B'
   },
   iconAlign:{

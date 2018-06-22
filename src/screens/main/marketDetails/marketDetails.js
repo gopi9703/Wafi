@@ -31,7 +31,7 @@ class marketDetails extends Component {
                 <View style={styles.marketFlyr}>
                     <View style={styles.gridItem}>
                         <TouchableOpacity onPress={this.flyerHandler}>
-                            <Image  blurRadius={0} defaultSource={require('../../../img/logo.png')} source={{ uri: 'https://offersinme.com/images/leaflet/2018/03/31/866/866-0-al-karama-hypermarket-weekend-offers.jpg' }} style={styles.makretImg} />
+                            <Image  source={{ uri: 'https://offersinme.com/images/leaflet/2018/03/31/866/866-0-al-karama-hypermarket-weekend-offers.jpg' }} style={styles.makretImg} />
                             <View>
                                 <FontStyle style={styles.mallOfferText}>BIG Sale</FontStyle>
                             </View>
@@ -53,7 +53,9 @@ class marketDetails extends Component {
                     </View>
                     <View style={styles.gridItem}>
                         <TouchableOpacity onPress={this.flyerHandler}>
-                            <Image defaultSource={require('../../../img/logo.png')} source={{ uri: 'https://offersinme.com/images/leaflet/2018/03/31/866/866-0-al-karama-hypermarket-weekend-offers.jpg' }} style={styles.makretImg} />
+
+                            <Image source={{ uri: 'https://offersinme.com/images/leaflet/2018/03/31/866/866-0-al-karama-hypermarket-weekend-offers.jpg' }} style={styles.makretImg} />
+
                             <View>
                                 <FontStyle style={styles.mallOfferText}>BIG Sale</FontStyle>
                             </View>
@@ -94,6 +96,7 @@ const styles = StyleSheet.create({
         width: '48%', //Device width divided in almost a half
         height: 'auto',
         justifyContent: 'center',
+        flexDirection : 'row',
         alignItems: 'flex-start',
         marginBottom: 15,
         backgroundColor: '#ffffff',
@@ -109,12 +112,10 @@ const styles = StyleSheet.create({
         padding: 10,
     },
     makretImg: {
-        width: Dimensions.get('window').width / 2.45,
-        height: 220,
-        resizeMode: 'cover',
-
-
-
+        width: '100%',
+        aspectRatio: 10 / 10,
+        resizeMode: 'contain',
+       
     },
     marketDesc: {
         marginTop: 5,
@@ -138,7 +139,7 @@ const styles = StyleSheet.create({
         color: '#58595B',
         fontSize: 14,
         paddingTop: 5,
-        paddingHorizontal: 5,
+        paddingHorizontal: 10,
     },
     share: {
         padding: 5,

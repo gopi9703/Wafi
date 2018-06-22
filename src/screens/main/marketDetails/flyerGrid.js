@@ -117,11 +117,12 @@ const styles = StyleSheet.create({
     },
     mallImg: {
         width: '100%',
-        height: 120,
+        height: 100,
         borderRightWidth: 1,
         borderColor: '#D0D2D3',
         marginRight: 5,
         padding: 5,
+        resizeMode : 'cover'
     },
 
 });

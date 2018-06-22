@@ -216,8 +216,8 @@ const styles = StyleSheet.create({
     },
     ProductImg: {
         width: '100%',
-        height: 180,
-        resizeMode: 'cover',
+        aspectRatio: 10 / 10,
+        resizeMode: 'contain',
     },
     offerTitle: {
         color: '#000000',

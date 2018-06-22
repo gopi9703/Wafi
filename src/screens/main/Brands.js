@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#929497',
         paddingVertical: 8,
         paddingHorizontal: 15,
-        fontSize: 15,
+        fontSize: 12,
         color: '#ffffff',
         textAlign: 'center',
         marginHorizontal: '2%',
@@ -157,8 +157,10 @@ const styles = StyleSheet.create({
     },
     ProductImg: {
         width: '100%',
-        height: 180,
-        resizeMode: 'cover',
+        aspectRatio: 10 / 10,
+        resizeMode: 'stretch',
+        alignSelf: 'center',
+       
     },
     offerTitle: {
         color: '#000000',
@@ -188,7 +190,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#F6921E',
         paddingVertical: 5,
         color: '#ffffff',
-        fontSize: 18,
+        fontSize: 14,
         borderRadius: 25,
         marginTop: -20,
         marginHorizontal: '10%',

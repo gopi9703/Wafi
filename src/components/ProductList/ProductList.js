@@ -93,7 +93,7 @@ export default class ProductList extends Component {
                 
                 <Image source={{ uri: 'http://admin.wafideals.com/storage/'+item.logo_path }} style={styles.mallImg} />
                 <View style={styles.mallTxtCol}>
-                  <FontStyle style={styles.mallTitle}> {item.name} </FontStyle>
+                  <FontStyle style={styles.mallTitle}>  {item.name} </FontStyle>
                   <FontStyle style={styles.mallLocality}> {item.tagline} </FontStyle>
                 </View>
               </View>
@@ -136,8 +136,8 @@ const styles = StyleSheet.create({
 
   },
   mallImg: {
-    width: 80,
-    height: 80,
+    width: Dimensions.get('window').width < 360 ? 60 : 80,
+    height: Dimensions.get('window').width < 360 ? 60 : 80,
     borderRightWidth: 1,
     borderColor: '#D0D2D3',
     marginRight : 5,
@@ -152,11 +152,11 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
   },
   mallTitle: {
-    fontSize: 14,
+    fontSize: Dimensions.get('window').width < 360 ? 12 : 14,
     color: '#000',
   },
   mallLocality: {
-    fontSize: 12,
+    fontSize: Dimensions.get('window').width < 360 ? 11 : 12,
     color: '#58595B'
-  }
+  },
 });
