@@ -15,6 +15,20 @@ class Brands extends Component {
         }
     }
 
+    BrandsListHandler = () => {
+        this.props.navigator.push({
+            screen: 'Wafi.BrandDetails',
+            animated: true,
+            animationType: 'slide-horizontal', // 'fade' (for both) / 'slide-horizontal'
+            navigatorStyle: {
+                navBarBackgroundColor: '#0A266D',
+                navBarButtonColor: '#ffffff'
+            }
+
+        });
+
+    }
+
     componentDidMount() {
         return fetch("http://admin.wafideals.com/apibrands", { method: 'GET' })
             .then((response) => response.json())
@@ -41,20 +55,7 @@ class Brands extends Component {
             <View style={{ flex: 1 }}>
                 <Header navigator={this.props.navigator} />
                 <ScrollView ref={(c) => { this.parentScrollView = c; }}>
-                    <View style={styles.filtrBlk}>
-                        <FlatList
-                            data={this.state.dataSource}
-                            ItemSeparatorComponent={this.FlatListItemSeparator}
-                            numColumns={2}
-                            renderItem={({ item }) =>
-                                <TouchableOpacity>
-                                    <Text style={styles.fltrBrn}>{item.name}</Text>
-                                </TouchableOpacity>
-
-                            }
-                            keyExtractor={(item, index) => index.toString()}
-                        />
-                    </View>
+                 
                     <View style={styles.prdtWrapr}>
 
                         <FlatList style={{ flex: 1, paddingBottom: 10 }}
@@ -64,7 +65,7 @@ class Brands extends Component {
                             renderItem={({ item }) =>
                                 <View style={styles.gridItem}>
                                     <View style={styles.gridWrapr}>
-                                        <TouchableOpacity onPress={this.OffersListHandler}>
+                                        <TouchableOpacity onPress={this.BrandsListHandler}>
                                             <Image source={{ uri: 'http://admin.wafideals.com/storage/' + item.logo_path }} style={styles.ProductImg} />
                                             <Text style={styles.center}>{item.max_discount}</Text>
                                             <View style={styles.prdDescr}>
@@ -170,7 +171,7 @@ const styles = StyleSheet.create({
     },
     offerDesc: {
         color: '#58595B',
-        fontSize: 15,
+        fontSize: 13,
         fontFamily: "MyriadPro-Regular",
 
     },

@@ -13,17 +13,17 @@ export default class ProductList extends Component {
       navigatorStyle: {
         navBarBackgroundColor: '#0A266D',
         navBarButtonColor: '#ffffff'
-    },
+      },
     });
   }
   webCall = () => {
 
-    return fetch('https://reactnativecode.000webhostapp.com/FlowersList.php')
+    return fetch('http://admin.wafideals.com/apihypermarkets')
       .then((response) => response.json())
       .then((responseJson) => {
         this.setState({
           isLoading: false,
-          dataSource: responseJson
+          dataSource: responseJson,
         }, function () {
           // In this block you can do something with new state.
         });
@@ -36,15 +36,15 @@ export default class ProductList extends Component {
 
   componentDidMount() {
     this.webCall();
-   
-  
+
+
   }
 
   constructor(props) {
     super(props);
     this.state = {
-      isLoading: true
-
+      isLoading: true,
+      dataSource: [],
     }
   }
 
@@ -62,24 +62,14 @@ export default class ProductList extends Component {
 
 
 
- 
+
   render() {
     if (this.state.isLoading) {
       return (
-
-        <View style={
-          {
-            flex: 1,
-            justifyContent: 'center',
-            alignItems: 'center'
-          }
-        } >
-
-          <ActivityIndicator size="large" />
-
+        <View style={{ flex: 1, padding: 20, alignItems: 'center', justifyContent: 'center' }}>
+          <ActivityIndicator />
         </View>
-
-      );
+      )
     }
 
     return (
@@ -90,15 +80,17 @@ export default class ProductList extends Component {
           <TouchableOpacity onPress={this.mallDetailsHandler}>
             <View style={styles.rowBlk}>
               <View style={{ flexDirection: 'row' }}>
-                <Image source={{ uri: item.flower_image_url }} style={styles.mallImg} />
+                <Image source={{ uri: 'http://admin.wafideals.com/storage/' + item.logo_path }} style={styles.mallImg} />
                 <View style={styles.mallTxtCol}>
-                  <FontStyle style={styles.mallTitle}> {item.flower_name} </FontStyle>
-                  <FontStyle style={styles.mallLocality}> Al Khuwair, Muscat, Oman </FontStyle>
+                  <FontStyle style={styles.mallTitle}> {item.name} </FontStyle>
+                  <View style={{flexDirection:'row'}}>
+                    <FontStyle style={styles.mallLocality} numberOfLines={1} > {item.tagline} </FontStyle>
+                  </View>
                 </View>
               </View>
               <View style={styles.iconAlign}>
                 <Icon name="ios-arrow-forward" size={30} color="#A6A8AB" />
-                <Text>2 Flyers</Text>
+                <Text style={styles.iconAlignText}>2 Flyers</Text>
               </View>
 
             </View>
@@ -138,27 +130,38 @@ const styles = StyleSheet.create({
   mallImg: {
     width: Dimensions.get('window').width < 360 ? 60 : 80,
     height: Dimensions.get('window').width < 360 ? 60 : 80,
-    borderWidth: 1,
+    borderRightWidth: 1,
     borderColor: '#D0D2D3',
-    marginRight: 10,
+    marginRight: 5,
     padding: 5,
+    resizeMode: 'contain'
   },
   mallTxtCol: {
     flexDirection: 'column',
     paddingVertical: 10,
-    justifyContent : 'center'
+    justifyContent: 'center',
+    borderLeftWidth: 1,
+    borderColor: '#D0D2D3',
+    paddingLeft: 10,
   },
   mallTitle: {
-    fontSize: Dimensions.get('window').width < 360 ? 12 : 14,
+    fontSize: Dimensions.get('window').width < 360 ? 14 : 16,
     color: '#000',
+    fontFamily: "MyriadPro-Semibold_2",
   },
   mallLocality: {
-    fontSize: Dimensions.get('window').width < 360 ? 11 : 12,
-    color: '#58595B'
+    fontSize: Dimensions.get('window').width < 360 ? 12 : 13,
+    color: '#58595B',
+    flex: 1, flexWrap: 'wrap',
+    paddingTop : 5,
+
   },
-  iconAlign:{
+  iconAlign: {
     flexDirection: 'column',
-    justifyContent : 'center',
-    alignItems : 'center'
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  iconAlignText : {
+    fontSize : 12,
   }
 });

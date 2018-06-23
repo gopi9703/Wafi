@@ -94,7 +94,9 @@ export default class ProductList extends Component {
                 <Image source={{ uri: 'http://admin.wafideals.com/storage/'+item.logo_path }} style={styles.mallImg} />
                 <View style={styles.mallTxtCol}>
                   <FontStyle style={styles.mallTitle}>  {item.name} </FontStyle>
-                  <FontStyle style={styles.mallLocality}> {item.tagline} </FontStyle>
+                  <View style={{flexDirection:'row'}}>
+                    <FontStyle style={styles.mallLocality} numberOfLines={1} > {item.tagline} </FontStyle>
+                  </View>
                 </View>
               </View>
               <View>
@@ -154,9 +156,13 @@ const styles = StyleSheet.create({
   mallTitle: {
     fontSize: Dimensions.get('window').width < 360 ? 12 : 14,
     color: '#000',
+    fontFamily: "MyriadPro-Semibold_2",
+    paddingTop : 5,
   },
   mallLocality: {
     fontSize: Dimensions.get('window').width < 360 ? 11 : 12,
-    color: '#58595B'
-  },
+    color: '#58595B',
+    flex: 1, flexWrap: 'wrap'
+
+  }
 });

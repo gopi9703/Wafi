@@ -27,12 +27,6 @@ class mallDetails extends Component {
                                     </TouchableOpacity>
                                     <TouchableOpacity>
                                         <View style={styles.IconBlk}>
-                                            <Icon name="ios-pin" size={24} color="#ffffff" style={[styles.iconStyler, styles.location]} />
-                                            <Text style={[styles.iconText]}>Location</Text>
-                                        </View>
-                                    </TouchableOpacity>
-                                    <TouchableOpacity>
-                                        <View style={styles.IconBlk}>
                                             <Icon name="md-share" size={22} color="#ffffff" style={[styles.iconStyler, styles.share]} />
                                             <Text style={styles.iconText}>Share</Text>
                                         </View>
@@ -72,16 +66,17 @@ const styles = StyleSheet.create({
     mallLogo: {
         width: Dimensions.get('window').width < 360 ? 100 : 130, 
         height: Dimensions.get('window').width < 360 ? 70 : 100,
-         marginTop: -30, backgroundColor: '#ffffff',
+          backgroundColor: '#ffffff',
         position: 'absolute',
-        bottom: -70,
+        bottom: -60,
         left:0,
         zIndex: 500
 
     },
     mallInfo: {
         backgroundColor: '#ffffff',
-        padding: 15,
+        paddingHorizontal: 15,
+        paddingVertical : 10,
         flexDirection : 'row',
         justifyContent : 'flex-end'
     },
@@ -105,6 +100,7 @@ const styles = StyleSheet.create({
     },
     share: {
         paddingHorizontal: 8,
+        paddingVertical:6,
     },
     iconStyler: {
         color: '#A7802F',

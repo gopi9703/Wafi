@@ -20,12 +20,6 @@ class BrandHeader extends Component {
                     </TouchableOpacity>
                     <TouchableOpacity>
                         <View style={styles.IconBlk}>
-                            <Icon name="ios-pin" size={24} color="#ffffff" style={[styles.iconStyler, styles.location]} />
-                            <Text style={[styles.iconText]}>Location</Text>
-                        </View>
-                    </TouchableOpacity>
-                    <TouchableOpacity>
-                        <View style={styles.IconBlk}>
                             <Icon name="md-share" size={22} color="#ffffff" style={[styles.iconStyler, styles.share]} />
                             <Text style={styles.iconText}>Share</Text>
                         </View>
