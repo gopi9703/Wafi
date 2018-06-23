@@ -12,12 +12,7 @@ class BrandHeader extends Component {
                     <Image source={{ uri: 'https://res.cloudinary.com/simpleview/image/upload/crm/paducah/Dunkin-Donuts-Paducah-Kentucky0-9e503d415056a36_9e503ed3-5056-a36a-0a8f8108bf00f366.jpg' }} style={styles.BrandLogo} />
                 </View>
                 <View style={styles.infoWrpr}>
-                    <TouchableOpacity>
-                        <View style={styles.IconBlk}>
-                            <Icon name="ios-call" size={24} color="#ffffff" style={styles.iconStyler} />
-                            <FontStyle> <Text style={[styles.iconText]}>Contact</Text></FontStyle>
-                        </View>
-                    </TouchableOpacity>
+                   
                     <TouchableOpacity>
                         <View style={styles.IconBlk}>
                             <Icon name="md-share" size={22} color="#ffffff" style={[styles.iconStyler, styles.share]} />

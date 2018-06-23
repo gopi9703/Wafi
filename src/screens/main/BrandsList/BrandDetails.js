@@ -4,11 +4,18 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import BrandHeader from '../../main/BrandHeader';
 
 class BrandDetails extends Component {
+    
     render() {
         return (
             <View style={styles.bodyBg}>
-                <BrandHeader />
-                <Image source={{ uri: 'https://mir-s3-cdn-cf.behance.net/project_modules/1400/07af3819755273.562dfb875c2b9.jpg' }} style={styles.BrandBanner}  />
+                <ScrollView>
+                    <BrandHeader />
+                    <Image source={{ uri: 'http://www.dunkindonuts.pk/promo.jpg' }} style={styles.BrandBanner} />
+                    <View style={styles.brandInfo}>
+                        <Text style={styles.brandHdr}>DunKin Donuts</Text>
+                        <Text style={styles.mallDescTxt}>Description</Text>
+                    </View>
+                </ScrollView>
             </View>
         )
     }
@@ -22,13 +29,28 @@ const styles = StyleSheet.create({
     },
     BrandBanner: {
         width: '100%',
-        height: Dimensions.get('window').height/1.5,
-        resizeMode : 'contain',
-        borderColor : 'red',
-        borderWidth : 1,
-        marginVertical : 5,
+        aspectRatio: 10 / 5,
+        resizeMode: 'contain',
+        marginVertical: 5,
 
     },
+    brandInfo: {
+        backgroundColor: '#ffffff',
+        padding: 15,
+
+    },
+    brandHdr: {
+        fontSize: 14,
+        color: '#000000',
+        fontFamily: "MyriadPro-Semibold_2",
+        lineHeight: 20,
+    },
+    mallDescTxt: {
+        color: '#58595B',
+        flex: 1, 
+        flexWrap: 'wrap',
+        fontSize : 12,
+    }
 });
 
 export default BrandDetails;

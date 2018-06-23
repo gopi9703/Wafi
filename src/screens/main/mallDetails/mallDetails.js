@@ -7,6 +7,27 @@ import FontStyle from '../../../components/ReusableComponents/FontStyle';
 
 
 class mallDetails extends Component {
+
+
+    constructor(props) {
+        super(props)
+       
+    }
+
+    EventsListHandler = () => {
+        this.props.navigator.push({
+            screen: 'Wafi.EventInfo',
+            animated: true,
+            animationType: 'slide-up', // 'fade' (for both) / 'slide-horizontal'
+            navigatorStyle: {
+                navBarBackgroundColor: '#0A266D',
+                navBarButtonColor: '#ffffff'
+            }
+
+        });
+
+    }
+
     render() {
         return (
             <View>
@@ -19,10 +40,10 @@ class mallDetails extends Component {
                             </View>
                             <View style={styles.mallInfo}>
 
-                                    <TouchableOpacity>
+                                    <TouchableOpacity onPress={this.EventsListHandler}>
                                         <View style={styles.IconBlk}>
-                                            <Icon name="ios-call" size={24} color="#ffffff" style={styles.iconStyler} />
-                                            <FontStyle> <Text style={[styles.iconText]}>Contact</Text></FontStyle>
+                                            <Icon name="ios-calendar" size={24} color="#ffffff" style={styles.iconStyler} />
+                                            <FontStyle> <Text style={[styles.iconText]}>Event</Text></FontStyle>
                                         </View>
                                     </TouchableOpacity>
                                     <TouchableOpacity>
@@ -109,6 +130,7 @@ const styles = StyleSheet.create({
         borderRadius: 50,
         paddingHorizontal: 10,
         paddingVertical: 5,
+        marginHorizontal : 5
 
     }
 });

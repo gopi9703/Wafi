@@ -66,7 +66,7 @@ class Offers extends Component{
           if (this.state.isLoading) {
               return (
                   <View style={{ flex: 1, padding: 20, alignItems: 'center', justifyContent: 'center' }}>
-                      <ActivityIndicator />
+                       <ActivityIndicator size="large" />
                   </View>
               )
           }

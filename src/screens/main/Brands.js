@@ -46,7 +46,7 @@ class Brands extends Component {
         if (this.state.isLoading) {
             return (
                 <View style={{ flex: 1, padding: 20, alignItems: 'center', justifyContent: 'center' }}>
-                    <ActivityIndicator />
+                    <ActivityIndicator size="large" />
                 </View>
             )
         }
@@ -98,24 +98,7 @@ class Brands extends Component {
 
 
 const styles = StyleSheet.create({
-    filtrBlk: {
-        padding: 10,
-        flexDirection: 'row',
-        flex: 1,
-        flexWrap: 'wrap',
-    },
-    fltrBrn: {
-        borderRadius: 20,
-        backgroundColor: '#929497',
-        paddingVertical: 8,
-        paddingHorizontal: 15,
-        fontSize: 12,
-        color: '#ffffff',
-        textAlign: 'center',
-        marginHorizontal: '2%',
-        marginVertical: 5,
-        alignItems: 'center'
-    },
+  
     prdtWrapr: {
         paddingTop: '2%',
 

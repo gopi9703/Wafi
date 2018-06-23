@@ -26,6 +26,9 @@ import MyAccount from './src/screens/myAccount/MyAccount';
 import setStateModal from './src/components/Modal/setStateModal';
 
 
+import EventInfo from './src/screens/main/EventInfo';
+
+
 // Register Login Screens
 
 Navigation.registerComponent("Wafi.AuthScreen", () => AuthScreen);
@@ -55,6 +58,8 @@ Navigation.registerComponent("Wafi.setStateModal", () => setStateModal);
 
 Navigation.registerComponent("Wafi.MyAccount", () => MyAccount);
 Navigation.registerComponent("Wafi.ChangePassword", () => ChangePassword);
+
+Navigation.registerComponent("Wafi.EventInfo", () => EventInfo);
 
 /*Navigation.startSingleScreenApp({
   screen: {

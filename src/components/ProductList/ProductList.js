@@ -13,7 +13,7 @@ export default class ProductList extends Component {
       navigatorStyle: {
         navBarBackgroundColor: '#0A266D',
         navBarButtonColor: '#ffffff'
-    }
+      }
     });
   }
   webCall = () => {
@@ -67,16 +67,8 @@ export default class ProductList extends Component {
     if (this.state.isLoading) {
       return (
 
-        <View style={
-          {
-            flex: 1,
-            justifyContent: 'center',
-            alignItems: 'center'
-          }
-        } >
-
+        <View style={{ flex: 1, padding: 20, alignItems: 'center', justifyContent: 'center' }}>
           <ActivityIndicator size="large" />
-
         </View>
 
       );
@@ -84,17 +76,17 @@ export default class ProductList extends Component {
 
     return (
 
-      <FlatList style={{ padding: 15, backgroundColor: '#D0D2D3', height : Dimensions.get('window').height / 1.1 }} initialNumToRender={3}
+      <FlatList style={{ padding: 15, backgroundColor: '#D0D2D3', height: Dimensions.get('window').height / 1.1 }} initialNumToRender={3}
         data={this.state.dataSource}
         renderItem={({ item }) =>
           <TouchableOpacity onPress={this.mallDetailsHandler}>
             <View style={styles.rowBlk}>
               <View style={{ flexDirection: 'row' }}>
-                
-                <Image source={{ uri: 'http://admin.wafideals.com/storage/'+item.logo_path }} style={styles.mallImg} />
+
+                <Image source={{ uri: 'http://admin.wafideals.com/storage/' + item.logo_path }} style={styles.mallImg} />
                 <View style={styles.mallTxtCol}>
                   <FontStyle style={styles.mallTitle}>  {item.name} </FontStyle>
-                  <View style={{flexDirection:'row'}}>
+                  <View style={{ flexDirection: 'row' }}>
                     <FontStyle style={styles.mallLocality} numberOfLines={1} > {item.tagline} </FontStyle>
                   </View>
                 </View>
@@ -142,22 +134,22 @@ const styles = StyleSheet.create({
     height: Dimensions.get('window').width < 360 ? 60 : 80,
     borderRightWidth: 1,
     borderColor: '#D0D2D3',
-    marginRight : 5,
+    marginRight: 5,
     padding: 5,
   },
   mallTxtCol: {
     flexDirection: 'column',
     paddingVertical: 10,
-    justifyContent : 'center',
-    borderLeftWidth : 1,
-    borderColor : '#D0D2D3',
+    justifyContent: 'center',
+    borderLeftWidth: 1,
+    borderColor: '#D0D2D3',
     paddingLeft: 10,
   },
   mallTitle: {
     fontSize: Dimensions.get('window').width < 360 ? 12 : 14,
     color: '#000',
     fontFamily: "MyriadPro-Semibold_2",
-    paddingTop : 5,
+    paddingTop: 5,
   },
   mallLocality: {
     fontSize: Dimensions.get('window').width < 360 ? 11 : 12,
