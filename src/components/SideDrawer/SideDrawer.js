@@ -3,19 +3,32 @@ import { View, Text, StyleSheet, Image, TouchableOpacity, Dimensions } from 'rea
 import Navigation from 'react-native-navigation';
 import Icon from 'react-native-vector-icons/Ionicons';
 import FontAwesome from "react-native-vector-icons/FontAwesome";
+import Share from 'react-native-share';
 
 class SideDrawer extends Component {
 
-  static navigatorStyle = {
-      tabBarHidden: true,
-      topBarElevationShadowEnabled: false,
+    static navigatorStyle = {
+        tabBarHidden: true,
+        topBarElevationShadowEnabled: false,
 
-  }
+    }
 
     constructor(props) {
-        super(props)
-        //this._goToMovies = this._goToMovies.bind(this);
+        super(props);
+        this.state = {
+            visible: false
+        }
     }
+    onCancel() {
+        console.log("CANCEL")
+        this.setState({ visible: false });
+    }
+    onOpen() {
+        console.log("OPEN")
+        this.setState({ visible: true });
+    }
+
+
 
 
     _navigate(screen) {
@@ -35,10 +48,19 @@ class SideDrawer extends Component {
             to: 'closed',
             side: 'left',
             animated: true
-          });
+        });
     }
 
     render() {
+
+        let shareOptions = {         
+            title: "Wafi Deals",
+            message: "Get all your favourite Shopping Offers in one app, Hundreds of new offers are available every week. Download Wafi Deals to find the latest deals & offers on",
+            url: 'https://wafideals.com',
+            subject: "Download Wafi Deals to find the latest deals & offers : https://wafideals.com" //  for email
+            
+        };
+
         return (
             <View style={{ width: Dimensions.get("window").width * 0.8, backgroundColor: '#ffffff', flex: 1 }}>
                 <Image source={require('../../img/sideDrawerImage.png')} style={styles.brandImg} />
@@ -65,7 +87,9 @@ class SideDrawer extends Component {
                     </View>
                 </TouchableOpacity>
 
-                <TouchableOpacity onPress={() => this._navigate('Wafi.About')}>
+                <TouchableOpacity onPress={() => {
+                    Share.open(shareOptions);
+                }}>
                     <View style={styles.list__col}>
 
                         <Icon name="md-share" size={20} color="#ffffff" style={styles.iconStyler} />

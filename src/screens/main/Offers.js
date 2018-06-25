@@ -1,12 +1,14 @@
-import React, { Component }  from 'react';
-import {View,Text,StyleSheet,Image,FlatList,TextInput,TouchableOpacity,KeyboardAvoidingView, ScrollView,ActivityIndicator} from 'react-native';
+import React, { Component } from 'react';
+import { View, Text, StyleSheet, Image, FlatList, TextInput, TouchableOpacity, KeyboardAvoidingView, ScrollView, ActivityIndicator } from 'react-native';
 import Header from '../../components/Header/Header';
 import SwipeableParallaxCarousel from 'react-native-swipeable-parallax-carousel';
 import ProductCards from '../../components/ProductCards/ProductCards';
 import Navigation from 'react-native-navigation';
+import CustomPlaceholder from '../../components/CustomPlaceholder';
 
 
-class Offers extends Component{
+
+class Offers extends Component {
 
     constructor(props) {
         super(props)
@@ -48,10 +50,10 @@ class Offers extends Component{
     onNavigatorEvent(event) {
         // handle a deep link
         if (event.type == 'DeepLink') {
-             const parts = event.link.split('/');
+            const parts = event.link.split('/');
             if (parts[0] == 'AppExclusive') {
                 // handle the link somehow, usually run a this.props.navigator command
-                    this.props.navigator.resetTo({
+                this.props.navigator.resetTo({
                     screen: 'Wafi.AppExclusive',
                     passProps: {},
                     animated: true,
@@ -61,43 +63,44 @@ class Offers extends Component{
     }
 
 
-    render(){
+    render() {
 
-          if (this.state.isLoading) {
-              return (
-                  <View style={{ flex: 1, padding: 20, alignItems: 'center', justifyContent: 'center' }}>
-                       <ActivityIndicator size="large" />
-                  </View>
-              )
-          }
+        if (this.state.isLoading) {
+            return (
+                <View style={{ flex: 1, alignItems: 'flex-start' }}>
+                    <CustomPlaceholder animate="fade">
+                    </CustomPlaceholder>
+                </View>
+            )
+        }
 
-        return(
+        return (
 
-            <View style={{flex:1}}>
+            <View style={{ flex: 1 }}>
                 <Header navigator={this.props.navigator} />
-                <ScrollView ref={(c) => { this.parentScrollView = c; } }
->
-                <View style={styles.prdtWrapr}>
-                <FlatList style={{ flex: 1, paddingBottom: 10 }}
-                    data={this.state.dataSource}
-                    numColumns={2}
-                    renderItem={({ item }) =>
-                      <View style={styles.gridItem}>
-                          <View style={styles.gridWrapr}>
-                              <TouchableOpacity onPress={this.OffersListHandler}>
-                                  <Image source={{ uri: 'http://admin.wafideals.com/storage/' + item.logo_path }} style={styles.ProductImg} />
-                                  <Text style={styles.center}>{item.discount_value}</Text>
-                                  <View style={styles.prdDescr}>
-                                      <Text style={styles.offerTitle} ellipsizeMode='tail' numberOfLines={1}>{item.short_description}</Text>
-                                      <Text style={styles.offerDesc} ellipsizeMode='tail' numberOfLines={1}>{item.short_description}</Text>
-                                  </View>
-                              </TouchableOpacity>
-                          </View>
-                      </View>
-                    }
-                      keyExtractor={(item, index) => index.toString()}
-                    />
-                  </View>
+                <ScrollView ref={(c) => { this.parentScrollView = c; }}
+                >
+                    <View style={styles.prdtWrapr}>
+                        <FlatList style={{ flex: 1, paddingBottom: 10 }}
+                            data={this.state.dataSource}
+                            numColumns={2}
+                            renderItem={({ item }) =>
+                                <View style={styles.gridItem}>
+                                    <View style={styles.gridWrapr}>
+                                        <TouchableOpacity onPress={this.OffersListHandler}>
+                                            <Image source={{ uri: 'http://admin.wafideals.com/storage/' + item.logo_path }} style={styles.ProductImg} />
+                                            <Text style={styles.center}>{item.discount_value}</Text>
+                                            <View style={styles.prdDescr}>
+                                                <Text style={styles.offerTitle} ellipsizeMode='tail' numberOfLines={1}>{item.short_description}</Text>
+                                                <Text style={styles.offerDesc} ellipsizeMode='tail' numberOfLines={1}>{item.short_description}</Text>
+                                            </View>
+                                        </TouchableOpacity>
+                                    </View>
+                                </View>
+                            }
+                            keyExtractor={(item, index) => index.toString()}
+                        />
+                    </View>
                 </ScrollView>
             </View>
         );
