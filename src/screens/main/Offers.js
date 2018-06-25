@@ -67,8 +67,9 @@ class Offers extends Component {
 
         if (this.state.isLoading) {
             return (
-                <View style={{ flex: 1, alignItems: 'flex-start' }}>
-                    <CustomPlaceholder animate="fade">
+                <View style={{ flex: 1, alignItems: 'flex-start'}}>
+                    <CustomPlaceholder  animate="fade">
+                        
                     </CustomPlaceholder>
                 </View>
             )

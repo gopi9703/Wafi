@@ -5,6 +5,7 @@ import Navigation from 'react-native-navigation';
 import ProductCards from '../../components/ProductCards/ProductCards';
 import ActionButton from 'react-native-action-button';
 import Icon from 'react-native-vector-icons/Ionicons';
+import CustomPlaceholder from '../../components/CustomPlaceholder';
 
 class Brands extends Component {
     constructor(props) {
@@ -45,8 +46,10 @@ class Brands extends Component {
     render() {
         if (this.state.isLoading) {
             return (
-                <View style={{ flex: 1, padding: 20, alignItems: 'center', justifyContent: 'center' }}>
-                    <ActivityIndicator size="large" />
+                <View style={{ flex: 1, alignItems: 'flex-start'}}>
+                    <CustomPlaceholder animate="fade">
+
+                    </CustomPlaceholder>
                 </View>
             )
         }
@@ -55,7 +58,7 @@ class Brands extends Component {
             <View style={{ flex: 1 }}>
                 <Header navigator={this.props.navigator} />
                 <ScrollView ref={(c) => { this.parentScrollView = c; }}>
-                 
+
                     <View style={styles.prdtWrapr}>
 
                         <FlatList style={{ flex: 1, paddingBottom: 10 }}
@@ -81,13 +84,13 @@ class Brands extends Component {
                     </View>
                 </ScrollView>
                 <ActionButton buttonColor="#ec1172" spacing={10} icon={<Icon name='ios-funnel' size={26} style={styles.filterIcon} />} renderIcon={active => active ? (<Icon name="md-close" size={32} style={styles.filterIcon} />) : (<Icon name="ios-funnel" size={26} style={styles.filterIcon} />)}>
-                    <ActionButton.Item buttonColor='#333333' titleBgColor='333333' textStyle={{backgroundColor:'#3333333', color : '#333333'}} title="Category 1" onPress={() => console.log("notes tapped!")}>
+                    <ActionButton.Item buttonColor='#333333' titleBgColor='333333' textStyle={{ backgroundColor: '#3333333', color: '#333333' }} title="Category 1" onPress={() => console.log("notes tapped!")}>
                         <Icon name="md-pricetags" size={30} style={styles.actionButtonIcon} />
                     </ActionButton.Item>
-                    <ActionButton.Item buttonColor='#333333' textStyle={{backgroundColor:'#3333333', color : '#333333'}}  title="Category 2" onPress={() => { }}>
+                    <ActionButton.Item buttonColor='#333333' textStyle={{ backgroundColor: '#3333333', color: '#333333' }} title="Category 2" onPress={() => { }}>
                         <Icon name="md-pricetags" size={30} style={styles.actionButtonIcon} />
                     </ActionButton.Item>
-                    <ActionButton.Item buttonColor='#333333' textStyle={{backgroundColor:'#3333333', color : '#333333'}} title="Category 1" onPress={() => { }}>
+                    <ActionButton.Item buttonColor='#333333' textStyle={{ backgroundColor: '#3333333', color: '#333333' }} title="Category 1" onPress={() => { }}>
                         <Icon name="md-pricetags" size={30} style={styles.actionButtonIcon} />
                     </ActionButton.Item>
                 </ActionButton>
@@ -98,7 +101,7 @@ class Brands extends Component {
 
 
 const styles = StyleSheet.create({
-  
+
     prdtWrapr: {
         paddingTop: '2%',
 
@@ -144,7 +147,7 @@ const styles = StyleSheet.create({
         aspectRatio: 10 / 10,
         resizeMode: 'stretch',
         alignSelf: 'center',
-       
+
     },
     offerTitle: {
         color: '#000000',
@@ -190,9 +193,9 @@ const styles = StyleSheet.create({
 
 
     },
-    labelColor : {
-        backgroundColor : '#ffffff',
-        color : '#000000'
+    labelColor: {
+        backgroundColor: '#ffffff',
+        color: '#000000'
     }
 });
 
