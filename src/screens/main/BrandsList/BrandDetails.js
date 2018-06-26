@@ -64,7 +64,7 @@ class BrandDetails extends Component {
                                      <Text style={[styles.iconText]}>Contact</Text>
                                 </View>
                             </TouchableOpacity>
-                            <TouchableOpacity>
+                            <TouchableOpacity onPress={() => Linking.openURL('google.navigation:q=100+101')}>
                                 <View style={styles.IconBlk}>
                                     <Icon name="ios-pin" size={24} color="#ffffff" style={[styles.iconStyler, styles.location]} />
                                     <Text style={[styles.iconText]}>Location</Text>
