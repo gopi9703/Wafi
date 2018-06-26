@@ -1,19 +1,50 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity, Dimensions, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, Image, Alert, TouchableOpacity,ActivityIndicator, Dimensions, ScrollView } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import BrandHeader from '../../main/BrandHeader';
 
 class BrandDetails extends Component {
-    
+  constructor(props) {
+      super(props)
+      this.state = {
+          isLoading: true,
+          dataSource: [],
+      }
+  }
+  componentDidMount() {
+      return fetch("http://admin.wafideals.com/apioffers/"+this.props.offerid, {method: "GET",headers: {
+                         'Accept': 'application/json',
+                         'Content-Type': 'application/json',
+                     }})
+          .then((response) => response.json())
+          .then((responseJson) => {
+              this.setState({
+                  isLoading: false,
+                  dataSource: (responseJson),
+              })
+          })
+          .catch((error) => {
+              console.error(error)
+          })
+  }
     render() {
+      if (this.state.isLoading) {
+        return (
+
+          <View style={{ flex: 1, padding: 20, alignItems: 'center', justifyContent: 'center' }}>
+            <ActivityIndicator size="large" />
+          </View>
+
+        );
+      }
         return (
             <View style={styles.bodyBg}>
                 <ScrollView>
                     <BrandHeader />
-                    <Image source={{ uri: 'http://www.dunkindonuts.pk/promo.jpg' }} style={styles.BrandBanner} />
+                    <Image source={{ uri: 'http://admin.wafideals.com/storage/' + this.state.dataSource.banner_logo_path }} style={styles.BrandBanner} />
                     <View style={styles.brandInfo}>
-                        <Text style={styles.brandHdr}>DunKin Donuts</Text>
-                        <Text style={styles.mallDescTxt}>Description</Text>
+                        <Text style={styles.brandHdr}>{this.state.dataSource.short_description}</Text>
+                        <Text style={styles.mallDescTxt}>{this.state.dataSource.description}</Text>
                     </View>
                 </ScrollView>
             </View>
@@ -44,12 +75,14 @@ const styles = StyleSheet.create({
         color: '#000000',
         fontFamily: "MyriadPro-Semibold_2",
         lineHeight: 20,
+        paddingBottom : 5,
     },
     mallDescTxt: {
         color: '#58595B',
-        flex: 1, 
+        flex: 1,
         flexWrap: 'wrap',
-        fontSize : 12,
+        fontSize : 13,
+        lineHeight : 17,
     }
 });
 

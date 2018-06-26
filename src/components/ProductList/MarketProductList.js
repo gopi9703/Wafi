@@ -5,7 +5,8 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import FontStyle from '../ReusableComponents/FontStyle';
 
 export default class ProductList extends Component {
-  mallDetailsHandler = () => {
+
+  marketDetailsHandler = (id) => {
     this.props.navigator.push({
       screen: 'Wafi.marketDetails',
       animated: true,
@@ -14,6 +15,7 @@ export default class ProductList extends Component {
         navBarBackgroundColor: '#0A266D',
         navBarButtonColor: '#ffffff'
       },
+      passProps:{ hypermarketid:id },
     });
   }
   webCall = () => {
@@ -77,7 +79,7 @@ export default class ProductList extends Component {
       <FlatList style={{ padding: 15, backgroundColor: '#D0D2D3' }} initialNumToRender={3}
         data={this.state.dataSource}
         renderItem={({ item }) =>
-          <TouchableOpacity onPress={this.mallDetailsHandler}>
+          <TouchableOpacity onPress={() => this.marketDetailsHandler(item.id)}>
             <View style={styles.rowBlk}>
               <View style={{ flexDirection: 'row' }}>
                 <Image source={{ uri: 'http://admin.wafideals.com/storage/' + item.logo_path }} style={styles.mallImg} />
@@ -90,7 +92,7 @@ export default class ProductList extends Component {
               </View>
               <View style={styles.iconAlign}>
                 <Icon name="ios-arrow-forward" size={30} color="#A6A8AB" />
-                <Text style={styles.iconAlignText}>2 Flyers</Text>
+                <Text style={styles.iconAlignText}>{item.flyers_count} Flyers</Text>
               </View>
 
             </View>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView, ActivityIndicator, FlatList, Dimensions } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity,Alert, ScrollView, ActivityIndicator, FlatList, Dimensions } from 'react-native';
 import Header from '../../components/Header/Header';
 import Navigation from 'react-native-navigation';
 import ProductCards from '../../components/ProductCards/ProductCards';
@@ -16,18 +16,24 @@ class Brands extends Component {
         }
     }
 
-    BrandsListHandler = () => {
+    BrandListHandler = (id) => {
         this.props.navigator.push({
-            screen: 'Wafi.BrandDetails',
+            screen: 'Wafi.BrandsList',
             animated: true,
             animationType: 'slide-horizontal', // 'fade' (for both) / 'slide-horizontal'
             navigatorStyle: {
                 navBarBackgroundColor: '#0A266D',
                 navBarButtonColor: '#ffffff'
+            },
+            passProps:{ brandid:id },
+            navigatorButtons: {
+                rightButtons: [{
+                    icon: require('../../../src/img/header_Logo.png'),
+                    id: 'Back',
+                    disableIconTint: true,
+                }],
             }
-
         });
-
     }
 
     componentDidMount() {
@@ -43,6 +49,7 @@ class Brands extends Component {
                 console.error(error)
             })
     }
+
     render() {
         if (this.state.isLoading) {
             return (
@@ -68,12 +75,12 @@ class Brands extends Component {
                             renderItem={({ item }) =>
                                 <View style={styles.gridItem}>
                                     <View style={styles.gridWrapr}>
-                                        <TouchableOpacity onPress={this.BrandsListHandler}>
+                                        <TouchableOpacity onPress={() => this.BrandListHandler(item.id)}>
                                             <Image source={{ uri: 'http://admin.wafideals.com/storage/' + item.logo_path }} style={styles.ProductImg} />
                                             <Text style={styles.center}>{item.max_discount}</Text>
                                             <View style={styles.prdDescr}>
                                                 <Text style={styles.offerTitle}>{item.name}</Text>
-                                                <Text style={styles.offerDesc} ellipsizeMode='tail' numberOfLines={1}>{item.description}</Text>
+                                                <Text style={styles.offerDesc}  numberOfLines={1}>{item.description}</Text>
                                             </View>
                                         </TouchableOpacity>
                                     </View>

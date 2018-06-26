@@ -89,7 +89,8 @@ const styles = StyleSheet.create({
         paddingBottom: 4,
     },
     share: {
-        paddingHorizontal: 8,
+        paddingHorizontal: 9,
+        paddingVertical : 6,
     }
 
 });

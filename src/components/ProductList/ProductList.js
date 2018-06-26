@@ -5,7 +5,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import FontStyle from '../ReusableComponents/FontStyle';
 
 export default class ProductList extends Component {
-  mallDetailsHandler = () => {
+  mallDetailsHandler = (id) => {
     this.props.navigator.push({
       screen: 'Wafi.mallDetails',
       animated: true,
@@ -13,7 +13,8 @@ export default class ProductList extends Component {
       navigatorStyle: {
         navBarBackgroundColor: '#0A266D',
         navBarButtonColor: '#ffffff'
-      }
+      },
+      passProps:{ mallid:id },
     });
   }
   webCall = () => {
@@ -66,11 +67,9 @@ export default class ProductList extends Component {
   render() {
     if (this.state.isLoading) {
       return (
-
         <View style={{ flex: 1, padding: 20, alignItems: 'center', justifyContent: 'center' }}>
           <ActivityIndicator size="large" />
         </View>
-
       );
     }
 
@@ -79,7 +78,7 @@ export default class ProductList extends Component {
       <FlatList style={{ padding: 15, backgroundColor: '#D0D2D3', height: Dimensions.get('window').height / 1.1 }} initialNumToRender={3}
         data={this.state.dataSource}
         renderItem={({ item }) =>
-          <TouchableOpacity onPress={this.mallDetailsHandler}>
+          <TouchableOpacity onPress={() => {this.mallDetailsHandler(item.id)}}>
             <View style={styles.rowBlk}>
               <View style={{ flexDirection: 'row' }}>
 

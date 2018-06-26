@@ -1,53 +1,87 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView, Dimensions } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import BrandHeader from '../../../screens/main/BrandHeader';
 import FontStyle from '../../../components/ReusableComponents/FontStyle';
 import HeaderText from '../../../components/ReusableComponents/HeaderText';
 
 class OffersList extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            isLoading: true,
+            dataSource: [],
+        }
+    }
+    componentDidMount() {
+        return fetch("http://admin.wafideals.com/apioffers/" + this.props.offerid, { method: 'GET' })
+            .then((response) => response.json())
+            .then((responseJson) => {
+                this.setState({
+                    isLoading: false,
+                    dataSource: responseJson,
+                })
+            })
+            .catch((error) => {
+                console.error(error)
+            })
+    }
     render() {
         return (
             <View style={styles.bodyBg}>
-
-                <BrandHeader  />
-
-                <View style={{ position: 'relative' }}>
-                    <Image source={{ uri: 'http://www.dunkindonuts.pk/promo.jpg' }} style={styles.BrandBanner} />
-                    <FontStyle style={[styles.headerTitle, styles.brandOffPercent]}>
-                        <HeaderText>20% OFF</HeaderText>
-                    </FontStyle>
-                </View>
-
-                <View style={styles.BrandDescWrap}>
-                    <View style={styles.blkViewBrand}>
-
-                        <FontStyle style={styles.headerTitle}>
-                            <HeaderText>Dunkin Donuts</HeaderText>
-                        </FontStyle>
-
-                        <FontStyle style={styles.textColor}>
-                            <HeaderText>18 Days Left</HeaderText>
-                        </FontStyle>
+                <View style={styles.BrandIntro}>
+                    <View>
+                        <Image source={{ uri: 'http://admin.wafideals.com/storage/' + this.state.dataSource.logo_path  }} style={styles.BrandLogo} />
                     </View>
-                    <View style={styles.blkViewBrand}>
+                    <View style={styles.infoWrpr}>
 
-                        <FontStyle style={styles.headerTitle}>
-                            <HeaderText>Sample Description</HeaderText>
-                        </FontStyle>
-
-                        <FontStyle style={styles.textColor}>
-                            <Icon name="md-time" size={18} color="#ffffff" style={[styles.timer]} /> <HeaderText> 09.00 - 11.00 pm</HeaderText>
-                        </FontStyle>
-                    </View>
-                    <View style={styles.offerDesc}>
-                        <FontStyle>
-                            <HeaderText style={styles.paraStyle}>Shake up the Summer with our Delicious Shakes! Limited Time Only. </HeaderText>
-                        </FontStyle>
+                        <TouchableOpacity>
+                            <View style={styles.IconBlk}>
+                                <Icon name="md-share" size={22} color="#ffffff" style={[styles.iconStyler, styles.share]} />
+                                <Text style={styles.iconText}>Share</Text>
+                            </View>
+                        </TouchableOpacity>
+                        <TouchableOpacity>
+                            <View style={styles.IconBlk}>
+                                <Icon name="ios-heart" size={22} color="#ffffff" style={[styles.iconStyler, styles.favorite]} />
+                                <Text style={styles.iconText}>My Fav</Text>
+                            </View>
+                        </TouchableOpacity>
                     </View>
 
                 </View>
-
+                <ScrollView>
+                    <View style={{ position: 'relative' }}>
+                        <Image source={{ uri: 'http://admin.wafideals.com/storage/' + this.state.dataSource.banner_logo_path }} style={styles.BrandBanner} />
+                        <FontStyle style={[styles.headerTitle, styles.brandOffPercent]}>
+                            <HeaderText>{this.state.dataSource.title}</HeaderText>
+                        </FontStyle>
+                    </View>
+                    <View style={styles.BrandDescWrap}>
+                        <View style={styles.blkViewBrand}>
+                            <FontStyle style={styles.headerTitle}>
+                                <HeaderText>{this.state.dataSource.brand_name}</HeaderText>
+                            </FontStyle>
+                            <View style={styles.mallTiming}>
+                                <FontStyle style={styles.textColor} style={{ textAlign: 'right' }}>
+                                    <HeaderText>18 Days Left</HeaderText>
+                                </FontStyle>
+                                <FontStyle style={styles.textColor}>
+                                    <Icon name="md-time" size={18} color="#ffffff" style={[styles.timer]} /> <HeaderText> {this.state.dataSource.opening_time} - {this.state.dataSource.closing_time}</HeaderText>
+                                </FontStyle>
+                            </View>
+                        </View>
+                        <View style={styles.blkViewBrand}>
+                            <FontStyle>
+                                <Text style={styles.paraStyle}>{this.state.dataSource.brand_desc}</Text>
+                            </FontStyle>
+                        </View>
+                        <View style={styles.offerDesc}>
+                            <FontStyle>
+                                <Text style={styles.paraStyle}>{this.state.dataSource.description}</Text>
+                            </FontStyle>
+                        </View>
+                    </View>
+                </ScrollView>
             </View>
         )
     }
@@ -122,11 +156,12 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         flexDirection: 'row',
         marginBottom: 5,
-        alignItems: 'center'
+        alignItems: 'center',
+
     },
     headerTitle: {
-        color: '#808080',
-        fontWeight : 'bold'
+        color: '#000000',
+        fontWeight: 'bold'
     },
     textColor: {
         color: '#58595B'
@@ -138,14 +173,16 @@ const styles = StyleSheet.create({
         borderRightWidth: 0,
         borderLeftWidth: 0,
         paddingVertical: 15,
-        marginTop: 15
+        marginTop: 15,
+        fontSize: 13,
+        lineHeight: 17,
     },
     paraStyle: {
-        lineHeight: 22,
-        fontSize : 12,
-        fontWeight : 'bold',
-        fontFamily : 'MyriadPro-Semibold_2'
+        lineHeight: 17,
+        fontSize: 13,
+        fontFamily: 'MyriadPro-Regular'
     },
+
     timer: {
         color: '#EF038F',
         top: 15,
@@ -161,7 +198,68 @@ const styles = StyleSheet.create({
         position: 'absolute',
         right: 0,
         bottom: 10,
+    },
+    mallTiming: {
+        flexDirection: 'column',
+        textAlign: 'right'
+    },
+    BrandIntro: {
+        backgroundColor: '#ffffff',
+        borderRadius: 5,
+        paddingVertical: 10,
+        paddingHorizontal: 10,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center'
+
+    },
+    BrandLogo: {
+        width: 60,
+        height: 60,
+    },
+    iconStyler: {
+        color: '#A7802F',
+        borderColor: '#BBBDBF',
+        borderWidth: 1,
+        borderRadius: 50,
+        paddingHorizontal: 9,
+        paddingVertical: 5,
+
+    },
+    infoWrpr: {
+        flexDirection: 'row',
+        justifyContent: 'center'
+    },
+    IconBlk: {
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginLeft: 10,
+
+    },
+    iconText: {
+        fontSize: 14,
+    },
+    location: {
+        paddingHorizontal: 10
+    },
+    BrandBanner: {
+        width: '100%',
+        height: 220,
+        resizeMode: 'contain',
+        borderRadius: 5,
+
+    },
+    favorite: {
+        paddingHorizontal: 7,
+        paddingTop: 8,
+        paddingBottom: 4,
+    },
+    share: {
+        paddingHorizontal: 9,
+        paddingVertical : 6,
     }
+
 });
 
 

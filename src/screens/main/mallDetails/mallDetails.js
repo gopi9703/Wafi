@@ -11,7 +11,27 @@ class mallDetails extends Component {
 
     constructor(props) {
         super(props)
-       
+        this.state = {
+            isLoading: true,
+            dataSource: [],
+        }
+    }
+
+    componentDidMount() {
+        return fetch("http://admin.wafideals.com/apimalls/"+this.props.mallid, {method: "GET",headers: {
+                           'Accept': 'application/json',
+                           'Content-Type': 'application/json',
+                       }})
+            .then((response) => response.json())
+            .then((responseJson) => {
+                this.setState({
+                    isLoading: false,
+                    dataSource: (responseJson),
+                })
+            })
+            .catch((error) => {
+                console.error(error)
+            })
     }
 
     EventsListHandler = () => {
@@ -29,20 +49,28 @@ class mallDetails extends Component {
     }
 
     render() {
+      if (this.state.isLoading) {
+        return (
+
+          <View style={{ flex: 1, padding: 20, alignItems: 'center', justifyContent: 'center' }}>
+            <ActivityIndicator size="large" />
+          </View>
+
+        );
+      }
         return (
             <View>
                 <ScrollView>
                     <View style={styles.mallWrapr}>
                         <View>
                             <View style={styles.mallDescBlk}>
-                                <Image source={{ uri: 'https://amjaad.com/wp-content/uploads/2014/08/nizwa-grand-mall1.jpg' }} style={styles.mallImg} />
-                                <Image source={{ uri: 'https://mir-s3-cdn-cf.behance.net/project_modules/disp/cde0ab34891017.56060d3b46479.jpg' }} style={styles.mallLogo} />
+                                <Image source={{ uri: 'http://admin.wafideals.com/storage/' + this.state.dataSource.banner_logo_path }} style={styles.mallImg} />
+                                <Image source={{ uri: 'http://admin.wafideals.com/storage/' + this.state.dataSource.logo_path }} style={styles.mallLogo} />
                             </View>
                             <View style={styles.mallInfo}>
-
                                     <TouchableOpacity onPress={this.EventsListHandler}>
                                         <View style={styles.IconBlk}>
-                                            <Icon name="ios-calendar" size={24} color="#ffffff" style={styles.iconStyler} />
+                                            <Icon name="ios-calendar" size={24} color="#ffffff" style={[styles.iconStyler, styles.event]} />
                                             <FontStyle> <Text style={[styles.iconText]}>Event</Text></FontStyle>
                                         </View>
                                     </TouchableOpacity>
@@ -85,7 +113,7 @@ const styles = StyleSheet.create({
     },
 
     mallLogo: {
-        width: Dimensions.get('window').width < 360 ? 100 : 130, 
+        width: Dimensions.get('window').width < 360 ? 100 : 130,
         height: Dimensions.get('window').width < 360 ? 70 : 100,
           backgroundColor: '#ffffff',
         position: 'absolute',
@@ -120,7 +148,7 @@ const styles = StyleSheet.create({
         paddingBottom: 4,
     },
     share: {
-        paddingHorizontal: 8,
+        paddingHorizontal: 9,
         paddingVertical:6,
     },
     iconStyler: {
@@ -132,6 +160,11 @@ const styles = StyleSheet.create({
         paddingVertical: 5,
         marginHorizontal : 5
 
+    },
+    event :{
+        paddingHorizontal: 9,
+        paddingTop: 6,
+        paddingBottom : 5
     }
 });
 export default mallDetails;

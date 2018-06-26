@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet, Image, FlatList, TextInput, TouchableOpacity, KeyboardAvoidingView, ScrollView, ActivityIndicator } from 'react-native';
 import Header from '../../components/Header/Header';
 import SwipeableParallaxCarousel from 'react-native-swipeable-parallax-carousel';
-import ProductCards from '../../components/ProductCards/ProductCards';
 import Navigation from 'react-native-navigation';
 import CustomPlaceholder from '../../components/CustomPlaceholder';
 
@@ -33,7 +32,7 @@ class Offers extends Component {
             })
     }
 
-    OffersListHandler = () => {
+    OffersListHandler = (id) => {
         this.props.navigator.push({
             screen: 'Wafi.OffersList',
             animated: true,
@@ -41,8 +40,8 @@ class Offers extends Component {
             navigatorStyle: {
                 navBarBackgroundColor: '#0A266D',
                 navBarButtonColor: '#ffffff'
-            }
-
+            },
+            passProps:{ offerid:id },
         });
 
     }
@@ -69,7 +68,7 @@ class Offers extends Component {
             return (
                 <View style={{ flex: 1, alignItems: 'flex-start'}}>
                     <CustomPlaceholder  animate="fade">
-                        
+
                     </CustomPlaceholder>
                 </View>
             )
@@ -88,12 +87,12 @@ class Offers extends Component {
                             renderItem={({ item }) =>
                                 <View style={styles.gridItem}>
                                     <View style={styles.gridWrapr}>
-                                        <TouchableOpacity onPress={this.OffersListHandler}>
+                                        <TouchableOpacity onPress={() => this.OffersListHandler(item.id)}>
                                             <Image source={{ uri: 'http://admin.wafideals.com/storage/' + item.logo_path }} style={styles.ProductImg} />
                                             <Text style={styles.center}>{item.discount_value}</Text>
                                             <View style={styles.prdDescr}>
-                                                <Text style={styles.offerTitle} ellipsizeMode='tail' numberOfLines={1}>{item.short_description}</Text>
-                                                <Text style={styles.offerDesc} ellipsizeMode='tail' numberOfLines={1}>{item.short_description}</Text>
+                                                <Text style={styles.offerTitle}  numberOfLines={1}>{item.short_description}</Text>
+                                                <Text style={styles.offerDesc} numberOfLines={1}>{item.short_description}</Text>
                                             </View>
                                         </TouchableOpacity>
                                     </View>
