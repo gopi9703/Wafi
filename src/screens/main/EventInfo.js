@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView, ActivityIn
 
 
 class EventInfo extends Component {
+    
     render(){
         return (
             <View style={styles.bodyBg}>

@@ -41,7 +41,7 @@ class Offers extends Component {
                 navBarBackgroundColor: '#0A266D',
                 navBarButtonColor: '#ffffff'
             },
-            passProps:{ offerid:id },
+            passProps: { offerid: id },
         });
 
     }
@@ -66,8 +66,8 @@ class Offers extends Component {
 
         if (this.state.isLoading) {
             return (
-                <View style={{ flex: 1, alignItems: 'flex-start'}}>
-                    <CustomPlaceholder  animate="fade">
+                <View style={{ flex: 1, alignItems: 'flex-start' }}>
+                    <CustomPlaceholder animate="fade">
 
                     </CustomPlaceholder>
                 </View>
@@ -87,11 +87,14 @@ class Offers extends Component {
                             renderItem={({ item }) =>
                                 <View style={styles.gridItem}>
                                     <View style={styles.gridWrapr}>
+                                        <View style={styles.newBadge}>
+                                            <Text style={{color : '#ffffff', fontSize : 12}}>NEW</Text>
+                                        </View>
                                         <TouchableOpacity onPress={() => this.OffersListHandler(item.id)}>
                                             <Image source={{ uri: 'http://admin.wafideals.com/storage/' + item.logo_path }} style={styles.ProductImg} />
                                             <Text style={styles.center}>{item.discount_value}</Text>
                                             <View style={styles.prdDescr}>
-                                                <Text style={styles.offerTitle}  numberOfLines={1}>{item.short_description}</Text>
+                                                <Text style={styles.offerTitle} numberOfLines={1}>{item.short_description}</Text>
                                                 <Text style={styles.offerDesc} numberOfLines={1}>{item.short_description}</Text>
                                             </View>
                                         </TouchableOpacity>
@@ -153,8 +156,9 @@ const styles = StyleSheet.create({
     },
     ProductImg: {
         width: '100%',
-        height: 180,
-        resizeMode: 'cover',
+        aspectRatio: 10 / 10,
+        resizeMode: 'stretch',
+
     },
     offerTitle: {
         color: '#000000',
@@ -189,6 +193,18 @@ const styles = StyleSheet.create({
         marginTop: -20,
         marginHorizontal: '10%',
         width: '80%'
+    },
+    newBadge: {
+        position: 'absolute',
+        backgroundColor: '#ec1172',
+        transform: [{ rotate: '-45deg' }], 
+        top: 15,
+        left: -40,
+        paddingTop: 5,
+        paddingBottom: 5,
+        paddingLeft: 50,
+        paddingRight: 50,
+        zIndex : 500
     }
 });
 export default Offers;

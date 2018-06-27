@@ -18,10 +18,12 @@ class mallDetails extends Component {
     }
 
     componentDidMount() {
-        return fetch("http://admin.wafideals.com/apimalls/"+this.props.mallid, {method: "GET",headers: {
-                           'Accept': 'application/json',
-                           'Content-Type': 'application/json',
-                       }})
+        return fetch("http://admin.wafideals.com/apimalls/" + this.props.mallid, {
+            method: "GET", headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            }
+        })
             .then((response) => response.json())
             .then((responseJson) => {
                 this.setState({
@@ -48,16 +50,30 @@ class mallDetails extends Component {
 
     }
 
+    mallInfoHandler = () => {
+        this.props.navigator.push({
+            screen: 'Wafi.mallInfo',
+            animated: true,
+            animationType: 'slide-up', // 'fade' (for both) / 'slide-horizontal'
+            navigatorStyle: {
+                navBarBackgroundColor: '#0A266D',
+                navBarButtonColor: '#ffffff'
+            }
+
+        });
+
+    }
+
     render() {
-      if (this.state.isLoading) {
-        return (
+        if (this.state.isLoading) {
+            return (
 
-          <View style={{ flex: 1, padding: 20, alignItems: 'center', justifyContent: 'center' }}>
-            <ActivityIndicator size="large" />
-          </View>
+                <View style={{ flex: 1, padding: 20, alignItems: 'center', justifyContent: 'center' }}>
+                    <ActivityIndicator size="large" />
+                </View>
 
-        );
-      }
+            );
+        }
         return (
             <View>
                 <ScrollView>
@@ -68,24 +84,36 @@ class mallDetails extends Component {
                                 <Image source={{ uri: 'http://admin.wafideals.com/storage/' + this.state.dataSource.logo_path }} style={styles.mallLogo} />
                             </View>
                             <View style={styles.mallInfo}>
-                                    <TouchableOpacity onPress={this.EventsListHandler}>
-                                        <View style={styles.IconBlk}>
-                                            <Icon name="ios-calendar" size={24} color="#ffffff" style={[styles.iconStyler, styles.event]} />
-                                            <FontStyle> <Text style={[styles.iconText]}>Event</Text></FontStyle>
-                                        </View>
-                                    </TouchableOpacity>
-                                    <TouchableOpacity>
-                                        <View style={styles.IconBlk}>
-                                            <Icon name="md-share" size={22} color="#ffffff" style={[styles.iconStyler, styles.share]} />
-                                            <Text style={styles.iconText}>Share</Text>
-                                        </View>
-                                    </TouchableOpacity>
-                                    <TouchableOpacity>
-                                        <View style={styles.IconBlk}>
-                                            <Icon name="ios-heart" size={22} color="#ffffff" style={[styles.iconStyler, styles.favorite]} />
-                                            <Text style={styles.iconText}>My Fav</Text>
-                                        </View>
-                                    </TouchableOpacity>
+                                <TouchableOpacity onPress={this.mallInfoHandler}>
+                                    <View style={styles.IconBlk}>
+                                        <Image source={require('../../../icons/info.png')} style={styles.iconView} />
+
+                                    </View>
+                                </TouchableOpacity>
+                                <TouchableOpacity onPress={this.EventsListHandler}>
+                                    <View style={styles.IconBlk}>
+                                        <Image source={require('../../../icons/event.png')} style={styles.iconView} />
+
+                                    </View>
+                                </TouchableOpacity>
+                                <TouchableOpacity onPress={() => Linking.openURL('google.navigation:q=100+101')}>
+                                    <View style={styles.IconBlk}>
+                                        <Image source={require('../../../icons/location.png')} style={styles.iconView} />
+
+                                    </View>
+                                </TouchableOpacity>
+                                <TouchableOpacity>
+                                    <View style={styles.IconBlk}>
+                                        <Image source={require('../../../icons/share.png')} style={styles.iconView} />
+
+                                    </View>
+                                </TouchableOpacity>
+                                <TouchableOpacity>
+                                    <View style={styles.IconBlk}>
+                                        <Image source={require('../../../icons/fav.png')} style={styles.iconView} />
+
+                                    </View>
+                                </TouchableOpacity>
 
                             </View>
                         </View>
@@ -115,56 +143,45 @@ const styles = StyleSheet.create({
     mallLogo: {
         width: Dimensions.get('window').width < 360 ? 100 : 130,
         height: Dimensions.get('window').width < 360 ? 70 : 100,
-          backgroundColor: '#ffffff',
+        backgroundColor: '#ffffff',
         position: 'absolute',
         bottom: -60,
-        left:0,
+        left: 0,
         zIndex: 500
 
     },
     mallInfo: {
         backgroundColor: '#ffffff',
-        paddingHorizontal: 15,
-        paddingVertical : 10,
-        flexDirection : 'row',
-        justifyContent : 'flex-end'
+        paddingHorizontal: 5,
+        paddingVertical: 10,
+        flexDirection: 'row',
+        justifyContent: 'flex-end'
     },
     IconBlk: {
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        marginLeft: 5,
+        marginLeft: 10,
 
     },
     iconText: {
-        fontSize: Dimensions.get('window').width < 360 ? 12 : 14
+        fontSize: Dimensions.get('window').width < 360 ? 11 : 14
     },
-    location: {
-        paddingHorizontal: 10
-    },
-    favorite: {
-        paddingHorizontal: 7,
-        paddingTop: 8,
-        paddingBottom: 4,
-    },
-    share: {
-        paddingHorizontal: 9,
-        paddingVertical:6,
-    },
-    iconStyler: {
-        color: '#A7802F',
-        borderColor: '#BBBDBF',
-        borderWidth: 1,
-        borderRadius: 50,
-        paddingHorizontal: 10,
-        paddingVertical: 5,
-        marginHorizontal : 5
 
-    },
-    event :{
+    event: {
         paddingHorizontal: 9,
         paddingTop: 6,
-        paddingBottom : 5
+        paddingBottom: 5
+    },
+    info: {
+        borderColor: 'transparent',
+        borderWidth: 1,
+        color: '#A7802F',
+        paddingHorizontal: 5,
+    },
+    iconView: {
+        width: Dimensions.get('window').width < 360 ? 26 : 32,
+        height: Dimensions.get('window').width < 360 ? 26 : 32,
     }
 });
 export default mallDetails;

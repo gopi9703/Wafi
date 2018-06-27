@@ -1,78 +1,79 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity, Dimensions,FlatList, ActivityIndicator, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity, Dimensions, FlatList, ActivityIndicator, ScrollView } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Navigation from 'react-native-navigation';
 import FontStyle from '../../../components/ReusableComponents/FontStyle';
 import HeaderText from '../../../components/ReusableComponents/HeaderText';
 
 class BrandsList extends Component {
-  constructor(props) {
-      super(props)
-      this.state = {
-          isLoading: true,
-          dataSource: [],
-          dataSource1: []
-      }
-  }
+    constructor(props) {
+        super(props)
+        this.state = {
+            isLoading: true,
+            dataSource: [],
+            dataSource1: []
+        }
+    }
 
-  componentDidMount() {
-      return fetch("http://admin.wafideals.com/apibrands/"+this.props.brandid, {method: "GET",headers: {
-                         'Accept': 'application/json',
-                         'Content-Type': 'application/json',
-                     }})
-          .then((response) => response.json())
-          .then((responseJson) => {
-              this.setState({
-                  isLoading: false,
-                  dataSource: (responseJson.brand),
-                  dataSource1: (responseJson.offers),
-              })
-          })
-          .catch((error) => {
-              console.error(error)
-          })
-  }
+    componentDidMount() {
+        return fetch("http://admin.wafideals.com/apibrands/" + this.props.brandid, {
+            method: "GET", headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            }
+        })
+            .then((response) => response.json())
+            .then((responseJson) => {
+                this.setState({
+                    isLoading: false,
+                    dataSource: (responseJson.brand),
+                    dataSource1: (responseJson.offers),
+                })
+            })
+            .catch((error) => {
+                console.error(error)
+            })
+    }
 
-  BrandDetailsHandler = (id) => {
-      this.props.navigator.push({
-          screen: 'Wafi.BrandDetails',
-          animated: true,
-          animationType: 'slide-horizontal', // 'fade' (for both) / 'slide-horizontal'
-          navigatorStyle: {
-              navBarBackgroundColor: '#0A266D',
-              navBarButtonColor: '#ffffff'
-          },
-          passProps:{ offerid:id },
-      });
-  }
+    BrandDetailsHandler = (id) => {
+        this.props.navigator.push({
+            screen: 'Wafi.BrandDetails',
+            animated: true,
+            animationType: 'slide-horizontal', // 'fade' (for both) / 'slide-horizontal'
+            navigatorStyle: {
+                navBarBackgroundColor: '#0A266D',
+                navBarButtonColor: '#ffffff'
+            },
+            passProps: { offerid: id },
+        });
+    }
 
     render() {
-      if (this.state.isLoading) {
-        return (
+        if (this.state.isLoading) {
+            return (
 
-          <View style={{ flex: 1, padding: 20, alignItems: 'center', justifyContent: 'center' }}>
-            <ActivityIndicator size="large" />
-          </View>
+                <View style={{ flex: 1, padding: 20, alignItems: 'center', justifyContent: 'center' }}>
+                    <ActivityIndicator size="large" />
+                </View>
 
-        );
-      }
+            );
+        }
         return (
             <View style={styles.bodyBg}>
                 <View style={styles.BrandIntro}>
                     <View>
-                        <Image source={{ uri: 'http://admin.wafideals.com/storage/' + this.state.dataSource.logo_path  }} style={styles.BrandLogo} />
+                        <Image source={{ uri: 'http://admin.wafideals.com/storage/' + this.state.dataSource.logo_path }} style={styles.BrandLogo} />
                     </View>
                     <View style={styles.infoWrpr}>
-
                         <TouchableOpacity>
                             <View style={styles.IconBlk}>
-                                <Icon name="md-share" size={22} color="#ffffff" style={[styles.iconStyler, styles.share]} />
+                                <Image source={require('../../../icons/share.png')} style={styles.iconView} />
                                 <Text style={styles.iconText}>Share</Text>
                             </View>
                         </TouchableOpacity>
                         <TouchableOpacity>
                             <View style={styles.IconBlk}>
-                                <Icon name="ios-heart" size={22} color="#ffffff" style={[styles.iconStyler, styles.favorite]} />
+                                <Image source={require('../../../icons/fav.png')} style={styles.iconView} />
                                 <Text style={styles.iconText}>My Fav</Text>
                             </View>
                         </TouchableOpacity>
@@ -96,23 +97,23 @@ class BrandsList extends Component {
                         </View>
                     </View>
 
-                    <FlatList style={{ flex: 1, paddingBottom: 10,  marginVertical : 10 }}
+                    <FlatList style={{ flex: 1, paddingBottom: 10, marginVertical: 10 }}
                         data={this.state.dataSource1}
                         ItemSeparatorComponent={this.FlatListItemSeparator}
                         numColumns={2}
                         renderItem={({ item }) =>
-                          <View style={styles.gridItem}>
-                              <View style={styles.gridWrapr}>
-                                  <TouchableOpacity onPress={() => this.BrandDetailsHandler(item.id)}>
-                                      <Image source={{ uri: 'http://admin.wafideals.com/storage/' + item.logo_path }} style={styles.ProductImg} />
-                                      <Text style={styles.center}>{item.title}</Text>
-                                      <View style={styles.prdDescr}>
-                                          <Text style={styles.offerTitle} numberOfLines={1}>{item.short_description}</Text>
-                                          <Text style={styles.offerDesc}  numberOfLines={1}>{item.description}</Text>
-                                      </View>
-                                  </TouchableOpacity>
-                              </View>
-                          </View>
+                            <View style={styles.gridItem}>
+                                <View style={styles.gridWrapr}>
+                                    <TouchableOpacity onPress={() => this.BrandDetailsHandler(item.id)}>
+                                        <Image source={{ uri: 'http://admin.wafideals.com/storage/' + item.logo_path }} style={styles.ProductImg} />
+                                        <Text style={styles.center}>{item.title}</Text>
+                                        <View style={styles.prdDescr}>
+                                            <Text style={styles.offerTitle} numberOfLines={1}>{item.short_description}</Text>
+                                            <Text style={styles.offerDesc} numberOfLines={1}>{item.description}</Text>
+                                        </View>
+                                    </TouchableOpacity>
+                                </View>
+                            </View>
                         }
                         keyExtractor={(item, index) => index.toString()}
                     />
@@ -132,9 +133,9 @@ const styles = StyleSheet.create({
     },
     BrandBanner: {
         width: '100%',
-        height: 220,
-        resizeMode: 'contain',
-        borderRadius: 5,
+        aspectRatio: 10 / 5,
+        marginVertical: 5,
+
 
     },
     BrandDescWrap: {
@@ -152,8 +153,8 @@ const styles = StyleSheet.create({
     },
     textColor: {
         color: '#58595B',
-        fontSize : 13,
-        lineHeight : 17
+        fontSize: 13,
+        lineHeight: 17
     },
     offerDesc: {
         borderColor: '#58595B',
@@ -164,7 +165,7 @@ const styles = StyleSheet.create({
         paddingVertical: 15,
         marginTop: 15
     },
-   
+
     prdtWrapr: {
         paddingTop: '2%',
         paddingBottom: '2%',
@@ -220,7 +221,7 @@ const styles = StyleSheet.create({
         color: '#58595B',
         fontSize: 13,
         fontFamily: "MyriadPro-Regular",
-        lineHeight : 17,
+        lineHeight: 17,
 
     },
     prodOffPercet: {
@@ -259,15 +260,6 @@ const styles = StyleSheet.create({
         width: 60,
         height: 60,
     },
-    iconStyler: {
-        color: '#A7802F',
-        borderColor: '#BBBDBF',
-        borderWidth: 1,
-        borderRadius: 50,
-        paddingHorizontal: 9,
-        paddingVertical: 5,
-
-    },
     infoWrpr: {
         flexDirection: 'row',
         justifyContent: 'center'
@@ -282,26 +274,10 @@ const styles = StyleSheet.create({
     iconText: {
         fontSize: 14,
     },
-    location: {
-        paddingHorizontal: 10
-    },
-    BrandBanner: {
-        width: '100%',
-        height: 220,
-        resizeMode: 'contain',
-        borderRadius: 5,
-
-    },
-    favorite: {
-        paddingHorizontal: 7,
-        paddingTop: 8,
-        paddingBottom: 4,
-    },
-    share: {
-        paddingHorizontal: 9,
-        paddingVertical : 6,
-    },
-    
+    iconView : {
+        width : 38,
+        height : 38,
+    }
 });
 
 

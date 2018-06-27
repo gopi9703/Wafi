@@ -30,19 +30,19 @@ class OffersList extends Component {
             <View style={styles.bodyBg}>
                 <View style={styles.BrandIntro}>
                     <View>
-                        <Image source={{ uri: 'http://admin.wafideals.com/storage/' + this.state.dataSource.logo_path  }} style={styles.BrandLogo} />
+                        <Image source={{ uri: 'http://admin.wafideals.com/storage/' + this.state.dataSource.logo_path }} style={styles.BrandLogo} />
                     </View>
                     <View style={styles.infoWrpr}>
 
                         <TouchableOpacity>
                             <View style={styles.IconBlk}>
-                                <Icon name="md-share" size={22} color="#ffffff" style={[styles.iconStyler, styles.share]} />
+                                <Image source={require('../../../icons/share.png')} style={styles.iconView} />
                                 <Text style={styles.iconText}>Share</Text>
                             </View>
                         </TouchableOpacity>
                         <TouchableOpacity>
                             <View style={styles.IconBlk}>
-                                <Icon name="ios-heart" size={22} color="#ffffff" style={[styles.iconStyler, styles.favorite]} />
+                                <Image source={require('../../../icons/fav.png')} style={styles.iconView} />
                                 <Text style={styles.iconText}>My Fav</Text>
                             </View>
                         </TouchableOpacity>
@@ -135,9 +135,8 @@ const styles = StyleSheet.create({
     },
     BrandBanner: {
         width: '100%',
-        height: 220,
-        resizeMode: 'contain',
-        borderRadius: 5,
+        aspectRatio: 10 / 5,
+        marginVertical: 5,
 
     },
     favorite: {
@@ -156,7 +155,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         flexDirection: 'row',
         marginBottom: 5,
-        alignItems: 'center',
+        alignItems: 'flex-start',
 
     },
     headerTitle: {
@@ -197,7 +196,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 15,
         position: 'absolute',
         right: 0,
-        bottom: 10,
+        bottom: 5,
     },
     mallTiming: {
         flexDirection: 'column',
@@ -217,15 +216,6 @@ const styles = StyleSheet.create({
         width: 60,
         height: 60,
     },
-    iconStyler: {
-        color: '#A7802F',
-        borderColor: '#BBBDBF',
-        borderWidth: 1,
-        borderRadius: 50,
-        paddingHorizontal: 9,
-        paddingVertical: 5,
-
-    },
     infoWrpr: {
         flexDirection: 'row',
         justifyContent: 'center'
@@ -240,24 +230,10 @@ const styles = StyleSheet.create({
     iconText: {
         fontSize: 14,
     },
-    location: {
-        paddingHorizontal: 10
-    },
-    BrandBanner: {
-        width: '100%',
-        height: 220,
-        resizeMode: 'contain',
-        borderRadius: 5,
-
-    },
-    favorite: {
-        paddingHorizontal: 7,
-        paddingTop: 8,
-        paddingBottom: 4,
-    },
-    share: {
-        paddingHorizontal: 9,
-        paddingVertical : 6,
+    
+    iconView : {
+        width : 38,
+        height : 38,
     }
 
 });

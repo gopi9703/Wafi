@@ -1,15 +1,42 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView, Dimensions } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity, ActivityIndicator, Alert, FlatList, ScrollView, Dimensions } from 'react-native';
 import Header from '../../../components/Header/Header';
-import BrandHeader from '../../main/BrandHeader';
 import FontStyle from '../../../components/ReusableComponents/FontStyle';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 
 
 class marketDetails extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            isLoading: true,
+            dataSource: [],
+        }
+    }
 
-    flyerHandler = () => {
+    componentDidMount() {
+        return fetch('http://admin.wafideals.com/apihypermarkets/' + this.props.hypermarketid, {
+            method: "GET", headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            }
+        })
+            .then((response) => response.json())
+            .then((responseJson) => {
+                this.setState({
+                    isLoading: false,
+                    dataSource: responseJson,
+                }, function () {
+                    // In this block you can do something with new state.
+                });
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    }
+
+    flyerHandler = (id) => {
         this.props.navigator.push({
             screen: 'Wafi.flyerCarousel',
             animated: true,
@@ -19,62 +46,58 @@ class marketDetails extends Component {
                 navBarBackgroundColor: '#000000',
                 navBarButtonColor: '#ffffff'
             },
+            passProps: { hypermarketid: id },
         });
     }
 
 
     render() {
+
+        if (this.state.isLoading) {
+            return (
+
+                <View style={{ flex: 1, padding: 20, alignItems: 'center', justifyContent: 'center' }}>
+                    <ActivityIndicator size="large" />
+                </View>
+
+            );
+        }
+
         return (
 
             <View style={styles.bodyBg}>
-                <BrandHeader />
                 <View style={styles.marketFlyr}>
-                    <View style={styles.gridItem}>
-                        <TouchableOpacity onPress={this.flyerHandler}>
-                            <Image  source={{ uri: 'https://offersinme.com/images/leaflet/2018/03/31/866/866-0-al-karama-hypermarket-weekend-offers.jpg' }} style={styles.makretImg} />
-                            <View>
-                                <FontStyle style={styles.mallOfferText}>BIG Sale</FontStyle>
+                    <FlatList style={{ flex: 1, width: '100%' }}
+                        data={this.state.dataSource}
+                        renderItem={({ item }) =>
+                            <View style={styles.gridItem}>
+                                <TouchableOpacity onPress={() => this.flyerHandler(item.hypermarket_id)}>
+                                    <View style={{paddingHorizontal : 5}}>
+                                        <Image source={{ uri: 'http://admin.wafideals.com/storage/'+item.flyer_path }} style={styles.makretImg} />
+                                    </View>
+                                    <View style={styles.marketDesc}>
+                                        <View style={{ flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+                                            <FontStyle style={styles.daysLeft}>{item.no_of_pages}</FontStyle>
+                                            <FontStyle style={styles.daysLeft}>Pages</FontStyle>
+                                        </View>
+                                        <View style={{ flexDirection: 'column', justifyContent: 'center', alignItems: 'center', borderLeftWidth: 1, borderColor: '#D0D2D3', paddingLeft: 10 }}>
+                                            <TouchableOpacity>
+                                                <Icon name="md-share" size={20} color="#BBBDBF" style={styles.share} />
+                                            </TouchableOpacity>
+                                        </View>
+                                        <View style={{ flexDirection: 'column', justifyContent: 'center', alignItems: 'center', borderLeftWidth: 1, borderColor: '#D0D2D3', paddingLeft: 10 }}>
+                                            <FontStyle style={styles.daysLeft}>18</FontStyle>
+                                            <FontStyle style={styles.daysLeft}>days Left</FontStyle>
+                                        </View>
+                                    </View>
+                                </TouchableOpacity>
                             </View>
-                            <View style={styles.marketDesc}>
-                                <View>
-                                    <FontStyle style={styles.mallText}>12 pages</FontStyle>
-                                </View>
-                                <View style={{ flexDirection: 'column', justifyContent: 'center', alignItems: 'center', borderLeftWidth: 1, borderColor: '#D0D2D3', paddingLeft: 10 }}>
-                                    <TouchableOpacity>
-                                        <Icon name="md-share" size={20} color="#BBBDBF" style={styles.share} />
-                                    </TouchableOpacity>
-                                </View>
-                                <View style={{ flexDirection: 'column', justifyContent: 'center', alignItems: 'center', borderLeftWidth: 1, borderColor: '#D0D2D3', paddingLeft: 10 }}>
-                                    <FontStyle style={styles.daysLeft}>18</FontStyle>
-                                    <FontStyle style={styles.daysLeft}>days Left</FontStyle>
-                                </View>
-                            </View>
-                        </TouchableOpacity>
-                    </View>
-                    <View style={styles.gridItem}>
-                        <TouchableOpacity onPress={this.flyerHandler}>
+                        }
+                        numColumns={2}
+                        keyExtractor={item => item.id}
+                        initialNumToRender={10}
+                    />
 
-                            <Image source={{ uri: 'https://offersinme.com/images/leaflet/2018/03/31/866/866-0-al-karama-hypermarket-weekend-offers.jpg' }} style={styles.makretImg} />
-
-                            <View>
-                                <FontStyle style={styles.mallOfferText}>BIG Sale</FontStyle>
-                            </View>
-                            <View style={styles.marketDesc}>
-                                <View>
-                                    <FontStyle style={styles.mallText}>12 pages</FontStyle>
-                                </View>
-                                <View style={{ flexDirection: 'column', justifyContent: 'center', alignItems: 'center', borderLeftWidth: 1, borderColor: '#D0D2D3', paddingLeft: 10 }}>
-                                    <TouchableOpacity>
-                                        <Icon name="md-share" size={20} color="#BBBDBF" style={styles.share} />
-                                    </TouchableOpacity>
-                                </View>
-                                <View style={{ flexDirection: 'column', justifyContent: 'center', alignItems: 'center', borderLeftWidth: 1, borderColor: '#D0D2D3', paddingLeft: 10 }}>
-                                    <FontStyle style={styles.daysLeft}>18</FontStyle>
-                                    <FontStyle style={styles.daysLeft}>days Left</FontStyle>
-                                </View>
-                            </View>
-                        </TouchableOpacity>
-                    </View>
                 </View>
             </View>
         )
@@ -85,7 +108,7 @@ const styles = StyleSheet.create({
     bodyBg: {
         backgroundColor: '#E6E7E8',
         flex: 1,
-        padding: 10,
+        paddingVertical: 10,
     },
     marketFlyr: {
         flexDirection: 'row',
@@ -95,10 +118,11 @@ const styles = StyleSheet.create({
     gridItem: {
         width: '48%', //Device width divided in almost a half
         height: 'auto',
-        justifyContent: 'center',
-        flexDirection : 'row',
-        alignItems: 'flex-start',
+        justifyContent: 'space-around',
+        flexDirection: 'row',
         marginBottom: 15,
+        padding: 5,
+        marginHorizontal: '1%',
         backgroundColor: '#ffffff',
         borderRadius: 3,
         shadowColor: '#cccccc',
@@ -109,13 +133,14 @@ const styles = StyleSheet.create({
         shadowRadius: 5,
         shadowOpacity: 0.7,
         elevation: 2,
-        padding: 10,
+
+
     },
     makretImg: {
         width: '100%',
         aspectRatio: 10 / 10,
         resizeMode: 'contain',
-       
+
     },
     marketDesc: {
         marginTop: 5,
@@ -124,8 +149,8 @@ const styles = StyleSheet.create({
         borderColor: '#D0D2D3',
         flexDirection: 'row',
         alignItems: 'center',
-        justifyContent: 'space-between',
-        paddingTop: 5
+        justifyContent: 'space-around',
+        padding: 5
     },
     mallText: {
         color: '#58595B',

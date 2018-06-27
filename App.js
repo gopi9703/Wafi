@@ -27,6 +27,7 @@ import setStateModal from './src/components/Modal/setStateModal';
 
 
 import EventInfo from './src/screens/main/EventInfo';
+import mallInfo from './src/screens/main/mallInfo';
 
 
 // Register Login Screens
@@ -60,6 +61,7 @@ Navigation.registerComponent("Wafi.MyAccount", () => MyAccount);
 Navigation.registerComponent("Wafi.ChangePassword", () => ChangePassword);
 
 Navigation.registerComponent("Wafi.EventInfo", () => EventInfo);
+Navigation.registerComponent("Wafi.mallInfo", () => mallInfo);
 
 /*Navigation.startSingleScreenApp({
   screen: {

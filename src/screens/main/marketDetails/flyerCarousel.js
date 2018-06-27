@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity, Dimensions, ActivityIndicator } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity, Dimensions, Alert, FlatList, ActivityIndicator } from 'react-native';
 import Slick from 'react-native-slick';
 
 
@@ -27,10 +27,32 @@ class flyerCarouel extends Component {
             animate: true,
         })
     }
-    
+
     constructor(props) {
-        super(props)
-        //this._goToMovies = this._goToMovies.bind(this);
+      super(props)
+      this.state = {
+        isLoading: true,
+        dataSource: [],
+      }
+    }
+
+    componentDidMount() {
+      return fetch('http://admin.wafideals.com/apihypermarkets/'+this.props.hypermarketid,{ method: "GET",headers: {
+                         'Accept': 'application/json',
+                         'Content-Type': 'application/json',
+                     }})
+        .then((response) => response.json())
+        .then((responseJson) => {
+          this.setState({
+            isLoading: false,
+            dataSource: responseJson,
+          }, function () {
+            // In this block you can do something with new state.
+          });
+        })
+        .catch((error) => {
+          console.error(error);
+        });
     }
 
 
@@ -56,15 +78,17 @@ class flyerCarouel extends Component {
                     <Slick showsButtons={true} showsPagination renderPagination={renderPagination}
                         buttonTextStyle={{ color: '#9e9e9e', fontSize: 24 }}
                     >
-                        <View >
-                            <Image style={{ height: '90%', width: '100%', resizeMode: 'cover' }} source={{ uri: 'https://offersinme.com/images/leaflet/2018/03/31/866/866-0-al-karama-hypermarket-weekend-offers.jpg' }} />
+                    <FlatList
+                      data={this.state.dataSource}
+                      renderItem={({ item }) =>
+                        <View>
+                            <Image style={{ height: '90%', width: '100%', aspectRatio: 10 / 10, resizeMode: 'cover' }} source={{ uri: 'http://admin.wafideals.com/storage/'+ item.flyer_path }} />
                         </View>
-                        <View >
-                            <Image style={{ height: '90%', width: '100%', resizeMode: 'cover' }} source={{ uri: 'https://offersinme.com/images/leaflet/2018/03/31/866/866-0-al-karama-hypermarket-weekend-offers.jpg' }} />
-                        </View>
-                        <View >
-                            <Image style={{ height: '90%', width: '100%', resizeMode: 'cover' }} source={{ uri: 'https://offersinme.com/images/leaflet/2018/03/31/866/866-0-al-karama-hypermarket-weekend-offers.jpg' }} />
-                        </View>
+                      }
+                      numColumns={1}
+                      keyExtractor={item => item.id}
+                      initialNumToRender={10}
+                    />
 
                     </Slick>
                 </View>
@@ -94,6 +118,12 @@ const styles = StyleSheet.create({
         height: undefined,
         flex: 1,
         resizeMode: 'cover'
+    },
+    makretImg: {
+        width: '100%',
+        aspectRatio: 10 / 10,
+        resizeMode: 'contain',
+
     },
     wrapper: {
         flex: 1
@@ -132,9 +162,9 @@ const styles = StyleSheet.create({
       paginationText: {
         color: 'white',
         fontSize: 20,
-        
+
       }
-    
+
 
 });
 

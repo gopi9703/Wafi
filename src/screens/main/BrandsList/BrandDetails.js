@@ -60,25 +60,25 @@ class BrandDetails extends Component {
                         <View style={styles.infoWrpr}>
                             <TouchableOpacity onPress={()=> this.callNumber(`tel:+19742223645`)}>
                                 <View style={styles.IconBlk}>
-                                    <Icon name="ios-call" size={24} color="#ffffff" style={styles.iconStyler} />
+                                <Image source={require('../../../icons/info.png')} style={styles.iconView} />
                                      <Text style={[styles.iconText]}>Contact</Text>
                                 </View>
                             </TouchableOpacity>
                             <TouchableOpacity onPress={() => Linking.openURL('google.navigation:q=100+101')}>
                                 <View style={styles.IconBlk}>
-                                    <Icon name="ios-pin" size={24} color="#ffffff" style={[styles.iconStyler, styles.location]} />
+                                <Image source={require('../../../icons/location.png')} style={styles.iconView} />
                                     <Text style={[styles.iconText]}>Location</Text>
                                 </View>
                             </TouchableOpacity>
                             <TouchableOpacity>
                                 <View style={styles.IconBlk}>
-                                    <Icon name="md-share" size={22} color="#ffffff" style={[styles.iconStyler, styles.share]} />
+                                <Image source={require('../../../icons/share.png')} style={styles.iconView} />
                                     <Text style={styles.iconText}>Share</Text>
                                 </View>
                             </TouchableOpacity>
                             <TouchableOpacity>
                                 <View style={styles.IconBlk}>
-                                    <Icon name="ios-heart" size={22} color="#ffffff" style={[styles.iconStyler, styles.favorite]} />
+                                <Image source={require('../../../icons/fav.png')} style={styles.iconView} />
                                     <Text style={styles.iconText}>My Fav</Text>
                                 </View>
                             </TouchableOpacity>
@@ -105,9 +105,8 @@ const styles = StyleSheet.create({
     BrandBanner: {
         width: '100%',
         aspectRatio: 10 / 5,
-        resizeMode: 'contain',
         marginVertical: 5,
-
+      
     },
     brandInfo: {
         backgroundColor: '#ffffff',
@@ -142,15 +141,7 @@ const styles = StyleSheet.create({
         width: 60,
         height: 60,
     },
-    iconStyler: {
-        color: '#A7802F',
-        borderColor: '#BBBDBF',
-        borderWidth: 1,
-        borderRadius: 50,
-        paddingHorizontal: 9,
-        paddingVertical: 5,
-
-    },
+   
     infoWrpr: {
         flexDirection: 'row',
         justifyContent: 'center'
@@ -159,31 +150,16 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        marginLeft: 10,
+        marginLeft: 5,
 
     },
     iconText: {
         fontSize: 14,
     },
-    location: {
-        paddingHorizontal: 10
-    },
-    BrandBanner: {
-        width: '100%',
-        height: 220,
-        resizeMode: 'contain',
-        borderRadius: 5,
-
-    },
-    favorite: {
-        paddingHorizontal: 7,
-        paddingTop: 8,
-        paddingBottom: 4,
-    },
-    share: {
-        paddingHorizontal: 9,
-        paddingVertical: 6,
-    },
+    iconView : {
+        width : 38,
+        height : 38,
+    }
 });
 
 export default BrandDetails;

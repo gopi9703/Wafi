@@ -92,7 +92,7 @@ export default class ProductList extends Component {
               </View>
               <View style={styles.iconAlign}>
                 <Icon name="ios-arrow-forward" size={30} color="#A6A8AB" />
-                <Text style={styles.iconAlignText}>{item.flyers_count} Flyers</Text>
+                <Text style={styles.iconAlignText}>{(item.flyers_count > 0)? item.flyers_count: 0} Flyers</Text>
               </View>
 
             </View>
