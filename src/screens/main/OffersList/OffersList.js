@@ -12,6 +12,12 @@ class OffersList extends Component {
             dataSource: [],
         }
     }
+    onNavigatorEvent(event) {
+        if (event.id == 'backPress') {
+            alert('back');
+        }
+    }
+
     componentDidMount() {
         return fetch("http://admin.wafideals.com/apioffers/" + this.props.offerid, { method: 'GET' })
             .then((response) => response.json())
@@ -24,6 +30,8 @@ class OffersList extends Component {
             .catch((error) => {
                 console.error(error)
             })
+
+
     }
     render() {
         return (
@@ -230,10 +238,10 @@ const styles = StyleSheet.create({
     iconText: {
         fontSize: 14,
     },
-    
-    iconView : {
-        width : 38,
-        height : 38,
+
+    iconView: {
+        width: 38,
+        height: 38,
     }
 
 });

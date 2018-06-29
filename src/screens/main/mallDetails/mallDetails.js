@@ -44,7 +44,19 @@ class mallDetails extends Component {
             navigatorStyle: {
                 navBarBackgroundColor: '#0A266D',
                 navBarButtonColor: '#ffffff'
-            }
+            },
+             navigatorButtons: {
+                leftButtons: [
+                  {
+                    id: 'back',
+                    disableIconTint: true,
+                    icon: require('../../../img/back.png'), // This line loads our component as a nav bar button item
+                    passProps: {
+                        offerid: id
+                    },
+                  },
+                ],
+              },
 
         });
 

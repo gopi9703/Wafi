@@ -27,12 +27,17 @@ class Brands extends Component {
             },
             passProps:{ brandid:id },
             navigatorButtons: {
-                rightButtons: [{
-                    icon: require('../../../src/img/header_Logo.png'),
-                    id: 'Back',
+                leftButtons: [
+                  {
+                    id: 'back',
                     disableIconTint: true,
-                }],
-            }
+                    icon: require('../../img/back.png'), // This line loads our component as a nav bar button item
+                    passProps: {
+                        offerid: id
+                    },
+                  },
+                ],
+              },
         });
     }
 

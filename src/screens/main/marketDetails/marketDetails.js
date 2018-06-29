@@ -46,6 +46,18 @@ class marketDetails extends Component {
                 navBarBackgroundColor: '#000000',
                 navBarButtonColor: '#ffffff'
             },
+            navigatorButtons: {
+                leftButtons: [
+                    {
+                        id: 'back',
+                        disableIconTint: true,
+                        icon: require('../../../img/back.png'), // This line loads our component as a nav bar button item
+                        passProps: {
+                            offerid: id
+                        },
+                    },
+                ],
+            },
             passProps: { hypermarketid: id },
         });
     }
@@ -72,8 +84,8 @@ class marketDetails extends Component {
                         renderItem={({ item }) =>
                             <View style={styles.gridItem}>
                                 <TouchableOpacity onPress={() => this.flyerHandler(item.hypermarket_id)}>
-                                    <View style={{paddingHorizontal : 5}}>
-                                        <Image source={{ uri: 'http://admin.wafideals.com/storage/'+item.flyer_path }} style={styles.makretImg} />
+                                    <View style={{ paddingHorizontal: 5 }}>
+                                        <Image source={{ uri: 'http://admin.wafideals.com/storage/' + item.flyer_path }} style={styles.makretImg} />
                                     </View>
                                     <View style={styles.marketDesc}>
                                         <View style={{ flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>

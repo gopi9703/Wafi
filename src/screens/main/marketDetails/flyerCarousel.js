@@ -56,9 +56,9 @@ class flyerCarouel extends Component {
     }
 
 
-    _navigate(screen) {
+    gridHandler = () => {
         this.props.navigator.push({
-            screen: screen,
+            screen: 'Wafi.flyerGrid',
             navigatorStyle: {
                 navBarBackgroundColor: '#0A266D',
                 navBarButtonColor: '#ffffff',
@@ -66,7 +66,17 @@ class flyerCarouel extends Component {
                 navBarSubtitleFontFamily: "MyriadPro-Regular",
                 navBarComponentAlignment: 'center',
             }, // override the navigator style for the screen, see "Styling the navigator" below (optional)
-            animationType: 'slide-up' // 'none' / 'slide-up' , appear animation for the modal (optional, default 'slide-up')
+            animationType: 'slide-up' ,
+            navigatorButtons: {
+                leftButtons: [
+                  {
+                    id: 'back',
+                    disableIconTint: true,
+                    icon: require('../../../img/back.png'), // This line loads our component as a nav bar button item
+                   
+                  },
+                ],
+              },
         });
 
     }
@@ -93,11 +103,11 @@ class flyerCarouel extends Component {
                     </Slick>
                 </View>
                 <View style={styles.footer}>
-                    <TouchableOpacity onPress={() => this._navigate('Wafi.flyerGrid')}>
+                    <TouchableOpacity onPress={() => this.gridHandler()}>
                          <Image source={require('../../../icons/grid.png')} style={styles.IconImage} />
                     </TouchableOpacity>
                     <TouchableOpacity>
-                    <Image source={require('../../../icons/share.png')} style={styles.IconImage} />
+                    <Image source={require('../../../icons/share_01.png')} style={styles.IconImage} />
                     </TouchableOpacity>
                 </View>
             </View>

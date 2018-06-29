@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, Image, TouchableOpacity, FlatList, ActivityIndi
 import Navigation from 'react-native-navigation';
 import Icon from 'react-native-vector-icons/Ionicons';
 import FontStyle from '../ReusableComponents/FontStyle';
+import Placeholder from 'rn-placeholder';
 
 export default class ProductList extends Component {
 
@@ -15,7 +16,19 @@ export default class ProductList extends Component {
         navBarBackgroundColor: '#0A266D',
         navBarButtonColor: '#ffffff'
       },
-      passProps:{ hypermarketid:id },
+      navigatorButtons: {
+        leftButtons: [
+          {
+            id: 'back',
+            disableIconTint: true,
+            icon: require('../../img/back.png'), // This line loads our component as a nav bar button item
+            passProps: {
+              offerid: id
+            },
+          },
+        ],
+      },
+      passProps: { hypermarketid: id },
     });
   }
   webCall = () => {
@@ -68,9 +81,113 @@ export default class ProductList extends Component {
   render() {
     if (this.state.isLoading) {
       return (
-        <View style={{ flex: 1, padding: 20, alignItems: 'center', justifyContent: 'center' }}>
-          <ActivityIndicator />
+        <View style={{ flex: 1, padding: 20 }}>
+          <View style={styles.placeholder}>
+            <Placeholder.ImageContent animate="fade"
+              position="left"
+              hasRadius
+              lineNumber={2}
+              textSize={14}
+              lineSpacing={5}
+              color="#A2A2A2"
+              width="100%"
+              lastLineWidth="80%"
+              firstLineWidth="100%"
+            />
+          </View>
+          <View style={styles.placeholder}>
+            <Placeholder.ImageContent animate="fade"
+              position="left"
+              hasRadius
+              lineNumber={2}
+              textSize={14}
+              lineSpacing={5}
+              color="#A2A2A2"
+              width="100%"
+              lastLineWidth="80%"
+              firstLineWidth="100%"
+            />
+          </View>
+          <View style={styles.placeholder}>
+            <Placeholder.ImageContent animate="fade"
+              position="left"
+              hasRadius
+              lineNumber={2}
+              textSize={14}
+              lineSpacing={5}
+              color="#A2A2A2"
+              width="100%"
+              lastLineWidth="80%"
+              firstLineWidth="100%"
+            />
+          </View>
+          <View style={styles.placeholder}>
+            <Placeholder.ImageContent animate="fade"
+              position="left"
+              hasRadius
+              lineNumber={2}
+              textSize={14}
+              lineSpacing={5}
+              color="#A2A2A2"
+              width="100%"
+              lastLineWidth="80%"
+              firstLineWidth="100%"
+            />
+          </View>
+          <View style={styles.placeholder}>
+            <Placeholder.ImageContent animate="fade"
+              position="left"
+              hasRadius
+              lineNumber={2}
+              textSize={14}
+              lineSpacing={5}
+              color="#A2A2A2"
+              width="100%"
+              lastLineWidth="80%"
+              firstLineWidth="100%"
+            />
+          </View>
+          <View style={styles.placeholder}>
+            <Placeholder.ImageContent animate="fade"
+              position="left"
+              hasRadius
+              lineNumber={2}
+              textSize={14}
+              lineSpacing={5}
+              color="#A2A2A2"
+              width="100%"
+              lastLineWidth="80%"
+              firstLineWidth="100%"
+            />
+          </View>
+          <View style={styles.placeholder}>
+            <Placeholder.ImageContent animate="fade"
+              position="left"
+              hasRadius
+              lineNumber={2}
+              textSize={14}
+              lineSpacing={5}
+              color="#A2A2A2"
+              width="100%"
+              lastLineWidth="80%"
+              firstLineWidth="100%"
+            />
+          </View>
+          <View style={styles.placeholder}>
+            <Placeholder.ImageContent animate="fade"
+              position="left"
+              hasRadius
+              lineNumber={2}
+              textSize={14}
+              lineSpacing={5}
+              color="#A2A2A2"
+              width="100%"
+              lastLineWidth="80%"
+              firstLineWidth="100%"
+            />
+          </View>
         </View>
+
       )
     }
 
@@ -85,14 +202,14 @@ export default class ProductList extends Component {
                 <Image source={{ uri: 'http://admin.wafideals.com/storage/' + item.logo_path }} style={styles.mallImg} />
                 <View style={styles.mallTxtCol}>
                   <FontStyle style={styles.mallTitle}> {item.name} </FontStyle>
-                  <View style={{flexDirection:'row'}}>
+                  <View style={{ flexDirection: 'row' }}>
                     <FontStyle style={styles.mallLocality} numberOfLines={1} > {item.tagline} </FontStyle>
                   </View>
                 </View>
               </View>
               <View style={styles.iconAlign}>
                 <Icon name="ios-arrow-forward" size={30} color="#A6A8AB" />
-                <Text style={styles.iconAlignText}>{(item.flyers_count > 0)? item.flyers_count: 0} Flyers</Text>
+                <Text style={styles.iconAlignText}>{(item.flyers_count > 0) ? item.flyers_count : 0} Flyers</Text>
               </View>
 
             </View>
@@ -155,7 +272,7 @@ const styles = StyleSheet.create({
     fontSize: Dimensions.get('window').width < 360 ? 12 : 13,
     color: '#58595B',
     flex: 1, flexWrap: 'wrap',
-    paddingTop : 5,
+    paddingTop: 5,
 
   },
   iconAlign: {
@@ -163,7 +280,15 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   },
-  iconAlignText : {
-    fontSize : 12,
+  iconAlignText: {
+    fontSize: 12,
+  },
+  placeholder: {
+    marginBottom: 5,
+    marginVertical: 5,
+    borderRadius: 5,
+    paddingVertical: 20,
+    paddingVertical: 15,
+    backgroundColor: '#ffffff',
   }
 });

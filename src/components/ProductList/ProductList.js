@@ -3,6 +3,8 @@ import { View, Text, StyleSheet, Image, TouchableOpacity, FlatList, ActivityIndi
 import Navigation from 'react-native-navigation';
 import Icon from 'react-native-vector-icons/Ionicons';
 import FontStyle from '../ReusableComponents/FontStyle';
+import Placeholder from 'rn-placeholder';
+
 
 export default class ProductList extends Component {
   mallDetailsHandler = (id) => {
@@ -14,7 +16,19 @@ export default class ProductList extends Component {
         navBarBackgroundColor: '#0A266D',
         navBarButtonColor: '#ffffff'
       },
-      passProps:{ mallid:id },
+      navigatorButtons: {
+        leftButtons: [
+          {
+            id: 'back',
+            disableIconTint: true,
+            icon: require('../../img/back.png'), // This line loads our component as a nav bar button item
+            passProps: {
+              offerid: id
+            },
+          },
+        ],
+      },
+      passProps: { mallid: id },
     });
   }
   webCall = () => {
@@ -67,8 +81,111 @@ export default class ProductList extends Component {
   render() {
     if (this.state.isLoading) {
       return (
-        <View style={{ flex: 1, padding: 20, alignItems: 'center', justifyContent: 'center' }}>
-          <ActivityIndicator size="large" />
+        <View style={{ flex: 1, padding: 20 }}>
+          <View style={styles.placeholder}>
+            <Placeholder.ImageContent animate="fade"
+              position="left"
+              hasRadius
+              lineNumber={2}
+              textSize={14}
+              lineSpacing={5}
+              color="#A2A2A2"
+              width="100%"
+              lastLineWidth="80%"
+              firstLineWidth="100%"
+            />
+          </View>
+          <View style={styles.placeholder}>
+            <Placeholder.ImageContent animate="fade"
+              position="left"
+              hasRadius
+              lineNumber={2}
+              textSize={14}
+              lineSpacing={5}
+              color="#A2A2A2"
+              width="100%"
+              lastLineWidth="80%"
+              firstLineWidth="100%"
+            />
+          </View>
+          <View style={styles.placeholder}>
+            <Placeholder.ImageContent animate="fade"
+              position="left"
+              hasRadius
+              lineNumber={2}
+              textSize={14}
+              lineSpacing={5}
+              color="#A2A2A2"
+              width="100%"
+              lastLineWidth="80%"
+              firstLineWidth="100%"
+            />
+          </View>
+          <View style={styles.placeholder}>
+            <Placeholder.ImageContent animate="fade"
+              position="left"
+              hasRadius
+              lineNumber={2}
+              textSize={14}
+              lineSpacing={5}
+              color="#A2A2A2"
+              width="100%"
+              lastLineWidth="80%"
+              firstLineWidth="100%"
+            />
+          </View>
+          <View style={styles.placeholder}>
+            <Placeholder.ImageContent animate="fade"
+              position="left"
+              hasRadius
+              lineNumber={2}
+              textSize={14}
+              lineSpacing={5}
+              color="#A2A2A2"
+              width="100%"
+              lastLineWidth="80%"
+              firstLineWidth="100%"
+            />
+          </View>
+          <View style={styles.placeholder}>
+            <Placeholder.ImageContent animate="fade"
+              position="left"
+              hasRadius
+              lineNumber={2}
+              textSize={14}
+              lineSpacing={5}
+              color="#A2A2A2"
+              width="100%"
+              lastLineWidth="80%"
+              firstLineWidth="100%"
+            />
+          </View>
+          <View style={styles.placeholder}>
+            <Placeholder.ImageContent animate="fade"
+              position="left"
+              hasRadius
+              lineNumber={2}
+              textSize={14}
+              lineSpacing={5}
+              color="#A2A2A2"
+              width="100%"
+              lastLineWidth="80%"
+              firstLineWidth="100%"
+            />
+          </View>
+          <View style={styles.placeholder}>
+            <Placeholder.ImageContent animate="fade"
+              position="left"
+              hasRadius
+              lineNumber={2}
+              textSize={14}
+              lineSpacing={5}
+              color="#A2A2A2"
+              width="100%"
+              lastLineWidth="80%"
+              firstLineWidth="100%"
+            />
+          </View>
         </View>
       );
     }
@@ -78,7 +195,7 @@ export default class ProductList extends Component {
       <FlatList style={{ padding: 15, backgroundColor: '#D0D2D3', height: Dimensions.get('window').height / 1.1 }} initialNumToRender={3}
         data={this.state.dataSource}
         renderItem={({ item }) =>
-          <TouchableOpacity onPress={() => {this.mallDetailsHandler(item.id)}}>
+          <TouchableOpacity onPress={() => { this.mallDetailsHandler(item.id) }}>
             <View style={styles.rowBlk}>
               <View style={{ flexDirection: 'row' }}>
 
@@ -155,5 +272,13 @@ const styles = StyleSheet.create({
     color: '#58595B',
     flex: 1, flexWrap: 'wrap'
 
+  },
+  placeholder: {
+    marginBottom: 5,
+    marginVertical: 5,
+    borderRadius: 5,
+    paddingVertical: 20,
+    paddingVertical: 15,
+    backgroundColor: '#ffffff',
   }
 });

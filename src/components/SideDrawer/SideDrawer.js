@@ -41,7 +41,17 @@ class SideDrawer extends Component {
                 navBarSubtitleFontFamily: "MyriadPro-Regular",
                 navBarComponentAlignment: 'center',
             }, // override the navigator style for the screen, see "Styling the navigator" below (optional)
-            animationType: 'slide-up' // 'none' / 'slide-up' , appear animation for the modal (optional, default 'slide-up')
+            animationType: 'slide-up',
+            navigatorButtons: {
+                leftButtons: [
+                  {
+                    id: 'back',
+                    disableIconTint: true,
+                    icon: require('../../img/back.png'), // This line loads our component as a nav bar button item
+                   
+                  },
+                ],
+              },
         });
 
         this.props.navigator.toggleDrawer({
