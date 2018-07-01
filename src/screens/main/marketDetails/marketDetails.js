@@ -15,6 +15,7 @@ class marketDetails extends Component {
         }
     }
 
+
     componentDidMount() {
         return fetch('http://admin.wafideals.com/apihypermarkets/' + this.props.hypermarketid, {
             method: "GET", headers: {
@@ -46,18 +47,7 @@ class marketDetails extends Component {
                 navBarBackgroundColor: '#000000',
                 navBarButtonColor: '#ffffff'
             },
-            navigatorButtons: {
-                leftButtons: [
-                    {
-                        id: 'back',
-                        disableIconTint: true,
-                        icon: require('../../../img/back.png'), // This line loads our component as a nav bar button item
-                        passProps: {
-                            offerid: id
-                        },
-                    },
-                ],
-            },
+
             passProps: { hypermarketid: id },
         });
     }
@@ -78,14 +68,52 @@ class marketDetails extends Component {
         return (
 
             <View style={styles.bodyBg}>
+                <View style={styles.BrandIntro}>
+                    <View>
+                        <Image source={{ uri: 'http://admin.wafideals.com/storage/' + this.state.dataSource.logo_path }} style={styles.BrandLogo} />
+                    </View>
+                    <View style={styles.infoWrpr}>
+                        <TouchableOpacity onPress={() => this.callNumber(`tel:+19742223645`)}>
+                            <View style={styles.IconBlk}>
+                                <Image source={require('../../../icons/info.png')} style={styles.iconView} />
+                                <Text style={[styles.iconText]}>Info</Text>
+                            </View>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => Linking.openURL('google.navigation:q=100+101')}>
+                            <View style={styles.IconBlk}>
+                                <Image source={require('../../../icons/location.png')} style={styles.iconView} />
+                                <Text style={[styles.iconText]}>Location</Text>
+                            </View>
+                        </TouchableOpacity>
+                        <TouchableOpacity>
+                            <View style={styles.IconBlk}>
+                                <Image source={require('../../../icons/share.png')} style={styles.iconView} />
+                                <Text style={styles.iconText}>Share</Text>
+                            </View>
+                        </TouchableOpacity>
+                        <TouchableOpacity>
+                            <View style={styles.IconBlk}>
+                                <Image source={require('../../../icons/fav.png')} style={styles.iconView} />
+                                <Text style={styles.iconText}>My Fav</Text>
+                            </View>
+                        </TouchableOpacity>
+                    </View>
+
+                </View>
                 <View style={styles.marketFlyr}>
                     <FlatList style={{ flex: 1, width: '100%' }}
                         data={this.state.dataSource}
                         renderItem={({ item }) =>
                             <View style={styles.gridItem}>
+                                <View style={styles.newBadge}>
+                                    <Text style={{ color: '#ffffff', fontSize: 12 }}>NEW</Text>
+                                </View>
                                 <TouchableOpacity onPress={() => this.flyerHandler(item.hypermarket_id)}>
                                     <View style={{ paddingHorizontal: 5 }}>
                                         <Image source={{ uri: 'http://admin.wafideals.com/storage/' + item.flyer_path }} style={styles.makretImg} />
+                                    </View>
+                                    <View>
+                                        <Text style={styles.mallText} numberOfLines={1}> {item.tagline}</Text>
                                     </View>
                                     <View style={styles.marketDesc}>
                                         <View style={{ flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
@@ -120,7 +148,8 @@ const styles = StyleSheet.create({
     bodyBg: {
         backgroundColor: '#E6E7E8',
         flex: 1,
-        paddingVertical: 10,
+        paddingVertical: 5,
+        paddingHorizontal: 5
     },
     marketFlyr: {
         flexDirection: 'row',
@@ -167,10 +196,11 @@ const styles = StyleSheet.create({
     mallText: {
         color: '#58595B',
         fontSize: 12,
+        paddingTop: 5,
     },
     daysLeft: {
         color: '#58595B',
-        fontSize: 14,
+        fontSize: Dimensions.get('window').width < 360 ? 12 : 14,
     },
     mallOfferText: {
         color: '#58595B',
@@ -180,6 +210,53 @@ const styles = StyleSheet.create({
     },
     share: {
         padding: 5,
+        fontSize: Dimensions.get('window').width < 360 ? 16 : 20,
+    },
+    BrandIntro: {
+        backgroundColor: '#ffffff',
+        borderRadius: 5,
+        paddingVertical: 10,
+        paddingHorizontal: 10,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center'
+
+    },
+    BrandLogo: {
+        width: 60,
+        height: 60,
+    },
+
+    infoWrpr: {
+        flexDirection: 'row',
+        justifyContent: 'center'
+    },
+    IconBlk: {
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginLeft: 10,
+
+    },
+    iconText: {
+        fontSize: 11,
+        fontFamily: "MyriadPro-Regular",
+    },
+    iconView: {
+        width: 38,
+        height: 38,
+    },
+    newBadge: {
+        position: 'absolute',
+        backgroundColor: '#ec1172',
+        transform: [{ rotate: '-45deg' }],
+        top: 15,
+        left: -40,
+        paddingTop: 5,
+        paddingBottom: 5,
+        paddingLeft: 50,
+        paddingRight: 50,
+        zIndex: 500
     }
 });
 

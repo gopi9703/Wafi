@@ -16,18 +16,7 @@ export default class ProductList extends Component {
         navBarBackgroundColor: '#0A266D',
         navBarButtonColor: '#ffffff'
       },
-      navigatorButtons: {
-        leftButtons: [
-          {
-            id: 'back',
-            disableIconTint: true,
-            icon: require('../../img/back.png'), // This line loads our component as a nav bar button item
-            passProps: {
-              offerid: id
-            },
-          },
-        ],
-      },
+
       passProps: { hypermarketid: id },
     });
   }
@@ -39,6 +28,7 @@ export default class ProductList extends Component {
         this.setState({
           isLoading: false,
           dataSource: responseJson,
+          
         }, function () {
           // In this block you can do something with new state.
         });
@@ -209,9 +199,9 @@ export default class ProductList extends Component {
               </View>
               <View style={styles.iconAlign}>
                 <Icon name="ios-arrow-forward" size={30} color="#A6A8AB" />
-                <Text style={styles.iconAlignText}>{(item.flyers_count > 0) ? item.flyers_count : 0} Flyers</Text>
+                
               </View>
-
+              <Text style={styles.iconAlignText}>{(item.flyers_count > 0) ? item.flyers_count : 0} Flyers</Text>
             </View>
           </TouchableOpacity>
         }
@@ -282,6 +272,9 @@ const styles = StyleSheet.create({
   },
   iconAlignText: {
     fontSize: 12,
+    position : 'absolute',
+    right : 10,
+    bottom : 5
   },
   placeholder: {
     marginBottom: 5,

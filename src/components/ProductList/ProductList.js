@@ -16,18 +16,7 @@ export default class ProductList extends Component {
         navBarBackgroundColor: '#0A266D',
         navBarButtonColor: '#ffffff'
       },
-      navigatorButtons: {
-        leftButtons: [
-          {
-            id: 'back',
-            disableIconTint: true,
-            icon: require('../../img/back.png'), // This line loads our component as a nav bar button item
-            passProps: {
-              offerid: id
-            },
-          },
-        ],
-      },
+
       passProps: { mallid: id },
     });
   }
@@ -201,9 +190,8 @@ export default class ProductList extends Component {
 
                 <Image source={{ uri: 'http://admin.wafideals.com/storage/' + item.logo_path }} style={styles.mallImg} />
                 <View style={styles.mallTxtCol}>
-                  <FontStyle style={styles.mallTitle}>  {item.name} </FontStyle>
-                  <View style={{ flexDirection: 'row' }}>
-                    <FontStyle style={styles.mallLocality} numberOfLines={1} > {item.tagline} </FontStyle>
+                  <FontStyle style={styles.mallTitle}> {item.name} </FontStyle>
+                  <View style={{ flexDirection: 'row' }}><FontStyle style={styles.mallLocality} numberOfLines={1} > {item.tagline} </FontStyle>
                   </View>
                 </View>
               </View>

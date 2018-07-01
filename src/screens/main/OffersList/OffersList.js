@@ -12,11 +12,7 @@ class OffersList extends Component {
             dataSource: [],
         }
     }
-    onNavigatorEvent(event) {
-        if (event.id == 'backPress') {
-            alert('back');
-        }
-    }
+
 
     componentDidMount() {
         return fetch("http://admin.wafideals.com/apioffers/" + this.props.offerid, { method: 'GET' })
@@ -44,14 +40,27 @@ class OffersList extends Component {
 
                         <TouchableOpacity>
                             <View style={styles.IconBlk}>
+                                <Image source={require('../../../icons/call.png')} style={styles.iconView} />
+
+                            </View>
+                        </TouchableOpacity>
+
+                        <TouchableOpacity onPress={() => Linking.openURL('google.navigation:q=100+101')}>
+                            <View style={styles.IconBlk}>
+                                <Image source={require('../../../icons/location.png')} style={styles.iconView} />
+
+                            </View>
+                        </TouchableOpacity>
+                        <TouchableOpacity>
+                            <View style={styles.IconBlk}>
                                 <Image source={require('../../../icons/share.png')} style={styles.iconView} />
-                                <Text style={styles.iconText}>Share</Text>
+
                             </View>
                         </TouchableOpacity>
                         <TouchableOpacity>
                             <View style={styles.IconBlk}>
                                 <Image source={require('../../../icons/fav.png')} style={styles.iconView} />
-                                <Text style={styles.iconText}>My Fav</Text>
+
                             </View>
                         </TouchableOpacity>
                     </View>
@@ -61,7 +70,7 @@ class OffersList extends Component {
                     <View style={{ position: 'relative' }}>
                         <Image source={{ uri: 'http://admin.wafideals.com/storage/' + this.state.dataSource.banner_logo_path }} style={styles.BrandBanner} />
                         <FontStyle style={[styles.headerTitle, styles.brandOffPercent]}>
-                            <HeaderText>{this.state.dataSource.title}</HeaderText>
+                            <HeaderText>{this.state.dataSource.discount_value}</HeaderText>
                         </FontStyle>
                     </View>
                     <View style={styles.BrandDescWrap}>
@@ -74,13 +83,13 @@ class OffersList extends Component {
                                     <HeaderText>18 Days Left</HeaderText>
                                 </FontStyle>
                                 <FontStyle style={styles.textColor}>
-                                    <Icon name="md-time" size={18} color="#ffffff" style={[styles.timer]} /> <HeaderText> {this.state.dataSource.opening_time} - {this.state.dataSource.closing_time}</HeaderText>
+                                    <Icon name="md-time" size={16} color="#ffffff" style={[styles.timer]} /> <HeaderText> {this.state.dataSource.opening_time} - {this.state.dataSource.closing_time}</HeaderText>
                                 </FontStyle>
                             </View>
                         </View>
                         <View style={styles.blkViewBrand}>
                             <FontStyle>
-                                <Text style={styles.paraStyle}>{this.state.dataSource.brand_desc}</Text>
+                                <Text style={styles.paraStyle}>{this.state.dataSource.tagline}</Text>
                             </FontStyle>
                         </View>
                         <View style={styles.offerDesc}>
@@ -168,10 +177,12 @@ const styles = StyleSheet.create({
     },
     headerTitle: {
         color: '#000000',
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        fontSize: 14,
     },
     textColor: {
-        color: '#58595B'
+        color: '#58595B',
+        fontSize: 13,
     },
     offerDesc: {
         borderColor: '#58595B',

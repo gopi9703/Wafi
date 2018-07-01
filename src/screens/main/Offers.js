@@ -16,6 +16,7 @@ class Offers extends Component {
             dataSource: [],
         }
         this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
+        
     }
 
     componentDidMount() {
@@ -41,18 +42,6 @@ class Offers extends Component {
                 navBarBackgroundColor: '#0A266D',
                 navBarButtonColor: '#ffffff',
             },
-            navigatorButtons: {
-                leftButtons: [
-                  {
-                    id: 'back',
-                    disableIconTint: true,
-                    icon: require('../../img/back.png'), // This line loads our component as a nav bar button item
-                    passProps: {
-                        offerid: id
-                    },
-                  },
-                ],
-              },
             passProps: { offerid: id },
         });
         
@@ -174,13 +163,13 @@ const styles = StyleSheet.create({
     },
     offerTitle: {
         color: '#000000',
-        fontSize: 18,
+        fontSize: 14,
         width: '100%',
         fontFamily: "MyriadPro-Semibold_2",
     },
     offerDesc: {
         color: '#58595B',
-        fontSize: 15,
+        fontSize: 13,
         fontFamily: "MyriadPro-Regular",
 
     },
@@ -200,7 +189,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#F6921E',
         paddingVertical: 5,
         color: '#ffffff',
-        fontSize: 18,
+        fontSize: 14,
         borderRadius: 25,
         marginTop: -20,
         marginHorizontal: '10%',

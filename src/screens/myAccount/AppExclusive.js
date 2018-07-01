@@ -57,10 +57,10 @@ const styles = StyleSheet.create({
 
     ExclusiveImg: {
         width: '100%',
-        height: Dimensions.get('window').height / 3,
+        aspectRatio : 10 / 5,
         borderTopRightRadius: 5,
         borderTopLeftRadius: 5,
-        resizeMode: 'cover',
+        resizeMode: 'contain',
         borderColor: '#E6E7E8',
 
     },

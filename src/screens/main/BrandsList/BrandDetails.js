@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Image, Alert, TouchableOpacity, ActivityIndicator, Dimensions, ScrollView, Linking } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-
+import FontStyle from '../../../components/ReusableComponents/FontStyle';
+import HeaderText from '../../../components/ReusableComponents/HeaderText';
 
 class BrandDetails extends Component {
     constructor(props) {
@@ -12,15 +13,15 @@ class BrandDetails extends Component {
         }
     }
 
-    callNumber = (url) =>{
+    callNumber = (url) => {
         Linking.canOpenURL(url).then(supported => {
-        if (!supported) {
-         console.log('Can\'t handle url: ' + url);
-        } else {
-         return Linking.openURL(url);
-        }
-      }).catch(err => console.error('An error occurred', err));
-     }
+            if (!supported) {
+                console.log('Can\'t handle url: ' + url);
+            } else {
+                return Linking.openURL(url);
+            }
+        }).catch(err => console.error('An error occurred', err));
+    }
 
     componentDidMount() {
         return fetch("http://admin.wafideals.com/apioffers/" + this.props.offerid, {
@@ -58,37 +59,63 @@ class BrandDetails extends Component {
                             <Image source={{ uri: 'http://admin.wafideals.com/storage/' + this.state.dataSource.logo_path }} style={styles.BrandLogo} />
                         </View>
                         <View style={styles.infoWrpr}>
-                            <TouchableOpacity onPress={()=> this.callNumber(`tel:+19742223645`)}>
+                            <TouchableOpacity onPress={() => this.callNumber(`tel:+19742223645`)}>
                                 <View style={styles.IconBlk}>
-                                <Image source={require('../../../icons/info.png')} style={styles.iconView} />
-                                     <Text style={[styles.iconText]}>Contact</Text>
+                                    <Image source={require('../../../icons/info.png')} style={styles.iconView} />
+                                    <Text style={[styles.iconText]}>Info</Text>
                                 </View>
                             </TouchableOpacity>
                             <TouchableOpacity onPress={() => Linking.openURL('google.navigation:q=100+101')}>
                                 <View style={styles.IconBlk}>
-                                <Image source={require('../../../icons/location.png')} style={styles.iconView} />
+                                    <Image source={require('../../../icons/location.png')} style={styles.iconView} />
                                     <Text style={[styles.iconText]}>Location</Text>
                                 </View>
                             </TouchableOpacity>
                             <TouchableOpacity>
                                 <View style={styles.IconBlk}>
-                                <Image source={require('../../../icons/share.png')} style={styles.iconView} />
+                                    <Image source={require('../../../icons/share.png')} style={styles.iconView} />
                                     <Text style={styles.iconText}>Share</Text>
                                 </View>
                             </TouchableOpacity>
                             <TouchableOpacity>
                                 <View style={styles.IconBlk}>
-                                <Image source={require('../../../icons/fav.png')} style={styles.iconView} />
+                                    <Image source={require('../../../icons/fav.png')} style={styles.iconView} />
                                     <Text style={styles.iconText}>My Fav</Text>
                                 </View>
                             </TouchableOpacity>
                         </View>
 
                     </View>
-                    <Image source={{ uri: 'http://admin.wafideals.com/storage/' + this.state.dataSource.banner_logo_path }} style={styles.BrandBanner} />
-                    <View style={styles.brandInfo}>
-                        <Text style={styles.brandHdr}>{this.state.dataSource.short_description}</Text>
-                        <Text style={styles.mallDescTxt}>{this.state.dataSource.description}</Text>
+                    <View style={{ position: 'relative' }}>
+                        <Image source={{ uri: 'http://admin.wafideals.com/storage/' + this.state.dataSource.banner_logo_path }} style={styles.BrandBanner} />
+                        <FontStyle style={[styles.headerTitle, styles.brandOffPercent]}>
+                            <HeaderText>{this.state.dataSource.discount_value}</HeaderText>
+                        </FontStyle>
+                    </View>
+                    <View style={styles.BrandDescWrap}>
+                        <View style={styles.blkViewBrand}>
+                            <FontStyle style={styles.headerTitle}>
+                                <HeaderText>{this.state.dataSource.brand_name}</HeaderText>
+                            </FontStyle>
+                            <View style={styles.mallTiming}>
+                                <FontStyle style={styles.textColor} style={{ textAlign: 'right' }}>
+                                    <Text style={{fontSize: 13}}>18 Days Left </Text>
+                                </FontStyle>
+                                <FontStyle style={styles.textColor}>
+                                    <Icon name="md-time" size={16} color="#ffffff" style={[styles.timer]} /> <HeaderText style={{fontSize: 13}}> {this.state.dataSource.opening_time} - {this.state.dataSource.closing_time}</HeaderText>
+                                </FontStyle>
+                            </View>
+                        </View>
+                        <View style={styles.blkViewBrand}>
+                            <FontStyle>
+                                <Text style={styles.paraStyle}>{this.state.dataSource.tagline}</Text>
+                            </FontStyle>
+                        </View>
+                        <View style={styles.offerDesc}>
+                            <FontStyle>
+                                <Text style={styles.paraStyle}>{this.state.dataSource.description}</Text>
+                            </FontStyle>
+                        </View>
                     </View>
                 </ScrollView>
             </View>
@@ -106,7 +133,7 @@ const styles = StyleSheet.create({
         width: '100%',
         aspectRatio: 10 / 5,
         marginVertical: 5,
-      
+
     },
     brandInfo: {
         backgroundColor: '#ffffff',
@@ -141,7 +168,7 @@ const styles = StyleSheet.create({
         width: 60,
         height: 60,
     },
-   
+
     infoWrpr: {
         flexDirection: 'row',
         justifyContent: 'center'
@@ -150,16 +177,94 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        marginLeft: 5,
+        marginLeft: 10,
 
     },
     iconText: {
+        fontSize: 11,
+        fontFamily: "MyriadPro-Regular",
+    },
+    iconView: {
+        width: 38,
+        height: 38,
+    },
+    brandOffPercent: {
+        backgroundColor: '#EF038F',
+        fontSize: 38,
+        color: '#fff',
+        paddingVertical: 5,
+        paddingHorizontal: 15,
+        position: 'absolute',
+        right: 0,
+        bottom: 5,
+    },
+    BrandDescWrap: {
+        backgroundColor: "#ffffff",
+        padding: 15,
+    },
+    blkViewBrand: {
+        justifyContent: 'space-between',
+        flexDirection: 'row',
+        marginBottom: 5,
+        alignItems: 'flex-start',
+
+    },
+    headerTitle: {
+        color: '#000000',
+        fontWeight: 'bold',
         fontSize: 14,
     },
-    iconView : {
-        width : 38,
-        height : 38,
-    }
+    textColor: {
+        color: '#58595B',
+        fontSize : 13,
+    },
+    offerDesc: {
+        borderColor: '#58595B',
+        borderTopWidth: 1,
+        borderBottomWidth: 0,
+        borderRightWidth: 0,
+        borderLeftWidth: 0,
+        paddingVertical: 15,
+        marginTop: 15,
+        fontSize: 13,
+        lineHeight: 17,
+    },
+    paraStyle: {
+        lineHeight: 17,
+        fontSize: 13,
+        fontFamily: 'MyriadPro-Regular'
+    },
+
+    timer: {
+        color: '#EF038F',
+        top: 15,
+        position: 'absolute'
+
+    },
+    brandOffPercent: {
+        backgroundColor: '#EF038F',
+        fontSize: 38,
+        color: '#fff',
+        paddingVertical: 5,
+        paddingHorizontal: 15,
+        position: 'absolute',
+        right: 0,
+        bottom: 5,
+    },
+    mallTiming: {
+        flexDirection: 'column',
+        textAlign: 'right'
+    },
+    BrandIntro: {
+        backgroundColor: '#ffffff',
+        borderRadius: 5,
+        paddingVertical: 10,
+        paddingHorizontal: 10,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center'
+
+    },
 });
 
 export default BrandDetails;

@@ -73,7 +73,7 @@ class Brands extends Component {
 
                     <View style={styles.prdtWrapr}>
 
-                        <FlatList style={{ flex: 1, paddingBottom: 10 }}
+                        <FlatList style={{ flex: 1, paddingBottom:10}}
                             data={this.state.dataSource}
                             ItemSeparatorComponent={this.FlatListItemSeparator}
                             numColumns={2}
@@ -116,15 +116,16 @@ const styles = StyleSheet.create({
 
     prdtWrapr: {
         paddingTop: '2%',
-
+       
         flexDirection: 'row',
         width: '100%',
-
+        flex : 1
     },
     gridWrapr: {
         flexDirection: 'column',
         width: '100%',
         flex: 1,
+        
 
     },
     gridItem: {
@@ -163,7 +164,7 @@ const styles = StyleSheet.create({
     },
     offerTitle: {
         color: '#000000',
-        fontSize: 18,
+        fontSize: 14,
         width: '100%',
         fontFamily: "MyriadPro-Semibold_2",
     },
@@ -176,7 +177,7 @@ const styles = StyleSheet.create({
     prodOffPercet: {
         backgroundColor: '#F6921E',
         color: '#ffffff',
-        fontSize: 18,
+        fontSize: 14,
         borderRadius: 25,
         paddingTop: 5,
         paddingBottom: 5,

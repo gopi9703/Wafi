@@ -96,34 +96,34 @@ class mallDetails extends Component {
                                 <Image source={{ uri: 'http://admin.wafideals.com/storage/' + this.state.dataSource.logo_path }} style={styles.mallLogo} />
                             </View>
                             <View style={styles.mallInfo}>
-                                <TouchableOpacity onPress={this.mallInfoHandler}>
+                                <TouchableOpacity>
                                     <View style={styles.IconBlk}>
-                                        <Image source={require('../../../icons/info.png')} style={styles.iconView} />
-
+                                        <Image source={require('../../../icons/call.png')} style={styles.iconView} />
+                                        <Text style={[styles.iconText]}>Contact</Text>
                                     </View>
                                 </TouchableOpacity>
                                 <TouchableOpacity onPress={this.EventsListHandler}>
                                     <View style={styles.IconBlk}>
                                         <Image source={require('../../../icons/event.png')} style={styles.iconView} />
-
+                                        <Text style={[styles.iconText]}>Event</Text>
                                     </View>
                                 </TouchableOpacity>
                                 <TouchableOpacity onPress={() => Linking.openURL('google.navigation:q=100+101')}>
                                     <View style={styles.IconBlk}>
                                         <Image source={require('../../../icons/location.png')} style={styles.iconView} />
-
+                                        <Text style={[styles.iconText]}>Location</Text>
                                     </View>
                                 </TouchableOpacity>
                                 <TouchableOpacity>
                                     <View style={styles.IconBlk}>
                                         <Image source={require('../../../icons/share.png')} style={styles.iconView} />
-
+                                        <Text style={[styles.iconText]}>Share</Text>
                                     </View>
                                 </TouchableOpacity>
                                 <TouchableOpacity>
                                     <View style={styles.IconBlk}>
                                         <Image source={require('../../../icons/fav.png')} style={styles.iconView} />
-
+                                        <Text style={[styles.iconText]}>My Fav</Text>
                                     </View>
                                 </TouchableOpacity>
 
@@ -153,13 +153,14 @@ const styles = StyleSheet.create({
     },
 
     mallLogo: {
-        width: Dimensions.get('window').width < 360 ? 100 : 130,
+        width: Dimensions.get('window').width < 360 ? 100 : 120,
         height: Dimensions.get('window').width < 360 ? 70 : 100,
         backgroundColor: '#ffffff',
         position: 'absolute',
-        bottom: -60,
+        bottom: Dimensions.get('window').width < 360 ? 0 : -67,
         left: 0,
-        zIndex: 500
+        zIndex: 500,
+       
 
     },
     mallInfo: {
@@ -177,7 +178,8 @@ const styles = StyleSheet.create({
 
     },
     iconText: {
-        fontSize: Dimensions.get('window').width < 360 ? 11 : 14
+        fontSize: 11,
+        fontFamily: "MyriadPro-Regular",
     },
 
     event: {
@@ -192,8 +194,8 @@ const styles = StyleSheet.create({
         paddingHorizontal: 5,
     },
     iconView: {
-        width: Dimensions.get('window').width < 360 ? 26 : 32,
-        height: Dimensions.get('window').width < 360 ? 26 : 32,
+        width: Dimensions.get('window').width < 360 ? 28 : 34,
+        height: Dimensions.get('window').width < 360 ? 28 : 34,
     }
 });
 export default mallDetails;

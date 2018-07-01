@@ -83,6 +83,7 @@ class BrandsList extends Component {
                 <ScrollView >
                     <View style={{ position: 'relative' }}>
                         <Image source={{ uri: 'http://admin.wafideals.com/storage/' + this.state.dataSource.banner_logo_path }} style={styles.BrandBanner} />
+                       
                     </View>
                     <View style={styles.BrandDescWrap}>
                         <View style={styles.blkViewBrand}>
@@ -213,7 +214,7 @@ const styles = StyleSheet.create({
     },
     offerTitle: {
         color: '#000000',
-        fontSize: 18,
+        fontSize: 14,
         width: '100%',
         fontFamily: "MyriadPro-Semibold_2",
     },
@@ -272,11 +273,22 @@ const styles = StyleSheet.create({
 
     },
     iconText: {
-        fontSize: 14,
+        fontSize: 11,
+        fontFamily: "MyriadPro-Regular",
     },
     iconView : {
         width : 38,
         height : 38,
+    },
+    brandOffPercent: {
+        backgroundColor: '#EF038F',
+        fontSize: 38,
+        color: '#fff',
+        paddingVertical: 5,
+        paddingHorizontal: 15,
+        position: 'absolute',
+        right: 0,
+        bottom: 5,
     }
 });
 
