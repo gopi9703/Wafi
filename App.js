@@ -63,14 +63,14 @@ Navigation.registerComponent("Wafi.ChangePassword", () => ChangePassword);
 Navigation.registerComponent("Wafi.EventInfo", () => EventInfo);
 Navigation.registerComponent("Wafi.mallInfo", () => mallInfo);
 
-/*Navigation.startSingleScreenApp({
-  screen: {
-    screen: "Wafi.Terms",
-    navigatorStyle: {
-      navBarHidden: true
-    },
-  }
-});*/
+  /*Navigation.startSingleScreenApp({
+    screen: {
+      screen: "Wafi.flyerCarousel",
+      navigatorStyle: {
+        navBarHidden: true
+      },
+    }
+  });*/
 
 
 async function prepareIcons() {
@@ -149,7 +149,9 @@ async function startApp() {
     }
 
   });
-
+  
+  
+ 
 }
 
 // start the app

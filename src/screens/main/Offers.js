@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Image, FlatList, TextInput, TouchableOpacity, KeyboardAvoidingView, ScrollView, ActivityIndicator } from 'react-native';
+import { View, Text, StyleSheet, Image, FlatList, TextInput, TouchableOpacity, KeyboardAvoidingView, ScrollView, Dimensions, ActivityIndicator } from 'react-native';
 import Header from '../../components/Header/Header';
-import SwipeableParallaxCarousel from 'react-native-swipeable-parallax-carousel';
 import Navigation from 'react-native-navigation';
 import CustomPlaceholder from '../../components/CustomPlaceholder';
-
-
+import Swiper from 'react-native-swiper';
 
 class Offers extends Component {
 
@@ -16,7 +14,7 @@ class Offers extends Component {
             dataSource: [],
         }
         this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
-        
+
     }
 
     componentDidMount() {
@@ -44,7 +42,7 @@ class Offers extends Component {
             },
             passProps: { offerid: id },
         });
-        
+
     }
 
     onNavigatorEvent(event) {
@@ -79,6 +77,21 @@ class Offers extends Component {
 
             <View style={{ flex: 1 }}>
                 <Header navigator={this.props.navigator} />
+                <Swiper showsButtons={false} showsPagination={true} dot={<View style={{ backgroundColor: 'rgba(255,255,255,.3)', width: 8, height: 8, borderRadius: 7, marginLeft: 5, marginRight: 5 }} />}
+                    activeDot={<View style={{ backgroundColor: '#cccccc', width: 8, height: 8, borderRadius: 7, marginLeft: 5, marginRight: 5 }} />}
+                    paginationStyle={{
+                        bottom: 40
+                    }}>
+                    <View style={styles.slide1}>
+                        <Image source={{ uri: 'http://www.printablecouponsblog.com/wp-content/uploads/2017/11/dunkin-donuts-coupons-offers-2018.png' }} style={styles.makretImg} />
+                    </View>
+                    <View style={styles.slide2}>
+                        <Image source={{ uri: 'http://1.bp.blogspot.com/_CVwA-Q51odI/TNowCP0InoI/AAAAAAAAA2w/1E8O-vKPXgw/s1600/09_11_2010_115_006.jpg' }} style={styles.makretImg} />
+                    </View>
+                    <View style={styles.slide3}>
+                        <Image source={{ uri: 'http://www.rewaj.pk/wp-content/uploads/2011/08/Dunkin-Donuts-iftar-feast-2011.jpg' }} style={styles.makretImg} />
+                    </View>
+                </Swiper>
                 <ScrollView ref={(c) => { this.parentScrollView = c; }}
                 >
                     <View style={styles.prdtWrapr}>
@@ -89,14 +102,14 @@ class Offers extends Component {
                                 <View style={styles.gridItem}>
                                     <View style={styles.gridWrapr}>
                                         <View style={styles.newBadge}>
-                                            <Text style={{color : '#ffffff', fontSize : 12}}>NEW</Text>
+                                            <Text style={{ color: '#ffffff', fontSize: 12 }}>NEW</Text>
                                         </View>
                                         <TouchableOpacity onPress={() => this.OffersListHandler(item.id)}>
                                             <Image source={{ uri: 'http://admin.wafideals.com/storage/' + item.logo_path }} style={styles.ProductImg} />
                                             <Text style={styles.center}>{item.discount_value}</Text>
                                             <View style={styles.prdDescr}>
-                                                <Text style={styles.offerTitle} numberOfLines={1}>{item.short_description}</Text>
-                                                <Text style={styles.offerDesc} numberOfLines={1}>{item.short_description}</Text>
+                                                <Text style={styles.offerTitle} numberOfLines={1}>{item.title}</Text>
+                                                <Text style={styles.offerDesc} numberOfLines={1}>{item.description}</Text>
                                             </View>
                                         </TouchableOpacity>
                                     </View>
@@ -113,16 +126,12 @@ class Offers extends Component {
 
 const styles = StyleSheet.create({
     prdtWrapr: {
-        paddingTop: '2%',
         paddingBottom: '2%',
         flex: 1,
         flexDirection: 'row',
         width: '100%',
         alignItems: 'center',
         flexWrap: 'wrap',
-
-
-
     },
     gridWrapr: {
         flexDirection: 'column',
@@ -198,14 +207,20 @@ const styles = StyleSheet.create({
     newBadge: {
         position: 'absolute',
         backgroundColor: '#ec1172',
-        transform: [{ rotate: '-45deg' }], 
+        transform: [{ rotate: '-45deg' }],
         top: 15,
         left: -40,
         paddingTop: 5,
         paddingBottom: 5,
         paddingLeft: 50,
         paddingRight: 50,
-        zIndex : 500
-    }
+        zIndex: 500
+    },
+    makretImg: {
+        width: Dimensions.get('window').width,
+        height : Dimensions.get('window').height / 3,
+        resizeMode: 'cover',
+
+    },
 });
 export default Offers;

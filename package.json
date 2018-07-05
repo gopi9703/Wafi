@@ -29,9 +29,7 @@
     "react-native-linear-gradient": "^2.4.0",
     "react-native-navigation": "^1.1.462",
     "react-native-share": "^1.0.27",
-    "react-native-sideswipe": "^1.4.2",
-    "react-native-slick": "^1.0.1",
-    "react-native-swipeable-parallax-carousel": "^1.1.0",
+    "react-native-swiper": "^1.5.13",
     "react-native-vector-icons": "^4.6.0",
     "react-navigation": "git+https://github.com/react-community/react-navigation",
     "rn-placeholder": "^1.2.0"

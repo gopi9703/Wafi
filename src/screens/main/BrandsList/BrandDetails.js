@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Image, Alert, TouchableOpacity, ActivityIndicator, Dimensions, ScrollView, Linking } from 'react-native';
+import { View, Text, StyleSheet, Image, Alert, TouchableOpacity, ActivityIndicator, Dimensions, ScrollView } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import FontStyle from '../../../components/ReusableComponents/FontStyle';
 import HeaderText from '../../../components/ReusableComponents/HeaderText';
@@ -13,15 +13,7 @@ class BrandDetails extends Component {
         }
     }
 
-    callNumber = (url) => {
-        Linking.canOpenURL(url).then(supported => {
-            if (!supported) {
-                console.log('Can\'t handle url: ' + url);
-            } else {
-                return Linking.openURL(url);
-            }
-        }).catch(err => console.error('An error occurred', err));
-    }
+    
 
     componentDidMount() {
         return fetch("http://admin.wafideals.com/apioffers/" + this.props.offerid, {
@@ -59,7 +51,7 @@ class BrandDetails extends Component {
                             <Image source={{ uri: 'http://admin.wafideals.com/storage/' + this.state.dataSource.logo_path }} style={styles.BrandLogo} />
                         </View>
                         <View style={styles.infoWrpr}>
-                            <TouchableOpacity onPress={() => this.callNumber(`tel:+19742223645`)}>
+                            <TouchableOpacity>
                                 <View style={styles.IconBlk}>
                                     <Image source={require('../../../icons/info.png')} style={styles.iconView} />
                                     <Text style={[styles.iconText]}>Info</Text>

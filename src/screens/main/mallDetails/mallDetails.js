@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView, FlatList, Dimensions, ActivityIndicator } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView, FlatList, Linking, Dimensions, ActivityIndicator } from 'react-native';
 import ProductCards from '../../../components/ProductCards/ProductCards';
 import Icon from 'react-native-vector-icons/Ionicons';
 import FontStyle from '../../../components/ReusableComponents/FontStyle';
@@ -15,6 +15,16 @@ class mallDetails extends Component {
             isLoading: true,
             dataSource: [],
         }
+    }
+
+    callNumber = (url) => {
+        Linking.canOpenURL(url).then(supported => {
+            if (!supported) {
+                console.log('Can\'t handle url: ' + url);
+            } else {
+                return Linking.openURL(url);
+            }
+        }).catch(err => console.error('An error occurred', err));
     }
 
     componentDidMount() {
@@ -36,6 +46,8 @@ class mallDetails extends Component {
             })
     }
 
+  
+
     EventsListHandler = () => {
         this.props.navigator.push({
             screen: 'Wafi.EventInfo',
@@ -45,18 +57,7 @@ class mallDetails extends Component {
                 navBarBackgroundColor: '#0A266D',
                 navBarButtonColor: '#ffffff'
             },
-             navigatorButtons: {
-                leftButtons: [
-                  {
-                    id: 'back',
-                    disableIconTint: true,
-                    icon: require('../../../img/back.png'), // This line loads our component as a nav bar button item
-                    passProps: {
-                        offerid: id
-                    },
-                  },
-                ],
-              },
+            
 
         });
 
@@ -96,7 +97,7 @@ class mallDetails extends Component {
                                 <Image source={{ uri: 'http://admin.wafideals.com/storage/' + this.state.dataSource.logo_path }} style={styles.mallLogo} />
                             </View>
                             <View style={styles.mallInfo}>
-                                <TouchableOpacity>
+                                <TouchableOpacity onPress={() => this.callNumber(`tel:+19742223645`)}>
                                     <View style={styles.IconBlk}>
                                         <Image source={require('../../../icons/call.png')} style={styles.iconView} />
                                         <Text style={[styles.iconText]}>Contact</Text>
@@ -160,8 +161,6 @@ const styles = StyleSheet.create({
         bottom: Dimensions.get('window').width < 360 ? 0 : -67,
         left: 0,
         zIndex: 500,
-       
-
     },
     mallInfo: {
         backgroundColor: '#ffffff',

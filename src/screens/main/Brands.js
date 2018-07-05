@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity,Alert, ScrollView, ActivityIndicator, FlatList, Dimensions } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity, Alert, ScrollView, ActivityIndicator, FlatList, Dimensions } from 'react-native';
 import Header from '../../components/Header/Header';
 import Navigation from 'react-native-navigation';
 import ProductCards from '../../components/ProductCards/ProductCards';
@@ -25,19 +25,8 @@ class Brands extends Component {
                 navBarBackgroundColor: '#0A266D',
                 navBarButtonColor: '#ffffff'
             },
-            passProps:{ brandid:id },
-            navigatorButtons: {
-                leftButtons: [
-                  {
-                    id: 'back',
-                    disableIconTint: true,
-                    icon: require('../../img/back.png'), // This line loads our component as a nav bar button item
-                    passProps: {
-                        offerid: id
-                    },
-                  },
-                ],
-              },
+            passProps: { brandid: id },
+
         });
     }
 
@@ -58,7 +47,7 @@ class Brands extends Component {
     render() {
         if (this.state.isLoading) {
             return (
-                <View style={{ flex: 1, alignItems: 'flex-start'}}>
+                <View style={{ flex: 1, alignItems: 'flex-start' }}>
                     <CustomPlaceholder animate="fade">
 
                     </CustomPlaceholder>
@@ -72,8 +61,7 @@ class Brands extends Component {
                 <ScrollView ref={(c) => { this.parentScrollView = c; }}>
 
                     <View style={styles.prdtWrapr}>
-
-                        <FlatList style={{ flex: 1, paddingBottom:10}}
+                        <FlatList style={{ flex: 1, paddingBottom: 10 }}
                             data={this.state.dataSource}
                             ItemSeparatorComponent={this.FlatListItemSeparator}
                             numColumns={2}
@@ -85,7 +73,7 @@ class Brands extends Component {
                                             <Text style={styles.center}>{item.max_discount}</Text>
                                             <View style={styles.prdDescr}>
                                                 <Text style={styles.offerTitle}>{item.name}</Text>
-                                                <Text style={styles.offerDesc}  numberOfLines={1}>{item.description}</Text>
+                                                <Text style={styles.offerDesc} numberOfLines={1}>{item.description}</Text>
                                             </View>
                                         </TouchableOpacity>
                                     </View>
@@ -116,16 +104,16 @@ const styles = StyleSheet.create({
 
     prdtWrapr: {
         paddingTop: '2%',
-       
+
         flexDirection: 'row',
         width: '100%',
-        flex : 1
+        flex: 1
     },
     gridWrapr: {
         flexDirection: 'column',
         width: '100%',
         flex: 1,
-        
+
 
     },
     gridItem: {

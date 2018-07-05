@@ -182,7 +182,7 @@ const styles = StyleSheet.create({
     },
     textColor: {
         color: '#58595B',
-        fontSize: 13,
+        fontSize: 12,
     },
     offerDesc: {
         borderColor: '#58595B',
@@ -203,7 +203,7 @@ const styles = StyleSheet.create({
 
     timer: {
         color: '#EF038F',
-        top: 15,
+        top: 17,
         position: 'absolute'
 
     },
