@@ -3,6 +3,8 @@ import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView, Dimensions
 import Icon from 'react-native-vector-icons/Ionicons';
 import FontStyle from '../../../components/ReusableComponents/FontStyle';
 import HeaderText from '../../../components/ReusableComponents/HeaderText';
+import Share from 'react-native-share';
+
 
 class OffersList extends Component {
     constructor(props) {
@@ -12,6 +14,16 @@ class OffersList extends Component {
             dataSource: [],
         }
     }
+
+    onCancel() {
+        console.log("CANCEL")
+        this.setState({ visible: false });
+    }
+    onOpen() {
+        console.log("OPEN")
+        this.setState({ visible: true });
+    }
+
 
 
     componentDidMount() {
@@ -30,6 +42,15 @@ class OffersList extends Component {
 
     }
     render() {
+
+        let shareOptions = {
+            title: "Wafi Deals",
+            message: "Get all your favourite Shopping Offers in one app, Hundreds of new offers are available every week. Download Wafi Deals to find the latest deals & offers on",
+            url: 'https://wafideals.com',
+            subject: "Download Wafi Deals to find the latest deals & offers : https://wafideals.com" //  for email
+
+        };
+
         return (
             <View style={styles.bodyBg}>
                 <View style={styles.BrandIntro}>
@@ -51,7 +72,7 @@ class OffersList extends Component {
                                 <Text style={[styles.iconText]}>Location</Text>
                             </View>
                         </TouchableOpacity>
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress={() => { Share.open(shareOptions); }}>
                             <View style={styles.IconBlk}>
                                 <Image source={require('../../../icons/share.png')} style={styles.iconView} />
                                 <Text style={[styles.iconText]}>Share</Text>

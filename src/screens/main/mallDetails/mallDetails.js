@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView, FlatList, 
 import ProductCards from '../../../components/ProductCards/ProductCards';
 import Icon from 'react-native-vector-icons/Ionicons';
 import FontStyle from '../../../components/ReusableComponents/FontStyle';
-
+import Share from 'react-native-share';
 
 
 class mallDetails extends Component {
@@ -15,6 +15,15 @@ class mallDetails extends Component {
             isLoading: true,
             dataSource: [],
         }
+    }
+
+    onCancel() {
+        console.log("CANCEL")
+        this.setState({ visible: false });
+    }
+    onOpen() {
+        console.log("OPEN")
+        this.setState({ visible: true });
     }
 
     callNumber = (url) => {
@@ -78,6 +87,15 @@ class mallDetails extends Component {
     }
 
     render() {
+
+        let shareOptions = {         
+            title: "Wafi Deals",
+            message: "Get all your favourite Shopping Offers in one app, Hundreds of new offers are available every week. Download Wafi Deals to find the latest deals & offers on",
+            url: 'https://wafideals.com',
+            subject: "Download Wafi Deals to find the latest deals & offers : https://wafideals.com" //  for email
+            
+        };
+
         if (this.state.isLoading) {
             return (
 
@@ -115,7 +133,7 @@ class mallDetails extends Component {
                                         <Text style={[styles.iconText]}>Location</Text>
                                     </View>
                                 </TouchableOpacity>
-                                <TouchableOpacity>
+                                <TouchableOpacity onPress={() => {Share.open(shareOptions);}}>
                                     <View style={styles.IconBlk}>
                                         <Image source={require('../../../icons/share.png')} style={styles.iconView} />
                                         <Text style={[styles.iconText]}>Share</Text>

@@ -88,11 +88,8 @@ class SideDrawer extends Component {
                     </View>
                 </TouchableOpacity>
 
-                <TouchableOpacity onPress={() => {
-                    Share.open(shareOptions);
-                }}>
+                <TouchableOpacity onPress={() => {Share.open(shareOptions);}}>
                     <View style={styles.list__col}>
-
                         <Icon name="md-share" size={20} color="#ffffff" style={styles.iconStyler} />
                         <Text style={styles.list}>Share this App</Text>
                     </View>
