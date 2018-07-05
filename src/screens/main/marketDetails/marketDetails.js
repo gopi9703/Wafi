@@ -225,6 +225,7 @@ const styles = StyleSheet.create({
     BrandLogo: {
         width: 60,
         height: 60,
+        
     },
 
     infoWrpr: {

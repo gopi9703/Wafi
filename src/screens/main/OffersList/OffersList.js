@@ -41,26 +41,26 @@ class OffersList extends Component {
                         <TouchableOpacity>
                             <View style={styles.IconBlk}>
                                 <Image source={require('../../../icons/call.png')} style={styles.iconView} />
-
+                                <Text style={[styles.iconText]}>Contact</Text>
                             </View>
                         </TouchableOpacity>
 
                         <TouchableOpacity onPress={() => Linking.openURL('google.navigation:q=100+101')}>
                             <View style={styles.IconBlk}>
                                 <Image source={require('../../../icons/location.png')} style={styles.iconView} />
-
+                                <Text style={[styles.iconText]}>Location</Text>
                             </View>
                         </TouchableOpacity>
                         <TouchableOpacity>
                             <View style={styles.IconBlk}>
                                 <Image source={require('../../../icons/share.png')} style={styles.iconView} />
-
+                                <Text style={[styles.iconText]}>Share</Text>
                             </View>
                         </TouchableOpacity>
                         <TouchableOpacity>
                             <View style={styles.IconBlk}>
                                 <Image source={require('../../../icons/fav.png')} style={styles.iconView} />
-
+                                <Text style={[styles.iconText]}>My Fav</Text>
                             </View>
                         </TouchableOpacity>
                     </View>
@@ -145,7 +145,8 @@ const styles = StyleSheet.create({
 
     },
     iconText: {
-        fontSize: 14,
+        fontSize: 11,
+        fontFamily: "MyriadPro-Regular",
     },
     location: {
         paddingHorizontal: 12
@@ -246,10 +247,6 @@ const styles = StyleSheet.create({
         marginLeft: 10,
 
     },
-    iconText: {
-        fontSize: 14,
-    },
-
     iconView: {
         width: 38,
         height: 38,
