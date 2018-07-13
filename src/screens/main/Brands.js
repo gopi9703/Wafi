@@ -152,13 +152,13 @@ const styles = StyleSheet.create({
     },
     offerTitle: {
         color: '#000000',
-        fontSize: 14,
+        fontSize: 13,
         width: '100%',
         fontFamily: "MyriadPro-Semibold_2",
     },
     offerDesc: {
         color: '#58595B',
-        fontSize: 13,
+        fontSize: 12,
         fontFamily: "MyriadPro-Regular",
 
     },

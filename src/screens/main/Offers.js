@@ -77,21 +77,24 @@ class Offers extends Component {
 
             <View style={{ flex: 1 }}>
                 <Header navigator={this.props.navigator} />
+                <View style={styles.swiperBlk}> 
                 <Swiper showsButtons={false} showsPagination={true} dot={<View style={{ backgroundColor: 'rgba(255,255,255,.3)', width: 8, height: 8, borderRadius: 7, marginLeft: 5, marginRight: 5 }} />}
                     activeDot={<View style={{ backgroundColor: '#cccccc', width: 8, height: 8, borderRadius: 7, marginLeft: 5, marginRight: 5 }} />}
                     paginationStyle={{
-                        bottom: 40
+                        bottom: 20
                     }}>
-                    <View style={styles.slide1}>
-                        <Image source={{ uri: 'http://www.printablecouponsblog.com/wp-content/uploads/2017/11/dunkin-donuts-coupons-offers-2018.png' }} style={styles.makretImg} />
+                    <View style={styles.swiperlist}>
+                        <Image source={{ uri: 'http://www.printablecouponsblog.com/wp-content/uploads/2017/11/dunkin-donuts-coupons-offers-2018.png' }} style={styles.makretImg} style={{height: '100%'}} />
                     </View>
-                    <View style={styles.slide2}>
-                        <Image source={{ uri: 'http://1.bp.blogspot.com/_CVwA-Q51odI/TNowCP0InoI/AAAAAAAAA2w/1E8O-vKPXgw/s1600/09_11_2010_115_006.jpg' }} style={styles.makretImg} />
+                    <View style={styles.swiperlist}>
+                        <Image source={{ uri: 'http://www.printablecouponsblog.com/wp-content/uploads/2017/11/dunkin-donuts-coupons-offers-2018.png' }} style={styles.makretImg} style={{height: '100%'}} />
                     </View>
-                    <View style={styles.slide3}>
-                        <Image source={{ uri: 'http://www.rewaj.pk/wp-content/uploads/2011/08/Dunkin-Donuts-iftar-feast-2011.jpg' }} style={styles.makretImg} />
+                    <View style={styles.swiperlist}>
+                        <Image source={{ uri: 'http://www.printablecouponsblog.com/wp-content/uploads/2017/11/dunkin-donuts-coupons-offers-2018.png' }} style={styles.makretImg} style={{height: '100%'}} />
                     </View>
                 </Swiper>
+
+                </View>
                 <ScrollView ref={(c) => { this.parentScrollView = c; }}
                 >
                     <View style={styles.prdtWrapr}>
@@ -172,13 +175,13 @@ const styles = StyleSheet.create({
     },
     offerTitle: {
         color: '#000000',
-        fontSize: 14,
+        fontSize: 13,
         width: '100%',
         fontFamily: "MyriadPro-Semibold_2",
     },
     offerDesc: {
         color: '#58595B',
-        fontSize: 13,
+        fontSize: 12,
         fontFamily: "MyriadPro-Regular",
 
     },
@@ -218,9 +221,15 @@ const styles = StyleSheet.create({
     },
     makretImg: {
         width: Dimensions.get('window').width,
-        height : Dimensions.get('window').height / 3,
-        resizeMode: 'cover',
+        resizeMode: 'contain',
 
     },
+    swiperBlk : {
+        height : Dimensions.get('window').height / 3,
+        marginBottom : 10,
+    },
+    swiperlist : {
+        flex : 1
+    }
 });
 export default Offers;
