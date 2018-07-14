@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity, FlatList, ActivityIndicator, Dimensions } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity, FlatList,RefreshControl, ActivityIndicator, Dimensions } from 'react-native';
 import Navigation from 'react-native-navigation';
 import Icon from 'react-native-vector-icons/Ionicons';
 import FontStyle from '../ReusableComponents/FontStyle';
@@ -47,11 +47,19 @@ export default class ProductList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isLoading: true
-
+      isLoading: true,
+      refreshing: false,
     }
   }
 
+
+  _onRefresh = () => {
+    this.setState({refreshing: true});
+    this.webCall().then(() => {
+      this.setState({refreshing: false});
+    });
+  }
+  
   FlatListItemSeparator = () => {
     return (< View style={
       {
@@ -180,8 +188,8 @@ export default class ProductList extends Component {
     }
 
     return (
-
-      <FlatList style={{ padding: 15, backgroundColor: '#D0D2D3', height: Dimensions.get('window').height / 1.1 }} initialNumToRender={3}
+      
+      <FlatList style={{ margin: 15, height: Dimensions.get('window').height / 1.1 }} initialNumToRender={3}
         data={this.state.dataSource}
         renderItem={({ item }) =>
           <TouchableOpacity onPress={() => { this.mallDetailsHandler(item.id) }}>
@@ -202,9 +210,16 @@ export default class ProductList extends Component {
             </View>
           </TouchableOpacity>
         }
+        refreshControl={
+          <RefreshControl
+            refreshing={this.state.refreshing}
+            onRefresh={this._onRefresh}
+          />
+        }
         numColumns={1}
         keyExtractor={item => item.id}
         initialNumToRender={10}
+        
       />
 
     )

@@ -80,6 +80,7 @@ class Brands extends Component {
                                 </View>
                             }
                             keyExtractor={(item, index) => index.toString()}
+                            initialNumToRender={10}
                         />
                     </View>
                 </ScrollView>

@@ -7,7 +7,7 @@ const customPlaceholder = props => {
     return (
         <View style={styles.PlaceholderContainer}>
             <View style={styles.headerBlk}>
-                <Text style={{width: '100%', backgroundColor: '#D1D1D1',}}></Text>
+                <Text style={{ width: '100%', backgroundColor: '#D1D1D1', }}></Text>
             </View>
             <View style={styles.gridWrapr}>
                 <View style={styles.gridItem}>
@@ -49,9 +49,9 @@ const styles = StyleSheet.create({
     PlaceholderContainer: {
         backgroundColor: '#E6E7E8',
         width: '100%',
-        padding : 0,
-        margin : 0,
-        alignItems : 'flex-start'
+        padding: 0,
+        margin: 0,
+        alignItems: 'flex-start'
 
     },
     gridWrapr: {
@@ -77,23 +77,23 @@ const styles = StyleSheet.create({
         padding: 5,
         marginVertical: 5,
         backgroundColor: '#f4f4f4',
-        marginLeft : 5,
+        marginLeft: 5,
     },
     boxes2: {
         width: '70%',
         padding: 5,
         marginVertical: 5,
         backgroundColor: '#f4f4f4',
-        marginLeft : 5,
+        marginLeft: 5,
     },
-    headerBlk : {
+    headerBlk: {
         width: Dimensions.get('window').width,
-        marginBottom : 10,
+        marginBottom: 10,
         backgroundColor: '#f4f4f4',
         height: 70,
-        marginTop : 0
-        
-    
+        marginTop: 0
+
+
     }
 });
 
