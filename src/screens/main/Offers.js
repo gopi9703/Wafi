@@ -77,21 +77,20 @@ class Offers extends Component {
 
             <View style={{ flex: 1 }}>
                 <Header navigator={this.props.navigator} />
-                <View style={styles.swiperBlk}> 
+                <View style={styles.swiperBlk}>
                 <Swiper showsButtons={false} showsPagination={true} dot={<View style={{ backgroundColor: 'rgba(255,255,255,.3)', width: 8, height: 8, borderRadius: 7, marginLeft: 5, marginRight: 5 }} />}
                     activeDot={<View style={{ backgroundColor: '#cccccc', width: 8, height: 8, borderRadius: 7, marginLeft: 5, marginRight: 5 }} />}
                     paginationStyle={{
                         bottom: 20
                     }}>
-                    <View style={styles.swiperlist}>
-                        <Image source={{ uri: 'http://www.printablecouponsblog.com/wp-content/uploads/2017/11/dunkin-donuts-coupons-offers-2018.png' }} style={styles.makretImg} style={{height: '100%'}} />
-                    </View>
-                    <View style={styles.swiperlist}>
-                        <Image source={{ uri: 'http://www.printablecouponsblog.com/wp-content/uploads/2017/11/dunkin-donuts-coupons-offers-2018.png' }} style={styles.makretImg} style={{height: '100%'}} />
-                    </View>
-                    <View style={styles.swiperlist}>
-                        <Image source={{ uri: 'http://www.printablecouponsblog.com/wp-content/uploads/2017/11/dunkin-donuts-coupons-offers-2018.png' }} style={styles.makretImg} style={{height: '100%'}} />
-                    </View>
+
+                    {this.state.dataSource.map((item, key) => {
+                     return (
+                       <View style={styles.swiperlist}>
+                           <Image source={{ uri: 'http://admin.wafideals.com/storage/' + item.big_banner_logo_path }} style={styles.makretImg} style={{height: '100%'}} />
+                       </View>
+                     )})
+                  }
                 </Swiper>
 
                 </View>
@@ -104,9 +103,11 @@ class Offers extends Component {
                             renderItem={({ item }) =>
                                 <View style={styles.gridItem}>
                                     <View style={styles.gridWrapr}>
-                                        <View style={styles.newBadge}>
-                                            <Text style={{ color: '#ffffff', fontSize: 12 }}>NEW</Text>
-                                        </View>
+                                          {item.new_label > 0 &&
+                                            <View style={styles.newBadge}>
+                                                <Text style={{ color: '#ffffff', fontSize: 12 }}>NEW</Text>
+                                            </View>
+                                        }
                                         <TouchableOpacity onPress={() => this.OffersListHandler(item.id)}>
                                             <Image source={{ uri: 'http://admin.wafideals.com/storage/' + item.logo_path }} style={styles.ProductImg} />
                                             <Text style={styles.center}>{item.discount_value}</Text>

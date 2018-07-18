@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity, Dimensions } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity, Dimensions, AsyncStorage } from 'react-native';
 import Navigation from 'react-native-navigation';
 import Icon from 'react-native-vector-icons/Ionicons';
 import FontAwesome from "react-native-vector-icons/FontAwesome";
@@ -20,11 +20,9 @@ class SideDrawer extends Component {
         }
     }
     onCancel() {
-        console.log("CANCEL")
         this.setState({ visible: false });
     }
     onOpen() {
-        console.log("OPEN")
         this.setState({ visible: true });
     }
 
@@ -32,34 +30,25 @@ class SideDrawer extends Component {
 
 
     _navigate(screen) {
-        this.props.navigator.showModal({
-            screen: screen,
-            navigatorStyle: {
-                navBarBackgroundColor: '#0A266D',
-                navBarButtonColor: '#ffffff',
-                navBarTextColor: '#ffffff',
-                navBarSubtitleFontFamily: "MyriadPro-Regular",
-                navBarComponentAlignment: 'center',
-            }, // override the navigator style for the screen, see "Styling the navigator" below (optional)
-            animationType: 'slide-up',
-            
-        });
-
-        this.props.navigator.toggleDrawer({
-            to: 'closed',
-            side: 'left',
-            animated: true
-        });
+      this.props.navigator.showModal({
+          screen: screen,
+          animated: true,
+          animationType: 'slide-horizontal', // 'fade' (for both) / 'slide-horizontal'
+          navigatorStyle: {
+              navBarBackgroundColor: '#0A266D',
+              navBarButtonColor: '#ffffff'
+          }
+      });
     }
 
     render() {
 
-        let shareOptions = {         
+        let shareOptions = {
             title: "Wafi Deals",
             message: "Get all your favourite Shopping Offers in one app, Hundreds of new offers are available every week. Download Wafi Deals to find the latest deals & offers on",
             url: 'https://wafideals.com',
             subject: "Download Wafi Deals to find the latest deals & offers : https://wafideals.com" //  for email
-            
+
         };
 
         return (

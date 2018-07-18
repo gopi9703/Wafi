@@ -63,14 +63,14 @@ Navigation.registerComponent("Wafi.ChangePassword", () => ChangePassword);
 Navigation.registerComponent("Wafi.EventInfo", () => EventInfo);
 Navigation.registerComponent("Wafi.mallInfo", () => mallInfo);
 
-  /*Navigation.startSingleScreenApp({
-    screen: {
-      screen: "Wafi.flyerCarousel",
-      navigatorStyle: {
-        navBarHidden: true
-      },
-    }
-  });*/
+Navigation.startSingleScreenApp({
+  screen: {
+    screen: "Wafi.Register",
+    navigatorStyle: {
+      navBarHidden: true
+    },
+  }
+});
 
 
 async function prepareIcons() {
@@ -113,7 +113,7 @@ async function startApp() {
         screen: 'Wafi.Mall',
         label: 'Mall',
         title: 'Mall',
-        icon: require('./src/icons/mall.png'),    
+        icon: require('./src/icons/mall.png'),
         navigatorStyle: {
           navBarHidden: true
         }
@@ -149,13 +149,10 @@ async function startApp() {
     }
 
   });
-  
-  
- 
+
+
+
 }
 
 // start the app
-startApp();
-
-
-
+//startApp();

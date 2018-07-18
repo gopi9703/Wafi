@@ -11,8 +11,10 @@ class Brands extends Component {
     constructor(props) {
         super(props)
         this.state = {
+            category_id : 0,
             isLoading: true,
             dataSource: [],
+            dataCategories: [],
         }
     }
 
@@ -29,19 +31,41 @@ class Brands extends Component {
 
         });
     }
+    fetchCategories = () => {
+      return fetch("http://admin.wafideals.com/apicategories", { method: 'GET' })
+          .then((response) => response.json())
+          .then((responseJson) => {
+              this.setState({
+                  dataCategories: responseJson,
+              })
+          })
+          .catch((error) => {
+              console.error(error)
+          })
+    }
 
+    fnBrandsRefresh = (id) => {
+      this.state.category_id = id;
+
+      this.fetchBrands();
+    }
+
+    fetchBrands = () =>{
+      return fetch("http://admin.wafideals.com/apibrands?category_id=" + this.state.category_id, { method: 'GET' })
+          .then((response) => response.json())
+          .then((responseJson) => {
+              this.setState({
+                  isLoading: false,
+                  dataSource: responseJson,
+              })
+          })
+          .catch((error) => {
+              console.error(error)
+          })
+    }
     componentDidMount() {
-        return fetch("http://admin.wafideals.com/apibrands", { method: 'GET' })
-            .then((response) => response.json())
-            .then((responseJson) => {
-                this.setState({
-                    isLoading: false,
-                    dataSource: responseJson,
-                })
-            })
-            .catch((error) => {
-                console.error(error)
-            })
+      this.fetchCategories();
+        this.fetchBrands();
     }
 
     render() {
@@ -54,6 +78,18 @@ class Brands extends Component {
                 </View>
             )
         }
+
+        var categories = this.state.dataCategories.map(
+                    function iterator( category ) {
+                        return(
+                          <ActionButton.Item buttonColor='#333333' titleBgColor='333333' textStyle={{ backgroundColor: '#3333333', color: '#333333' }} title={category.name} onPress={() => this.fnBrandsRefresh(category.id)} >
+                              <Icon name="md-pricetags" size={30} style={styles.actionButtonIcon} />
+                          </ActionButton.Item>
+                        );
+                    },
+                    this
+                );
+
         return (
 
             <View style={{ flex: 1 }}>
@@ -85,15 +121,7 @@ class Brands extends Component {
                     </View>
                 </ScrollView>
                 <ActionButton buttonColor="#ec1172" spacing={10} icon={<Icon name='ios-funnel' size={26} style={styles.filterIcon} />} renderIcon={active => active ? (<Icon name="md-close" size={32} style={styles.filterIcon} />) : (<Icon name="ios-funnel" size={26} style={styles.filterIcon} />)}>
-                    <ActionButton.Item buttonColor='#333333' titleBgColor='333333' textStyle={{ backgroundColor: '#3333333', color: '#333333' }} title="Category 1" onPress={() => console.log("notes tapped!")}>
-                        <Icon name="md-pricetags" size={30} style={styles.actionButtonIcon} />
-                    </ActionButton.Item>
-                    <ActionButton.Item buttonColor='#333333' textStyle={{ backgroundColor: '#3333333', color: '#333333' }} title="Category 2" onPress={() => { }}>
-                        <Icon name="md-pricetags" size={30} style={styles.actionButtonIcon} />
-                    </ActionButton.Item>
-                    <ActionButton.Item buttonColor='#333333' textStyle={{ backgroundColor: '#3333333', color: '#333333' }} title="Category 1" onPress={() => { }}>
-                        <Icon name="md-pricetags" size={30} style={styles.actionButtonIcon} />
-                    </ActionButton.Item>
+                    {categories}
                 </ActionButton>
             </View>
         );

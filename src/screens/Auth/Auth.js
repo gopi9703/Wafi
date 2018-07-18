@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Image, TextInput, TouchableOpacity, KeyboardAvoidingView, Button } from 'react-native';
+import { View, Text, StyleSheet, Image, TextInput, Alert, TouchableOpacity, KeyboardAvoidingView, Button } from 'react-native';
+import { AsyncStorage } from "react-native";
 import LinearGradient from 'react-native-linear-gradient';
-import Navigation from 'react-native-navigation';
+import { Navigation } from "react-native-navigation";
 import Logo from '../../components/Logo';
 import Offers from '../main/Offers';
 import Brands from '../main/Brands';
@@ -12,29 +13,17 @@ class AuthScreen extends Component {
 
     constructor(props) {
 		super(props);
-
-        this._switchToTabBased = this._switchToTabBased.bind(this);
-       
+    this.state = {
+      UserFirstName: '',
+      UserLastName: '',
+      UserEmail: '',
+      UserPhone: '',
+      UserPassword: '',
+      UserConfirmationPassword: '',
 
     }
-    
+    }
 
-    _switchToTabBased() {
-		Navigation.startTabBasedApp({
-			tabs: [
-                {
-                    screen: 'Wafi.Offers', 
-                    label: 'Offers',        
-                    title : 'Offers'
-                },
-                {
-                    screen: 'Wafi.Brands', 
-                    label: 'Brands',  
-                    title : 'Brands'
-                }
-			]
-		});                // or better to move this into a separate file
-	}
 
     handlePress = () => {
         this.props.navigator.push({
@@ -54,6 +43,136 @@ class AuthScreen extends Component {
         });
     };
 
+    async retrieveItem(key) {
+      try {
+        const retrievedItem =  await AsyncStorage.getItem(key);
+        const item = JSON.parse(retrievedItem);
+        {key == 'first_name' &&
+          this.setState({'UserFirstName': item})
+        }
+        {key == 'last_name' &&
+          this.setState({'UserLastName': item})
+        }
+        {key == 'email' &&
+          this.setState({'UserEmail': item})
+        }
+        {key == 'phone' &&
+          this.setState({'UserPhone': item})
+        }
+        {key == 'is_logged_id' &&
+          this.setState({'is_logged_id': item})
+        }
+        return item;
+      } catch (error) {
+        console.log(error.message);
+      }
+    }
+
+    async storeItem(key, item) {
+  try {
+      //we want to wait for the Promise returned by AsyncStorage.setItem()
+      //to be resolved to the actual value before returning the value
+      var jsonOfItem = await AsyncStorage.setItem(key, JSON.stringify(item));
+      return jsonOfItem;
+  } catch (error) {
+    console.log(error.message);
+  }
+}
+
+      // and then
+      startApp = () => {
+        Navigation.startTabBasedApp({
+          tabs: [
+            {
+              screen: 'Wafi.Offers',
+              label: 'Offers',
+              title: 'Offers',
+              icon: require('../../icons/offer.png'),
+              navigatorStyle: {
+                navBarHidden: true
+              }
+            },
+            {
+              screen: 'Wafi.Brands',
+              label: 'Brands',
+              title: 'Brands',
+              icon: require('../../icons/Brand.png'),
+              navigatorStyle: {
+                navBarHidden: true
+              }
+            },
+            {
+              screen: 'Wafi.Mall',
+              label: 'Mall',
+              title: 'Mall',
+              icon: require('../../icons/mall.png'),
+              navigatorStyle: {
+                navBarHidden: true
+              }
+            },
+            {
+              screen: 'Wafi.HyperMarket',
+              label: 'Market',
+              title: 'Market',
+              icon: require('../../icons/market.png'),
+              navigatorStyle: {
+                navBarHidden: true
+              }
+            }
+          ],
+          appStyle: {
+            orientation: 'portrait',
+            tabBarButtonColor: '#4d535e',
+            tabBarSelectedButtonColor: '#ec1172',
+            tabBarBackgroundColor: '#ffffff',
+            initialTabIndex: 0,
+            tabBarTranslucent: true,
+            forceTitlesDisplay: true,
+            tabFontSize: 13,
+            selectedTabFontSize: 13,
+            navBarTitleFontFamily: "MyriadPro-Regular",
+            navBarNoBorder: true,
+          },
+          animationType: 'fade',
+          drawer: {
+            left: {
+              screen: 'Wafi.SideDrawer',
+            },
+          }
+
+        });
+    }
+
+    fnLogin = () => {
+      const { UserEmail }  = this.state ;
+      const { UserPassword }  = this.state ;
+      return fetch("http://admin.wafideals.com/apilogin", { method: 'POST' ,
+      headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+          },
+        body: JSON.stringify({
+          email: UserEmail,
+          password: UserPassword
+        })
+      })
+          .then((response) => response.json())
+          .then((responseJson) => {
+            {(responseJson.id) &&
+              this.storeItem('is_logged_id', 1);
+              this.storeItem('customer_id', responseJson.id);
+              this.storeItem('first_name', responseJson.first_name);
+              this.storeItem('last_name',responseJson.last_name);
+              this.storeItem('phone',responseJson.phone);
+              this.storeItem('email' , responseJson.email);
+              this.startApp()
+            }
+          })
+          .catch((error) => {
+              console.error(error)
+          })
+  }
+
 
     render() {
         return (
@@ -67,7 +186,7 @@ class AuthScreen extends Component {
                         <TextInput style={styles.inputBox} underlineColorAndroid='rgba(0,0,0,0)' placeholderTextColor="white"
                             placeholder="Password" secureTextEntry={true} />
                         <TouchableOpacity style={styles.buttonBlock}>
-                            <Text style={styles.buttonText} onPress={this._switchToTabBased}>Login</Text>
+                            <Text style={styles.buttonText} onPress= {()=>this.fnLogin()}>Login</Text>
                         </TouchableOpacity>
                         <View style={styles.socialLoginWrapper}>
 
