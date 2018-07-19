@@ -14,6 +14,7 @@ class mallDetails extends Component {
         this.state = {
             isLoading: true,
             dataSource: [],
+            dataSource1: [],
         }
     }
 
@@ -47,7 +48,8 @@ class mallDetails extends Component {
             .then((responseJson) => {
                 this.setState({
                     isLoading: false,
-                    dataSource: (responseJson),
+                    dataSource: (responseJson.Mall),
+                    dataSource1: (responseJson.Offers),
                 })
             })
             .catch((error) => {
@@ -55,9 +57,9 @@ class mallDetails extends Component {
             })
     }
 
-  
 
-    EventsListHandler = () => {
+
+    EventsListHandler = (id) => {
         this.props.navigator.push({
             screen: 'Wafi.EventInfo',
             animated: true,
@@ -66,8 +68,7 @@ class mallDetails extends Component {
                 navBarBackgroundColor: '#0A266D',
                 navBarButtonColor: '#ffffff'
             },
-            
-
+            passProps: { mallid: id },
         });
 
     }
@@ -88,13 +89,33 @@ class mallDetails extends Component {
 
     render() {
 
-        let shareOptions = {         
+        let shareOptions = {
             title: "Wafi Deals",
             message: "Get all your favourite Shopping Offers in one app, Hundreds of new offers are available every week. Download Wafi Deals to find the latest deals & offers on",
             url: 'https://wafideals.com',
             subject: "Download Wafi Deals to find the latest deals & offers : https://wafideals.com" //  for email
-            
+
         };
+
+        var offers = this.state.dataSource1.map(
+                    function iterator( offer ) {
+                        return(
+                          <View style={styles.gridItem}>
+                              <View style={styles.gridWrapr}>
+                                  <TouchableOpacity >
+                                      <Image source={{ uri: 'http://admin.wafideals.com/storage/' + offer.logo_path }} style={styles.ProductImg} />
+                                      <Text style={styles.center}>{offer.discount_value}</Text>
+                                      <View style={styles.prdDescr}>
+                                          <Text style={styles.offerTitle}>{offer.title}</Text>
+                                          <Text style={styles.offerDesc}>{offer.tagline}</Text>
+                                      </View>
+                                  </TouchableOpacity>
+                              </View>
+                          </View>
+                        );
+                    },
+                    this
+                );
 
         if (this.state.isLoading) {
             return (
@@ -106,6 +127,7 @@ class mallDetails extends Component {
             );
         }
         return (
+
             <View>
                 <ScrollView>
                     <View style={styles.mallWrapr}>
@@ -121,7 +143,7 @@ class mallDetails extends Component {
                                         <Text style={[styles.iconText]}>Contact</Text>
                                     </View>
                                 </TouchableOpacity>
-                                <TouchableOpacity onPress={this.EventsListHandler}>
+                                <TouchableOpacity onPress={()=> this.EventsListHandler(this.props.mallid)}>
                                     <View style={styles.IconBlk}>
                                         <Image source={require('../../../icons/event.png')} style={styles.iconView} />
                                         <Text style={[styles.iconText]}>Event</Text>
@@ -149,7 +171,9 @@ class mallDetails extends Component {
                             </View>
                         </View>
                     </View>
-                    <ProductCards navigator={this.props.navigator} />
+                    <View style={styles.prdtWrapr}>
+                      {offers}
+                    </View>
                 </ScrollView>
             </View>
         )
@@ -213,6 +237,110 @@ const styles = StyleSheet.create({
     iconView: {
         width: Dimensions.get('window').width < 360 ? 28 : 34,
         height: Dimensions.get('window').width < 360 ? 28 : 34,
+    },
+    prdtWrapr: {
+
+        paddingBottom: '2%',
+        flex: 1,
+        flexDirection: 'row',
+        width: '100%',
+        alignItems: 'center',
+        flexWrap: 'wrap',
+    },
+    gridWrapr: {
+        flexDirection: 'column',
+        width: '100%'
+    },
+    gridItem: {
+        width: '46%', //Device width divided in almost a half
+        height: 'auto',
+        justifyContent: 'center',
+        alignItems: 'flex-start',
+        marginBottom: 15,
+        marginLeft: '2.5%',
+        backgroundColor: '#ffffff',
+        borderRadius: 5,
+        shadowColor: '#cccccc',
+        shadowOffset: {
+            width: 0,
+            height: 3
+        },
+        shadowRadius: 5,
+        shadowOpacity: 0.7,
+        elevation: 2,
+
+
+    },
+    prdDescr: {
+        flexDirection: 'column',
+        padding: 10,
+        flexWrap: 'wrap',
+        width: '100%',
+        borderColor: '#ff0000'
+    },
+    ProductImg: {
+        width: '100%',
+        aspectRatio: 10 / 10,
+        resizeMode: 'contain',
+    },
+    offerTitle: {
+        color: '#000000',
+        fontSize: 18,
+        width: '100%',
+        fontFamily: "MyriadPro-Semibold_2",
+    },
+    offerDesc: {
+        color: '#58595B',
+        fontSize: 15,
+        fontFamily: "MyriadPro-Regular",
+
+    },
+    prdDescr: {
+        flexDirection: 'column',
+        padding: 10,
+        flexWrap: 'wrap',
+        width: '100%',
+        borderColor: '#ff0000'
+    },
+    ProductImg: {
+        width: '100%',
+        aspectRatio: 10 / 10,
+        resizeMode: 'stretch',
+
+    },
+    offerTitle: {
+        color: '#000000',
+        fontSize: 13,
+        width: '100%',
+        fontFamily: "MyriadPro-Semibold_2",
+    },
+    offerDesc: {
+        color: '#58595B',
+        fontSize: 12,
+        fontFamily: "MyriadPro-Regular",
+
+    },
+    prodOffPercet: {
+        backgroundColor: '#F6921E',
+        color: '#ffffff',
+        fontSize: 18,
+        borderRadius: 25,
+        paddingTop: 5,
+        paddingBottom: 5,
+        fontWeight: 'bold',
+        textAlign: 'center',
+        width: 150,
+    },
+    center: {
+        textAlign: 'center',
+        backgroundColor: '#F6921E',
+        paddingVertical: 5,
+        color: '#ffffff',
+        fontSize: 14,
+        borderRadius: 25,
+        marginTop: -20,
+        marginHorizontal: '10%',
+        width: '80%'
     }
 });
 export default mallDetails;

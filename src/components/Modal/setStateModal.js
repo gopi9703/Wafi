@@ -1,70 +1,77 @@
 import React, { Component } from 'react';
-import { View, Text, TextInput, StyleSheet, Image, TouchableOpacity, Dimensions, ScrollView, KeyboardAvoidingView } from 'react-native';
+import { View, Text, TextInput, StyleSheet, Image, TouchableOpacity, Dimensions,AsyncStorage, ScrollView, KeyboardAvoidingView } from 'react-native';
 import {Navigation} from 'react-native-navigation';
 
 
 
 class setStateModal extends Component{
+  constructor(props) {
+      super(props)
+      this.state = {
+          isLoading: true,
+          dataSource: [],
+          'city_id' : '',
+      }
+      this.retrieveItem('city_id')
+  }
 
-    hideModal = (navigator) => {
+  async retrieveItem(key) {
+    try {
+      const retrievedItem =  await AsyncStorage.getItem(key);
+      const item = JSON.parse(retrievedItem);
+      {key == 'city_id' &&
+        this.setState({'city_id': item})
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+
+  async storeItem(key, item) {
+  try {
+    var jsonOfItem = await AsyncStorage.setItem(key, JSON.stringify(item));
+    return jsonOfItem;
+  } catch (error) {
+
+  }
+  }
+  componentDidMount() {
+      return fetch("http://admin.wafideals.com/apicities", { method: 'GET' })
+          .then((response) => response.json())
+          .then((responseJson) => {
+              this.setState({
+                  isLoading: false,
+                  dataSource: responseJson,
+              })
+          })
+          .catch((error) => {
+              console.error(error)
+          })
+  }
+
+    hideModal = (city_id, navigator) => {
+        this.state.city_id = city_id;
+        this.storeItem('city_id', city_id);
         navigator.dismissLightBox();
-
     }
 
     render (){
+      var cities = this.state.dataSource.map(
+                  function iterator( city ) {
+                      return(
+                        <TouchableOpacity onPress={() => this.hideModal(city.id ,this.props.navigator)}>
+                            <Text style={styles.citycol}>{city.name}</Text>
+                        </TouchableOpacity>
+                      );
+                  },
+                  this
+              );
         return (
             <View style={styles.modalWrapper}>
                 <Text style={styles.modalTitle}>Select Your Region</Text>
                 <ScrollView>
                     <View style={styles.locateList}>
-                        <TouchableOpacity onPress={() => this.hideModal(this.props.navigator)}>
-                            <Text style={styles.citycol}>Oman</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity>
-                            <Text style={styles.citycol}>Oman</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity>
-                            <Text style={styles.citycol}>Oman</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity>
-                            <Text style={styles.citycol}>Oman</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity>
-                            <Text style={styles.citycol}>Oman</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity>
-                            <Text style={styles.citycol}>Oman</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity>
-                            <Text style={styles.citycol}>Oman</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity>
-                            <Text style={styles.citycol}>Oman</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity>
-                            <Text style={styles.citycol}>Oman</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity>
-                            <Text style={styles.citycol}>Oman</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity>
-                            <Text style={styles.citycol}>Oman</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity>
-                            <Text style={styles.citycol}>Oman</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity>
-                            <Text style={styles.citycol}>Oman</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity>
-                            <Text style={styles.citycol}>Oman</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity>
-                            <Text style={styles.citycol}>Oman</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity>
-                            <Text style={styles.citycol}>Oman</Text>
-                        </TouchableOpacity>
+                        {cities}
                     </View>
                 </ScrollView>
             </View>
@@ -79,7 +86,7 @@ const styles = StyleSheet.create({
         height: Dimensions.get('window').width,
         backgroundColor: 'white',
         borderRadius: 5,
-      
+
     },
     modalTitle : {
         backgroundColor : '#0a266d',
@@ -89,7 +96,7 @@ const styles = StyleSheet.create({
         paddingVertical : 10,
         borderTopRightRadius : 5,
         borderTopLeftRadius : 5,
-        fontFamily: "MyriadPro-Regular", 
+        fontFamily: "MyriadPro-Regular",
     },
     locateList:{
         paddingVertical : 15,

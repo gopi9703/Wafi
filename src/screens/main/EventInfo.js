@@ -3,17 +3,43 @@ import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView, ActivityIn
 
 
 class EventInfo extends Component {
-    
+
+  constructor(props) {
+      super(props)
+      this.state = {
+          isLoading: true,
+          dataSource: [],
+      }
+  }
+
+  componentDidMount() {
+      return fetch("http://admin.wafideals.com/apimalls/" + this.props.mallid, {
+          method: "GET", headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json',
+          }
+      })
+          .then((response) => response.json())
+          .then((responseJson) => {
+              this.setState({
+                  isLoading: false,
+                  dataSource: (responseJson),
+              })
+          })
+          .catch((error) => {
+              console.error(error)
+          })
+  }
     render(){
         return (
             <View style={styles.bodyBg}>
-                    <Image source={{ uri: 'http://www.dunkindonuts.pk/promo.jpg' }} style={styles.EventBanner} />
+                    <Image source={{ uri: 'http://admin.wafideals.com/storage/' + this.state.dataSource.event_banner_image }} style={styles.EventBanner} />
                     <View style={styles.mallDesc}>
                         <Text style={styles.mallTitle}>
-                            DunKin Donuts Mall
+                            {this.state.dataSource.name}
                         </Text>
                         <Text style={styles.mallText}>
-                            DunKin Donuts Mall DunKin Donuts MallDunKin Donuts MallDunKin Donuts MallDunKin Donuts MallDunKin Donuts MallDunKin Donuts MallDunKin Donuts MallDunKin Donuts MallDunKin Donuts MallDunKin Donuts MallDunKin Donuts MallDunKin Donuts MallDunKin Donuts MallDunKin Donuts MallDunKin Donuts MallDunKin Donuts MallDunKin Donuts MallDunKin Donuts MallDunKin Donuts Mall
+                            {this.state.dataSource.event_description}
                         </Text>
                     </View>
             </View>
@@ -31,19 +57,19 @@ const styles = StyleSheet.create({
         width: '100%',
         aspectRatio: 10 / 5,
         resizeMode : 'contain',
-       
+
         marginVertical : 5,
 
     },
     mallDesc : {
         backgroundColor : '#ffffff',
         padding : 20,
-        
+
     },
     mallText :{
         fontSize : 13,
         color : '#000000',
-        fontFamily: "MyriadPro-Regular", 
+        fontFamily: "MyriadPro-Regular",
         lineHeight : 20,
     },
     mallTitle : {
@@ -51,7 +77,7 @@ const styles = StyleSheet.create({
         fontFamily : 'MyriadPro-Semibold_2',
         color : '#000000',
         paddingVertical : 10,
-      
+
     }
 
 });

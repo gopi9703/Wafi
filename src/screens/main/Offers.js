@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Image, FlatList, TextInput, TouchableOpacity, KeyboardAvoidingView, ScrollView, Dimensions, ActivityIndicator } from 'react-native';
+import { View, Text, StyleSheet, Image, FlatList, TextInput,AsyncStorage, Alert, TouchableOpacity, KeyboardAvoidingView, ScrollView, Dimensions, ActivityIndicator } from 'react-native';
 import Header from '../../components/Header/Header';
 import Navigation from 'react-native-navigation';
 import CustomPlaceholder from '../../components/CustomPlaceholder';
@@ -12,13 +12,30 @@ class Offers extends Component {
         this.state = {
             isLoading: true,
             dataSource: [],
+            city_id:'',
         }
         this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
+    }
+    async componentWillMount() {
+      this.retrieveItem('city_id');
+    }
 
+    async retrieveItem(key) {
+      try {
+        const retrievedItem =  await AsyncStorage.getItem(key);
+        const item = JSON.parse(retrievedItem);
+        this.setState({'city_id': item})
+      } catch (error) {
+        console.log(error.message);
+      }
     }
 
     componentDidMount() {
-        return fetch("http://admin.wafideals.com/apioffers", { method: 'GET' })
+      AsyncStorage.getItem('city_id').then((token) => {
+        const item = JSON.parse(retrievedItem);
+        this.setState({'city_id': item})
+      });
+        return fetch("http://admin.wafideals.com/apioffers?city_id="+ this.state.city_id, { method: 'GET' })
             .then((response) => response.json())
             .then((responseJson) => {
                 this.setState({
@@ -62,7 +79,6 @@ class Offers extends Component {
 
 
     render() {
-
         if (this.state.isLoading) {
             return (
                 <View style={{ flex: 1, alignItems: 'flex-start' }}>
@@ -77,6 +93,8 @@ class Offers extends Component {
 
             <View style={{ flex: 1 }}>
                 <Header navigator={this.props.navigator} />
+                <ScrollView ref={(c) => { this.parentScrollView = c; }}
+                >
                 <View style={styles.swiperBlk}>
                 <Swiper showsButtons={false} showsPagination={true} dot={<View style={{ backgroundColor: 'rgba(255,255,255,.3)', width: 8, height: 8, borderRadius: 7, marginLeft: 5, marginRight: 5 }} />}
                     activeDot={<View style={{ backgroundColor: '#cccccc', width: 8, height: 8, borderRadius: 7, marginLeft: 5, marginRight: 5 }} />}
@@ -94,8 +112,7 @@ class Offers extends Component {
                 </Swiper>
 
                 </View>
-                <ScrollView ref={(c) => { this.parentScrollView = c; }}
-                >
+                
                     <View style={styles.prdtWrapr}>
                         <FlatList style={{ flex: 1, paddingBottom: 10 }}
                             data={this.state.dataSource}
@@ -113,7 +130,7 @@ class Offers extends Component {
                                             <Text style={styles.center}>{item.discount_value}</Text>
                                             <View style={styles.prdDescr}>
                                                 <Text style={styles.offerTitle} numberOfLines={1}>{item.title}</Text>
-                                                <Text style={styles.offerDesc} numberOfLines={1}>{item.description}</Text>
+                                                <Text style={styles.offerDesc} numberOfLines={1}>{item.tagline}</Text>
                                             </View>
                                         </TouchableOpacity>
                                     </View>

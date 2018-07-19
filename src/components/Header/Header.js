@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity, KeyboardAvoidingView, TabBarIOS } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity, KeyboardAvoidingView, TabBarIOS, Picker } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Navigation from 'react-native-navigation';
 import SideDrawer from '../SideDrawer/SideDrawer';
@@ -8,7 +8,10 @@ import setStateModal from '../Modal/setStateModal';
 class Header extends Component {
 
     constructor(props) {
-        super(props)
+        super(props);
+        this.state = {
+            state: 'Muscat'
+        }
     }
 
     showLeftMenu(navigator) {
@@ -34,21 +37,6 @@ class Header extends Component {
     }
 
 
-    showHeaderModal = (navigator) => {
-        navigator.showLightBox({
-            screen: 'Wafi.setStateModal',
-            passProps: {},
-            style: {
-                backgroundBlur: 'dark',
-                backgroundColor: 'rgba(0,0,0,.5)',
-                tapBackgroundToDismiss: true
-            },
-            adjustSoftInput: "resize",
-        });
-    }
-
-
-
 
     render() {
         return (
@@ -62,12 +50,19 @@ class Header extends Component {
                         </View>
                         <View style={styles.HeaderModal}>
                             <Image source={require('../../img/header_Logo.png')} style={styles.logoImg} />
-                            <TouchableOpacity onPress={() => this.showHeaderModal(this.props.navigator)}>
-                                <View style={styles.HeaderModalInner}>
-                                    <Text style={styles.stateChangeText}> Muscat </Text>
-                                    <Text>
-                                        <Icon name="ios-pin" size={20} color="#BBBDBF" style={styles.map__pin} />
-                                    </Text>
+                            <TouchableOpacity>
+                                <View style={styles.HeaderModalInner} >
+                                    <Picker
+                                        style={{ width: 120, color: '#ffffff' }}
+                                        selectedValue={this.state.language}
+                                        onValueChange={(lang) => this.setState({ language: lang })}
+                                        itemStyle={{ backgroundColor: 'lightgrey', marginLeft: 0, paddingLeft: 15 }}
+                                        itemTextStyle={{ fontSize: 18, color: 'white' }}
+                                    >
+                                        <Picker.Item label="Muscat" value="Muscat" />
+                                        <Picker.Item label="Oman" value="Oman" />
+                                    </Picker>
+                                    <Icon name="ios-pin" size={20} color="#BBBDBF" style={styles.map__pin} />
                                 </View>
                             </TouchableOpacity>
                         </View>
@@ -117,7 +112,7 @@ const styles = StyleSheet.create({
         fontSize: 16,
         alignItems: 'center',
         paddingVertical: 5,
-        paddingHorizontal : 2
+        paddingHorizontal: 2
     },
     HeaderModalInner: {
         flexDirection: 'row',
@@ -126,9 +121,10 @@ const styles = StyleSheet.create({
     map__pin: {
         marginLeft: 5,
         position: 'absolute',
-        top: 5,
-        borderColor: 'red',
-        borderWidth: 1
+        top: 15,
+        right: 20,
+        color: '#ffffff'
+       
     }
 });
 

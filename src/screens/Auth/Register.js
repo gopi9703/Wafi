@@ -23,8 +23,6 @@ class AuthScreenRegister extends Component{
       }
   }
 
-  
-
   async retrieveItem(key) {
     try {
       const retrievedItem =  await AsyncStorage.getItem(key);
@@ -134,7 +132,6 @@ class AuthScreenRegister extends Component{
           },
         });
       };
-      
 
       async storeItem(key, item) {
     try {
@@ -185,10 +182,8 @@ class AuthScreenRegister extends Component{
     }
     render(){
       {this.state.is_logged_id == 1 &&
-        this.startApp();
-        
+        this.startApp()
       }
-      
         return(
             <LinearGradient colors={['#621C6C', '#8E0076', '#B8007F']} style={styles.linearGradient}>
                 <KeyboardAvoidingView style={styles.container} behavior="padding" enabled>

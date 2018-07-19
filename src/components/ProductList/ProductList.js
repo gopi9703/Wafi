@@ -7,7 +7,7 @@ import Placeholder from 'rn-placeholder';
 
 
 export default class ProductList extends Component {
-  mallDetailsHandler = (id) => {
+  mallDetailsHandler = (id, city_id) => {
     this.props.navigator.push({
       screen: 'Wafi.mallDetails',
       animated: true,
@@ -17,7 +17,7 @@ export default class ProductList extends Component {
         navBarButtonColor: '#ffffff'
       },
 
-      passProps: { mallid: id },
+      passProps: { mallid: id, city_id: city_id},
     });
   }
   webCall = () => {
@@ -59,7 +59,7 @@ export default class ProductList extends Component {
       this.setState({refreshing: false});
     });
   }
-  
+
   FlatListItemSeparator = () => {
     return (< View style={
       {
@@ -188,11 +188,11 @@ export default class ProductList extends Component {
     }
 
     return (
-      
+
       <FlatList style={{ margin: 15, height: Dimensions.get('window').height / 1.1 }} initialNumToRender={3}
         data={this.state.dataSource}
         renderItem={({ item }) =>
-          <TouchableOpacity onPress={() => { this.mallDetailsHandler(item.id) }}>
+          <TouchableOpacity onPress={() => { this.mallDetailsHandler(item.id, item.city_id) }}>
             <View style={styles.rowBlk}>
               <View style={{ flexDirection: 'row' }}>
 
@@ -219,7 +219,7 @@ export default class ProductList extends Component {
         numColumns={1}
         keyExtractor={item => item.id}
         initialNumToRender={10}
-        
+
       />
 
     )
