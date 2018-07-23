@@ -60,12 +60,12 @@ class BrandsList extends Component {
 
     render() {
 
-        let shareOptions = {         
+        let shareOptions = {
             title: "Wafi Deals",
             message: "Get all your favourite Shopping Offers in one app, Hundreds of new offers are available every week. Download Wafi Deals to find the latest deals & offers on",
             url: 'https://wafideals.com',
             subject: "Download Wafi Deals to find the latest deals & offers : https://wafideals.com" //  for email
-            
+
         };
 
         if (this.state.isLoading) {
@@ -84,7 +84,7 @@ class BrandsList extends Component {
                         <Image source={{ uri: 'http://admin.wafideals.com/storage/' + this.state.dataSource.logo_path }} style={styles.BrandLogo} />
                     </View>
                     <View style={styles.infoWrpr}>
-                        <TouchableOpacity onPress={() => {Share.open(shareOptions);}}>
+                        <TouchableOpacity onPress={() => { Share.open(shareOptions); }}>
                             <View style={styles.IconBlk}>
                                 <Image source={require('../../../icons/share.png')} style={styles.iconView} />
                                 <Text style={styles.iconText}>Share</Text>
@@ -102,7 +102,9 @@ class BrandsList extends Component {
                 <ScrollView >
                     <View style={{ position: 'relative' }}>
                         <Image source={{ uri: 'http://admin.wafideals.com/storage/' + this.state.dataSource.banner_logo_path }} style={styles.BrandBanner} />
-                       
+                        <FontStyle style={[styles.headerTitle, styles.brandOffPercent]}>
+                            <HeaderText>{this.state.dataSource.max_discount}</HeaderText>
+                        </FontStyle>
                     </View>
                     <View style={styles.BrandDescWrap}>
                         <View style={styles.blkViewBrand}>
@@ -295,9 +297,9 @@ const styles = StyleSheet.create({
         fontSize: 11,
         fontFamily: "MyriadPro-Regular",
     },
-    iconView : {
-        width : 38,
-        height : 38,
+    iconView: {
+        width: 38,
+        height: 38,
     },
     brandOffPercent: {
         backgroundColor: '#EF038F',

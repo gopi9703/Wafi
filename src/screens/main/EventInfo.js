@@ -23,7 +23,7 @@ class EventInfo extends Component {
           .then((responseJson) => {
               this.setState({
                   isLoading: false,
-                  dataSource: (responseJson),
+                  dataSource: (responseJson.Mall),
               })
           })
           .catch((error) => {

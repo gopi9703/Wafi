@@ -55,6 +55,19 @@ class marketDetails extends Component {
                 navBarButtonColor: '#ffffff'
             },
 
+            passProps: { flyterdetailid: id },
+        });
+    }
+
+    InfoListHandler = (id) => {
+        this.props.navigator.push({
+            screen: 'Wafi.MallInfo',
+            animated: true,
+            animationType: 'slide-up', // 'fade' (for both) / 'slide-horizontal'
+            navigatorStyle: {
+                navBarBackgroundColor: '#0A266D',
+                navBarButtonColor: '#ffffff'
+            },
             passProps: { hypermarketid: id },
         });
     }
@@ -63,12 +76,12 @@ class marketDetails extends Component {
     render() {
 
 
-        let shareOptions = {         
+        let shareOptions = {
             title: "Wafi Deals",
             message: "Get all your favourite Shopping Offers in one app, Hundreds of new offers are available every week. Download Wafi Deals to find the latest deals & offers on",
             url: 'https://wafideals.com',
             subject: "Download Wafi Deals to find the latest deals & offers : https://wafideals.com" //  for email
-            
+
         };
 
         if (this.state.isLoading) {
@@ -86,10 +99,10 @@ class marketDetails extends Component {
             <View style={styles.bodyBg}>
                 <View style={styles.BrandIntro}>
                     <View>
-                        <Image source={{ uri: 'http://admin.wafideals.com/storage/' + this.state.dataSource.logo_path }} style={styles.BrandLogo} />
+                        <Image source={{ uri: 'http://admin.wafideals.com/storage/' + this.state.dataSource[0].logo_path }} style={styles.BrandLogo} />
                     </View>
                     <View style={styles.infoWrpr}>
-                        <TouchableOpacity onPress={() => this.callNumber(`tel:+19742223645`)}>
+                        <TouchableOpacity onPress={() => this.InfoListHandler(this.state.dataSource[0].id)} >
                             <View style={styles.IconBlk}>
                                 <Image source={require('../../../icons/info.png')} style={styles.iconView} />
                                 <Text style={[styles.iconText]}>Info</Text>
@@ -101,16 +114,10 @@ class marketDetails extends Component {
                                 <Text style={[styles.iconText]}>Location</Text>
                             </View>
                         </TouchableOpacity>
-                        <TouchableOpacity onPress={() => {Share.open(shareOptions);}}>
+                        <TouchableOpacity onPress={() => { Share.open(shareOptions); }}>
                             <View style={styles.IconBlk}>
                                 <Image source={require('../../../icons/share.png')} style={styles.iconView} />
                                 <Text style={styles.iconText}>Share</Text>
-                            </View>
-                        </TouchableOpacity>
-                        <TouchableOpacity>
-                            <View style={styles.IconBlk}>
-                                <Image source={require('../../../icons/fav.png')} style={styles.iconView} />
-                                <Text style={styles.iconText}>My Fav</Text>
                             </View>
                         </TouchableOpacity>
                     </View>
@@ -121,10 +128,12 @@ class marketDetails extends Component {
                         data={this.state.dataSource}
                         renderItem={({ item }) =>
                             <View style={styles.gridItem}>
-                                <View style={styles.newBadge}>
-                                    <Text style={{ color: '#ffffff', fontSize: 12 }}>NEW</Text>
-                                </View>
-                                <TouchableOpacity onPress={() => this.flyerHandler(item.hypermarket_id)}>
+                                {item.new_label > 0 &&
+                                    <View style={styles.newBadge}>
+                                        <Text style={{ color: '#ffffff', fontSize: 12 }}>NEW</Text>
+                                    </View>
+                                }
+                                <TouchableOpacity onPress={() => this.flyerHandler(item.hf_id)}>
                                     <View style={{ paddingHorizontal: 5 }}>
                                         <Image source={{ uri: 'http://admin.wafideals.com/storage/' + item.flyer_path }} style={styles.makretImg} />
                                     </View>
@@ -241,7 +250,7 @@ const styles = StyleSheet.create({
     BrandLogo: {
         width: 60,
         height: 60,
-        
+
     },
 
     infoWrpr: {

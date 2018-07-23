@@ -58,14 +58,6 @@ class OffersList extends Component {
                         <Image source={{ uri: 'http://admin.wafideals.com/storage/' + this.state.dataSource.logo_path }} style={styles.BrandLogo} />
                     </View>
                     <View style={styles.infoWrpr}>
-
-                        <TouchableOpacity>
-                            <View style={styles.IconBlk}>
-                                <Image source={require('../../../icons/call.png')} style={styles.iconView} />
-                                <Text style={[styles.iconText]}>Contact</Text>
-                            </View>
-                        </TouchableOpacity>
-
                         <TouchableOpacity onPress={() => Linking.openURL('google.navigation:q=100+101')}>
                             <View style={styles.IconBlk}>
                                 <Image source={require('../../../icons/location.png')} style={styles.iconView} />
@@ -78,17 +70,11 @@ class OffersList extends Component {
                                 <Text style={[styles.iconText]}>Share</Text>
                             </View>
                         </TouchableOpacity>
-                        <TouchableOpacity>
-                            <View style={styles.IconBlk}>
-                                <Image source={require('../../../icons/fav.png')} style={styles.iconView} />
-                                <Text style={[styles.iconText]}>My Fav</Text>
-                            </View>
-                        </TouchableOpacity>
                     </View>
 
                 </View>
                 <ScrollView>
-                    <View style={{ position: 'relative' }}>
+                    <View style={{ position: 'relative'}}>
                         <Image source={{ uri: 'http://admin.wafideals.com/storage/' + this.state.dataSource.banner_logo_path }} style={styles.BrandBanner} />
                         <FontStyle style={[styles.headerTitle, styles.brandOffPercent]}>
                             <HeaderText>{this.state.dataSource.discount_value}</HeaderText>
@@ -174,8 +160,9 @@ const styles = StyleSheet.create({
     },
     BrandBanner: {
         width: '100%',
-        aspectRatio: 10 / 5,
+        height : Dimensions.get('window').height / 1.8,
         marginVertical: 5,
+        resizeMode : 'cover'
 
     },
     favorite: {

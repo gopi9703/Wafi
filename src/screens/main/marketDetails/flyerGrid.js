@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity, Dimensions, FlatList, ActivityIndicator } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity, Dimensions,Alert, FlatList, ActivityIndicator } from 'react-native';
 
 class flyerGrid extends Component {
 
@@ -9,7 +9,8 @@ class flyerGrid extends Component {
 
         this.state = {
 
-            isLoading: true
+            isLoading: true,
+            dataSource: [],
 
         }
 
@@ -18,12 +19,6 @@ class flyerGrid extends Component {
 
     static navigatorStyle = {
         tabBarHidden: true,
-    }
-
-    GetItem(flower_name) {
-
-        Alert.alert(flower_name);
-
     }
 
     FlatListItemSeparator = () => {
@@ -40,26 +35,29 @@ class flyerGrid extends Component {
 
     webCall = () => {
 
-        return fetch('https://reactnativecode.000webhostapp.com/FlowersList.php')
-            .then((response) => response.json())
-            .then((responseJson) => {
-                this.setState({
-                    isLoading: false,
-                    dataSource: responseJson
-                }, function () {
-                    // In this block you can do something with new state.
-                });
-            })
-            .catch((error) => {
-                console.error(error);
-            });
+      return fetch('http://admin.wafideals.com/apihypermarkets/' + this.props.flyterdetailid +'?flyterdetails=true', {
+          method: "GET", headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json',
+          }
+      })
+          .then((response) => response.json())
+          .then((responseJson) => {
+              this.setState({
+                  isLoading: false,
+                  dataSource: responseJson,
+              }, function () {
+                  // In this block you can do something with new state.
+              });
+          })
+          .catch((error) => {
+              console.error(error);
+          });
 
     }
 
     componentDidMount() {
-
         this.webCall();
-
     }
 
     componentWillMount() {
@@ -93,8 +91,8 @@ class flyerGrid extends Component {
                     data={this.state.dataSource}
                     numColumns={3}
                     renderItem={({ item }) =>
-                        <View style={{ flex: 1, flexDirection: 'row', margin : 2 }}>
-                            <Image source={{ uri: item.flower_image_url }} style={styles.mallImg} />
+                        <View style={{ flex: 1, flexDirection: 'row', margin : 7 }}>
+                            <Image source={{ uri: 'http://admin.wafideals.com/storage/' + item.flyer_path }} style={styles.mallImg} />
                         </View>
 
                     }

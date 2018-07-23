@@ -14,16 +14,51 @@ class AuthScreen extends Component {
     constructor(props) {
 		super(props);
     this.state = {
-      UserFirstName: '',
-      UserLastName: '',
-      UserEmail: '',
-      UserPhone: '',
-      UserPassword: '',
-      UserConfirmationPassword: '',
-
+      name: '',
+      nameValidate : true,
+      password : '',
+      passwordValidate : true,
     }
+   
+    AsyncStorage.clear()
     }
 
+    validate(text, type)
+    {
+        alpha = /^[a-zA-Z]+$/
+        num = /(?=.*\d)(?=.*[a-z]).{6,}/
+        if(type=="username")
+        {
+            if(alpha.test(text))
+            {
+                this.setState({
+                    nameValidate : true
+                })
+            }
+            else
+             {
+                this.setState({
+                    nameValidate : false
+                })
+            }
+        }
+        else if(type == "password")
+        {
+            if(num.test(text))
+            {
+                this.setState({
+                    passwordValidate : true
+                })
+            }
+            else
+             {
+                this.setState({
+                    passwordValidate : false
+                })
+            }
+        }
+        
+    }
 
     handlePress = () => {
         this.props.navigator.push({
@@ -181,10 +216,10 @@ class AuthScreen extends Component {
                     <View style={styles.container}>
                         <Logo />
 
-                        <TextInput style={styles.inputBox} underlineColorAndroid='rgba(0,0,0,0)' placeholderTextColor="white"
-                            placeholder="Email/Mobile" />
-                        <TextInput style={styles.inputBox} underlineColorAndroid='rgba(0,0,0,0)' placeholderTextColor="white"
-                            placeholder="Password" secureTextEntry={true} />
+                        <TextInput style={[styles.inputBox, !this.state.nameValidate?styles.error:null]} underlineColorAndroid='rgba(0,0,0,0)' placeholderTextColor="white"
+                            placeholder="Email/Mobile" onChangeText={(text)=> this.validate(text, 'username')} />
+                        <TextInput style={[styles.inputBox, !this.state.passwordValidate?styles.error:null]} underlineColorAndroid='rgba(0,0,0,0)' placeholderTextColor="white"
+                            placeholder="Password" secureTextEntry={true} onChangeText={(text)=> this.validate(text, 'password')} />
                         <TouchableOpacity style={styles.buttonBlock}>
                             <Text style={styles.buttonText} onPress= {()=>this.fnLogin()}>Login</Text>
                         </TouchableOpacity>
@@ -302,6 +337,10 @@ const styles = StyleSheet.create({
         paddingVertical: 5,
         fontWeight: 'bold',
         fontFamily: "MyriadPro-Regular"
+    },
+    error : {
+        borderWidth : 2,
+        borderColor : 'red'
     }
 });
 

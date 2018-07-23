@@ -37,7 +37,7 @@ class flyerCarouel extends Component {
     }
 
     componentDidMount() {
-        return fetch('http://admin.wafideals.com/apihypermarkets/' + this.props.hypermarketid, {
+        return fetch('http://admin.wafideals.com/apihypermarkets/' + this.props.flyterdetailid + '?flyterdetails=true', {
             method: "GET", headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
@@ -58,7 +58,7 @@ class flyerCarouel extends Component {
     }
 
 
-    gridHandler = () => {
+    gridHandler = (id) => {
         this.props.navigator.push({
             screen: 'Wafi.flyerGrid',
             navigatorStyle: {
@@ -69,29 +69,33 @@ class flyerCarouel extends Component {
                 navBarComponentAlignment: 'center',
             }, // override the navigator style for the screen, see "Styling the navigator" below (optional)
             animationType: 'slide-up',
+            passProps: { flyterdetailid: id },
 
         });
 
     }
 
     render() {
+
+        var flyerdetails = this.state.dataSource.map(
+            function iterator(flyer) {
+                return (
+                    <View style={styles.slide1}>
+                        <Image source={{ uri: 'http://admin.wafideals.com/storage/' + flyer.flyer_path }} style={styles.makretImg} />
+                    </View>
+                );
+            },
+            this
+        );
         return (
             <View style={styles.bodyBg}>
 
                 <Swiper style={styles.wrapper} showsButtons={false} showsPagination={true} >
-                    <View style={styles.slide1}>
-                        <Image source={{ uri: 'https://www.gannett-cdn.com/-mm-/5f602624d48bec13aefdda1e6c9da0ccde8827ef/c=0-0-6132-8176&r=537&c=0-0-534-712/local/-/media/2015/02/11/USATODAY/USATODAY/635592476647817739-XXX-Dunkin-Donuts-Croissant-Donut.jpg' }} style={styles.makretImg} />
-                    </View>
-                    <View style={styles.slide2}>
-                        <Image source={{ uri: 'https://i.pinimg.com/236x/26/99/6e/26996e9172e7ab17d8c886b908dfd1b0--ruins-mel.jpg' }} style={styles.makretImg} />
-                    </View>
-                    <View style={styles.slide3}>
-                        <Image source={{ uri: 'https://media.musely.com/u/cc8d9bae-301a-4063-a47b-1d3846def21e.jpg' }} style={styles.makretImg} />
-                    </View>
+                    {flyerdetails}
                 </Swiper>
 
                 <View style={styles.footer}>
-                    <TouchableOpacity onPress={() => this.gridHandler()}>
+                    <TouchableOpacity onPress={() => this.gridHandler(this.props.flyterdetailid)}>
                         <Image source={require('../../../icons/grid.png')} style={styles.IconImage} />
                     </TouchableOpacity>
                     <TouchableOpacity>
@@ -123,7 +127,6 @@ const styles = StyleSheet.create({
         resizeMode: 'contain',
         borderColor: 'transparent',
         borderWidth: 1
-
     },
     wrapper: {
         flex: 1
@@ -165,8 +168,6 @@ const styles = StyleSheet.create({
         fontSize: 20,
 
     }
-
-
 });
 
 

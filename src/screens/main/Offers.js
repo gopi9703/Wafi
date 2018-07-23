@@ -30,29 +30,49 @@ class Offers extends Component {
       }
     }
 
+    fetchOffers = () =>
+    {
+      return fetch("http://admin.wafideals.com/apioffers?city_id="+ this.state.city_id, { method: 'GET' })
+          .then((response) => response.json())
+          .then((responseJson) => {
+              this.setState({
+                  dataSource: responseJson,
+              })
+          })
+          .catch((error) => {
+              console.error(error)
+          })
+    }
+
+    fetchAds = () =>
+    {
+      return fetch("http://admin.wafideals.com/apiads?city_id=" + this.state.city_id, { method: 'GET' })
+          .then((response) => response.json())
+          .then((responseJson) => {
+              this.setState({
+                  isLoading: false,
+                  dataSource1: responseJson,
+              })
+          })
+          .catch((error) => {
+              console.error(error)
+          })
+    }
+
     componentDidMount() {
       AsyncStorage.getItem('city_id').then((token) => {
         const item = JSON.parse(retrievedItem);
         this.setState({'city_id': item})
       });
-        return fetch("http://admin.wafideals.com/apioffers?city_id="+ this.state.city_id, { method: 'GET' })
-            .then((response) => response.json())
-            .then((responseJson) => {
-                this.setState({
-                    isLoading: false,
-                    dataSource: responseJson,
-                })
-            })
-            .catch((error) => {
-                console.error(error)
-            })
+      this.fetchOffers();
+      this.fetchAds();
     }
 
     OffersListHandler = (id) => {
         this.props.navigator.push({
             screen: 'Wafi.OffersList',
             animated: true,
-            animationType: 'slide-horizontal', // 'fade' (for both) / 'slide-horizontal'
+            animationType: 'slide-horizontal',
             navigatorStyle: {
                 navBarBackgroundColor: '#0A266D',
                 navBarButtonColor: '#ffffff',
@@ -63,11 +83,9 @@ class Offers extends Component {
     }
 
     onNavigatorEvent(event) {
-        // handle a deep link
         if (event.type == 'DeepLink') {
             const parts = event.link.split('/');
             if (parts[0] == 'AppExclusive') {
-                // handle the link somehow, usually run a this.props.navigator command
                 this.props.navigator.resetTo({
                     screen: 'Wafi.AppExclusive',
                     passProps: {},
@@ -102,17 +120,17 @@ class Offers extends Component {
                         bottom: 20
                     }}>
 
-                    {this.state.dataSource.map((item, key) => {
+                    {this.state.dataSource1.map((item, key) => {
                      return (
                        <View style={styles.swiperlist}>
-                           <Image source={{ uri: 'http://admin.wafideals.com/storage/' + item.big_banner_logo_path }} style={styles.makretImg} style={{height: '100%'}} />
+                           <Image source={{ uri: 'http://admin.wafideals.com/storage/' + item.ad_banner_path }} style={styles.makretImg} style={{height: '100%'}} />
                        </View>
                      )})
                   }
                 </Swiper>
 
                 </View>
-                
+
                     <View style={styles.prdtWrapr}>
                         <FlatList style={{ flex: 1, paddingBottom: 10 }}
                             data={this.state.dataSource}

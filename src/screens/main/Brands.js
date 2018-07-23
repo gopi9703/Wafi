@@ -83,7 +83,7 @@ class Brands extends Component {
                     function iterator( category ) {
                         return(
                           <ActionButton.Item buttonColor='#333333' titleBgColor='333333' textStyle={{ backgroundColor: '#3333333', color: '#333333' }} title={category.name} onPress={() => this.fnBrandsRefresh(category.id)} >
-                              <Icon name="md-pricetags" size={30} style={styles.actionButtonIcon} />
+                              <Icon name="md-pricetags" size={12} style={styles.actionButtonIcon} />
                           </ActionButton.Item>
                         );
                     },
@@ -109,7 +109,7 @@ class Brands extends Component {
                                             <Text style={styles.center}>{item.max_discount}</Text>
                                             <View style={styles.prdDescr}>
                                                 <Text style={styles.offerTitle}>{item.name}</Text>
-                                                <Text style={styles.offerDesc} numberOfLines={1}>{item.description}</Text>
+                                                <Text style={styles.offerDesc} numberOfLines={1}>{item.tag_line}</Text>
                                             </View>
                                         </TouchableOpacity>
                                     </View>
@@ -120,7 +120,7 @@ class Brands extends Component {
                         />
                     </View>
                 </ScrollView>
-                <ActionButton buttonColor="#ec1172" spacing={10} icon={<Icon name='ios-funnel' size={26} style={styles.filterIcon} />} renderIcon={active => active ? (<Icon name="md-close" size={32} style={styles.filterIcon} />) : (<Icon name="ios-funnel" size={26} style={styles.filterIcon} />)}>
+                <ActionButton  buttonColor="#ec1172" spacing={2} icon={<Icon name='ios-funnel' size={18} style={styles.filterIcon} />} renderIcon={active => active ? (<Icon name="md-close" size={32} style={styles.filterIcon} />) : (<Icon name="ios-funnel" size={26} style={styles.filterIcon} />)}>
                     {categories}
                 </ActionButton>
             </View>
@@ -214,8 +214,8 @@ const styles = StyleSheet.create({
         width: '80%'
     },
     actionButtonIcon: {
-        fontSize: 20,
-        height: 22,
+        fontSize: 16,
+        height: 16,
         color: 'white',
     },
     filterIcon: {

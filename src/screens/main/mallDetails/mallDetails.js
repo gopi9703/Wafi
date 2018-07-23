@@ -57,8 +57,19 @@ class mallDetails extends Component {
             })
     }
 
+    OffersListHandler = (id) => {
+        this.props.navigator.push({
+            screen: 'Wafi.OffersList',
+            animated: true,
+            animationType: 'slide-horizontal', // 'fade' (for both) / 'slide-horizontal'
+            navigatorStyle: {
+                navBarBackgroundColor: '#0A266D',
+                navBarButtonColor: '#ffffff',
+            },
+            passProps: { offerid: id },
+        });
 
-
+    }
     EventsListHandler = (id) => {
         this.props.navigator.push({
             screen: 'Wafi.EventInfo',
@@ -102,7 +113,7 @@ class mallDetails extends Component {
                         return(
                           <View style={styles.gridItem}>
                               <View style={styles.gridWrapr}>
-                                  <TouchableOpacity >
+                                  <TouchableOpacity onPress={() => this.OffersListHandler(offer.id)}>
                                       <Image source={{ uri: 'http://admin.wafideals.com/storage/' + offer.logo_path }} style={styles.ProductImg} />
                                       <Text style={styles.center}>{offer.discount_value}</Text>
                                       <View style={styles.prdDescr}>
@@ -161,12 +172,7 @@ class mallDetails extends Component {
                                         <Text style={[styles.iconText]}>Share</Text>
                                     </View>
                                 </TouchableOpacity>
-                                <TouchableOpacity>
-                                    <View style={styles.IconBlk}>
-                                        <Image source={require('../../../icons/fav.png')} style={styles.iconView} />
-                                        <Text style={[styles.iconText]}>My Fav</Text>
-                                    </View>
-                                </TouchableOpacity>
+                               
 
                             </View>
                         </View>
