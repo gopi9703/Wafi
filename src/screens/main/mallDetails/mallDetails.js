@@ -86,7 +86,7 @@ class mallDetails extends Component {
 
     mallInfoHandler = (id) => {
         this.props.navigator.push({
-            screen: 'Wafi.mallInfo',
+            screen: 'Wafi.setStateModal',
             animated: true,
             animationType: 'slide-up', // 'fade' (for both) / 'slide-horizontal'
             navigatorStyle: {

@@ -1,69 +1,63 @@
 import React, { Component } from 'react';
-import { View, Text, TextInput, StyleSheet, Image, TouchableOpacity, Dimensions, ScrollView, KeyboardAvoidingView } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
-import ProductList from '../../components/ProductList/ProductList';
+import {
+  AppRegistry,
+  StyleSheet,
+  SectionList,
+  Text,
+  NativeModules,
+  Button,
+  FlatList,
+  Switch,
+  View
+} from 'react-native';
 
-class Search extends Component {
 
-    static navigatorStyle = {
-        tabBarHidden: true,
-        topBarElevationShadowEnabled: false,
-        
-    }
-    componentWillMount() {
-        this.props.navigator.toggleTabs({
-            to: 'hidden',
-            animate: true,
-        })
-        this.props.navigator.setTitle({title: 'Search'})
-        setTimeout(() => {
-            this.nameInput.focus();
-        }, 50);
-    }
+export default class alarm extends Component {
 
-    render() {
-        return (
-            <KeyboardAvoidingView style={styles.container} enabled>
-                <View style={styles.searchBg}>
-                    <View style={styles.searchBlock}>
-                        <Icon name="ios-search" size={26} color="#58595B" style={styles.hamburger} />
-                        <TextInput clearButtonMode="always" ref={ref => { this.nameInput = ref }} style={styles.inputBox} underlineColorAndroid='rgba(255,255,255,0)' placeholderTextColor="#58595B"
-                            placeholder="Search for Products" />
-                    </View>
-                </View>
-                <ScrollView>
-                    <ProductList />
-                </ScrollView>
-            </KeyboardAvoidingView>
-        )
-    }
+  state={
+    data:[
+      { name:'First' , isOn:true },
+      { name:'Second', isOn:true },
+      { name:'Third' , isOn:true },
+      { name:'Fourth' , isOn:false }
+    ],
+    selected:true,
+  }
+
+  _keyExtractor = (item, index) => item.name;
+
+  _onValueChanged = (item,value) => 
+  {    
+      var items = this.state.data;
+      var index = items.indexOf(item);
+      items[index].isOn = value;
+      this.setState({data:items});
+      this.setState({selected:!this.state.selected});  
+  };
+
+  _renderItem = ({item}) => 
+  (    
+    <View>  
+        <Text>{ item.name }</Text>
+        <Switch value={item.isOn}  
+        onValueChange={(value) =>
+        {        
+         this._onValueChanged(item,value);
+        }}/>
+    </View>
+  )
+
+  render() {
+    return (
+
+       <FlatList
+          data={this.state.data}
+          renderItem={this._renderItem}
+          extraData={this.state.selected}  // This is the Key you need to privde extra data parmater
+          keyExtractor={this._keyExtractor}
+        />
+
+    );
+  }
 }
-
-
-const styles = StyleSheet.create({
-    searchBg: {
-        backgroundColor: '#0A266D',
-        paddingTop: 5,
-        paddingBottom: 10,
-        paddingLeft: 20,
-        paddingRight: 20,
-    },
-    searchBlock: {
-        backgroundColor: '#ffffff',
-        paddingHorizontal: 20,
-        paddingVertical: 0,
-        borderRadius: 100,
-        flexDirection: 'row',
-        alignItems: 'center'
-
-    },
-    inputBox: {
-        fontSize: 16,
-        fontFamily: "MyriadPro-Regular",
-        width: '80%',
-        color: '#58595B'
-
-    }
-});
-
-export default Search;
+AppRegistry.registerComponent('alarm', () => alarm);
