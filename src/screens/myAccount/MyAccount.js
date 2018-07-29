@@ -1,13 +1,59 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity, Dimensions, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, Image,AsyncStorage, TouchableOpacity, Dimensions, ScrollView } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
+const ACCESS_TOKEN = 'access_token';
 
 class MyAccount extends Component {
 
     constructor(props) {
         super(props)
+        this.state = {
+          first_name: '',
+          last_name: '',
+          email: '',
+          phone: '',
+          password: '',
+          is_logged_id: '',
+        }
         this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent);
+    }
+
+    componentWillMount() {
+      this.getToken(ACCESS_TOKEN);
+    }
+
+    async storeToken(accessToken) {
+      try {
+        await AsyncStorage.setItem(ACCESS_TOKEN, JSON.stringify(accessToken));
+      } catch(error) {
+        console.log("something went wrong...!");
+      }
+    }
+
+    async getToken() {
+      try {
+        let token = await AsyncStorage.getItem(ACCESS_TOKEN);
+        token = JSON.parse(token);
+        if(token.id) {
+          this.setState({
+            first_name: token.first_name,
+            last_name: token.last_name,
+            email: token.email,
+            phone: token.phone,
+          })
+        }
+      } catch(error) {
+        console.log("something went wrong...!");
+      }
+    }
+
+    async removeToken() {
+      try {
+        await AsyncStorage.removeItem(ACCESS_TOKEN);
+      } catch(error) {
+        console.log("something went wrong...!");
+      }
     }
 
     static navigatorStyle = {
@@ -34,36 +80,34 @@ class MyAccount extends Component {
             <View style={styles.bodyBg}>
                 <View style={styles.pflheadr}>
                     <Image source={require('../../img/avatar.png')} style={styles.avatarImg} />
-                    <Text style={styles.prflName}>First Name Last Name  <Icon name="md-create" size={20} color="#ffffff" style={styles.hamburger} /></Text>
+                    <Text style={styles.prflName}> {this.state.first_name} {this.state.last_name}  <Icon name="md-create" size={20} color="#ffffff" style={styles.hamburger} /></Text>
                 </View>
                 <ScrollView>
                     <View style={styles.prflRow}>
                         <Text style={styles.prflRowTextLhs}>First Name  </Text>
-                        <Text style={styles.prflRowText}>Gopi </Text>
+                        <Text style={styles.prflRowText}> {this.state.first_name} </Text>
                     </View>
                     <View style={styles.prflRow}>
                         <Text style={styles.prflRowTextLhs}>Last Name  </Text>
-                        <Text style={styles.prflRowText}>Krishna </Text>
+                        <Text style={styles.prflRowText}> {this.state.last_name} </Text>
                     </View>
-                    <View style={styles.prflRow}>
+                    {/*<View style={styles.prflRow}>
                         <Text style={styles.prflRowTextLhs}>Gender  </Text>
                         <Text style={styles.prflRowText}>Male </Text>
-                    </View>
+                    </View>*/}
                     <View style={styles.prflRow}>
                         <Text style={styles.prflRowTextLhs}>Email  </Text>
-                        <Text style={styles.prflRowText}>gopi9703@gmail.com</Text>
+                        <Text style={styles.prflRowText}> {this.state.email} </Text>
                     </View>
                     <View style={styles.prflRow}>
                         <Text style={styles.prflRowTextLhs}>Mobile  </Text>
-                        <Text style={styles.prflRowText}>974 - 2222 - 3645 </Text>
+                        <Text style={styles.prflRowText}> {this.state.phone} </Text>
                     </View>
-
-                    <TouchableOpacity onPress={this.changePassword}>
+                    {/* }<TouchableOpacity onPress={this.changePassword}>
                         <View style={styles.PwdRow}>
                             <Text style={styles.changePwd}>Change Password  </Text>
                         </View>
-                    </TouchableOpacity>
-
+                    </TouchableOpacity>*/}
                 </ScrollView>
             </View>
         )

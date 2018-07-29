@@ -5,178 +5,202 @@ import { View, Text, StyleSheet, Image, TextInput, Alert, TouchableOpacity, Keyb
 import LinearGradient from 'react-native-linear-gradient';
 import misllaneous from "../../helper"
 
-
+const ACCESS_TOKEN = 'access_token';
 
 class AuthScreenRegister extends Component {
 
   constructor(props) {
     super(props)
-    //AsyncStorage.clear()
     this.state = {
-      UserFirstName: '',
-      UserLastName: '',
-      UserEmail: '',
-      UserPhone: '',
-      UserPassword: '',
-      UserConfirmationPassword: '',
+      first_name: '',
+      last_name: '',
+      email: '',
+      phone: '',
+      password: '',
+      is_logged_id: '',
+      confirm_password: '',
       userFname : true,
       userLname : true,
       userEmailV : true,
       userMobile : true,
       userPwd : true,
       userCpwd : true,
-
     }
   }
+  componentWillMount() {
+    this.getToken(ACCESS_TOKEN);
+  }
 
-
-
-  validate(text, type)
-    {
-        alpha = /^[a-zA-Z]+$/
-        num = /(?=.*\d)(?=.*[a-z]).{6,}/
-        num = /(?=.*\d)(?=.*[0-9]).{10,}/
-        mail = /\S+@\S+\.\S+/
-        if(type=="userfirstName")
-        {
-            if(alpha.test(text))
-            {
-                this.setState({
-                  userFname : true
-                })
-            }
-            else
-             {
-                this.setState({
-                  userFname : false
-                })
-            }
-        }
-
-       else if(type=="userlastName")
-        {
-            if(alpha.test(text))
-            {
-                this.setState({
-                  userLname : true
-                })
-            }
-            else
-             {
-                this.setState({
-                  userLname : false
-                })
-            }
-        }
-        else if(type=="userpwd")
-        {
-            if(num.test(text))
-            {
-                this.setState({
-                  userPwd : true
-                })
-            }
-            else
-             {
-                this.setState({
-                  userPwd : false
-                })
-            }
-        }
-        else if(type=="cuserpwd")
-        {
-            if(num.test(text))
-            {
-                this.setState({
-                  userCpwd : true
-                })
-            }
-            else
-             {
-                this.setState({
-                  userCpwd : false
-                })
-            }
-        }
-        else if(type=="usrMbl")
-        {
-            if(num.test(text))
-            {
-                this.setState({
-                  userMobile : true
-                })
-            }
-            else
-             {
-                this.setState({
-                  userMobile : false
-                })
-            }
-        }
-        else(type=="usrMail")
-        {
-            if(num.test(text))
-            {
-                this.setState({
-                  userEmailV : true
-                })
-            }
-            else
-             {
-                this.setState({
-                  userEmailV : false
-                })
-            }
-        }
-    }
-
-
-  async retrieveItem(key) {
+  async storeToken(accessToken) {
     try {
-      const retrievedItem = await AsyncStorage.getItem(key);
-      const item = JSON.parse(retrievedItem);
-      {
-        key == 'first_name' &&
-          this.setState({ 'UserFirstName': item })
-      }
-      {
-        key == 'last_name' &&
-          this.setState({ 'UserLastName': item })
-      }
-      {
-        key == 'email' &&
-          this.setState({ 'UserEmail': item })
-      }
-      {
-        key == 'phone' &&
-          this.setState({ 'UserPhone': item })
-      }
-      {
-        key == 'is_logged_id' &&
-          this.setState({ 'is_logged_id': item })
-      }
-      return item;
-    } catch (error) {
-      console.log(error.message);
-    }
-  }
-  componentDidMount() {
-    this.retrieveItem('first_name');
-    this.retrieveItem('last_name');
-    this.retrieveItem('email');
-    this.retrieveItem('phone');
-    this.retrieveItem('is_logged_id');
-
-    {
-      this.state.is_logged_id == 1 &&
-        this.startApp()
+      await AsyncStorage.setItem(ACCESS_TOKEN, JSON.stringify(accessToken));
+    } catch(error) {
+      console.log("something went wrong...!");
     }
   }
 
+  async getToken() {
+    try {
+      let token = await AsyncStorage.getItem(ACCESS_TOKEN);
+      token = JSON.parse(token);
+      if(token.id) {
+        this.startApp();
+      }
+    } catch(error) {
+      console.log("something went wrong...!");
+    }
+  }
+
+  async removeToken() {
+    try {
+      await AsyncStorage.removeItem(ACCESS_TOKEN);
+    } catch(error) {
+      console.log("something went wrong...!");
+    }
+  }
+
+  validate(text, type) {
+      nameReg = /^[a-zA-Z]+$/
+      passwordReg = /^[A-Z0-9a-z]+$/
+      mobileReg = /^(\+{0,1}?[0-9]{1,3}\-{0,1}?\ {0,1}?)?[0-9]{9,11}$/
+      emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/
+
+      if(type=="userfirstName")
+      {
+          this.setState({
+            userFname : false,
+          })
+          if(nameReg.test(text))
+          {
+              this.setState({
+                first_name: text,
+                userFname : true,
+              })
+          }
+          else
+           {
+              this.setState({
+                userFname : false,
+              })
+          }
+      }
+
+     else if(type=="userlastName")
+      {
+        this.setState({
+          userLname : false,
+        })
+        if(nameReg.test(text))
+        {
+            this.setState({
+              last_name:text,
+              userLname : true,
+            })
+        }
+        else
+         {
+            this.setState({
+              userLname : false
+            })
+        }
+      }
+      else if(type=="userpwd")
+      {
+        this.setState({
+          userPwd : false,
+        })
+        if(passwordReg.test(text))
+        {
+            this.setState({
+              password:text,
+              userPwd : true,
+            })
+        }
+        else
+         {
+            this.setState({
+              userPwd : false,
+            })
+        }
+      }
+      else if(type=="cuserpwd")
+      {
+        this.setState({
+          userCpwd : false,
+        })
+        if(passwordReg.test(text))
+        {
+            this.setState({
+              confirm_password:text,
+              userCpwd : true
+            })
+        }else
+        {
+          this.setState({
+            userCpwd : false
+          })
+        }
+
+        if(this.state.password != text)
+         {
+            this.setState({
+              userCpwd : false
+            })
+        }else
+        {
+          this.setState({
+            userCpwd : true
+          })
+        }
+      }
+      else if(type=="usrMbl")
+      {
+        this.setState({
+          userMobile : false,
+        })
+        if(mobileReg.test(text))
+        {
+            this.setState({
+              phone:text,
+              userMobile : true
+            })
+        }
+        else
+         {
+            this.setState({
+              userMobile : false
+            })
+        }
+      }
+      else if(type=="usrMail")
+      {
+        this.setState({
+          userEmailV : false,
+        })
+        if(emailReg.test(text))
+        {
+            this.setState({
+              email:text,
+              userEmailV : true
+            })
+        }
+        else
+         {
+            this.setState({
+              userEmailV : false
+            })
+        }
+      }
+  }
+
+  componentDidMount()
+  {
+
+  }
 
 
-  // and then
-  startApp = () => {
+  startApp = () =>
+  {
     Navigation.startTabBasedApp({
       tabs: [
         {
@@ -238,7 +262,9 @@ class AuthScreenRegister extends Component {
 
     });
   }
-  handlePress = () => {
+
+  handlePress = () =>
+  {
     this.props.navigator.push({
       screen: 'Wafi.AuthScreen',
       navigatorStyle: {
@@ -247,60 +273,76 @@ class AuthScreenRegister extends Component {
     });
   };
 
-  async storeItem(key, item) {
-    try {
-      //we want to wait for the Promise returned by AsyncStorage.setItem()
-      //to be resolved to the actual value before returning the value
-      var jsonOfItem = await AsyncStorage.setItem(key, JSON.stringify(item));
-      return jsonOfItem;
-    } catch (error) {
-      console.log(error.message);
+  fnRegister = () =>
+  {
+    if(!this.state.userFname)
+    {
+      Alert.alert("Please enter valid first name");
+      return false;
     }
-  }
-
-  fnRegister = () => {
-    const { UserFirstName } = this.state;
-    const { UserLastName } = this.state;
-    const { UserEmail } = this.state;
-    const { UserPhone } = this.state;
-    const { UserPassword } = this.state;
-    return fetch("http://admin.wafideals.com/apiregister", {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        first_name: UserFirstName,
-        last_name: UserLastName,
-        email: UserEmail,
-        phone: UserPhone,
-        password: UserPassword
+    if(!this.state.userLname)
+    {
+      Alert.alert("Please enter valid last name");
+      return false;
+    }
+    if(!this.state.userPwd)
+    {
+      Alert.alert("Please enter valid password");
+      return false;
+    }
+    if(!this.state.userCpwd)
+    {
+      Alert.alert("Password and confirm password not matching");
+      return false;
+    }
+    if(!this.state.userMobile)
+    {
+      Alert.alert("Please enter valid mobile number");
+      return false;
+    }
+    if(!this.state.userEmailV)
+    {
+      Alert.alert("Please enter valid email id");
+      return false;
+    }
+    if(this.state.first_name != '' && this.state.last_name != '' && this.state.email != '' && this.state.phone != '' && this.state.password != '' && this.state.userFname && this.state.userLname && this.state.userPwd && this.state.userMobile && this.state.userCpwd && this.state.userEmailV)
+    {
+      const { first_name } = this.state;
+      const { last_name } = this.state;
+      const { email } = this.state;
+      const { phone } = this.state;
+      const { password } = this.state;
+      return fetch("http://admin.wafideals.com/apiregister",
+      {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          first_name: first_name,
+          last_name: last_name,
+          email: email,
+          phone: phone,
+          password: password,
+        })
       })
-    })
       .then((response) => response.json())
       .then((responseJson) => {
-        {
-          (responseJson.id) &&
-            this.storeItem('is_logged_id', 1);
-          this.storeItem('customer_id', responseJson.id);
-          this.storeItem('first_name', responseJson.first_name);
-          this.storeItem('last_name', responseJson.last_name);
-          this.storeItem('phone', responseJson.phone);
-          this.storeItem('email', responseJson.email);
-          this.startApp()
-        }
+        this.storeToken(responseJson);
+        this.startApp()
       })
-      .catch((error) => {
+      .catch((error) =>
+      {
         console.error(error)
-        Alert.alert(error)
+        Alert.alert('Oops...! Something went wrong. Please try again')
       })
+    }else
+    {
+      Alert.alert("Please enter all required fields")
+    }
   }
   render() {
-    {
-      this.state.is_logged_id == 1 &&
-        this.startApp()
-    }
     return (
       <LinearGradient colors={['#621C6C', '#8E0076', '#B8007F']} style={styles.linearGradient}>
         <KeyboardAvoidingView style={styles.container} behavior="padding" enabled>

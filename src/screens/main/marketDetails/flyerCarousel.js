@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity, Dimensions, Alert, FlatList, ActivityIndicator } from 'react-native';
 import Swiper from 'react-native-swiper';
-
+import PhotoView from 'react-native-photo-view';
 
 const renderPagination = (index, total, context) => {
     return (
@@ -80,8 +80,22 @@ class flyerCarouel extends Component {
         var flyerdetails = this.state.dataSource.map(
             function iterator(flyer) {
                 return (
-                    <View style={styles.slide1}>
-                        <Image source={{ uri: 'http://admin.wafideals.com/storage/' + flyer.flyer_path }} style={styles.makretImg} />
+                    <View style={styles.slide1} >
+                        <PhotoView
+                            resizeMode={'cover'}
+                            source={{ uri: 'http://admin.wafideals.com/storage/' + flyer.flyer_path }} style={styles.makretImg}
+                            minimumZoomScale={1}
+                            maximumZoomScale={3}
+                            androidScaleType="fitCenter"
+                            onLoad={() => console.log("Image loaded!")}
+                            loadingIndicatorSource={true}
+                            showsHorizontalScrollIndicator={false}
+                            showsVerticalScrollIndicator={false}
+                            fadeDuration={100}
+                            androidZoomTransitionDuration={100}
+                            onLoadEnd={() => this.setState({ loaded: true })}
+
+                        />
                     </View>
                 );
             },
@@ -115,22 +129,13 @@ const styles = StyleSheet.create({
 
         flexDirection: 'column'
     },
-    carouselImg: {
-        width: undefined,
-        height: undefined,
-        flex: 1,
-        resizeMode: 'cover'
-    },
     makretImg: {
         width: Dimensions.get('window').width,
         height: Dimensions.get('window').height,
-        resizeMode: 'contain',
-        borderColor: 'transparent',
-        borderWidth: 1
+        resizeMode: 'cover',
+
     },
-    wrapper: {
-        flex: 1
-    },
+
     buttonText: {
         color: 'red',
         fontSize: 22,
@@ -169,6 +174,5 @@ const styles = StyleSheet.create({
 
     }
 });
-
 
 export default flyerCarouel;

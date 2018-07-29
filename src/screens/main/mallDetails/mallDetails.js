@@ -84,7 +84,7 @@ class mallDetails extends Component {
 
     }
 
-    mallInfoHandler = () => {
+    mallInfoHandler = (id) => {
         this.props.navigator.push({
             screen: 'Wafi.mallInfo',
             animated: true,
@@ -92,8 +92,8 @@ class mallDetails extends Component {
             navigatorStyle: {
                 navBarBackgroundColor: '#0A266D',
                 navBarButtonColor: '#ffffff'
-            }
-
+            },
+            passProps: { mallid: id },
         });
 
     }
@@ -113,7 +113,7 @@ class mallDetails extends Component {
                         return(
                           <View style={styles.gridItem}>
                               <View style={styles.gridWrapr}>
-                                  <TouchableOpacity onPress={() => this.OffersListHandler(offer.id)}>
+                                  <TouchableOpacity onPress={() => this.mallInfoHandler(offer.id)}>
                                       <Image source={{ uri: 'http://admin.wafideals.com/storage/' + offer.logo_path }} style={styles.ProductImg} />
                                       <Text style={styles.center}>{offer.discount_value}</Text>
                                       <View style={styles.prdDescr}>
@@ -148,10 +148,10 @@ class mallDetails extends Component {
                                 <Image source={{ uri: 'http://admin.wafideals.com/storage/' + this.state.dataSource.logo_path }} style={styles.mallLogo} />
                             </View>
                             <View style={styles.mallInfo}>
-                                <TouchableOpacity onPress={() => this.callNumber(`tel:+19742223645`)}>
+                                <TouchableOpacity onPress={() => this.mallInfoHandler(this.props.mallid)}>
                                     <View style={styles.IconBlk}>
-                                        <Image source={require('../../../icons/call.png')} style={styles.iconView} />
-                                        <Text style={[styles.iconText]}>Contact</Text>
+                                        <Image source={require('../../../icons/info.png')} style={styles.iconView} />
+                                        <Text style={[styles.iconText]}>Info</Text>
                                     </View>
                                 </TouchableOpacity>
                                 <TouchableOpacity onPress={()=> this.EventsListHandler(this.props.mallid)}>

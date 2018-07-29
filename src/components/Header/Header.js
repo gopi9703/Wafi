@@ -1,30 +1,76 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity, KeyboardAvoidingView, TabBarIOS, Picker } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity,Alert, KeyboardAvoidingView, TabBarIOS, Picker, AsyncStorage } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Navigation from 'react-native-navigation';
 import SideDrawer from '../SideDrawer/SideDrawer';
 import setStateModal from '../Modal/setStateModal';
 
+import Offers from '../../screens/main/Offers';
+
+const CITY_TOKEN = 'city_token';
+
 class Header extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            state: 'Muscat'
-        }
+  constructor(props) {
+    super(props);
+    this.state = {
+        isLoading: true,
+        dataSource: [],
+        cityname:'',
+        city_id: '',
+        refreshing: false,
     }
+  }
+  componentWillMount() {
+    this.getCityToken();
+  }
 
-    showLeftMenu(navigator) {
-        navigator.toggleDrawer({
-            side: 'left'
-        })
+  async getCityToken() {
+    try {
+      let token = await AsyncStorage.getItem(CITY_TOKEN);
+      this.setState({cityname:token.toString()})
+    } catch(error) {
+      console.log("something went wrong...!");
     }
+  }
+
+  componentDidMount() {
+    return fetch("http://admin.wafideals.com/apicities", { method: 'GET' })
+    .then((response) => response.json())
+    .then((responseJson) => {
+        this.setState({
+            isLoading: false,
+            cityname: '',
+            dataSource: responseJson,
+        })
+
+        this.getCityToken();
+    })
+    .catch((error) => {
+        console.error(error)
+    })
+  }
+
+  showLeftMenu(navigator) {
+    navigator.toggleDrawer({
+        side: 'left'
+    })
+  }
+
+  async storeCityToken(accessToken) {
+    try {
+      Alert.alert(accessToken)
+      await AsyncStorage.setItem(CITY_TOKEN, accessToken);
+    } catch(error) {
+      console.log("something went wrong...!");
+    }
+  }
 
     searchHandler = () => {
         this.props.navigator.push({
             screen: 'Wafi.Search',
             animated: true,
-            animationType: 'slide-vertical', // 'fade' (for both) / 'slide-horizontal'
+            animationType: 'slide-vertical',
             tabBarHidden: true,
             navigatorStyle: {
                 navBarBackgroundColor: '#0A266D',
@@ -36,9 +82,16 @@ class Header extends Component {
         });
     }
 
-
-
     render() {
+      var cities = this.state.dataSource.map(
+          function iterator( city ) {
+              return(
+                <Picker.Item label={city.name} value={city.name} />
+              );
+          },
+          this
+      );
+
         return (
             <View>
                 <View style={styles.HeaderBlk}>
@@ -54,13 +107,12 @@ class Header extends Component {
                                 <View style={styles.HeaderModalInner} >
                                     <Picker
                                         style={{ width: 120, color: '#ffffff' }}
-                                        selectedValue={this.state.language}
-                                        onValueChange={(lang) => this.setState({ language: lang })}
+                                        selectedValue= {this.state.cityname}
+                                        onValueChange={(itemValue, itemIndex) => { this.setState({cityname: itemValue}); new Offers(this.props).fetchOffers(itemValue); } }
                                         itemStyle={{ backgroundColor: 'lightgrey', marginLeft: 0, paddingLeft: 15 }}
                                         itemTextStyle={{ fontSize: 18, color: 'white' }}
                                     >
-                                        <Picker.Item label="Muscat" value="Muscat" />
-                                        <Picker.Item label="Oman" value="Oman" />
+                                    {cities}
                                     </Picker>
                                     <Icon name="ios-pin" size={20} color="#BBBDBF" style={styles.map__pin} />
                                 </View>
@@ -124,7 +176,7 @@ const styles = StyleSheet.create({
         top: 15,
         right: 20,
         color: '#ffffff'
-       
+
     }
 });
 

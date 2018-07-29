@@ -82,7 +82,7 @@ class Brands extends Component {
         var categories = this.state.dataCategories.map(
                     function iterator( category ) {
                         return(
-                          <ActionButton.Item buttonColor='#333333' titleBgColor='333333' textStyle={{ backgroundColor: '#3333333', color: '#333333' }} title={category.name} onPress={() => this.fnBrandsRefresh(category.id)} >
+                          <ActionButton.Item size={35} buttonColor='#333333' titleBgColor='333333' textStyle={{ backgroundColor: '#3333333', color: '#333333' }} title={category.name} onPress={() => this.fnBrandsRefresh(category.id)} >
                               <Icon name="md-pricetags" size={12} style={styles.actionButtonIcon} />
                           </ActionButton.Item>
                         );
@@ -120,7 +120,7 @@ class Brands extends Component {
                         />
                     </View>
                 </ScrollView>
-                <ActionButton  buttonColor="#ec1172" spacing={2} icon={<Icon name='ios-funnel' size={18} style={styles.filterIcon} />} renderIcon={active => active ? (<Icon name="md-close" size={32} style={styles.filterIcon} />) : (<Icon name="ios-funnel" size={26} style={styles.filterIcon} />)}>
+                <ActionButton offsetY={5} size={50}  buttonColor="#ec1172" spacing={2} icon={<Icon name='ios-funnel' size={18} style={styles.filterIcon} />} renderIcon={active => active ? (<Icon name="md-close" size={32} style={styles.filterIcon} />) : (<Icon name="ios-funnel" size={26} style={styles.filterIcon} />)}>
                     {categories}
                 </ActionButton>
             </View>

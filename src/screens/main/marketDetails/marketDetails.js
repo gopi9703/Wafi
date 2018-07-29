@@ -61,7 +61,7 @@ class marketDetails extends Component {
 
     InfoListHandler = (id) => {
         this.props.navigator.push({
-            screen: 'Wafi.MallInfo',
+            screen: 'Wafi.mallInfo',
             animated: true,
             animationType: 'slide-up', // 'fade' (for both) / 'slide-horizontal'
             navigatorStyle: {

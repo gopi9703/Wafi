@@ -7,57 +7,85 @@ import Logo from '../../components/Logo';
 import Offers from '../main/Offers';
 import Brands from '../main/Brands';
 
+const ACCESS_TOKEN = 'access_token';
 
 class AuthScreen extends Component {
 
-
     constructor(props) {
-		super(props);
-    this.state = {
-      name: '',
-      nameValidate : true,
-      password : '',
-      passwordValidate : true,
-    }
-   
-    AsyncStorage.clear()
+  		super(props);
+      this.state = {
+        first_name: '',
+        last_name: '',
+        email: '',
+        phone: '',
+        password: '',
+        is_logged_id: '',
+        passwordValidate : true,
+        nameValidate : true,
+      }
     }
 
-    validate(text, type)
-    {
-        alpha = /^[a-zA-Z]+$/
-        num = /(?=.*\d)(?=.*[a-z]).{6,}/
-        if(type=="username")
-        {
-            if(alpha.test(text))
-            {
+    componentWillMount() {
+      this.getToken(ACCESS_TOKEN);
+    }
+
+    async storeToken(accessToken) {
+      try {
+        await AsyncStorage.setItem(ACCESS_TOKEN, JSON.stringify(accessToken));
+      } catch(error) {
+        console.log("something went wrong...!");
+      }
+    }
+
+    async getToken() {
+      try {
+        let token = await AsyncStorage.getItem(ACCESS_TOKEN);
+        token = JSON.parse(token);
+        if(token.id) {
+          this.startApp();
+        }
+      } catch(error) {
+        console.log("something went wrong...!");
+      }
+    }
+
+    async removeToken() {
+      try {
+        await AsyncStorage.removeItem(ACCESS_TOKEN);
+      } catch(error) {
+        console.log("something went wrong...!");
+      }
+    }
+
+    validate(text, type) {
+        emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/
+        passwordReg = /^[A-Z0-9a-z]+$/
+        if(type == "email") {
+            if(emailReg.test(text)) {
                 this.setState({
-                    nameValidate : true
+                    email: text,
+                    nameValidate : true,
                 })
             }
-            else
-             {
+            else {
                 this.setState({
                     nameValidate : false
                 })
             }
         }
-        else if(type == "password")
-        {
-            if(num.test(text))
-            {
+        else if(type == "password") {
+            if(passwordReg.test(text)) {
                 this.setState({
-                    passwordValidate : true
+                  password:text,
+                  passwordValidate : true
                 })
             }
-            else
-             {
+            else {
                 this.setState({
                     passwordValidate : false
                 })
             }
         }
-        
     }
 
     handlePress = () => {
@@ -77,44 +105,6 @@ class AuthScreen extends Component {
             },
         });
     };
-
-    async retrieveItem(key) {
-      try {
-        const retrievedItem =  await AsyncStorage.getItem(key);
-        const item = JSON.parse(retrievedItem);
-        {key == 'first_name' &&
-          this.setState({'UserFirstName': item})
-        }
-        {key == 'last_name' &&
-          this.setState({'UserLastName': item})
-        }
-        {key == 'email' &&
-          this.setState({'UserEmail': item})
-        }
-        {key == 'phone' &&
-          this.setState({'UserPhone': item})
-        }
-        {key == 'is_logged_id' &&
-          this.setState({'is_logged_id': item})
-        }
-        return item;
-      } catch (error) {
-        console.log(error.message);
-      }
-    }
-
-    async storeItem(key, item) {
-  try {
-      //we want to wait for the Promise returned by AsyncStorage.setItem()
-      //to be resolved to the actual value before returning the value
-      var jsonOfItem = await AsyncStorage.setItem(key, JSON.stringify(item));
-      return jsonOfItem;
-  } catch (error) {
-    console.log(error.message);
-  }
-}
-
-      // and then
       startApp = () => {
         Navigation.startTabBasedApp({
           tabs: [
@@ -179,33 +169,27 @@ class AuthScreen extends Component {
     }
 
     fnLogin = () => {
-      const { UserEmail }  = this.state ;
-      const { UserPassword }  = this.state ;
+      const { email }  = this.state ;
+      const { password }  = this.state ;
       return fetch("http://admin.wafideals.com/apilogin", { method: 'POST' ,
       headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
           },
         body: JSON.stringify({
-          email: UserEmail,
-          password: UserPassword
+          email: email,
+          password: password
         })
       })
-          .then((response) => response.json())
-          .then((responseJson) => {
-            {(responseJson.id) &&
-              this.storeItem('is_logged_id', 1);
-              this.storeItem('customer_id', responseJson.id);
-              this.storeItem('first_name', responseJson.first_name);
-              this.storeItem('last_name',responseJson.last_name);
-              this.storeItem('phone',responseJson.phone);
-              this.storeItem('email' , responseJson.email);
-              this.startApp()
-            }
-          })
-          .catch((error) => {
-              console.error(error)
-          })
+      .then((response) => response.json())
+      .then((responseJson) => {
+          this.storeToken(responseJson);
+          this.startApp()
+      })
+      .catch((error) => {
+        this.removeToken();
+        console.error(error)
+      })
   }
 
 
@@ -217,26 +201,26 @@ class AuthScreen extends Component {
                         <Logo />
 
                         <TextInput style={[styles.inputBox, !this.state.nameValidate?styles.error:null]} underlineColorAndroid='rgba(0,0,0,0)' placeholderTextColor="white"
-                            placeholder="Email/Mobile" onChangeText={(text)=> this.validate(text, 'username')} />
+                            placeholder="Email/Mobile" onChangeText={(text)=> this.validate(text, 'email')} />
                         <TextInput style={[styles.inputBox, !this.state.passwordValidate?styles.error:null]} underlineColorAndroid='rgba(0,0,0,0)' placeholderTextColor="white"
                             placeholder="Password" secureTextEntry={true} onChangeText={(text)=> this.validate(text, 'password')} />
                         <TouchableOpacity style={styles.buttonBlock}>
                             <Text style={styles.buttonText} onPress= {()=>this.fnLogin()}>Login</Text>
                         </TouchableOpacity>
-                        <View style={styles.socialLoginWrapper}>
+                        {/* <View style={styles.socialLoginWrapper}>
 
                             <Text style={styles.facebook} >Login with Facebook</Text>
                             <Text style={styles.google}>Login with Google</Text>
 
-                        </View>
+                        </View> */}
                     </View>
                     <View style={styles.singUpTextBlk}>
                         <TouchableOpacity>
                             <Text style={styles.singUpText} onPress={this.handlePress}>New here? Sign Up</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity>
+                        {/* <TouchableOpacity>
                             <Text style={styles.singUpText} onPress={this.ForgotPassword}>Forgot Password</Text>
-                        </TouchableOpacity>
+                        </TouchableOpacity> */}
                     </View>
                 </KeyboardAvoidingView>
 
@@ -325,7 +309,7 @@ const styles = StyleSheet.create({
     },
     singUpTextBlk: {
         flexDirection: 'row',
-        justifyContent: 'space-between',
+        justifyContent: 'center',
         flex: 1,
         width: '90%',
 

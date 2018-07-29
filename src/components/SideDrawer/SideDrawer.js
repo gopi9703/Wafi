@@ -5,6 +5,8 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import Share from 'react-native-share';
 
+const ACCESS_TOKEN = 'access_token';
+
 class SideDrawer extends Component {
 
     static navigatorStyle = {
@@ -16,14 +18,74 @@ class SideDrawer extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            visible: false
+          first_name: '',
+          last_name: '',
+          email: '',
+          phone: '',
+          password: '',
+          is_logged_id: '',
+          visible: false,
         }
     }
+
+    componentWillMount() {
+      this.getToken(ACCESS_TOKEN);
+    }
+
+    async storeToken(accessToken) {
+      try {
+        await AsyncStorage.setItem(ACCESS_TOKEN, JSON.stringify(accessToken));
+      } catch(error) {
+        console.log("something went wrong...!");
+      }
+    }
+
+    async getToken() {
+      try {
+        let token = await AsyncStorage.getItem(ACCESS_TOKEN);
+        token = JSON.parse(token);
+        if(token.id) {
+          this.setState({
+            id: token.id,
+            first_name: token.first_name,
+            last_name: token.last_name,
+            email: token.email,
+            phone: token.phone,
+          })
+        }
+      } catch(error) {
+        console.log("something went wrong...!");
+      }
+    }
+
+    async removeToken() {
+      try {
+        await AsyncStorage.removeItem(ACCESS_TOKEN);
+      } catch(error) {
+        console.log("something went wrong...!");
+      }
+    }
+
     onCancel() {
         this.setState({ visible: false });
     }
     onOpen() {
         this.setState({ visible: true });
+    }
+
+    handlePress = () => {
+      this.props.navigator.push({
+        screen: 'Wafi.AuthScreen',
+        navigatorStyle: {
+          navBarHidden: true
+        },
+      });
+    };
+
+    logOut() {
+      this.setState({ visible: false });
+      AsyncStorage.clear();
+      this.forceUpdate();
     }
 
 
@@ -62,12 +124,14 @@ class SideDrawer extends Component {
                     </View>
                 </TouchableOpacity>
 
-                <TouchableOpacity onPress={() => this._navigate('Wafi.MyAccount')}>
-                    <View style={styles.list__col}>
-                        <FontAwesome name='user-circle' size={20} style={styles.iconStyler} />
-                        <Text style={styles.list}>My Account</Text>
-                    </View>
-                </TouchableOpacity>
+                { (this.state.id > 0) &&
+                  <TouchableOpacity onPress={() => this._navigate('Wafi.MyAccount')}>
+                      <View style={styles.list__col}>
+                          <FontAwesome name='user-circle' size={20} style={styles.iconStyler} />
+                          <Text style={styles.list}>My Account</Text>
+                      </View>
+                  </TouchableOpacity>
+                }
 
 
                 <TouchableOpacity onPress={() => this._navigate('Wafi.About')}>
@@ -105,12 +169,23 @@ class SideDrawer extends Component {
                     </View>
                 </TouchableOpacity>
 
-                <TouchableOpacity onPress={() => this._navigate('Wafi.AuthScreen')}>
-                    <View style={styles.list__col}>
-                        <FontAwesome name='sign-in' size={20} style={styles.iconStyler} />
-                        <Text style={styles.list}>Login</Text>
-                    </View>
-                </TouchableOpacity>
+                { !(this.state.id > 0) &&
+                  <TouchableOpacity onPress={() => this._navigate('Wafi.AuthScreen')}>
+                      <View style={styles.list__col}>
+                          <FontAwesome name='sign-in' size={20} style={styles.iconStyler} />
+                          <Text style={styles.list}>Login</Text>
+                      </View>
+                  </TouchableOpacity>
+                }
+
+                {this.state.id &&
+                  <TouchableOpacity onPress={() => this.logOut()}>
+                      <View style={styles.list__col}>
+                          <FontAwesome name='sign-out' size={20} style={styles.iconStyler} />
+                          <Text style={styles.list}>Logout</Text>
+                      </View>
+                  </TouchableOpacity>
+                }
 
             </View>
         );
