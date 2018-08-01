@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity, Alert, ScrollView, ActivityIndicator, FlatList, Dimensions } from 'react-native';
-import Header from '../../components/Header/Header';
-import Navigation from 'react-native-navigation';
-import ProductCards from '../../components/ProductCards/ProductCards';
 import ActionButton from 'react-native-action-button';
 import Icon from 'react-native-vector-icons/Ionicons';
 import CustomPlaceholder from '../../components/CustomPlaceholder';
+import SearchBar from 'react-native-searchbar';
 
 class Brands extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            category_id : 0,
+            category_id: 0,
             isLoading: true,
             dataSource: [],
             dataCategories: [],
@@ -32,39 +30,46 @@ class Brands extends Component {
         });
     }
     fetchCategories = () => {
-      return fetch("http://admin.wafideals.com/apicategories", { method: 'GET' })
-          .then((response) => response.json())
-          .then((responseJson) => {
-              this.setState({
-                  dataCategories: responseJson,
-              })
-          })
-          .catch((error) => {
-              console.error(error)
-          })
+        return fetch("http://admin.wafideals.com/apicategories", { method: 'GET' })
+            .then((response) => response.json())
+            .then((responseJson) => {
+                this.setState({
+                    dataCategories: responseJson,
+                })
+            })
+            .catch((error) => {
+                console.error(error)
+            })
+    }
+
+
+    showLeftMenu(navigator) {
+        navigator.toggleDrawer({
+            side: 'left'
+        })
     }
 
     fnBrandsRefresh = (id) => {
-      this.state.category_id = id;
+        this.state.category_id = id;
 
-      this.fetchBrands();
+        this.fetchBrands();
     }
 
-    fetchBrands = () =>{
-      return fetch("http://admin.wafideals.com/apibrands?category_id=" + this.state.category_id, { method: 'GET' })
-          .then((response) => response.json())
-          .then((responseJson) => {
-              this.setState({
-                  isLoading: false,
-                  dataSource: responseJson,
-              })
-          })
-          .catch((error) => {
-              console.error(error)
-          })
+    fetchBrands = () => {
+        return fetch("http://admin.wafideals.com/apibrands?category_id=" + this.state.category_id, { method: 'GET' })
+            .then((response) => response.json())
+            .then((responseJson) => {
+                this.setState({
+                    isLoading: false,
+                    dataSource: responseJson,
+                })
+            })
+            .catch((error) => {
+                console.error(error)
+            })
     }
     componentDidMount() {
-      this.fetchCategories();
+        this.fetchCategories();
         this.fetchBrands();
     }
 
@@ -80,20 +85,36 @@ class Brands extends Component {
         }
 
         var categories = this.state.dataCategories.map(
-                    function iterator( category ) {
-                        return(
-                          <ActionButton.Item size={35} buttonColor='#333333' titleBgColor='333333' textStyle={{ backgroundColor: '#3333333', color: '#333333' }} title={category.name} onPress={() => this.fnBrandsRefresh(category.id)} >
-                              <Icon name="md-pricetags" size={12} style={styles.actionButtonIcon} />
-                          </ActionButton.Item>
-                        );
-                    },
-                    this
+            function iterator(category) {
+                return (
+                    <ActionButton.Item size={35} buttonColor='#333333' titleBgColor='333333' textStyle={{ backgroundColor: '#3333333', color: '#333333' }} title={category.name} onPress={() => this.fnBrandsRefresh(category.id)} >
+                        <Icon name="md-pricetags" size={12} style={styles.actionButtonIcon} />
+                    </ActionButton.Item>
                 );
+            },
+            this
+        );
 
         return (
 
             <View style={{ flex: 1 }}>
-                <Header navigator={this.props.navigator} />
+                <View style={styles.HeaderBlk}>
+                    <View style={styles.HeaderLhs}>
+                        <View>
+                            <TouchableOpacity onPress={() => this.showLeftMenu(this.props.navigator)}>
+                                <Icon name="ios-menu" size={34} color="#ffffff" style={styles.hamburger} />
+                            </TouchableOpacity>
+                        </View>
+
+                    </View>
+                    <TouchableOpacity onPress={() => this.searchBar.show()}>
+                        <Icon name="ios-search" size={34} color="#ffffff" style={styles.hamburger} />
+                    </TouchableOpacity>
+                    <SearchBar placeholder="Please Search Here..."
+                        ref={(ref) => this.searchBar = ref}
+                        handleResults={this._handleResults}
+                    />
+                </View>
                 <ScrollView ref={(c) => { this.parentScrollView = c; }}>
 
                     <View style={styles.prdtWrapr}>
@@ -120,7 +141,7 @@ class Brands extends Component {
                         />
                     </View>
                 </ScrollView>
-                <ActionButton offsetY={5} size={50}  buttonColor="#ec1172" spacing={2} icon={<Icon name='ios-funnel' size={18} style={styles.filterIcon} />} renderIcon={active => active ? (<Icon name="md-close" size={32} style={styles.filterIcon} />) : (<Icon name="ios-funnel" size={26} style={styles.filterIcon} />)}>
+                <ActionButton offsetY={5} size={50} buttonColor="#ec1172" spacing={2} icon={<Icon name='ios-funnel' size={18} style={styles.filterIcon} />} renderIcon={active => active ? (<Icon name="md-close" size={32} style={styles.filterIcon} />) : (<Icon name="ios-funnel" size={26} style={styles.filterIcon} />)}>
                     {categories}
                 </ActionButton>
             </View>
@@ -226,6 +247,50 @@ const styles = StyleSheet.create({
     labelColor: {
         backgroundColor: '#ffffff',
         color: '#000000'
+    },
+    HeaderBlk: {
+        backgroundColor: '#0A266D',
+        paddingTop: 15,
+        paddingBottom: 10,
+        paddingLeft: 20,
+        paddingRight: 20,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+    },
+    HeaderLhs: {
+        flexDirection: 'row',
+    },
+    logoImg: {
+        marginLeft: 5
+    },
+    hamburger: {
+        padding: 5,
+    },
+    HeaderModal: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    stateChangeText: {
+        color: 'white',
+        paddingLeft: 10,
+        fontSize: 16,
+        alignItems: 'center',
+        paddingVertical: 5,
+        paddingHorizontal: 2
+    },
+    HeaderModalInner: {
+        flexDirection: 'row',
+        alignItems: 'center'
+    },
+    map__pin: {
+        marginLeft: 5,
+        position: 'absolute',
+        top: 15,
+        right: 20,
+        color: '#ffffff'
+
     }
 });
 
