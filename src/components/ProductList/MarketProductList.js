@@ -207,7 +207,9 @@ export default class ProductList extends Component {
         }
         numColumns={1}
         keyExtractor={item => item.id}
+        
         initialNumToRender={10}
+        
       />
 
     )

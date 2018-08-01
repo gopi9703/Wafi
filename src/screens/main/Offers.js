@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Image, FlatList,RefreshControl, TextInput,AsyncStorage, Alert, TouchableOpacity, KeyboardAvoidingView, ScrollView, Dimensions, ActivityIndicator } from 'react-native';
-import Header from '../../components/Header/Header';
+import { View, Text, StyleSheet, Image, FlatList, RefreshControl, TextInput, AsyncStorage, Alert, TouchableOpacity, KeyboardAvoidingView, ScrollView, Dimensions, ActivityIndicator, Picker } from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
 import Navigation from 'react-native-navigation';
 import CustomPlaceholder from '../../components/CustomPlaceholder';
 import Swiper from 'react-native-swiper';
+import SearchBar from 'react-native-searchbar';
 
 const CITY_TOKEN = 'city_token';
 
@@ -15,29 +16,32 @@ class Offers extends Component {
             isLoading: true,
             dataSource: [],
             dataSource1: [],
-            city_id:'',
+            citiesData: [],
+            city_id: '',
             cityname: '',
             refreshing: false,
         }
-        this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
+
     }
     componentWillMount() {
+      this.fetchCities();
       this.getCityToken();
     }
     componentDidMount() {
-      this.fetchAds();
+        this.fetchAds();
     }
     _onRefresh = () => {
-      this.setState({refreshing: true});
-      this.fetchOffers('').then(() => {
-        this.setState({refreshing: false});
-      });
+        this.setState({ refreshing: true });
+        this.fetchOffers().then(() => {
+            this.setState({ refreshing: false });
+        });
     }
     async getCityToken() {
       try {
         let token = await AsyncStorage.getItem(CITY_TOKEN);
         this.setState({cityname: token.toString()});
-        this.fetchOffers(token);
+        this.fetchOffers();
+        return token;
       } catch(error) {
         console.log("something went wrong...!");
       }
@@ -45,55 +49,61 @@ class Offers extends Component {
 
     async storeCityToken(accessToken) {
       try {
+        this.setState({cityname: accessToken});
         await AsyncStorage.setItem(CITY_TOKEN, accessToken);
+        this.fetchOffers();
       } catch(error) {
         console.log("something went wrong...!");
       }
     }
 
-    fetchOffers = (city_name) =>
-    {
-      if(city_name == '') {
-        city_name = this.state.cityname;
-      } else {
-        this.storeCityToken(city_name)
-        this.setState({
-          cityname: city_name,
-        })
-      }
-      return fetch("http://admin.wafideals.com/apioffers?city_name="+ city_name, { method: 'GET' })
-        .then((response) => response.json())
-        .then((responseJson) => {
-          let res  = JSON.stringify(responseJson)
-          if(res != null && res !== '' && res != '[]') {
-            this.setState({
-                dataSource: responseJson,
-            })
-          } else {
-            this.setState({
-                dataSource: [],
-            })
-          }
-        })
-        .catch((error) => {
-            console.error(error)
-        })
-    }
-
-
-    fetchAds = () =>
-    {
-      return fetch("http://admin.wafideals.com/apiads?city_id=" + this.state.city_id, { method: 'GET' })
+    fetchCities() {
+      return fetch("http://admin.wafideals.com/apicities", { method: 'GET' })
           .then((response) => response.json())
           .then((responseJson) => {
               this.setState({
-                  isLoading: false,
-                  dataSource1: responseJson,
+                  citiesData: responseJson,
               })
           })
           .catch((error) => {
               console.error(error)
           })
+    }
+
+    fetchOffers = () => {
+        return fetch("http://admin.wafideals.com/apioffers?city_name=" + this.state.cityname, { method: 'GET' })
+            .then((response) => response.json())
+            .then((responseJson) => {
+                let res = JSON.stringify(responseJson)
+                if (res != null && res !== '' && res != '[]') {
+                    this.setState({
+                        dataSource: responseJson,
+                    })
+                } else {
+                    this.setState({
+                        dataSource: [],
+                    })
+                }
+            })
+            .catch((error) => {
+                console.error(error)
+            });
+
+    }
+
+
+    fetchAds = () => {
+        return fetch("http://admin.wafideals.com/apiads?city_id=" + this.state.city_id, { method: 'GET' })
+            .then((response) => response.json())
+            .then((responseJson) => {
+                this.setState({
+                    isLoading: false,
+                    dataSource1: responseJson,
+                })
+            })
+            .catch((error) => {
+                console.error(error)
+            })
     }
 
     OffersListHandler = (id) => {
@@ -110,92 +120,122 @@ class Offers extends Component {
 
     }
 
-    onNavigatorEvent(event) {
-        if (event.type == 'DeepLink') {
-            const parts = event.link.split('/');
-            if (parts[0] == 'AppExclusive') {
-                this.props.navigator.resetTo({
-                    screen: 'Wafi.AppExclusive',
-                    passProps: {},
-                    animated: true,
-                });
-            }
-        }
+    showLeftMenu(navigator) {
+        navigator.toggleDrawer({
+            side: 'left'
+        })
     }
 
-    renderItem = ({item}) => {
-      return (
-        <View style={styles.gridItem}>
-            <View style={styles.gridWrapr}>
-                  {item.new_label > 0 &&
-                    <View style={styles.newBadge}>
-                        <Text style={{ color: '#ffffff', fontSize: 12 }}>NEW</Text>
-                    </View>
-                }
-                <TouchableOpacity onPress={() => this.OffersListHandler(item.id)}>
-                    <Image source={{ uri: 'http://admin.wafideals.com/storage/' + item.logo_path }} style={styles.ProductImg} />
-                    <Text style={styles.center}>{item.discount_value}</Text>
-                    <View style={styles.prdDescr}>
-                        <Text style={styles.offerTitle} numberOfLines={1}>{item.title}</Text>
-                        <Text style={styles.offerDesc} numberOfLines={1}>{item.tagline}</Text>
-                    </View>
-                </TouchableOpacity>
-            </View>
-        </View>
-        )
-    }
-
-render() {
-    if (this.state.isLoading) {
+    renderItem = ({ item }) => {
         return (
-            <View style={{ flex: 1, alignItems: 'flex-start' }}>
-                <CustomPlaceholder animate="fade">
-                </CustomPlaceholder>
+            <View style={styles.gridItem}>
+                <View style={styles.gridWrapr}>
+                    {item.new_label > 0 &&
+                        <View style={styles.newBadge}>
+                            <Text style={{ color: '#ffffff', fontSize: 12 }}>NEW</Text>
+                        </View>
+                    }
+                    <TouchableOpacity onPress={() => this.OffersListHandler(item.id)}>
+                        <Image source={{ uri: 'http://admin.wafideals.com/storage/' + item.logo_path }} style={styles.ProductImg} />
+                        <Text style={styles.center}>{item.discount_value}</Text>
+                        <View style={styles.prdDescr}>
+                            <Text style={styles.offerTitle} numberOfLines={1}>{item.title}</Text>
+                            <Text style={styles.offerDesc} numberOfLines={1}>{item.tagline}</Text>
+                        </View>
+                    </TouchableOpacity>
+                </View>
             </View>
         )
     }
 
-    return (
+    render() {
 
-        <View style={{ flex: 1 }}>
-            <Header navigator={this.props.navigator} />
-            <ScrollView ref={(c) => { this.parentScrollView = c; }}
-            >
-            <View style={styles.swiperBlk}>
-            <Swiper showsButtons={false} showsPagination={true} dot={<View style={{ backgroundColor: 'rgba(255,255,255,.3)', width: 8, height: 8, borderRadius: 7, marginLeft: 5, marginRight: 5 }} />}
-                activeDot={<View style={{ backgroundColor: '#cccccc', width: 8, height: 8, borderRadius: 7, marginLeft: 5, marginRight: 5 }} />}
-                paginationStyle={{
-                    bottom: 20
-                }}>
-                {this.state.dataSource1.map((item, key) => {
-                 return (
-                   <View style={styles.swiperlist}>
-                       <Image source={{ uri: 'http://admin.wafideals.com/storage/' + item.ad_banner_path }} style={styles.makretImg} style={{height: '100%'}} />
-                   </View>
-                 )})
-              }
-            </Swiper>
+        var cities = this.state.citiesData.map(
+            function iterator(city) {
+                return (
+                    <Picker.Item label={city.name} value={city.name} />
+                );
+            },
+            this
+        );
 
-            </View>
-                <View style={styles.prdtWrapr}>
-                    <FlatList style={{ flex: 1, paddingBottom: 10 }}
-                        extraData={this.state}
-                        data={this.state.dataSource}
-                        renderItem={this.renderItem}
-                        numColumns={2}
-                        keyExtractor={(item, index) => item.id}
-                        refreshControl={
-                        <RefreshControl
-                          refreshing={this.state.refreshing}
-                          onRefresh={this._onRefresh}
-                        />
-                      }
-                    />
+        return (
+
+            <View style={{ flex: 1 }}>
+
+                <View style={styles.HeaderBlk}>
+                    <View style={styles.HeaderLhs}>
+                        <View>
+                            <TouchableOpacity onPress={() => this.showLeftMenu(this.props.navigator)}>
+                                <Icon name="ios-menu" size={34} color="#ffffff" style={styles.hamburger} />
+                            </TouchableOpacity>
+                        </View>
+                        <View style={styles.HeaderModal}>
+                            <Image source={require('../../img/header_Logo.png')} style={styles.logoImg} />
+                            <TouchableOpacity>
+                                <View style={styles.HeaderModalInner} >
+                                    <Picker
+                                        style={{ width: 120, color: '#ffffff' }}
+                                        selectedValue={this.state.cityname}
+                                        onValueChange={(itemValue, itemIndex) => { this.setState({ cityname: itemValue }); this.storeCityToken(itemValue); this.fetchOffers(); }}
+                                        itemStyle={{ backgroundColor: 'lightgrey', marginLeft: 0, paddingLeft: 15 }}
+                                        itemTextStyle={{ fontSize: 18, color: 'white' }}
+                                    >
+                                        {cities}
+                                    </Picker>
+                                    <Icon name="ios-pin" size={20} color="#BBBDBF" style={styles.map__pin} />
+                                </View>
+                            </TouchableOpacity>
+                        </View>
+                    </View>
+                    <TouchableOpacity onPress={() => this.searchBar.show()}>
+                        <Icon name="ios-search" size={34} color="#ffffff" style={styles.hamburger} />
+                    </TouchableOpacity>
+                    <SearchBar placeholder="Please Search Here..."
+                    ref={(ref) => this.searchBar = ref}
+                    handleResults={this._handleResults}
+                />
                 </View>
-            </ScrollView>
-        </View>
-    );
-}
+
+
+                <ScrollView ref={(c) => { this.parentScrollView = c; }}
+                >
+                    <View style={styles.swiperBlk}>
+                        <Swiper showsButtons={false} showsPagination={true} dot={<View style={{ backgroundColor: 'rgba(255,255,255,.3)', width: 8, height: 8, borderRadius: 7, marginLeft: 5, marginRight: 5 }} />}
+                            activeDot={<View style={{ backgroundColor: '#cccccc', width: 8, height: 8, borderRadius: 7, marginLeft: 5, marginRight: 5 }} />}
+                            paginationStyle={{
+                                bottom: 20
+                            }}>
+                            {this.state.dataSource1.map((item, key) => {
+                                return (
+                                    <View style={styles.swiperlist}>
+                                        <Image source={{ uri: 'http://admin.wafideals.com/storage/' + item.ad_banner_path }} style={styles.makretImg} style={{ height: '100%' }} />
+                                    </View>
+                                )
+                            })
+                            }
+                        </Swiper>
+
+                    </View>
+                    <View style={styles.prdtWrapr}>
+                        <FlatList style={{ flex: 1, paddingBottom: 10 }}
+                            extraData={this.state}
+                            data={this.state.dataSource}
+                            renderItem={this.renderItem}
+                            numColumns={2}
+                            keyExtractor={(item, index) => item.id}
+                            refreshControl={
+                                <RefreshControl
+                                    refreshing={this.state.refreshing}
+                                    onRefresh={this._onRefresh}
+                                />
+                            }
+                        />
+                    </View>
+                </ScrollView>
+            </View>
+        );
+    }
 }
 
 const styles = StyleSheet.create({
@@ -295,12 +335,56 @@ const styles = StyleSheet.create({
         resizeMode: 'contain',
 
     },
-    swiperBlk : {
-        height : Dimensions.get('window').height / 3,
-        marginBottom : 10,
+    swiperBlk: {
+        height: Dimensions.get('window').height / 3,
+        marginBottom: 10,
     },
-    swiperlist : {
-        flex : 1
+    swiperlist: {
+        flex: 1
+    },
+    HeaderBlk: {
+        backgroundColor: '#0A266D',
+        paddingTop: 15,
+        paddingBottom: 10,
+        paddingLeft: 20,
+        paddingRight: 20,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+    },
+    HeaderLhs: {
+        flexDirection: 'row',
+    },
+    logoImg: {
+        marginLeft: 5
+    },
+    hamburger: {
+        padding: 5,
+    },
+    HeaderModal: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    stateChangeText: {
+        color: 'white',
+        paddingLeft: 10,
+        fontSize: 16,
+        alignItems: 'center',
+        paddingVertical: 5,
+        paddingHorizontal: 2
+    },
+    HeaderModalInner: {
+        flexDirection: 'row',
+        alignItems: 'center'
+    },
+    map__pin: {
+        marginLeft: 5,
+        position: 'absolute',
+        top: 15,
+        right: 20,
+        color: '#ffffff'
+
     }
 });
 export default Offers;

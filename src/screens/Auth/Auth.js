@@ -20,8 +20,8 @@ class AuthScreen extends Component {
         phone: '',
         password: '',
         is_logged_id: '',
-        passwordValidate : true,
-        nameValidate : true,
+        passwordValidate : false,
+        nameValidate : false,
       }
     }
 

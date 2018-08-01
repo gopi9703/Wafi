@@ -15,11 +15,13 @@ class Header extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            isLoading: true,
-            dataSource: [],
-            cityname: '',
-            city_id: '',
-            refreshing: false,
+          isLoading: true,
+          dataSource: [],
+          dataSource1: [],
+          citiesData: [],
+          city_id:'',
+          cityname: '',
+          refreshing: false,
         }
     }
     componentWillMount() {
@@ -60,7 +62,6 @@ class Header extends Component {
 
     async storeCityToken(accessToken) {
         try {
-            Alert.alert(accessToken)
             await AsyncStorage.setItem(CITY_TOKEN, accessToken);
         } catch (error) {
             console.log("something went wrong...!");
@@ -95,7 +96,7 @@ class Header extends Component {
                                     <Picker
                                         style={{ width: 120, color: '#ffffff' }}
                                         selectedValue={this.state.cityname}
-                                        onValueChange={(itemValue, itemIndex) => { this.setState({ cityname: itemValue }); new Offers(this.props).fetchOffers(itemValue); }}
+                                        onValueChange={(itemValue, itemIndex) => { this.setState({ cityname: itemValue }); this.storeCityToken(itemValue);  }}
                                         itemStyle={{ backgroundColor: 'lightgrey', marginLeft: 0, paddingLeft: 15 }}
                                         itemTextStyle={{ fontSize: 18, color: 'white' }}
                                     >
@@ -110,7 +111,7 @@ class Header extends Component {
                         <Icon name="ios-search" size={34} color="#ffffff" style={styles.hamburger} />
                     </TouchableOpacity>
                 </View>
-                <SearchBar placeholder="Please Search Here..."  
+                <SearchBar placeholder="Please Search Here..."
                     ref={(ref) => this.searchBar = ref}
                     handleResults={this._handleResults}
                 />
