@@ -89,7 +89,7 @@ class flyerCarouel extends Component {
                             androidScaleType="fitCenter"
                             scale={1}
                             onLoad={() => console.log("Image loaded!")}
-                            loadingIndicatorSource={true}
+                            loadingIndicatorSource={require('../../../img/rolling.gif')}
                             showsHorizontalScrollIndicator={false}
                             showsVerticalScrollIndicator={false}
                             fadeDuration={100}
@@ -126,7 +126,7 @@ class flyerCarouel extends Component {
 const styles = StyleSheet.create({
     bodyBg: {
         backgroundColor: '#ffffff',
-        flex: 2,
+        flex: 1,
         flexDirection: 'column'
     },
     makretImg: {
