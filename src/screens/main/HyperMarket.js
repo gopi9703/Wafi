@@ -89,7 +89,7 @@ class HyperMaket extends Component {
     })
   }
   render() {
-
+   
     var cities = this.state.citiesData.map(
       function iterator(city) {
         return (

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity, ActivityIndicator, Alert, FlatList, ScrollView, Dimensions } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity, ActivityIndicator, Linking, FlatList, ScrollView, Dimensions } from 'react-native';
 import Header from '../../../components/Header/Header';
 import FontStyle from '../../../components/ReusableComponents/FontStyle';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -75,7 +75,7 @@ class marketDetails extends Component {
 
     render() {
 
-
+        let long = this.state.dataSource.longitude + this.state.dataSource.latitude;
         let shareOptions = {
             title: "Wafi Deals",
             message: "Get all your favourite Shopping Offers in one app, Hundreds of new offers are available every week. Download Wafi Deals to find the latest deals & offers on",
@@ -95,7 +95,7 @@ class marketDetails extends Component {
         }
 
         return (
-
+            
             <View style={styles.bodyBg}>
                 <View style={styles.BrandIntro}>
                     <View>
@@ -108,7 +108,7 @@ class marketDetails extends Component {
                                 <Text style={[styles.iconText]}>Info</Text>
                             </View>
                         </TouchableOpacity>
-                        <TouchableOpacity onPress={() => Linking.openURL('google.navigation:q=100+101')}>
+                        <TouchableOpacity onPress={() => Linking.openURL('google.navigation:q='+this.state.dataSource.longitude +','+ this.state.dataSource.latitude)}>
                             <View style={styles.IconBlk}>
                                 <Image source={require('../../../icons/location.png')} style={styles.iconView} />
                                 <Text style={[styles.iconText]}>Location</Text>

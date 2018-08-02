@@ -182,7 +182,7 @@ export default class ProductList extends Component {
     }
 
     return (
-
+      
       <FlatList style={{ padding: 15, backgroundColor: '#D0D2D3' }} initialNumToRender={3}
         data={this.state.dataSource}
         renderItem={({ item }) =>
