@@ -281,7 +281,7 @@ const styles = StyleSheet.create({
     marginVertical: 5,
     borderRadius: 5,
     paddingVertical: 20,
-    paddingVertical: 15,
+    paddingHorizontal: 15,
     backgroundColor: '#ffffff',
   }
 });

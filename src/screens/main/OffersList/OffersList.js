@@ -74,7 +74,7 @@ class OffersList extends Component {
 
                 </View>
                 <ScrollView>
-                    <View style={{ position: 'relative'}}>
+                    <View style={{ position: 'relative' }}>
                         <Image source={{ uri: 'http://admin.wafideals.com/storage/' + this.state.dataSource.banner_logo_path }} style={styles.BrandBanner} />
                         <FontStyle style={[styles.headerTitle, styles.brandOffPercent]}>
                             <HeaderText>{this.state.dataSource.discount_value}</HeaderText>
@@ -82,23 +82,24 @@ class OffersList extends Component {
                     </View>
                     <View style={styles.BrandDescWrap}>
                         <View style={styles.blkViewBrand}>
-                            <FontStyle style={styles.headerTitle}>
-                                <HeaderText>{this.state.dataSource.brand_name}</HeaderText>
-                            </FontStyle>
+                            <View style={{flexDirection:'column'}}>
+                                <FontStyle style={styles.headerTitle}>
+                                    <HeaderText>{this.state.dataSource.brand_name}</HeaderText>
+                                </FontStyle>
+                                <FontStyle>
+                                    <Text style={styles.paraStyle}>{this.state.dataSource.tagline}</Text>
+                                </FontStyle>
+                            </View>
                             <View style={styles.mallTiming}>
-                                <FontStyle style={styles.textColor} style={{ textAlign: 'right' }}>
+                                <FontStyle style={styles.paraStyle} style={{ textAlign: 'right', paddingBottom : 3 }}>
                                     <HeaderText>18 Days Left</HeaderText>
                                 </FontStyle>
-                                <FontStyle style={styles.textColor}>
+                                <FontStyle style={styles.paraStyle}>
                                     <Icon name="md-time" size={16} color="#ffffff" style={[styles.timer]} /> <HeaderText> {this.state.dataSource.opening_time} - {this.state.dataSource.closing_time}</HeaderText>
                                 </FontStyle>
                             </View>
                         </View>
-                        <View style={styles.blkViewBrand}>
-                            <FontStyle>
-                                <Text style={styles.paraStyle}>{this.state.dataSource.tagline}</Text>
-                            </FontStyle>
-                        </View>
+
                         <View style={styles.offerDesc}>
                             <FontStyle>
                                 <Text style={styles.paraStyle}>{this.state.dataSource.description}</Text>
@@ -160,9 +161,9 @@ const styles = StyleSheet.create({
     },
     BrandBanner: {
         width: '100%',
-        height : Dimensions.get('window').height / 1.8,
+        aspectRatio: 10 / 5,
         marginVertical: 5,
-        resizeMode : 'cover'
+        resizeMode: 'cover'
 
     },
     favorite: {
@@ -188,6 +189,7 @@ const styles = StyleSheet.create({
         color: '#000000',
         fontWeight: 'bold',
         fontSize: 14,
+        paddingBottom : 3,
     },
     textColor: {
         color: '#58595B',

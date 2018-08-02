@@ -105,8 +105,11 @@ class Brands extends Component {
                                 <Icon name="ios-menu" size={34} color="#ffffff" style={styles.hamburger} />
                             </TouchableOpacity>
                         </View>
-
+                        <View style={styles.HeaderModal}>
+                            <Image source={require('../../img/header_Logo.png')} style={styles.logoImg} />
+                        </View>
                     </View>
+
                     <TouchableOpacity onPress={() => this.searchBar.show()}>
                         <Icon name="ios-search" size={34} color="#ffffff" style={styles.hamburger} />
                     </TouchableOpacity>
@@ -118,7 +121,7 @@ class Brands extends Component {
                 <ScrollView ref={(c) => { this.parentScrollView = c; }}>
 
                     <View style={styles.prdtWrapr}>
-                        <FlatList style={{ flex: 1, paddingBottom: 10 }}
+                        <FlatList style={{ flex: 1, paddingBottom: 40 }}
                             data={this.state.dataSource}
                             ItemSeparatorComponent={this.FlatListItemSeparator}
                             numColumns={2}
@@ -141,7 +144,7 @@ class Brands extends Component {
                         />
                     </View>
                 </ScrollView>
-                <ActionButton offsetY={5} size={50} buttonColor="#ec1172" spacing={2} icon={<Icon name='ios-funnel' size={18} style={styles.filterIcon} />} renderIcon={active => active ? (<Icon name="md-close" size={32} style={styles.filterIcon} />) : (<Icon name="ios-funnel" size={26} style={styles.filterIcon} />)}>
+                <ActionButton offsetY={5} offsetX={10} size={50} buttonColor="#ec1172" spacing={2} icon={<Icon name='ios-funnel' size={18} style={styles.filterIcon} />} renderIcon={active => active ? (<Icon name="md-close" size={32} style={styles.filterIcon} />) : (<Icon name="ios-funnel" size={26} style={styles.filterIcon} />)}>
                     {categories}
                 </ActionButton>
             </View>

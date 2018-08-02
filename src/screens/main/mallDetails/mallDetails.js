@@ -18,6 +18,8 @@ class mallDetails extends Component {
         }
     }
 
+    
+
     onCancel() {
         console.log("CANCEL")
         this.setState({ visible: false });
@@ -99,6 +101,9 @@ class mallDetails extends Component {
     }
 
     render() {
+        
+        let long = this.state.dataSource.longitude + this.state.dataSource.latitude;
+   
 
         let shareOptions = {
             title: "Wafi Deals",
@@ -160,7 +165,7 @@ class mallDetails extends Component {
                                         <Text style={[styles.iconText]}>Event</Text>
                                     </View>
                                 </TouchableOpacity>
-                                <TouchableOpacity onPress={() => Linking.openURL('google.navigation:q=100+101')}>
+                                <TouchableOpacity onPress={() => Linking.openURL('google.navigation:q='+this.state.dataSource.longitude +','+ this.state.dataSource.latitude)}>
                                     <View style={styles.IconBlk}>
                                         <Image source={require('../../../icons/location.png')} style={styles.iconView} />
                                         <Text style={[styles.iconText]}>Location</Text>

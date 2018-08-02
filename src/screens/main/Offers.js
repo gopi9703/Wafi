@@ -20,8 +20,9 @@ class Offers extends Component {
             city_id: '',
             cityname: '',
             refreshing: false,
+            results: []
         }
-
+        this._handleResults = this._handleResults.bind(this);
     }
     componentWillMount() {
       this.fetchCities();
@@ -120,6 +121,10 @@ class Offers extends Component {
 
     }
 
+    _handleResults(results) {
+        this.setState({ results });
+      }
+
     showLeftMenu(navigator) {
         navigator.toggleDrawer({
             side: 'left'
@@ -149,6 +154,15 @@ class Offers extends Component {
     }
 
     render() {
+        if (this.state.isLoading) {
+            return (
+                <View style={{ flex: 1, alignItems: 'flex-start' }}>
+                    <CustomPlaceholder animate="fade">
+
+                    </CustomPlaceholder>
+                </View>
+            )
+        }
 
         var cities = this.state.citiesData.map(
             function iterator(city) {
@@ -194,6 +208,7 @@ class Offers extends Component {
                     <SearchBar placeholder="Please Search Here..."
                     ref={(ref) => this.searchBar = ref}
                     handleResults={this._handleResults}
+                    data={this.state.dataSource}
                 />
                 </View>
 

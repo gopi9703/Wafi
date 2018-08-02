@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity, Dimensions, Alert, FlatList, ActivityIndicator } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity, Dimensions, Alert, FlatList, ActivityIndicator, Platform } from 'react-native';
 import Swiper from 'react-native-swiper';
 import PhotoView from 'react-native-photo-view';
 
@@ -80,13 +80,14 @@ class flyerCarouel extends Component {
         var flyerdetails = this.state.dataSource.map(
             function iterator(flyer) {
                 return (
-                    <View style={styles.slide1} >
+                    <View  >
                         <PhotoView
-                            resizeMode={'cover'}
+                            resizeMode={Platform.OS === "android" ? "cover" : "contain"}
                             source={{ uri: 'http://admin.wafideals.com/storage/' + flyer.flyer_path }} style={styles.makretImg}
                             minimumZoomScale={1}
                             maximumZoomScale={3}
                             androidScaleType="fitCenter"
+                            scale={1}
                             onLoad={() => console.log("Image loaded!")}
                             loadingIndicatorSource={true}
                             showsHorizontalScrollIndicator={false}
@@ -94,7 +95,7 @@ class flyerCarouel extends Component {
                             fadeDuration={100}
                             androidZoomTransitionDuration={100}
                             onLoadEnd={() => this.setState({ loaded: true })}
-
+                            style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height / 1.17, borderColor:'red', borderWidth:1}}
                         />
                     </View>
                 );
@@ -103,12 +104,11 @@ class flyerCarouel extends Component {
         );
         return (
             <View style={styles.bodyBg}>
-
-                <Swiper style={styles.wrapper} showsButtons={false} showsPagination={true} >
-                    {flyerdetails}
-                </Swiper>
-
-                <View style={styles.footer}>
+               
+                    <Swiper style={styles.wrapper} showsButtons={false} showsPagination={false} >
+                        {flyerdetails}
+                    </Swiper>
+                    <View style={styles.footer}>
                     <TouchableOpacity onPress={() => this.gridHandler(this.props.flyterdetailid)}>
                         <Image source={require('../../../icons/grid.png')} style={styles.IconImage} />
                     </TouchableOpacity>
@@ -116,6 +116,7 @@ class flyerCarouel extends Component {
                         <Image source={require('../../../icons/share_01.png')} style={styles.IconImage} />
                     </TouchableOpacity>
                 </View>
+                
             </View>
         )
     }
@@ -124,18 +125,18 @@ class flyerCarouel extends Component {
 
 const styles = StyleSheet.create({
     bodyBg: {
-        backgroundColor: '#231F20',
+        backgroundColor: '#ffffff',
         flex: 2,
-
         flexDirection: 'column'
     },
     makretImg: {
         width: Dimensions.get('window').width,
-        height: Dimensions.get('window').height,
+        height: Dimensions.get('window').height / 1.09,
         resizeMode: 'cover',
 
-    },
 
+    },
+    
     buttonText: {
         color: 'red',
         fontSize: 22,
@@ -144,11 +145,10 @@ const styles = StyleSheet.create({
         backgroundColor: '#000000',
         paddingVertical: 10,
         paddingHorizontal: 20,
-        position: 'absolute',
-        bottom: 0,
+
         flexDirection: 'row',
         width: Dimensions.get('window').width,
-        left: 0,
+
         justifyContent: 'space-between',
         borderWidth: 1,
         borderTopColor: '#D0D2D3'
