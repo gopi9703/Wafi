@@ -86,7 +86,7 @@ class flyerCarouel extends Component {
                             source={{ uri: 'http://admin.wafideals.com/storage/' + flyer.flyer_path }} style={styles.makretImg}
                             minimumZoomScale={1}
                             maximumZoomScale={3}
-                            androidScaleType="fitCenter"
+                            androidScaleType="fitXY"
                             scale={1}
                             onLoad={() => console.log("Image loaded!")}
                             loadingIndicatorSource={require('../../../img/rolling.gif')}
@@ -95,7 +95,7 @@ class flyerCarouel extends Component {
                             fadeDuration={100}
                             androidZoomTransitionDuration={100}
                             onLoadEnd={() => this.setState({ loaded: true })}
-                            style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height / 1.17, borderColor:'red', borderWidth:1}}
+                            style={{width: Dimensions.get('window').width, height: Dimensions.get('window').height / 1.27, borderColor:'red', borderWidth:1}}
                         />
                     </View>
                 );
