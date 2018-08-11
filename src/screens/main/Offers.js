@@ -8,6 +8,8 @@ import SearchBar from 'react-native-searchbar';
 
 const CITY_TOKEN = 'city_token';
 
+const SEARCH_TOKEN = 'search_token';
+
 class Offers extends Component {
 
     constructor(props) {
@@ -20,7 +22,8 @@ class Offers extends Component {
             city_id: '',
             cityname: '',
             refreshing: false,
-            results: []
+            results: [],
+            search_query: '',
         }
         this._handleResults = this._handleResults.bind(this);
     }
@@ -58,6 +61,27 @@ class Offers extends Component {
       }
     }
 
+    async getSeachQueryToken() {
+      try {
+        let token = await AsyncStorage.getItem(SEARCH_TOKEN);
+        this.setState({search_query: token.toString()});
+        this.fetchOffers();
+        return token;
+      } catch(error) {
+        console.log("something went wrong...!");
+      }
+    }
+
+    async storeSearchQueryToken(accessToken) {
+      try {
+        this.setState({search_query: accessToken});
+        await AsyncStorage.setItem(SEARCH_TOKEN, accessToken);
+        this.fetchOffers();
+      } catch(error) {
+        console.log("something went wrong...!");
+      }
+    }
+
     fetchCities() {
       return fetch("http://admin.wafideals.com/apicities", { method: 'GET' })
           .then((response) => response.json())
@@ -72,7 +96,7 @@ class Offers extends Component {
     }
 
     fetchOffers = () => {
-        return fetch("http://admin.wafideals.com/apioffers?city_name=" + this.state.cityname, { method: 'GET' })
+        return fetch("http://admin.wafideals.com/apioffers?city_name=" + this.state.cityname +"&search_query="+this.state.search_query, { method: 'GET' })
             .then((response) => response.json())
             .then((responseJson) => {
                 let res = JSON.stringify(responseJson)
@@ -153,6 +177,10 @@ class Offers extends Component {
         )
     }
 
+    _handleChangeText = (input) => {
+      this.storeSearchQueryToken(input);
+    }
+
     render() {
         if (this.state.isLoading) {
             return (
@@ -207,8 +235,8 @@ class Offers extends Component {
                     </TouchableOpacity>
                     <SearchBar placeholder="Please Search Here..."
                     ref={(ref) => this.searchBar = ref}
-                    handleResults={this._handleResults}
-                    data={this.state.dataSource}
+                    handleChangeText={this._handleChangeText}
+                    data={this.state.dataSource1}
                 />
                 </View>
 

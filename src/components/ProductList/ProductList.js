@@ -1,12 +1,26 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity, FlatList,RefreshControl, ActivityIndicator, Dimensions } from 'react-native';
+import { View, Text, StyleSheet, Image, AsyncStorage, TouchableOpacity, Picker, FlatList,RefreshControl, ActivityIndicator, Dimensions } from 'react-native';
 import Navigation from 'react-native-navigation';
 import Icon from 'react-native-vector-icons/Ionicons';
+import SearchBar from 'react-native-searchbar';
 import FontStyle from '../ReusableComponents/FontStyle';
 import Placeholder from 'rn-placeholder';
 
+const CITY_TOKEN = 'city_token';
+const SEARCH_TOKEN = 'search_token';
 
 export default class ProductList extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLoading: true,
+      refreshing: false,
+      cityname: '',
+      search_query: '',
+    }
+  }
+
   mallDetailsHandler = (id, city_id) => {
     this.props.navigator.push({
       screen: 'Wafi.mallDetails',
@@ -20,9 +34,9 @@ export default class ProductList extends Component {
       passProps: { mallid: id, city_id: city_id},
     });
   }
-  webCall = () => {
 
-    return fetch('http://admin.wafideals.com/apimalls')
+  fetchMalls = () => {
+    return fetch('http://admin.wafideals.com/apimalls?city_name='+ this.state.cityname+'&search_query='+this.state.search_query)
       .then((response) => response.json())
       .then((responseJson) => {
         this.setState({
@@ -35,27 +49,59 @@ export default class ProductList extends Component {
       .catch((error) => {
         console.error(error);
       });
-
   }
 
-  componentDidMount() {
-    this.webCall();
 
-
-  }
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      isLoading: true,
-      refreshing: false,
+    componentWillMount() {
+      this.fetchCities();
+      this.getCityToken();
     }
-  }
 
+    async getCityToken() {
+      try {
+        let token = await AsyncStorage.getItem(CITY_TOKEN);
+        this.setState({ cityname: token.toString() });
+        this.fetchMalls();
+        return token;
+      } catch (error) {
+        console.log("something went wrong...!");
+      }
+    }
+
+    async storeCityToken(accessToken) {
+      try {
+        this.setState({ cityname: accessToken });
+        await AsyncStorage.setItem(CITY_TOKEN, accessToken);
+        this.getCityToken();
+      } catch (error) {
+        console.log("something went wrong...!");
+      }
+    }
+
+    async getSeachQueryToken() {
+      try {
+        let token = await AsyncStorage.getItem(SEARCH_TOKEN);
+        this.setState({search_query: token.toString()});
+        this.fetchMalls();
+        return token;
+      } catch(error) {
+        console.log("something went wrong...!");
+      }
+    }
+
+    async storeSearchQueryToken(accessToken) {
+      try {
+        this.setState({search_query: accessToken});
+        await AsyncStorage.setItem(SEARCH_TOKEN, accessToken);
+        this.fetchMalls();
+      } catch(error) {
+        console.log("something went wrong...!");
+      }
+    }
 
   _onRefresh = () => {
     this.setState({refreshing: true});
-    this.webCall().then(() => {
+    this.fetchMalls().then(() => {
       this.setState({refreshing: false});
     });
   }
@@ -72,8 +118,26 @@ export default class ProductList extends Component {
     );
   }
 
+  fetchCities() {
+    return fetch("http://admin.wafideals.com/apicities", { method: 'GET' })
+      .then((response) => response.json())
+      .then((responseJson) => {
+        this.setState({
+          citiesData: responseJson,
+        })
+      })
+      .catch((error) => {
+        console.error(error)
+      })
+  }
 
+  _handleResults = (results) => {
+    this.setState({ results });
+  }
 
+  _handleChangeText = (input) => {
+    this.storeSearchQueryToken(input);
+  }
 
   render() {
     if (this.state.isLoading) {
@@ -187,8 +251,51 @@ export default class ProductList extends Component {
       );
     }
 
-    return (
+    var cities = this.state.citiesData.map(
+      function iterator(city) {
+        return (
+          <Picker.Item label={city.name} value={city.name} />
+        );
+      },
+      this
+    );
 
+    return (
+      <View>
+      <View style={styles.HeaderBlk}>
+        <View style={styles.HeaderLhs}>
+          <View>
+            <TouchableOpacity onPress={() => this.showLeftMenu(this.props.navigator)}>
+              <Icon name="ios-menu" size={34} color="#ffffff" style={styles.hamburger} />
+            </TouchableOpacity>
+          </View>
+          <View style={styles.HeaderModal}>
+            <Image source={require('../../img/header_Logo.png')} style={styles.logoImg} />
+            <TouchableOpacity>
+              <View style={styles.HeaderModalInner} >
+                <Picker
+                  style={{ width: 120, color: '#ffffff' }}
+                  selectedValue={this.state.cityname}
+                  onValueChange={(itemValue, itemIndex) => { this.setState({ cityname: itemValue }); this.storeCityToken(itemValue); }}
+                  itemStyle={{ backgroundColor: 'lightgrey', marginLeft: 0, paddingLeft: 15 }}
+                  itemTextStyle={{ fontSize: 18, color: 'white' }}
+                >
+                  {cities}
+                </Picker>
+                <Icon name="ios-pin" size={20} color="#BBBDBF" style={styles.map__pin} />
+              </View>
+            </TouchableOpacity>
+          </View>
+        </View>
+        <TouchableOpacity onPress={() => this.searchBar.show()}>
+          <Icon name="ios-search" size={34} color="#ffffff" style={styles.hamburger} />
+        </TouchableOpacity>
+        <SearchBar placeholder="Please Search Here..."
+          ref={(ref) => this.searchBar = ref}
+          handleResults={this._handleResults}
+          handleChangeText={this._handleChangeText}
+        />
+      </View>
       <FlatList style={{ margin: 15, height: Dimensions.get('window').height / 1.1 }} initialNumToRender={3}
         data={this.state.dataSource}
         renderItem={({ item }) =>
@@ -221,6 +328,8 @@ export default class ProductList extends Component {
         initialNumToRender={10}
 
       />
+
+      </View>
 
     )
   }
@@ -283,5 +392,50 @@ const styles = StyleSheet.create({
     paddingVertical: 20,
     paddingHorizontal: 15,
     backgroundColor: '#ffffff',
-  }
+  },
+
+    HeaderBlk: {
+      backgroundColor: '#0A266D',
+      paddingTop: 15,
+      paddingBottom: 10,
+      paddingLeft: 20,
+      paddingRight: 20,
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+    },
+    HeaderLhs: {
+      flexDirection: 'row',
+    },
+    logoImg: {
+      marginLeft: 5
+    },
+    hamburger: {
+      padding: 5,
+    },
+    HeaderModal: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    stateChangeText: {
+      color: 'white',
+      paddingLeft: 10,
+      fontSize: 16,
+      alignItems: 'center',
+      paddingVertical: 5,
+      paddingHorizontal: 2
+    },
+    HeaderModalInner: {
+      flexDirection: 'row',
+      alignItems: 'center'
+    },
+    map__pin: {
+      marginLeft: 5,
+      position: 'absolute',
+      top: 15,
+      right: 20,
+      color: '#ffffff'
+
+    }
 });
